@@ -1,18 +1,33 @@
 #!/usr/bin/env bash
 # Strukturelle Selbstpruefung: bildet das Repo die in SOURCES.md dokumentierten
 # Konventionen/Vorgaben ab? Exit-Code != 0 bei Fehlern.
+#
+# Modi:
+#   (ohne Argument)  Vollpruefung des Template-Repos (Selbstpruefung).
+#   --migrated       Nur IG-relevante Pruefungen fuer ein MIGRIERTES Modul-Repo
+#                    (Toolchain, Sprache, Pflichtseiten, Best Practices, FSH,
+#                    Workflows). Template-spezifische Pruefungen (Governance-
+#                    Doku, Skills, neutraler Namensraum etc.) entfallen, da sie
+#                    laut Spec §5a nicht uebernommen werden.
 set -u
+MODE=template
+[ "${1:-}" = "--migrated" ] && MODE=migrated
 cd "$(dirname "$0")/.."
 pass=0; fail=0
 ok(){ echo "  [PASS] $1"; pass=$((pass+1)); }
 no(){ echo "  [FAIL] $1"; fail=$((fail+1)); }
 chk(){ if eval "$2"; then ok "$1"; else no "$1"; fi; }
 
-echo "== IG-Toolchain & Struktur =="
+echo "== IG-Toolchain & Struktur (Modus: $MODE) =="
 chk "ig.ini mit Template" "grep -q '^template' ig.ini"
 chk "sushi-config canonical" "grep -q '^canonical:' sushi-config.yaml"
 chk "FHIR R4 4.0.1" "grep -q 'fhirVersion: 4.0.1' sushi-config.yaml"
-chk "de.basisprofil.r4 gepinnt (nicht current)" "grep -qE 'de.basisprofil.r4: [0-9]' sushi-config.yaml"
+# In migrierten Modulen kommen die Basisprofile oft transitiv (z. B. via
+# kds.base); eine direkte Pin-Pruefung gilt nur fuer das Template selbst.
+if [ "$MODE" = "template" ]; then
+  chk "de.basisprofil.r4 gepinnt (nicht current)" "grep -qE 'de.basisprofil.r4: [0-9]' sushi-config.yaml"
+fi
+chk "Dependencies exakt gepinnt (kein current/dev)" "! grep -E '^\s{2}[a-z0-9.-]+:\s*(current|dev)\s*$' sushi-config.yaml | grep -vq '#'"
 
 echo "== Sprache: deutsch fuehrend (Governance §4.4) =="
 chk "i18n-default-lang: de" "grep -q 'i18n-default-lang: de' sushi-config.yaml"
@@ -28,7 +43,9 @@ done
 echo "== Best Practices (EU/International) =="
 chk "Zielgruppen/Intended Audience" "grep -qi 'Zielgruppen' input/pagecontent/index.md"
 chk "Model-to-Profile-Mapping" "grep -qi 'Model-to-Profile' input/pagecontent/data-sets.md"
-chk "EU-Schichtung (optional)" "grep -qi 'hl7.fhir.eu.base' sushi-config.yaml"
+if [ "$MODE" = "template" ]; then
+  chk "EU-Schichtung (optional)" "grep -qi 'hl7.fhir.eu.base' sushi-config.yaml"
+fi
 chk "Security & Privacy Seite" "test -f input/pagecontent/security-privacy.md"
 chk "Must Support / fehlende Daten" "grep -qi 'Must Support' input/pagecontent/conformance.md"
 
@@ -37,13 +54,22 @@ chk "Profil mii-pr-" "grep -rq 'Id: mii-pr-' input/fsh"
 chk "Extension mii-ex-" "grep -rq 'Id: mii-ex-' input/fsh"
 chk "ValueSet mii-vs-" "grep -rq 'Id: mii-vs-' input/fsh"
 chk "CodeSystem mii-cs-" "grep -rq 'Id: mii-cs-' input/fsh"
-chk "CapabilityStatement" "test -f input/fsh/capabilitystatement.fsh"
+# Pfadunabhaengig: Module legen das CapabilityStatement z. B. unter
+# input/fsh/definitions/ ab, nicht zwingend als input/fsh/capabilitystatement.fsh.
+chk "CapabilityStatement (InstanceOf, pfadunabhaengig)" "grep -rqE 'InstanceOf:[[:space:]]*CapabilityStatement' input/fsh"
 chk "Logical Model" "grep -rq '^Logical:' input/fsh"
 
 echo "== Workflows (Validierung + Pages) =="
 chk "ig-validate.yml" "test -f .github/workflows/ig-validate.yml"
 chk "ig-publish-pages.yml" "test -f .github/workflows/ig-publish-pages.yml"
 chk "Pages-Deployment" "grep -q 'actions/deploy-pages' .github/workflows/ig-publish-pages.yml"
+if [ "$MODE" = "migrated" ]; then
+  chk "Pages-Branchfilter = hl7-ig-build (Spec §5a.3)" "grep -q 'hl7-ig-build' .github/workflows/ig-publish-pages.yml && ! grep -qE 'branches:.*\"main\"' .github/workflows/ig-publish-pages.yml"
+  echo
+  echo "Ergebnis ($MODE): $pass PASS / $fail FAIL"
+  test "$fail" -eq 0
+  exit $?
+fi
 
 echo "== Agenten-Konventionen (AGENTS.md / Agent Skills) =="
 chk "AGENTS.md vorhanden" "test -f AGENTS.md"

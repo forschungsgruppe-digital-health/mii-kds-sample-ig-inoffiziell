@@ -1,6 +1,6 @@
 ### Referenzen
 
-*Relevant für: alle Rollen — Lesepfade siehe [ROLES.md](../../ROLES.md).*
+*Relevant für: alle Rollen — Lesepfade siehe `ROLES.md` (im Repository).*
 
 *(Pflichtabschnitt aus dem Manteldokument.)*
 

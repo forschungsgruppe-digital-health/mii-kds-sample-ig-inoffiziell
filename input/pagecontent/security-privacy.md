@@ -1,6 +1,6 @@
 ### Sicherheit und Datenschutz (Security &amp; Privacy)
 
-*Relevant für: Technische Umsetzung (FHIR), DIZ-Pilot (Implementierung) — Lesepfade siehe [ROLES.md](../../ROLES.md).*
+*Relevant für: Technische Umsetzung (FHIR), DIZ-Pilot (Implementierung) — Lesepfade siehe `ROLES.md` (im Repository).*
 
 HL7-IG-Best-Practice empfiehlt einen expliziten Abschnitt zu Sicherheits- und
 Datenschutzaspekten. Modul-/projektspezifisch zu konkretisieren.

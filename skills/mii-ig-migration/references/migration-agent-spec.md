@@ -112,13 +112,26 @@ main unangetastet** bleiben:
 1. **Branch anlegen:** ausgehend vom Default-Branch einen separaten Branch
    `hl7-ig-build` erstellen (nur für den IG-Publisher-Build; wird **nie** in den
    Default-Branch gemergt).
-2. **Template einbringen:** Template-Dateien (Struktur, `ig.ini`, `sushi-config.yaml`,
-   Workflows, Doku) in diesen Branch übernehmen; die **realen FSH-Artefakte** des
-   Moduls (`input/fsh/…`) übernehmen; **Vorlagen-Beispiele löschen** (Guardrail 8).
+2. **Template einbringen** — präzise Dateiliste:
+   - **Übernehmen:** `ig.ini` und `sushi-config.yaml` (mit `MODULE_METADATA`
+     befüllt, §2.1), Seitengerüst `input/pagecontent/`, `input/translations/`,
+     `input/images/`, `tools/verify-template.sh` (Abnahme: `--migrated`-Modus),
+     Workflows `ig-validate.yml` und `ig-publish-pages.yml` (Branch-Filter auf
+     `hl7-ig-build` umstellen, Schritt 3), `_genonce.*`/`_updatePublisher.*`
+     nur, falls im Modul nicht vorhanden.
+   - **Nicht übernehmen/überschreiben:** `README.md` und bestehende CI des Moduls
+     (z. B. `main.yml` mit MII-Reusable-Workflows), kuratierte
+     `input/ignoreWarnings.txt` und `qc/` des Moduls, `input/fsh/` der Vorlage
+     (**Vorlagen-Beispiele löschen**, Guardrail 8) sowie die Governance-/
+     Template-Doku (`CONTRIBUTING.md`, `ROLES.md`, `COMMENT_RESOLUTION.md`,
+     `DESIGN.md`, `SOURCES.md`, …) — diese gehört zum Template-Repo, nicht in
+     ein migriertes Modul.
+   - Die **realen FSH-Artefakte** des Moduls (`input/fsh/…`) bleiben unverändert.
 3. **Bauen via Pages:** GitHub Pages für das Repo auf **Source = GitHub Actions**
-   stellen und den Pages-Workflow so konfigurieren/triggern, dass er **nur auf
-   `hl7-ig-build`** läuft (Branch-Filter). Der gerenderte IG wird veröffentlicht,
-   ohne den Default-Branch zu berühren.
+   stellen und in `ig-publish-pages.yml` den Branch-Filter von `main` auf
+   **`hl7-ig-build`** umstellen, sodass der Workflow **nur auf `hl7-ig-build`**
+   läuft. Der gerenderte IG wird veröffentlicht, ohne den Default-Branch zu
+   berühren.
 4. **Einbinden:** die Pages-URL (bzw. den IG) im Modul-README/Wiki **verlinken**.
 5. **PR-Disziplin:** Arbeits-/Feature-Branches werden **in `hl7-ig-build`**
    gemergt (PR-Ziel = `hl7-ig-build`), niemals in `dev`/`master`/`main`.

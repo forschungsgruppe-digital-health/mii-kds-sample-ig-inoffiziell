@@ -37,7 +37,6 @@ parameters:
   translation-sources:
     - input/translations/en
   path-history: https://example.org/fhir/kds-sample/history.html
-  show-inherited-extensions: "false"
   apply-contact: "true"
   apply-jurisdiction: "true"
   apply-publisher: "true"

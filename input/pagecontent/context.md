@@ -1,6 +1,6 @@
 ### Bezüge zu anderen Modulen / Kontext im Gesamtprojekt
 
-*Relevant für: Informationsmodell (Modellierung), Technische Umsetzung (FHIR) — Lesepfade siehe [ROLES.md](../../ROLES.md).*
+*Relevant für: Informationsmodell (Modellierung), Technische Umsetzung (FHIR) — Lesepfade siehe `ROLES.md` (im Repository).*
 
 Darstellung der Abhängigkeiten und Abgrenzungen zu anderen KDS-Modulen sowie zu
 nationalen/internationalen Spezifikationen. *(Pflichtabschnitt aus dem

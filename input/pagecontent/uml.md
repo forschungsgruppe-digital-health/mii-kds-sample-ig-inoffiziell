@@ -1,6 +1,6 @@
 ### Informationsmodell (UML)
 
-*Relevant für: Informationsmodell (Modellierung), Technische Umsetzung (FHIR) — Lesepfade siehe [ROLES.md](../../ROLES.md).*
+*Relevant für: Informationsmodell (Modellierung), Technische Umsetzung (FHIR) — Lesepfade siehe `ROLES.md` (im Repository).*
 
 Das Informationsmodell wird als FHIR Logical Model bereitgestellt und kann
 zusätzlich als UML-Klassendiagramm dargestellt werden.

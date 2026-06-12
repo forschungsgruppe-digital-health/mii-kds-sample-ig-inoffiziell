@@ -1,6 +1,6 @@
 ### Anwendungsfälle / Szenarien
 
-*Relevant für: Fachvertretung (inhaltlich), Informationsmodell (Modellierung) — Lesepfade siehe [ROLES.md](../../ROLES.md).*
+*Relevant für: Fachvertretung (inhaltlich), Informationsmodell (Modellierung) — Lesepfade siehe `ROLES.md` (im Repository).*
 
 Beschreibung der Szenarien für die Anwendung des Moduls (Akteure, Auslöser,
 Ablauf). *(Dieser Abschnitt war im konsolidierten Basis-IG nicht als eigene Seite

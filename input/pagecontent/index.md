@@ -63,4 +63,4 @@ Lesepfad und Verständlichkeitsniveau:
 - **DIZ-Pilot (Implementierung)** — implementierend: `conformance`, CapabilityStatement, Downloads, `NOTIFICATIONS`.
 
 Vollständige Zuordnung (Aufgaben, Ein-/Ausgaben, Übergaben, Rollen-zu-Artefakt-Matrix):
-siehe **[ROLES.md](../../ROLES.md)**.
+siehe **`ROLES.md` (im Repository)**.

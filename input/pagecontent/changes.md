@@ -1,6 +1,6 @@
 ### Release Notes / Änderungen
 
-*Relevant für: DIZ-Pilot (Implementierung), Technische Umsetzung (FHIR) — Lesepfade siehe [ROLES.md](../../ROLES.md).*
+*Relevant für: DIZ-Pilot (Implementierung), Technische Umsetzung (FHIR) — Lesepfade siehe `ROLES.md` (im Repository).*
 
 | Version    | Datum      | Änderungen |
 |------------|------------|------------|

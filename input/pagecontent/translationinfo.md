@@ -1,6 +1,6 @@
 ### Hinweise zur Mehrsprachigkeit
 
-*Relevant für: alle Rollen — Lesepfade siehe [ROLES.md](../../ROLES.md).*
+*Relevant für: alle Rollen — Lesepfade siehe `ROLES.md` (im Repository).*
 
 Dieser IG wird **deutsch geführt** publiziert (verbindliche Fassung). Eine
 **englische Übersetzung** ist optional und wird über gettext-`.po`-Kataloge unter

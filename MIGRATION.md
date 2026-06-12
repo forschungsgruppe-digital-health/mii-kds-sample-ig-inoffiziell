@@ -8,6 +8,8 @@ Sprache: **Deutsch ist Standard/verbindlich**, Englisch optional.
 
 ## 1. Voraussetzungen
 - Java 17+, Node 20+
+- Ruby + Jekyll (HTML-Build des IG Publishers; [Installation](https://jekyllrb.com/docs/installation/)) —
+  bei Ruby-Versionsmanagern (chruby/rbenv/rvm) `GEM_HOME`/`PATH` der Build-Shell beachten
 - `npm install -g fsh-sushi`
 - `npm install -g gofsh` **nur**, falls Quellen ausschließlich als FHIR-JSON/XML vorliegen (siehe §2)
 - Git; Arbeits-Branch (kein direkter Push auf `main`)

@@ -1,6 +1,6 @@
 ### Datensätze und Beschreibungen
 
-*Relevant für: Fachvertretung (inhaltlich), Informationsmodell (Modellierung), Technische Umsetzung (FHIR) — Lesepfade siehe [ROLES.md](../../ROLES.md).*
+*Relevant für: Fachvertretung (inhaltlich), Informationsmodell (Modellierung), Technische Umsetzung (FHIR) — Lesepfade siehe `ROLES.md` (im Repository).*
 
 Tabellarische Beschreibung der fachlichen Datenelemente des Moduls. Das formale
 Informationsmodell ist als [Logical Model](StructureDefinition-mii-lm-beispiel-modell.html)

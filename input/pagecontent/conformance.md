@@ -1,6 +1,6 @@
 ### Konformität (Technische Implementierung)
 
-*Relevant für: Technische Umsetzung (FHIR), DIZ-Pilot (Implementierung) — Lesepfade siehe [ROLES.md](../../ROLES.md).*
+*Relevant für: Technische Umsetzung (FHIR), DIZ-Pilot (Implementierung) — Lesepfade siehe `ROLES.md` (im Repository).*
 
 #### Konformitätsverben
 Es gelten die FHIR-Konformitätsverben (SHALL/SHOULD/MAY). Verpflichtende Elemente

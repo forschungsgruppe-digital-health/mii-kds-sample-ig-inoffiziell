@@ -2,6 +2,10 @@ name: Publish IG to GitHub Pages
 
 on:
   push:
+    # In diesem Template-Repo wird aus `main` publiziert. Bei Anwendung auf ein
+    # bestehendes Modul-Repo (MIGRATION.md §11, Spec §5a.3) den Filter auf den
+    # isolierten Branch umstellen: branches: [ "hl7-ig-build" ] — dev/master/main
+    # bleiben unberührt.
     branches: [ "main" ]
   workflow_dispatch:
 
