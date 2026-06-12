@@ -1,0 +1,72 @@
+# Quality-Control-Regeln im Simplifier-/Firely-Terminal-Format (*.rules.yaml).
+# Lokal ausfuehrbar mit Firely Terminal:  fhir check qc/custom
+# In CI über den offiziellen MII-DOTNET-Reusable-Workflow (.github/workflows/main.yml).
+# Angelehnt an medizininformatik-initiative/kerndatensatz-meta (qc/custom.rules.yaml).
+
+- action: parse
+  name: parse-fhir-resources
+  status: "Pruefe, ob alle FHIR-Ressourcen geparst werden koennen"
+  files:
+  - /**/*.xml
+  - /**/*.json
+  - "!package.json"
+  - "!fsh-index.json"
+  - "!menu.xml"
+
+- name: resource-validation
+  status: "Validiere Ressourcen gegen FHIR-Standard und Profile"
+  action: validate
+  category: Resource
+
+- action: unique
+  name: unique-canonicals
+  status: "Pruefe eindeutige Canonicals der StructureDefinitions"
+  category: StructureDefinition
+  unique: url
+
+- name: no-snapshot
+  status: "Pruefe, dass StructureDefinitions keinen vorab generierten Snapshot enthalten"
+  category: StructureDefinition
+  predicate: snapshot.element.count() = 0
+  error-message: "Kein Snapshot in der Quelle generieren; konsumierende Tools erzeugen ihn."
+
+- name: valid-ids
+  status: "Pruefe gueltige Ressourcen-IDs"
+  predicate: id.matches('^[A-Za-z0-9\\-\\.]{1,64}$')
+  error-message: "Die Ressource muss eine gueltige id besitzen."
+
+- name: valid-names
+  category: StructureDefinition
+  status: "Pruefe, dass Namen keine Leerzeichen enthalten"
+  predicate: name.contains(' ').not()
+  error-message: "Der name einer StructureDefinition sollte keine Leerzeichen enthalten."
+
+- name: unique-names
+  category: Conformance
+  status: "Pruefe eindeutige Namen der Conformance-Ressourcen"
+  unique: name
+
+- name: version-filled
+  filter: (StructureDefinition or ValueSet or CodeSystem or ConceptMap or CapabilityStatement or ImplementationGuide).exists()
+  status: "Pruefe, dass alle Ressourcen die korrekte Version tragen"
+  predicate: version.exists() and (version in ('2026.0.0'))
+  error-message: "version nicht (korrekt) gefuellt"
+  files:
+  - /**/*.xml
+  - /**/*.json
+  - "!package.json"
+  - "!fsh-index.json"
+  - "!menu.xml"
+
+- name: naming-convention-id
+  status: "Pruefe MII-Namenskonvention der Ressourcen-IDs (mii-<typ>-beispiel-...)"
+  # ImplementationGuide ausgenommen (id = Package-Id):
+  filter: ImplementationGuide.exists().not()
+  predicate: id.matches('^mii-(pr|ex|lm|vs|cs|cm|sm|ns|sp|cps|od|ig|qst|obsdef|msr|exa)-beispiel')
+  error-message: "Ressourcen-id verletzt MII-Namenskonvention (mii-<typ>-beispiel-...)."
+  files:
+  - /**/*.xml
+  - /**/*.json
+  - "!package.json"
+  - "!fsh-index.json"
+  - "!menu.xml"

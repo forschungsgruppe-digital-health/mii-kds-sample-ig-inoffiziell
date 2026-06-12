@@ -1,0 +1,46 @@
+# Herstellerneutrales Agenten-Manifest (deklarativ).
+# Bildet die benoetigten Faehigkeiten/Berechtigungen ab; konkrete Tool-Namen
+# werden je Plattform gemappt.
+apiVersion: agent-spec/v1
+kind: MigrationAgent
+metadata:
+  name: mii-kds-ig-migration
+  version: "1.0"
+  description: "Migration Simplifier-basierter MII-KDS-IGs nach HL7 FHIR IG (mehrsprachig), mit menschlichem Review."
+inputs:
+  source_rendered_ig_url: { type: url, required: true }
+  source_repo_url:        { type: url, required: true }
+  target_template_repo:   { type: url, required: true }
+  module_metadata:        { type: object, required: true }
+capabilities:
+  - web_fetch            # gerenderten IG lesen/extrahieren
+  - repo_read            # Quell-Repo klonen/lesen (read-only)
+  - file_write           # Ziel-Repo Arbeitsbranch beschreiben
+  - shell_exec           # sushi, IG Publisher, gofsh
+  - terminology_validate # optional
+  - vcs_pull_request     # PR erstellen; KEIN direkter push auf main
+guardrails:
+  preserve_canonical_urls: true
+  preserve_ids: true
+  default_language: de
+  optional_language: en
+  fhir_version: "4.0.1"
+  no_publish: true
+  no_fabrication: true
+  require_source_traceability: true
+  remove_template_examples: true
+  isolated_branch: hl7-ig-build
+  never_touch_default_branch: true
+  pull_request_target: hl7-ig-build
+review_gates: [A_artifacts, B_narrative, C_language, D_governance_release]
+outputs:
+  - .ai-log/source-inventory.json
+  - .ai-log/migration-report.md
+  - pull_request
+definition_of_done:
+  - "sushi build: errors=0"
+  - "ig publisher qa: errors=0"
+  - "manteldokument_crosswalk: complete"
+  - "canonical_url_diff: empty"
+  - "language_default: de"
+  - "all_review_gates: approved"

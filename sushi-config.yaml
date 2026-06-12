@@ -1,0 +1,95 @@
+# MII KDS Sample IG — Vorlage & Migrationsziel (analog HL7 FHIR sample-ig)
+# Sprache: Deutsch ist fuehrend/verbindlich (KDS-Governance), Englisch optional.
+id: example.fhir.kds.sample
+# HINWEIS (Namensraum): canonical und Package-Id sind NEUTRALE Beispielwerte
+# (example.org / example.fhir.kds.sample, RFC 2606). Für ein echtes MII-Modul auf
+# den MII-Namensraum umstellen (canonical https://www.medizininformatik-initiative.de/fhir/...,
+# Package-Id de.medizininformatikinitiative.kerndatensatz.<modul>). Siehe NOTICE.
+canonical: https://example.org/fhir/kds-sample
+name: MII_IG_Beispiel
+title: "MII Kerndatensatz IG – Inoffizielle Vorlage (Beispiel)"
+description: "INOFFIZIELLE Vorlage und Migrationsziel für MII-KDS-FHIR-Implementierungsleitfäden (HL7 IG Publisher, deutsch führend). KEIN offiziell veröffentlichtes oder ballotiertes MII-Modul. Struktur nach MII-KDS-Meta-Manteldokument (jeweils aktuelle Fassung) und HL7-IG-Best-Practices."
+status: draft
+version: 2026.0.0
+fhirVersion: 4.0.1
+copyrightYear: 2026+
+releaseLabel: ci-build
+license: CC-BY-4.0
+publisher:
+  name: "Inoffizielle Vorlage (Beispiel-Publisher)"
+  url: https://example.org
+jurisdiction: urn:iso:std:iso:3166#DE "Germany"
+language: de
+
+dependencies:
+  de.basisprofil.r4: 1.5.4   # HL7 Deutschland Basisprofile (MII Best Practice); aktuellste stabile Version
+  # --- Optional: europäische Schichtung (HL7 Europe Base/Core) ---
+  # Aktivieren, wenn EU-/EHDS-Anschluss gewünscht ist (Schichtenmodell IPS -> EU Base/Core -> MII):
+  # hl7.fhir.eu.base: 2.0.0
+  # --- Optional: International Patient Summary (bei IPS-Ausrichtung) ---
+  # hl7.fhir.uv.ips: 2.0.0
+
+# --- Mehrsprachigkeit: deutsch fuehrend, englisch optional ---
+parameters:
+  i18n-default-lang: de
+  i18n-lang:
+    - en
+  translation-sources:
+    - input/translations/en
+  path-history: https://example.org/fhir/kds-sample/history.html
+  show-inherited-extensions: "false"
+  apply-contact: "true"
+  apply-jurisdiction: "true"
+  apply-publisher: "true"
+  # --- HL7-Best-Practice-Parameter (international) ---
+  autoload-resources: "true"
+  # --- Terminologie (bei Bindung an SNOMED CT/LOINC aktivieren; Policy: Meta-Wiki „Terminology Version Policy") ---
+  # SNOMED CT je CalVer auf datierte INTERNATIONAL-Version pinnen (v2026.* -> 20250701):
+  # - code: system-version
+  #   value: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250701
+  # - code: system-version
+  #   value: http://loinc.org|2.78   # LOINC-Version projektspezifisch
+  shownav: "true"
+  # --- Optional ---
+  # special-url: ...                 # zusätzliche erlaubte Canonical-Domains
+  # suppressed-ig-version: ...        # falls Versionshinweise unterdrückt werden sollen
+
+# --- Narrative Seiten (deutsch) ---
+pages:
+  index.md:
+    title: "Start"
+  use-cases.md:
+    title: "Anwendungsfälle"
+  data-sets.md:
+    title: "Datensätze und Beschreibungen"
+  uml.md:
+    title: "Informationsmodell (UML)"
+  conformance.md:
+    title: "Konformität"
+  security-privacy.md:
+    title: "Sicherheit und Datenschutz"
+  context.md:
+    title: "Bezüge zu anderen Modulen"
+  references.md:
+    title: "Referenzen"
+  downloads.md:
+    title: "Downloads"
+  changes.md:
+    title: "Release Notes / Änderungen"
+  translationinfo.md:
+    title: "Hinweise zur Mehrsprachigkeit"
+
+# --- Menue (deutsch gefuehrt; EN-Uebersetzung via .po) ---
+menu:
+  Start: index.html
+  Anwendungsfälle:
+    Szenarien: use-cases.html
+    Datensätze: data-sets.html
+    Informationsmodell: uml.html
+  Konformität: conformance.html
+  Sicherheit & Datenschutz: security-privacy.html
+  Bezüge zu anderen Modulen: context.html
+  Referenzen: references.html
+  Artefakte: artifacts.html
+  Downloads: downloads.html
+  Versionierung: changes.html

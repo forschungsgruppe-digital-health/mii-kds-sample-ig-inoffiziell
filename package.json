@@ -1,0 +1,14 @@
+{
+  "name": "example.fhir.kds.sample",
+  "version": "2026.0.0",
+  "canonical": "https://example.org/fhir/kds-sample",
+  "url": "https://example.org/fhir/kds-sample/ImplementationGuide/example.fhir.kds.sample",
+  "title": "MII Kerndatensatz IG – Inoffizielle Vorlage (Beispiel)",
+  "description": "INOFFIZIELLE Vorlage / Sample MII KDS IG – kein offizielles MII-Modul",
+  "fhirVersions": ["4.0.1"],
+  "dependencies": {
+    "hl7.fhir.r4.core": "4.0.1",
+    "de.basisprofil.r4": "1.5.4"
+  },
+  "license": "CC-BY-4.0"
+}

@@ -1,0 +1,4 @@
+# Bekannte / abgenommene QA-Hinweise. Pro Zeile ein Muster (Regex moeglich).
+# Beispiel:
+# == Suppressed Messages ==
+# The codeSystem 'https://www.medizininformatik-initiative.de/...' could not be resolved

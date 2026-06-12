@@ -1,0 +1,46 @@
+NOTICE — Hinweise zu Herkunft, Marken und Drittkomponenten
+
+1) Status: INOFFIZIELLE Vorlage
+   Dieses Repository ist eine inoffizielle Vorlage / ein Sample-IG. Es ist KEIN
+   offiziell veröffentlichtes, freigegebenes oder ballotiertes Modul der
+   Medizininformatik-Initiative (MII) und steht in keiner offiziellen Verbindung
+   zur MII; es ist von der MII weder herausgegeben noch unterstützt oder gebilligt.
+
+2) Marken- und Namensklarstellung
+   - „Medizininformatik-Initiative" und „MII" sowie zugehörige Logos sind Kennzeichen
+     der jeweiligen Rechteinhaber (MII / beteiligte Einrichtungen). Ihre Nennung
+     dient ausschließlich der Beschreibung/Interoperabilität und begründet keine
+     Zugehörigkeit oder Befürwortung. Die Verwendung des offiziellen MII-Logos
+     bedarf der Genehmigung der MII; die im Repo enthaltene Logodatei ist ein
+     ausdrücklicher PLATZHALTER und nicht das offizielle Logo.
+   - HL7(R) und FHIR(R) sind eingetragene Marken von Health Level Seven
+     International. „SNOMED CT(R)" ist eine Marke von SNOMED International. Marken
+     werden anerkannt; ihre Nennung impliziert keine Zertifizierung.
+
+3) Lizenz
+   Inhalte dieses Repositories stehen unter CC BY 4.0 (siehe LICENSE), soweit nicht
+   für einzelne Bestandteile abweichend gekennzeichnet. Die Marken-/Namensrechte aus
+   Abschnitt 2 sind von der Lizenz nicht erfasst.
+
+4) Drittkomponenten (jeweils unter eigener Lizenz; vollständige Quellen: SOURCES.md)
+   - HL7 FHIR Spezifikation, IG Publisher, IG-Templates, FHIR/sample-ig (HL7)
+   - de.basisprofil.r4 (HL7 Deutschland)
+   - HL7 Europe Base/Core, IPS (HL7 Europe / HL7 International)
+   - SUSHI / GoFSH (FHIR community)
+   - GitHub Action „qligier/fhir-ig-action" (MIT, Drittanbieter, nicht zertifiziert)
+   - Dev-Container-Features, VS-Code-Erweiterungen, bonFHIR IG Toolbox
+   - Agent-Skills-Standard (agentskills.io) und AGENTS.md (agents.md) — offene Standards
+
+5) Verweise
+   Regeln für Kommentierung/Ballotierung: COMMENT-RESOLUTION.md.
+   Angewandte Quellen mit URLs und Status: SOURCES.md.
+
+6) Canonical-URL / Namensraum
+   Diese Vorlage verwendet NEUTRALE Beispielwerte (RFC 2606): canonical-Basis
+   `https://example.org/fhir/kds-sample` und Package-Id `example.fhir.kds.sample`.
+   Sie erheben keinen Bezug zur MII. Für ein echtes MII-Modul sind diese Werte auf
+   den MII-Namensraum umzustellen (canonical
+   `https://www.medizininformatik-initiative.de/fhir/...`, Package-Id
+   `de.medizininformatikinitiative.kerndatensatz.<modul>`); dieser Namensraum ist
+   der MII vorbehalten. Der Ressourcen-id-Präfix `mii-<typ>-beispiel-...` illustriert
+   die MII-Namenskonvention und ist bei eigener Nutzung anzupassen.

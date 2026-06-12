@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "MITRE-Health.vscode-language-fsh",
+    "redhat.vscode-yaml",
+    "DavidAnson.vscode-markdownlint"
+  ]
+}

@@ -1,0 +1,16 @@
+# CODEOWNERS — automatische Review-Zuständigkeiten (Platzhalter anpassen).
+# Syntax: <pfad>  <@owner ...>  (siehe https://docs.github.com/.../about-code-owners)
+
+# Standard für alles:
+*                       @<org>/<maintainer-team>
+
+# FHIR-Artefakte (Technische Umsetzung):
+/input/fsh/             @<org>/<fhir-team>
+/qc/                    @<org>/<fhir-team>
+
+# Narrative/Inhalt (Fachvertretung/Modellierung):
+/input/pagecontent/     @<org>/<inhalt-team>
+
+# CI/Workflows & Tooling:
+/.github/               @<org>/<devops-team>
+/tools/                 @<org>/<devops-team>

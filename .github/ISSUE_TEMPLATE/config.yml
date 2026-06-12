@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "Offizielles HL7-Deutschland-Ballotierungsportal"
+    url: https://portal.hl7.de
+    about: "Verbindliche Einreichung von Kommentaren/Stimmen im offiziellen Verfahren (alternativ ballot@hl7.de)."
+  - name: "HL7 Deutschland – Abstimmungs-/Kommentierungsregeln (PDF)"
+    url: https://hl7.de/wp-content/uploads/Abstimmungsregeln-20221213.pdf
+    about: "Regeln für Abstimmungs- und Kommentierungsverfahren von HL7 Deutschland."

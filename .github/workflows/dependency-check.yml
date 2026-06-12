@@ -1,0 +1,42 @@
+name: Dependency Update Check
+
+# Deaktivierbar:
+#  (a) im Actions-Tab den Workflow deaktivieren, ODER
+#  (b) Repository-Variable ENABLE_UPDATE_CHECK = false setzen (stoppt den Zeitplan;
+#      manueller Start bleibt moeglich).
+on:
+  schedule:
+    - cron: "0 6 1 * *"   # monatlich am 1. um 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || vars.ENABLE_UPDATE_CHECK != 'false' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pruefe Updates
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/check-updates.py
+
+      - name: Issue anlegen/aktualisieren
+        if: ${{ steps.check.outputs.has_updates == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="🔄 Abhängigkeits-Updates verfügbar"
+          NUM=$(gh issue list --state open --search "in:title $TITLE" --json number --jq '.[0].number' || true)
+          if [ -n "$NUM" ] && [ "$NUM" != "null" ]; then
+            gh issue comment "$NUM" --body-file update-report.md
+          else
+            gh issue create --title "$TITLE" --label dependencies --body-file update-report.md
+          fi

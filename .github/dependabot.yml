@@ -1,0 +1,9 @@
+# Ergaenzend: Dependabot haelt GitHub-Actions aktuell (Pull Requests).
+# Deaktivieren: Datei loeschen oder unter Settings > Code security abschalten.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    labels: ["dependencies"]

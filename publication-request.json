@@ -1,0 +1,13 @@
+{
+  "package-id": "example.fhir.kds.sample",
+  "version": "2026.0.0",
+  "path": "https://example.org/fhir/kds-sample/2026.0.0",
+  "milestone": false,
+  "status": "ci-build",
+  "sequence": "Releases",
+  "desc": "INOFFIZIELLE Vorlage / Sample – kein offiziell veröffentlichtes MII-Modul",
+  "first": true,
+  "title": "MII Implementierungsleitfaden Kerndatensatz Beispiel",
+  "ci-build": "https://medizininformatik-initiative.github.io/kerndatensatz-beispiel",
+  "introduction": "INOFFIZIELLE Vorlage/Sample-IG des MII-Kerndatensatzes (kein offizielles Modul)."
+}

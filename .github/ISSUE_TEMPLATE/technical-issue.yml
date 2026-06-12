@@ -1,0 +1,17 @@
+name: "Technischer Fehler (Vorlage)"
+description: "Fehler in der Vorlage selbst (Build, FSH, Workflow, Doku)."
+title: "[Bug] <Kurzbeschreibung>"
+labels: ["bug"]
+body:
+  - type: textarea
+    id: beschreibung
+    attributes: { label: "Beschreibung des Problems" }
+    validations: { required: true }
+  - type: textarea
+    id: reproduktion
+    attributes: { label: "Schritte zur Reproduktion / betroffene Datei" }
+    validations: { required: false }
+  - type: textarea
+    id: erwartet
+    attributes: { label: "Erwartetes Verhalten" }
+    validations: { required: false }

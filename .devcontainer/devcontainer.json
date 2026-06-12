@@ -1,0 +1,21 @@
+{
+  "name": "MII KDS IG (SUSHI latest + IG Publisher)",
+  // MII-empfohlenes Image (Meta-Wiki „Dev Container ‐ IG Publisher"), latest-Tag.
+  "image": "ghcr.io/cybernop/vscode-ig-publisher:latest",
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.fhir,target=/home/vscode/.fhir,type=bind"
+  ],
+  // Immer die aktuellste SUSHI-Version verwenden:
+  "postCreateCommand": "npm install -g fsh-sushi@latest",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "MITRE-Health.vscode-language-fsh",
+        "redhat.vscode-yaml",
+        "DavidAnson.vscode-markdownlint"
+      ],
+      "settings": { "editor.formatOnSave": false }
+    }
+  }
+  // Das Image enthält IG-Publisher-Abhängigkeiten; IG Publisher via ./_updatePublisher.sh laden.
+}

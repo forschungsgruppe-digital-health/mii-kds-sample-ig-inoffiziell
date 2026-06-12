@@ -1,0 +1,133 @@
+name: "Kommentar / Ballot-Eintrag"
+description: "Strukturierte Erfassung eines Kommentars oder einer Stimme (Schema angelehnt an das HL7-Deutschland-Ballotierungsportal)."
+title: "[Kommentar] <Kurztitel der Fundstelle>"
+labels: ["ballot-comment"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bitte **je Fundstelle einen** Kommentar erfassen. 
+        **Hinweis:** Die **verbindliche** Einreichung im Rahmen eines offiziellen
+        Verfahrens erfolgt zusätzlich über das HL7-DE-Ballotierungsportal
+        (`https://portal.hl7.de`) bzw. `ballot@hl7.de`. Dieses Formular dient der
+        strukturierten Erfassung im Repository. Regeln: siehe `COMMENT_RESOLUTION.md`.
+  - type: input
+    id: spec
+    attributes:
+      label: "Spezifikation / Modul"
+      placeholder: "z. B. MII KDS Modul Beispiel"
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: "Version"
+      placeholder: "z. B. 2026.0.0"
+    validations: { required: true }
+  - type: dropdown
+    id: phase
+    attributes:
+      label: "Phase / Verfahren (optional)"
+      description: "Du musst das nicht wissen — bei Unsicherheit „Unsicher\" wählen; das Modulteam ordnet zu. Details: COMMENT_RESOLUTION.md."
+      options:
+        - "Unsicher — bitte vom Modulteam zuordnen"
+        - "Interne MII-Kommentierung (KDS-Governance)"
+        - "Öffentliche Kommentierung (HL7 Deutschland)"
+    validations: { required: false }
+  - type: dropdown
+    id: verfahrenstyp
+    attributes:
+      label: "Verfahrenstyp (nur öffentliche Kommentierung / HL7-DE)"
+      options:
+        - "Informativ / zur Kommentierung"
+        - "Standard zur Probe (STU)"
+        - "Normativ"
+    validations: { required: false }
+  - type: input
+    id: submitter
+    attributes:
+      label: "Einreichende Person"
+    validations: { required: true }
+  - type: input
+    id: organisation
+    attributes:
+      label: "Organisation"
+    validations: { required: false }
+  - type: dropdown
+    id: stimmberechtigung
+    attributes:
+      label: "Rolle / Stimmberechtigung"
+      description: "Für STU/Normativ sind nur HL7-DE-Mitglieder und Autor:innen stimmberechtigt; informelle Kommentare sind von allen willkommen."
+      options:
+        - "HL7-Deutschland-Mitglied (stimmberechtigt)"
+        - "Autor:in der Spezifikation (stimmberechtigt)"
+        - "Informeller Kommentar (nicht stimmberechtigt)"
+    validations: { required: true }
+  - type: dropdown
+    id: perspektive
+    attributes:
+      label: "Perspektive / Rolle"
+      description: "Aus welcher Entwicklungsperspektive wird kommentiert? (siehe ROLES.md)"
+      options:
+        - "Fachvertretung (inhaltlich)"
+        - "Informationsmodell (Modellierung)"
+        - "Technische Umsetzung (FHIR)"
+        - "DIZ-Pilot (Implementierung)"
+        - "Übergreifend"
+    validations: { required: true }
+  - type: input
+    id: fundstelle
+    attributes:
+      label: "Fundstelle (Artefakt / Seite / URL)"
+      placeholder: "z. B. StructureDefinition mii-pr-… / conformance.html / <URL>"
+    validations: { required: true }
+  - type: input
+    id: locator
+    attributes:
+      label: "Genaue Stelle (Element / Pfad / Abschnitt / Zeile)"
+    validations: { required: false }
+  - type: dropdown
+    id: kommentartyp
+    attributes:
+      label: "Kommentar-Typ"
+      options:
+        - "Negativ – wesentlich (Negative-Major)"
+        - "Negativ – unwesentlich (Negative-Minor)"
+        - "Frage (Question)"
+        - "Redaktionell / Tippfehler (Editorial)"
+        - "Zustimmender Kommentar (Affirmative)"
+    validations: { required: true }
+  - type: textarea
+    id: ist-text
+    attributes:
+      label: "Ist-Text / aktuelle Formulierung"
+    validations: { required: false }
+  - type: textarea
+    id: vorschlag
+    attributes:
+      label: "Konkreter Änderungsvorschlag"
+    validations: { required: true }
+  - type: textarea
+    id: begruendung
+    attributes:
+      label: "Begründung"
+      description: "Bei negativen Kommentaren ist eine konkrete Begründung erforderlich (Abstimmungsregeln)."
+    validations: { required: true }
+  - type: dropdown
+    id: vote
+    attributes:
+      label: "Gesamtvotum zur Spezifikation (optional, nur STU/Normativ)"
+      options:
+        - "(kein Votum)"
+        - "Zustimmung"
+        - "Ablehnung"
+        - "Enthaltung"
+    validations: { required: false }
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: "Bestätigung"
+      options:
+        - label: "Mir ist bewusst, dass die verbindliche Einreichung über portal.hl7.de / ballot@hl7.de erfolgt."
+          required: true
+        - label: "Der Kommentar enthält keine vertraulichen oder personenbezogenen Daten Dritter."
+          required: true
