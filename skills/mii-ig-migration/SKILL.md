@@ -21,12 +21,15 @@ Kopierfertiger Start-Prompt + ausgefülltes Eingabe-Beispiel + Befehlsfolge:
 `references/migration-agent-spec.md` (Anhang B = vendor-neutrales Prompt-Gerüst).
 
 ## Eingaben
+Echte Eingaben (mehr braucht es nicht):
 - `SOURCE_RENDERED_IG_URL` — gerenderter Simplifier-IG **[URL]**
 - `SOURCE_REPO_URL` — zugehöriges Quell-GitHub-Repo **[URL]**
 - `TARGET_TEMPLATE_REPO` — dieses Repo
-- `MODULE_METADATA` — modul-identifizierende Parameter für `sushi-config.yaml`/`package.json`:
-  Modulname + Kürzel, Package-`id`, Canonical-Basis, CalVer-`version`, Status, Dependencies,
-  Publisher. Felder, Beispiele und Zielorte: `references/migration-agent-spec.md` §2.1.
+- **Ziel-`version`** (CalVer) — einzige modul-identifizierende Entscheidung (Default = Quelle)
+
+`MODULE_METADATA` (id, canonical, packageId, dependencies, publisher, Modulname) wird
+**nicht eingegeben**, sondern aus `<SOURCE_REPO>/sushi-config.yaml` + `package.json`
+gelesen und unverändert übernommen (Bestandsschutz). Details: `references/migration-agent-spec.md` §2.1.
 
 ## Ablauf (Kurzform)
 1. Inventarisierung der Quelle → `source-inventory` 2. Skelett aus der Vorlage

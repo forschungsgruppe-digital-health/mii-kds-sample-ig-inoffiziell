@@ -148,14 +148,20 @@ Nutzt die herstelleragnostische Spezifikation in [`skills/mii-ig-migration/`](sk
 Voraussetzung: Tools aus §1 installiert; Template-Repo lokal geöffnet (dieses Repo
 ist das Ziel) bzw. Branch `hl7-ig-build` angelegt (§11).
 
-- [ ] **B0 Eingaben festlegen** (vier Werte; Felder & Zielorte: [`migration-agent-spec.md`](skills/mii-ig-migration/references/migration-agent-spec.md) §2.1):
+- [ ] **B0 Eingaben festlegen** — nur **drei** echte Eingaben; alle übrigen
+  Metadaten (`id`, `canonical`, `packageId`, `dependencies`, `publisher`, Modulname)
+  **liest der Agent aus der Quelle** (`<SOURCE_REPO>/sushi-config.yaml` +
+  `package.json`, bzw. der `ImplementationGuide`-Ressource bei reinen JSON/XML-Quellen)
+  und übernimmt sie unverändert (Bestandsschutz). Felder/Herkunft/Zielorte: [`migration-agent-spec.md`](skills/mii-ig-migration/references/migration-agent-spec.md) §2.1.
 
   | Eingabe | Beispiel (Modul Dokument) |
   |---|---|
   | `SOURCE_RENDERED_IG_URL` | `https://simplifier.net/guide/mii-ig-dokument-de` |
   | `SOURCE_REPO_URL` | `https://github.com/medizininformatik-initiative/kerndatensatz-dokument` |
-  | `TARGET_TEMPLATE_REPO` | dieses Repo (lokaler Pfad) |
-  | `MODULE_METADATA` | `id=mii-ig-dokument`, `canonical=https://www.medizininformatik-initiative.de/fhir/ext/modul-dokument`, `version=2026.0.1`, `dependencies=de.basisprofil.r4 1.5.4; …kerndatensatz.meta 2026.0.0; …`, `publisher=Medizininformatik-Initiative` |
+  | **Ziel-`version`** (CalVer) | `2026.0.1` (Default = Version der Quelle) |
+
+  `TARGET_TEMPLATE_REPO` = dieses Repo. Floating Pins der Quelle (`…: 1.5.x`) beim
+  Übernehmen auf konkrete Versionen festlegen.
 
 - [ ] **B1 Migration starten (Claude Code).** Repo vorbereitet (→ „Setup"), dann
   den Skill **explizit beim Namen** mit den B0-Eingaben aufrufen — **mehr nicht**.
@@ -164,10 +170,10 @@ ist das Ziel) bzw. Branch `hl7-ig-build` angelegt (§11).
   Prompt (Single Source of Truth — sonst Drift zwischen Prompt und Skill):
 
   ```text
-  Nutze den Skill mii-ig-migration. Eingaben:
-  SOURCE_RENDERED_IG_URL=<…>   SOURCE_REPO_URL=<…>
-  MODULE_METADATA=<id, canonical, version, dependencies, publisher>
+  Nutze den Skill mii-ig-migration.
+  SOURCE_RENDERED_IG_URL=<…>   SOURCE_REPO_URL=<…>   Zielversion=<CalVer, Default = Quelle>
   ```
+  (id/canonical/packageId/dependencies/publisher liest der Agent aus der Quelle — nicht angeben.)
 
   **Fallback — Agenten OHNE Skill-Mechanismus** (z. B. manche GPT/Codex-Setups):
   Dort lädt sich keine `SKILL.md` automatisch; das vendor-neutrale **Prompt-Gerüst

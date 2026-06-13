@@ -18,32 +18,41 @@ OpenAI GPT/Codex, weitere). Vendorspezifische Hinweise stehen in Anhang A.
 konform zum MII-KDS-Meta-Manteldokument (jeweils aktuelle Fassung) und zu den
 HL7-IG-Best-Practices, deutsch geführt (KDS-Governance), englisch optional.
 
-### 2. Eingaben (vom Menschen bereitzustellen)
+### 2. Eingaben
+**Vom Menschen bereitzustellen (echte Eingaben):**
 - `SOURCE_RENDERED_IG_URL` — URL des gerenderten Simplifier-IG. *(Platzhalter: [URL])*
 - `SOURCE_REPO_URL` — URL des zugehörigen Quell-GitHub-Repos. *(Platzhalter: [URL])*
 - `TARGET_TEMPLATE_REPO` — dieses Sample-IG-Repo als Zielvorlage.
-- `MODULE_METADATA` — modul-identifizierende Parameter (präzise: §2.1).
+- **Ziel-`version`** (CalVer) — die **einzige** modul-identifizierende Angabe, die
+  eine menschliche Entscheidung ist (Default = Version der Quelle).
 
-### 2.1 `MODULE_METADATA` — präzise Definition
-Der **Satz modul-identifizierender Parameter**, den der Agent in `sushi-config.yaml`
-(und `package.json`) schreibt. **Bestandsschutz/Quelle bevorzugen:** soweit im Quell-Repo
-oder gerenderten IG bereits vorhanden, werden die Werte **von dort übernommen** und
-nicht neu erfunden; der Mensch liefert/bestätigt v. a. die **Zielversion**.
+**Nicht einzugeben — `MODULE_METADATA` wird abgeleitet:** Alle übrigen
+modul-identifizierenden Werte **liest der Agent aus der Quelle** und übernimmt sie
+unverändert (Bestandsschutz) — präzise: §2.1.
 
-| Feld | Bedeutung | Beispiel (offiziell · inoffizielle Vorlage) | Zielort |
-|------|-----------|---------------------------------------------|---------|
-| `module_name` | Klartext-Modulname | „Diagnose" · „Beispiel" | `title`, Menü, README |
-| `module_abbr` | Modul-Kürzel als Bestandteil des Artefakt-`name` (Upper_Snake_Case) | `Diagnose` → `MII_PR_Diagnose_…` | FSH `name`/`title` |
-| `package_id` | FHIR-Package-/IG-`id` (Reverse-Domain) | `de.medizininformatikinitiative.kerndatensatz.diagnose` · `example.fhir.kds.sample` | `sushi-config.yaml: id`, `package.json: name` |
-| `canonical` | Canonical-Basis-URL | `https://www.medizininformatik-initiative.de/fhir/diagnose` · `https://example.org/fhir/kds-sample` | `sushi-config.yaml: canonical` — **nicht ändern (Bestandsschutz)** |
-| `version` | CalVer `YYYY.MINOR.PATCH[-suffix]` | `2026.0.0` · `2026.0.0-ballot` | `sushi-config.yaml: version`, `package.json: version`, Release-Tag |
-| `status` / `releaseLabel` | IG-Status / Release-Label | `draft`/`ballot` · `active`/`release` | `sushi-config.yaml: status`, `releaseLabel` |
-| `dependencies` | **exakt gepinnte** Abhängigkeiten | `de.basisprofil.r4: 1.5.4` | `sushi-config.yaml: dependencies` |
-| `publisher` / `contact` | Herausgeber/Kontakt (in der Vorlage neutral) | „Inoffizielle Vorlage (Beispiel-Publisher)" | `sushi-config.yaml: publisher` |
+### 2.1 `MODULE_METADATA` — Herkunft & Zielorte
+Der Satz modul-identifizierender Parameter, den der Agent in `sushi-config.yaml`
+(und `package.json`) schreibt. **Quelle ist maßgeblich:** Der Agent **liest** diese
+Werte aus `<SOURCE_REPO>/sushi-config.yaml` und `package.json` (bzw., wenn kein
+`sushi-config.yaml` vorliegt, aus `package.json` + der `ImplementationGuide`-
+Ressource) und übernimmt sie **unverändert** — er erfindet sie nicht und fordert sie
+nicht vom Menschen an. **Einzige menschliche Entscheidung:** die Ziel-`version`
+(bestätigen/bumpen). Floating Pins (`…: 1.5.x`) dabei auf konkrete Versionen festlegen.
+
+| Feld | Quelle (Agent liest aus) | Eingabe? | Zielort |
+|------|--------------------------|----------|---------|
+| `module_name` | `sushi-config: title` / `package.json: title` | abgeleitet | `title`, Menü, README |
+| `module_abbr` | bestehende FSH-Artefaktnamen (`MII_PR_<Modul>_…`) | abgeleitet (Namen bleiben) | FSH `name`/`title` |
+| `package_id` | `package.json: name` / `sushi-config: packageId` | abgeleitet | `sushi-config: id`, `package.json: name` |
+| `canonical` | `sushi-config: canonical` / `package.json: canonical` | abgeleitet — **nicht ändern** | `sushi-config: canonical` |
+| `version` | `sushi-config`/`package.json: version` | **ja — Ziel bestätigen/bumpen** | `sushi-config: version`, `package.json`, Release-Tag |
+| `status` / `releaseLabel` | `sushi-config: status` / `releaseLabel` | abgeleitet (ggf. bestätigen) | `sushi-config: status`, `releaseLabel` |
+| `dependencies` | `sushi-config: dependencies` (+ `package.json`) | abgeleitet (`.x`-Pins konkretisieren) | `sushi-config: dependencies` |
+| `publisher` / `contact` | `sushi-config: publisher` | abgeleitet | `sushi-config: publisher` |
 
 **Offiziell vs. inoffiziell:** In dieser inoffiziellen Vorlage sind `package_id`,
-`canonical` und `publisher` bewusst neutral (`example.*`). Bei einer realen Migration die
-**bestehenden offiziellen Werte aus der Quelle** verwenden.
+`canonical` und `publisher` bewusst neutral (`example.*`). Bei einer realen Migration
+gelten die **aus der Quelle gelesenen offiziellen Werte**.
 
 ### 3. Benötigte Fähigkeiten/Werkzeuge (abstrakt, nicht herstellerspezifisch)
 - **Web-Abruf/Extraktion:** Lesen und strukturierte Extraktion des gerenderten IG.
