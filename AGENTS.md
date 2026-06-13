@@ -26,6 +26,8 @@ sushi .            # FSH -> FHIR (muss fehlerfrei sein)
 - `skills/wiki-consistency-check/` — Repo gegen MII-Meta-Wiki auf Konsistenz prüfen.
 - `skills/template-sanitize/` — nach validierter Migration die reinen Vorlage-/
   Migrations-Dateien entfernen (auf Bestätigung, Dry-Run-Default).
+- `skills/ig-translate/` — IG ins Englische übersetzen (Modus translate/harvest);
+  Übersetzungen an die vom Publisher vorgesehenen Stellen ablegen.
 - Vendor-Zugriff über Symlinks: Claude Code `.claude/skills/`, Codex/Standard
   `.agents/skills/` — beide zeigen auf `skills/`.
 

@@ -194,6 +194,9 @@ chk "Skill: wiki-consistency-check" "test -f skills/wiki-consistency-check/SKILL
 chk "Skill: Prüfmatrix" "test -f skills/wiki-consistency-check/references/check-matrix.md"
 chk "Skill: template-sanitize" "test -f skills/template-sanitize/SKILL.md"
 chk "template-sanitize Tool ausführbar" "test -x tools/template-sanitize.sh"
+chk "Skill: ig-translate" "test -f skills/ig-translate/SKILL.md"
+chk "ig-translate Tool ausführbar" "test -x tools/ig-translate.sh"
+chk "ig-translate harvest-config" "test -f skills/ig-translate/references/harvest-config.yaml"
 
 echo "== Kommentarauflösung (zwei Schichten) =="
 chk "COMMENT_RESOLUTION: interne Phase (Governance/NSG)" "grep -q 'Interne Kommentierung' COMMENT_RESOLUTION.md && grep -q 'NSG' COMMENT_RESOLUTION.md"

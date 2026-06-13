@@ -27,7 +27,23 @@ ist, hängt von der Quelle ab:
 - [ ] **A1b Vorlagen-Beispiele löschen:** `input/fsh/examples.fsh` und alle Beispiel-Instanzen der Vorlage **händisch entfernen** (nicht übernehmen), um Konflikte mit den realen Modul-Beispielen zu vermeiden.
 - [ ] **A2 Artefakte:** FSH aus dem Quell-Repo nach `input/fsh/` übernehmen; falls nur JSON/XML: `gofsh ./quelle -o input/fsh`. IDs/URLs unverändert lassen; MII-Namenskonvention beibehalten (maßgeblich: `qc/custom.rules.yaml` + Meta-Wiki).
 - [ ] **A3 Narrative:** Manteldokument-Inhalte gemäß Crosswalk (§6) nach `input/pagecontent/*.md` (deutsch) überführen; `context.md`, `references.md`, `use-cases.md` befüllen; Model-to-Profile-Mapping in `data-sets.md` pflegen.
-- [ ] **A4 Mehrsprachigkeit (optional):** Standard ist Deutsch. Für optionales Englisch `.po` unter `input/translations/en` pflegen (msgid = deutsch, msgstr = englisch), inkl. `menu.po`.
+- [ ] **A4 Mehrsprachigkeit (optional):** Standard ist Deutsch. Für optionales
+  Englisch (verifizierte Mechanik, IG Publisher 2.2.x):
+  - **Ressourcen-Texte (rendern heute):** je StructureDefinition/CodeSystem/
+    Questionnaire ein Translation-Supplement `input/translations/en/<Typ>-<id>.po`
+    (`msgid` = exakter dt. Quelltext aus `fsh-generated/resources/<Typ>-<id>.json`,
+    `msgstr` = englisch). **Nicht** unterstützt: ValueSet, ImplementationGuide,
+    Menü — entsprechende `.po` werden vom Publisher ignoriert.
+  - **Narrative-Seiten (zukunftssicher):** je `input/pagecontent/<name>.md` eine
+    Übersetzung `input/pagecontent/<name>-en.md`. Wird aktuell noch nicht gerendert
+    (HL7 „ToDo"), aber korrekt vorbereitet; `/en/`-Seiten zeigen bis dahin Deutsch
+    mit Standardhinweis (erwartet).
+  - **Vorhandene EN-Fassung übernehmen (Harvest):** Hat die Quelle bereits Englisch
+    (z. B. MII KDS Person), die EN-Texte übernehmen statt neu zu übersetzen —
+    Ressourcen aus FSH-`translation`-Extensions/Designations, Narrative aus dem
+    parallelen EN-Guide.
+  - Konfig/Datei-Konventionen: `skills/ig-translate/references/translate-spec.md`;
+    Zielpfade prüfen mit `tools/ig-translate.sh --scan en` / `--validate en`.
 - [ ] **A5 Build & QA:** `./_genonce.sh` (bzw. `.bat`); `output/qa.html`/`qa.txt` → „Errors: 0"; `output/index.html` sichten.
 - [ ] **A6 Benutzerdefinierte Seiten:** §7 anwenden (Review-Gate).
 - [ ] **A6b Vorlage-Bereinigung (nach validierter Migration):** Reine Vorlage-/
@@ -61,6 +77,12 @@ Nutzt die herstelleragnostische Spezifikation in `skills/mii-ig-migration/`.
   Migration den Skill `skills/template-sanitize/` aktivieren — er entfernt auf
   ausdrückliche Nutzerbestätigung die reinen Vorlage-/Migrations-Dateien
   (Pendant zu A6b) via `tools/template-sanitize.sh` (Dry-Run-Default, `--apply`).
+- [ ] **B5 Übersetzung (optional, auf Bestätigung):** Für eine englische
+  Sprachausgabe den Skill `skills/ig-translate/` aktivieren — Modus **translate**
+  (LLM, de→en) oder **harvest** (vorhandene EN-Fassung der Quelle übernehmen, z. B.
+  MII KDS Person). Erzeugt Ressourcen-Supplements (rendern) und zukunftssichere
+  `*-en.md`-Seiten; Deutsch bleibt führend, jede Übersetzung mit `TODO:REVIEW`,
+  Review-Gate C (§8) verpflichtend. Pendant zu A4.
 
 ## 5. Wahl des Weges
 - **Manuell:** kleine Module, viele neue fachliche Entscheidungen oder fehlende Agenten-Infrastruktur.

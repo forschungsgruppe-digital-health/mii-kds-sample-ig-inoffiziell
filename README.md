@@ -132,6 +132,7 @@ CLAUDE.md  -> AGENTS.md          Symlink für Claude Code
 skills/mii-ig-migration/        Migrations-Skill (Simplifier-IG -> HL7-IG)
 skills/wiki-consistency-check/  Skill: Repo-Abgleich gegen das MII-Meta-Wiki
 skills/template-sanitize/       Skill: Vorlage-/Migrations-Dateien nach Migration entfernen
+skills/ig-translate/            Skill: IG ins Englische übersetzen (translate/harvest)
 .claude/skills -> ../skills      Claude-Code-Skills (Symlink)
 .agents/skills -> ../skills      Open-Standard/Codex-Skills (Symlink)
 AI_USAGE.md                     Transparenz zur KI-Unterstützung

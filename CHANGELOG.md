@@ -65,6 +65,21 @@ _(in Arbeit — Einträge werden zum Abschluss zusammengeführt)_
   aber in frischen Clones); `DESIGN.md`: Logo-Platzhalter als bewusste
   kebab-case-Ausnahme dokumentiert.
 
+### Added (2026-06-13, Übersetzung)
+- Neuer Skill `skills/ig-translate/` (+ `references/translate-spec.md`,
+  `references/harvest-config.yaml`) und Tool `tools/ig-translate.sh` (scan/validate,
+  kein Auto-Schreiben): übersetzt den IG ins Englische und legt Übersetzungen an die
+  vom Publisher vorgesehenen Stellen. Modi **translate** (LLM de→en) und **harvest**
+  (vorhandene EN-Fassung der Quelle übernehmen, z. B. MII KDS Person). In
+  `MIGRATION.md` als A4 (manuell) / B5 (KI) verankert.
+- **Empirisch verifizierte Übersetzungs-Mechanik** (IG Publisher 2.2.7 + 2.2.8):
+  Translation-Supplements `input/translations/<lang>/<Typ>-<id>.{po|xliff|json}`
+  rendern NUR für StructureDefinition/CodeSystem/Questionnaire (Konstante
+  `TRANSLATION_SUPPLEMENT_RESOURCE_TYPES`); ValueSet/ImplementationGuide/`menu.po`
+  werden ignoriert; Narrative-Seiten (`<name>-<lang>.md`) werden noch nicht
+  gerendert (HL7 „ToDo"). Beweis-Builds: CodeSystem-Supplement erscheint übersetzt
+  unter `/en/`, Seitenübersetzung nicht.
+
 ### Added (2026-06-13)
 - Neuer Skill `skills/template-sanitize/` + Tool `tools/template-sanitize.sh`:
   entfernt nach validierter Migration die reinen Vorlage-/Migrations-Dateien aus
