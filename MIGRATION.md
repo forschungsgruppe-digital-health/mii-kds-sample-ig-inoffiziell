@@ -36,6 +36,63 @@ Review-Gates (§8); Deutsch bleibt führend; keine eigenständige Veröffentlich
 - Git; Arbeits-Branch (kein direkter Push auf `main`)
 - IG Publisher: `./_updatePublisher.sh` bzw. `_updatePublisher.bat`
 
+## Setup: Repos, Verzeichnisse & Git-Schritte
+
+Beteiligt sind **zwei** Repos:
+- **Quell-Modul-Repo** — das bestehende MII-Modul (FSH + Simplifier-Narrative),
+  z. B. `kerndatensatz-dokument` (= `SOURCE_REPO_URL`).
+- **Ziel = dieses Template-Repo** — liefert das IG-Publisher-Format
+  (= `TARGET_TEMPLATE_REPO`).
+
+### Standardfall: im bestehenden Modul-Repo, isolierter Branch (§11)
+Ergebnis **und** Build entstehen **im Modul-Repo** auf dem Branch `hl7-ig-build`,
+der **nie** in den Default-Branch (`dev`/`master`/`main`) gemergt wird:
+
+```bash
+# 1. Modul-Repo klonen (oder vorhandenen Klon nutzen), Arbeitsbranch anlegen
+git clone <SOURCE_REPO_URL> modul && cd modul
+git checkout -b hl7-ig-build origin/master      # bzw. origin/<default-branch>
+
+# 2. Template-Dateien aus diesem Repo in den Branch bringen — gemäß Übernehmen-/
+#    Nicht-übernehmen-Liste (skills/mii-ig-migration/references/migration-agent-spec.md §5a.2):
+#    übernehmen: ig.ini, sushi-config.yaml (Metadaten anpassen), input/pagecontent/,
+#    input/translations/, tools/, .github/workflows/ig-validate.yml + ig-publish-pages.yml
+#    NICHT übernehmen/überschreiben: Modul-README, Modul-CI (main.yml), qc/,
+#    kuratierte input/ignoreWarnings.txt; Vorlagen-Beispiele (input/fsh der Vorlage) löschen.
+#    Reale Modul-FSH (input/fsh/…) bleiben unverändert.
+
+# 3. Pages-Workflow auf den Branch beschränken
+#    ig-publish-pages.yml ->  on: push: branches: [ "hl7-ig-build" ]
+
+# 4. Bauen
+./_updatePublisher.sh && ./_genonce.sh
+
+# 5. Commit + Push + PR — IMMER Ziel hl7-ig-build, NIE dev/master/main
+git add -A && git commit -m "IG-Publisher-Build (hl7-ig-build)"
+git push -u origin hl7-ig-build
+#   Pull Request öffnen mit base = hl7-ig-build
+```
+
+### Alternative: frischer Klon des Template-Repos (neues Modul, kein Quell-Repo)
+```bash
+git clone <TARGET_TEMPLATE_REPO> mein-modul && cd mein-modul
+# sushi-config.yaml/ig.ini auf Modul-Metadaten setzen; eigene FSH nach input/fsh/;
+# Vorlagen-Beispiele in input/fsh/ ersetzen; dann ./_updatePublisher.sh && ./_genonce.sh
+```
+
+### Wo wird was geschrieben (Ausgabeorte)
+| Pfad | Inhalt | Versioniert? |
+|------|--------|--------------|
+| `input/` | Eingaben: FSH, `pagecontent/`, `translations/`, `images/` | ja |
+| `fsh-generated/` | von `sushi .` erzeugte FHIR-JSON — nicht manuell editieren | nein (`.gitignore`) |
+| `output/` | fertiger IG: `index.html`, `qa.html`/`qa.txt`, Packages | nein (`.gitignore`) |
+| `.ai-log/` | Migrationsbericht/Inventar (KI-Pfad) | nein (`.gitignore`) |
+| `input-cache/` | `publisher.jar` (vom Updater geladen) | nein (`.gitignore`) |
+
+> Hinweis: Diese `.gitignore`-Zuordnung gilt für dieses Template. In einem
+> bestehenden Modul-Repo greift dessen eigene `.gitignore` (einige MII-Module
+> versionieren z. B. `fsh-generated/`).
+
 ## 2. GoFSH — nur bedingt nötig
 FSH ist das Quellformat dieses IG. Ob GoFSH (FHIR→FSH) als Migrationsschritt nötig
 ist, hängt von der Quelle ab:
@@ -100,23 +157,22 @@ ist das Ziel) bzw. Branch `hl7-ig-build` angelegt (§11).
   | `TARGET_TEMPLATE_REPO` | dieses Repo (lokaler Pfad) |
   | `MODULE_METADATA` | `id=mii-ig-dokument`, `canonical=https://www.medizininformatik-initiative.de/fhir/ext/modul-dokument`, `version=2026.0.1`, `dependencies=de.basisprofil.r4 1.5.4; …kerndatensatz.meta 2026.0.0; …`, `publisher=Medizininformatik-Initiative` |
 
-- [ ] **B1 Migration starten (Claude Code).** Im Template-Repo `claude` starten und
-  diesen Prompt einfügen (B0-Werte einsetzen). Der Skill `mii-ig-migration` wird
-  durch den Verweis auf die Spezifikation aktiv:
+- [ ] **B1 Migration starten (Claude Code).** Repo vorbereitet (→ „Setup"), dann
+  den Skill **explizit beim Namen** mit den B0-Eingaben aufrufen — **mehr nicht**.
+  Der Skill bringt Schrittfolge, Aufgaben, Leitplanken (§4) und Review-Gates (§6)
+  selbst mit (`SKILL.md` → `migration-agent-spec.md`); das gehört **nicht** in den
+  Prompt (Single Source of Truth — sonst Drift zwischen Prompt und Skill):
 
   ```text
-  Migriere das MII-KDS-Modul gemäß skills/mii-ig-migration/references/migration-agent-spec.md.
-  SOURCE_RENDERED_IG_URL=<…>
-  SOURCE_REPO_URL=<…>
+  Nutze den Skill mii-ig-migration. Eingaben:
+  SOURCE_RENDERED_IG_URL=<…>   SOURCE_REPO_URL=<…>
   MODULE_METADATA=<id, canonical, version, dependencies, publisher>
-  Arbeite die Schritte (Spec §5) der Reihe nach ab, protokolliere in
-  .ai-log/migration-report.md und HALTE an jedem Review-Gate (Spec §6) an.
-  Leitplanken: Canonical URLs/IDs nicht ändern (Bestandsschutz); Deutsch führend;
-  Vorlagen-Beispiele vor der Migration löschen; keine Fakten-Erfindung (TODO:REVIEW);
-  NICHT veröffentlichen; ausschließlich im Branch hl7-ig-build arbeiten, PR-Ziel hl7-ig-build.
   ```
 
-  (Andere tool-fähige Agenten: vollständiges Prompt-Gerüst in [`migration-agent-spec.md`](skills/mii-ig-migration/references/migration-agent-spec.md) Anhang B.)
+  **Fallback — Agenten OHNE Skill-Mechanismus** (z. B. manche GPT/Codex-Setups):
+  Dort lädt sich keine `SKILL.md` automatisch; das vendor-neutrale **Prompt-Gerüst
+  aus [`migration-agent-spec.md`](skills/mii-ig-migration/references/migration-agent-spec.md) Anhang B** verwenden — es injiziert genau die
+  Schritte/Leitplanken, die bei Claude Code der Skill liefert.
 
 - [ ] **B2 Was der Agent ausführt** (Schritte → Befehle):
   1. **Inventarisierung** der Quelle → `.ai-log/source-inventory.json`
