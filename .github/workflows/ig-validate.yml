@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Etablierte Community-Action (führt SUSHI + IG Publisher aus, inkl. Java/Heap).
       # Hinweis: Drittanbieter, NICHT von GitHub/HL7 zertifiziert. Version regelmäßig prüfen:
