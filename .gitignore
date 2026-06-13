@@ -6,3 +6,5 @@ template/
 *.log
 .DS_Store
 .ai-log/
+__pycache__/
+*.pyc
