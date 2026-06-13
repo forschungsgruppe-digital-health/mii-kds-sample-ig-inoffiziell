@@ -26,7 +26,10 @@ jobs:
       - name: Build IG (SUSHI + IG Publisher)
         uses: qligier/fhir-ig-action@v0.3.0   # Community-Action, nicht zertifiziert
         with:
-          java-max-heap-memory: 6G
+          # qligier/fhir-ig-action@v0.3.0 kennt NUR die Inputs `sushi` und `ig-publisher`.
+          # sushi defaultet auf 'false' -> ohne diesen Input: "Cannot run program sushi".
+          sushi: latest
+          ig-publisher: latest
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
