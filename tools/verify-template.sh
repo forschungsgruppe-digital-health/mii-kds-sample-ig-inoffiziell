@@ -64,7 +64,10 @@ chk "ig-validate.yml" "test -f .github/workflows/ig-validate.yml"
 chk "ig-publish-pages.yml" "test -f .github/workflows/ig-publish-pages.yml"
 chk "Pages-Deployment" "grep -q 'actions/deploy-pages' .github/workflows/ig-publish-pages.yml"
 if [ "$MODE" = "migrated" ]; then
-  chk "Pages-Branchfilter = hl7-ig-build (Spec §5a.3)" "grep -q 'hl7-ig-build' .github/workflows/ig-publish-pages.yml && ! grep -qE 'branches:.*\"main\"' .github/workflows/ig-publish-pages.yml"
+  # Nur die AKTIVE branches:-Zeile prüfen (Kommentare entfernen), sonst matcht der
+  # Hinweis-Kommentar in der Vorlage und der Check wäre ein No-Op / False-PASS.
+  # Robust gegen Inline- (`[ main ]`) und Listenform (`- main`).
+  chk "Pages-Branchfilter = hl7-ig-build (Spec §5a.3)" "awk '!/^[[:space:]]*#/' .github/workflows/ig-publish-pages.yml | grep -A2 -E '^[[:space:]]*branches:' | grep -q 'hl7-ig-build' && ! awk '!/^[[:space:]]*#/' .github/workflows/ig-publish-pages.yml | grep -A2 -E '^[[:space:]]*branches:' | grep -qE '[\"[:space:]]main[\"[:space:]]|[-][[:space:]]+main'"
   echo
   echo "Ergebnis ($MODE): $pass PASS / $fail FAIL"
   test "$fail" -eq 0

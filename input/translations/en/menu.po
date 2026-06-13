@@ -5,6 +5,9 @@ msgstr "Home"
 msgid "Anwendungsfälle"
 msgstr "Use Cases"
 
+msgid "Szenarien"
+msgstr "Scenarios"
+
 msgid "Datensätze"
 msgstr "Datasets"
 

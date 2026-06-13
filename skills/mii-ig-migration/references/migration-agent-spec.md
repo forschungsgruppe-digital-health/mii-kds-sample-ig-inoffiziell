@@ -65,7 +65,10 @@ nicht neu erfunden; der Mensch liefert/bestätigt v. a. die **Zielversion**.
    kosmetisch (BCP 47: `de-DE` ist Subtag von `de`) und durch das i18n-Feature
    bedingt — sie wird **mit Begründungskommentar** in
    `input/ignoreWarnings.txt` des Moduls ergänzt (FSH bleibt unverändert,
-   Guardrail 1).
+   Guardrail 1). `ignoreWarnings.txt` nutzt **kein Regex**, sondern Glob-Matching
+   mit `%`-Wildcards (`%text%` = enthält, case-insensitiv). Da der IG Publisher
+   die Meldung je nach JVM-Locale deutsch oder englisch ausgibt, auf das
+   locale-stabile Token matchen: `%(de-DE)%`.
 3. **FHIR-Version:** R4 (4.0.1).
 4. **Keine Fakten-Erfindung:** Jedes migrierte Artefakt und jeder Narrativ-Abschnitt
    wird auf eine Quellstelle (URL/Repo-Pfad) zurückgeführt; Unklarheiten werden

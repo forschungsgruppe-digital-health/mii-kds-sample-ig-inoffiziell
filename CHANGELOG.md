@@ -64,3 +64,15 @@ _(in Arbeit — Einträge werden zum Abschluss zusammengeführt)_
 - `input/includes/.gitkeep` ergänzt (Verzeichnis war in README gelistet, fehlte
   aber in frischen Clones); `DESIGN.md`: Logo-Platzhalter als bewusste
   kebab-case-Ausnahme dokumentiert.
+
+### Fixed (Re-Audit nach Dry-Run #3, 2026-06-13)
+- `input/translations/en/menu.po`: fehlendes Submenü-Label `Szenarien` ergänzt
+  (blieb sonst im EN-Output unübersetzt; alle anderen 12 Labels waren abgedeckt).
+- `tools/verify-template.sh`: `--migrated`-Branchfilter-Check prüft jetzt die
+  AKTIVE `branches:`-Zeile (Kommentare entfernt) statt eines beliebigen
+  String-Vorkommens — der bisherige Check war ein No-Op (matchte den
+  Hinweis-Kommentar) und konnte False-PASS liefern; main-Guard robuster
+  (Inline- und Listenform).
+- Migrations-Spec §4.2: korrigiert — `ignoreWarnings.txt` nutzt **kein Regex**,
+  sondern Glob-Matching mit `%`-Wildcards; de-DE-Sprachwarnung daher per
+  `%(de-DE)%` (contains, locale-stabil) unterdrücken statt per Regex.
