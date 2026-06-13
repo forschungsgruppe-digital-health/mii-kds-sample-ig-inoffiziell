@@ -1,19 +1,19 @@
 # DESIGN.md — Logo, Layout/Design & Versionierung
 
 ## 1. Logo & Branding
-- Das Repo enthält einen **Platzhalter** `input/images/mii-logo-PLATZHALTER.svg`
+- Das Repo enthält einen **Platzhalter** [`input/images/mii-logo-PLATZHALTER.svg`](input/images/mii-logo-PLATZHALTER.svg)
   (ausdrücklich NICHT das offizielle Logo).
 - **Einbau des offiziellen MII-Logos** (Marke der MII; separat von der MII zu
   beziehen, Nutzungsrechte beachten):
   1. Offizielle Logodatei als `input/images/mii-logo.png` (o. ä.) ablegen.
-  2. Verweise in `input/pagecontent/index.md` auf die echte Datei umstellen.
+  2. Verweise in [`input/pagecontent/index.md`](input/pagecontent/index.md) auf die echte Datei umstellen.
   3. Für ein durchgängiges Header-/Template-Branding ein **Custom-Template als
      Erweiterung** des HL7-Basis-Templates anlegen (HL7 „Extending the HL7 IG
      Templates"): lokales Template mit `package.json` (`base: hl7.fhir.template`)
-     und `content/assets/images/<logo>`; in `ig.ini` referenzieren.
+     und `content/assets/images/<logo>`; in [`ig.ini`](ig.ini) referenzieren.
 
 ## 2. Layout / Design (Template)
-- Template in `ig.ini`: **`fhir2.base.template`** (gewählt; neuere Generation, vom
+- Template in [`ig.ini`](ig.ini): **`fhir2.base.template`** (gewählt; neuere Generation, vom
   MII-Basis-IG genutzt). `fhir.base.template` wird **nicht** verwendet — Grund:
   gemeldete Security-Issues über NPM/SUSHI-Abhängigkeiten.
 - Seitenraster/Menü folgen HL7-Best-Practice (Home/Guidance/Conformance/Artifacts/
@@ -29,7 +29,7 @@
 - **MINOR (Arbeitsversion):** neue Funktionen/substanzielle Änderungen; keine
   NSG-Freigabe erforderlich.
 - **PATCH:** Bugfixes/textuelle Korrekturen; ohne Partizipation anderer Teams.
-- **Breaking Changes** sind in den Release Notes (`changes.md`) zu vermerken.
+- **Breaking Changes** sind in den Release Notes ([`changes.md`](input/pagecontent/changes.md)) zu vermerken.
 - **Release-Rhythmus (Richtwert):** NSG-Freigabe bis Jahresende; ggf.
   Kommentierung bis Ende November; Auslieferung neuer Jahresversion bis Ende Januar;
   DIZ-Umstellung bis Ende Mai. Altversionen werden eingefroren/archiviert.
@@ -54,4 +54,4 @@ Einheitliche, an die jeweilige Kategorie angepasste Schreibweise:
   `valueset.fsh` …).
 - **FHIR-Artefakt-Bezeichner** (in den FSH-Dateien, nicht Dateinamen): `name` =
   Upper_Snake_Case mit Präfix, `id` = kebab-case. Maßgeblich und maschinell geprüft:
-  `qc/custom.rules.yaml` (Single Source of Truth) + MII-Meta-Wiki.
+  [`qc/custom.rules.yaml`](qc/custom.rules.yaml) (Single Source of Truth) + [MII-Meta-Wiki](https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki).

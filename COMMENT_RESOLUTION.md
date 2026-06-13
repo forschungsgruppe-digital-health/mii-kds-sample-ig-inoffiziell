@@ -16,7 +16,7 @@ Regeln je Phase stehen darunter als Referenz.
 4. Absenden. Du erhältst eine begründete Antwort und eine Disposition.
 
 > Die **verbindliche** Einreichung im offiziellen Verfahren erfolgt zusätzlich über
-> `https://portal.hl7.de` bzw. `ballot@hl7.de`. Das Repo-Issue ersetzt das nicht.
+> [portal.hl7.de](https://portal.hl7.de) bzw. `ballot@hl7.de`. Das Repo-Issue ersetzt das nicht.
 
 ### Du spezifizierst / leitest das Modul (spezifizierende Person / Modulteam)
 Führe die Phasen der Reihe nach durch (Timeline unten). **Welche Regeln gelten, ergibt
@@ -59,7 +59,7 @@ Antworten veröffentlichen (Identität auf Wunsch pseudonymisieren).
 
 ## Phase 3 — Öffentliche Kommentierung über die MII hinaus (HL7 Deutschland)
 Maßgeblich: „Regeln für HL7 Abstimmungs- und Kommentierungsverfahren" (HL7 Deutschland
-e. V.). Quelle: https://hl7.de/wp-content/uploads/Abstimmungsregeln-20221213.pdf
+e. V.). Quelle: [Abstimmungsregeln HL7 Deutschland (PDF)](https://hl7.de/wp-content/uploads/Abstimmungsregeln-20221213.pdf)
 
 **Verfahrenstypen**
 | Typ | Kommentierung | Abstimmung | Mind.-Teilnehmende | Quorum | Verbindlichkeit |

@@ -61,6 +61,6 @@ deterministisch auf.
   `qc/`, `.gitignore`, `LICENSE`.
 
 ## Referenzen
-- `tools/template-sanitize.sh` — ausführbares Tool (Dry-Run-Default, `--apply`).
-- `references/sanitize-targets.md` — Kategorien mit Begründung.
-- `../mii-ig-migration/references/migration-agent-spec.md` §5a.2 — Übernahmeliste.
+- [`tools/template-sanitize.sh`](../../tools/template-sanitize.sh) — ausführbares Tool (Dry-Run-Default, `--apply`).
+- [`references/sanitize-targets.md`](references/sanitize-targets.md) — Kategorien mit Begründung.
+- [`../mii-ig-migration/references/migration-agent-spec.md`](../mii-ig-migration/references/migration-agent-spec.md) §5a.2 — Übernahmeliste.

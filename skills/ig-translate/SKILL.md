@@ -74,7 +74,7 @@ sobald die Toolchain die Funktion implementiert.
 4. Validieren / Build / Review wie oben.
 
 ## Referenzen
-- `references/translate-spec.md` — vollständige Mechanik, Datei-Konventionen, Formate.
-- `references/harvest-config.yaml` — Konfigurationsschema für vorhandene EN-Quellen.
-- `tools/ig-translate.sh` — Scan/Validate (Dry-Run-Default).
-- `../mii-ig-migration/references/migration-agent-spec.md` §5 (Mehrsprachigkeit), Review-Gate C.
+- [`references/translate-spec.md`](references/translate-spec.md) — vollständige Mechanik, Datei-Konventionen, Formate.
+- [`references/harvest-config.yaml`](references/harvest-config.yaml) — Konfigurationsschema für vorhandene EN-Quellen.
+- [`tools/ig-translate.sh`](../../tools/ig-translate.sh) — Scan/Validate (Dry-Run-Default).
+- [`../mii-ig-migration/references/migration-agent-spec.md`](../mii-ig-migration/references/migration-agent-spec.md) §5 (Mehrsprachigkeit), Review-Gate C.

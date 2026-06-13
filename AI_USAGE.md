@@ -7,16 +7,16 @@ Sprachmodell). Diese Offenlegung dient der Transparenz und Nachvollziehbarkeit.
 - Gerüst der Repo-Struktur, FSH-Beispiele, CI-Workflows, QC-Regeln und der
   deutschsprachigen Dokumentation.
 - Recherche/Aufbereitung von Quellen (HL7-/MII-/Firely-Dokumentation) mit
-  expliziter Quellenangabe in `SOURCES.md`.
+  expliziter Quellenangabe in [`SOURCES.md`](SOURCES.md).
 
 ## Grenzen & Verantwortung
 - **Menschliche fachliche Prüfung ist erforderlich.** Inhalte sind als Vorlage zu
   verstehen, nicht als geprüfte Spezifikation.
 - Verifiziert sind **SUSHI-Build** und strukturelle Selbstprüfung
-  (`tools/verify-template.sh`); der vollständige **IG-Publisher-Build** sowie die
+  ([`tools/verify-template.sh`](tools/verify-template.sh)); der vollständige **IG-Publisher-Build** sowie die
   QC-/Validierungsläufe sind in der Zielumgebung zu bestätigen.
-- Keine Gewähr für Richtigkeit/Vollständigkeit; es gelten `LICENSE` und `NOTICE`.
+- Keine Gewähr für Richtigkeit/Vollständigkeit; es gelten [`LICENSE`](LICENSE) und [`NOTICE`](NOTICE).
 
 ## Kennzeichnung
-Wesentliche KI-gestützte Beiträge können zusätzlich im `CHANGELOG.md` und in
+Wesentliche KI-gestützte Beiträge können zusätzlich im [`CHANGELOG.md`](CHANGELOG.md) und in
 PR-Beschreibungen vermerkt werden.

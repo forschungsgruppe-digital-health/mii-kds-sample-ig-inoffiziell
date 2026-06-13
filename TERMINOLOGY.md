@@ -1,12 +1,12 @@
 # TERMINOLOGY.md — Terminologie, Versionen & Lizenzen
 
 Leitfaden für die Terminologie-Anbindung. Maßgeblich ist die **„Terminology Version
-Policy"** im MII-Meta-Wiki; dieses Dokument fasst sie für die Vorlage zusammen. Das
+Policy"** im [MII-Meta-Wiki](https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki); dieses Dokument fasst sie für die Vorlage zusammen. Das
 mitgelieferte Beispiel bindet bewusst nur ein lokales CodeSystem und benötigt daher
 noch keinen externen Terminologieserver.
 
 ## 1. Terminologieserver
-- **MII (Java-Validierung):** SU-TermServ (`https://www.ontoserver.mii-termserv.de/`)
+- **MII (Java-Validierung):** SU-TermServ ([`https://www.ontoserver.mii-termserv.de/`](https://www.ontoserver.mii-termserv.de/))
   — wird vom offiziellen Reusable-Validation-Workflow genutzt.
 - **Generischer Default (IG Publisher / Firely):** `tx.fhir.org`.
 
@@ -34,7 +34,7 @@ die Expansion über Terminologieserver hinweg stabil.
   (BfArM/nationales Release-Center). Nutzende müssen lizenzkonform sein.
 - **LOINC:** kostenfrei unter dem LOINC-Lizenzvertrag (Regenstrief); Copyright nennen.
 - **ICD-10-GM / OPS / Alpha-ID:** über das BfArM; Nutzungsbedingungen beachten.
-- Verwendete Terminologien und Lizenzen im IG (`references.md`/`security-privacy.md`)
+- Verwendete Terminologien und Lizenzen im IG ([`references.md`](input/pagecontent/references.md)/[`security-privacy.md`](input/pagecontent/security-privacy.md))
   ausweisen.
 
 ## 5. Checkliste vor Bindung an externe Terminologien

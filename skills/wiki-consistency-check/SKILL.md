@@ -16,7 +16,7 @@ Vor einem Release der Vorlage oder periodisch, um Drift gegenüber dem maßgebli
 MII-Meta-Wiki frühzeitig zu erkennen.
 
 ## Quelle (SSOT)
-MII-Meta-Wiki: `https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki`
+[MII-Meta-Wiki](https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki)
 Lokal klonen: `git clone https://github.com/medizininformatik-initiative/kerndatensatz-meta.wiki.git`
 
 ## Ablauf

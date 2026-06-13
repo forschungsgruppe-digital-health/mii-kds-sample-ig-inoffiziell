@@ -18,5 +18,5 @@ Offenlegung) einvernehmlich ab. Da dies eine **inoffizielle Vorlage** ist, gibt 
 keine zugesicherten Reaktionszeiten (kein SLA).
 
 ## Abhängigkeiten
-Automatische Updates über Dependabot (`.github/dependabot.yml`) und den monatlichen
-Update-Check (`.github/workflows/dependency-check.yml`).
+Automatische Updates über Dependabot ([`.github/dependabot.yml`](.github/dependabot.yml)) und den monatlichen
+Update-Check ([`.github/workflows/dependency-check.yml`](.github/workflows/dependency-check.yml)).

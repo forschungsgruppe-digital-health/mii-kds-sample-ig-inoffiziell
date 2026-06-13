@@ -14,7 +14,7 @@ Regeln von **HL7 Deutschland**.
 - **Pull Requests:** konkrete Änderungen; Build muss grün sein (`sushi .` und IG
   Publisher `Errors: 0`). Kein direkter Push auf `main`.
 - **Namens-/Versionskonventionen:** Technische Namenskonventionen sind maßgeblich in
-  `qc/custom.rules.yaml` (maschinell geprüfter Single Source of Truth) und im MII-Meta-Wiki
+  [`qc/custom.rules.yaml`](qc/custom.rules.yaml) (maschinell geprüfter Single Source of Truth) und im [MII-Meta-Wiki](https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki)
   („Namenskonventionen für FHIR-Ressourcen") definiert — **keine Teilliste hier pflegen**.
   Versionierung: CalVer (`YYYY.MINOR.PATCH`, siehe §5.2). Bestehende Canonical URLs/IDs
   nicht ändern.
@@ -24,7 +24,7 @@ Gemäß der KDS-Governance:
 - **Ankündigung:** mindestens 2 Wochen vor Beginn über die einschlägigen Verteiler.
 - **Frist:** i. d. R. 6 Wochen ab Versand an die Zielgruppe; Verlängerung möglich.
 - **Granularität:** Kommentierung erfolgt modulweise.
-- **Form:** schriftlich, über das HL7-DE-Ballotportal (`https://ballots.hl7.de`)
+- **Form:** schriftlich, über das [HL7-DE-Ballotportal](https://ballots.hl7.de)
   oder durch Anlegen eines Issues im GitHub-Repository des Moduls.
 - **Bearbeitung:** Die TF Kerndatensatz und das verantwortliche Team nehmen zu
   **jedem** Kommentar Stellung — angenommen (in welcher Form) bzw. abgelehnt (mit
@@ -70,7 +70,7 @@ Practices und dem „Module Release Workflow" des Meta-Moduls.
 - **`release/v<CalVer>`** — kurzlebiger Branch zur Release-Vorbereitung.
 - **`hl7-ig-build`** — nur falls dieses Template auf ein **bestehendes** Modul-Repo
   angewendet wird: isolierter Branch für den IG-Publisher-/Pages-Build, ohne
-  `dev`/`master`/`main` zu verändern (siehe `MIGRATION.md` §11).
+  `dev`/`master`/`main` zu verändern (siehe [`MIGRATION.md`](MIGRATION.md) §11).
 
 | Branch | Zweck | Merge-Ziel |
 |--------|-------|-----------|
@@ -98,7 +98,7 @@ git push origin v2026.0.0-ballot
 ```
 
 ### 5.3 Packaging
-- Das **FHIR-Package** (`package.tgz`) wird über **Simplifier** veröffentlicht; die
+- Das **FHIR-Package** (`package.tgz`) wird über **[Simplifier](https://simplifier.net)** veröffentlicht; die
   Simplifier↔GitHub-Integration wird empfohlen (Simplifier-Projekt mit dem Repo verknüpfen).
 - Das Paket wird an das vom `RELEASE`-Job erzeugte **Entwurfs-Release angehängt**; danach
   wird das Release veröffentlicht (Module Release Workflow).
@@ -108,7 +108,7 @@ git push origin v2026.0.0-ballot
   Kerndatensatz-Module" eintragen (Best-Practice-Pflicht).
 - **IG-Export ≥ 2 Tage vor** Beginn der Kommentierungsphase bereitstellen.
 - **Release-Ankündigung** über den MII-Zulip-Kanal „MII-Kerndatensatz > Releases"
-  (`NOTIFY_ZULIP`, siehe `NOTIFICATIONS.md`); Detailschritte in `PUBLISHING.md`.
+  (`NOTIFY_ZULIP`, siehe [`NOTIFICATIONS.md`](NOTIFICATIONS.md)); Detailschritte in [`PUBLISHING.md`](PUBLISHING.md).
 
 ## 6. Review-Gates (vor Merge/Publikation)
 - [ ] **Gate A:** URL-/ID-Bestandsschutz + Artefaktvollständigkeit
@@ -119,13 +119,13 @@ git push origin v2026.0.0-ballot
 Erst nach Gate D greift der GitHub-Pages-Workflow.
 
 ## 7. KI-gestützte Beiträge (Transparenz & Pflicht-Review)
-Dieses Repo enthält eine KI-Migrationsunterstützung (`skills/mii-ig-migration/`).
+Dieses Repo enthält eine KI-Migrationsunterstützung ([`skills/mii-ig-migration/`](skills/mii-ig-migration/)).
 - KI-gestützt erstellte oder veränderte Beiträge sind im Pull Request **offenzulegen**
   (verwendetes Modell/Werkzeug, Umfang der Automatisierung).
 - Ein **abschließendes menschliches Review** ist verpflichtend; KI-Vorschläge sind
   Entwürfe, keine Freigaben. Mit `TODO:REVIEW` markierte Stellen müssen vor Merge
   aufgelöst sein.
-- Die Leitplanken aus `AGENTS.md` / `skills/mii-ig-migration/` gelten verbindlich.
+- Die Leitplanken aus [`AGENTS.md`](AGENTS.md) / `skills/mii-ig-migration/` gelten verbindlich.
 
 ## 8. Issue- & PR-Hinweise
 - Ein Thema pro Issue/PR; Bezug zum betroffenen Modul/Artefakt angeben.

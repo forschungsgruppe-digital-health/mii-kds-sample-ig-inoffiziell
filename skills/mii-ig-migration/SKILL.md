@@ -49,6 +49,6 @@ A) URL-/ID-Bestandsschutz + Artefaktvollständigkeit · B) Narrative ·
 C) Sprachführung/Übersetzung · D) Freigabe gemäß KDS-Governance.
 
 ## Referenzen
-- `references/migration-agent-spec.md` — vollständige, herstelleragnostische Spezifikation
-- `references/agent-manifest.yaml` — deklaratives Fähigkeiten-/Berechtigungs-Manifest
-- `../../MIGRATION.md`, `../../README.md`, `../../CONTRIBUTING.md`
+- [`references/migration-agent-spec.md`](references/migration-agent-spec.md) — vollständige, herstelleragnostische Spezifikation
+- [`references/agent-manifest.yaml`](references/agent-manifest.yaml) — deklaratives Fähigkeiten-/Berechtigungs-Manifest
+- [`MIGRATION.md`](../../MIGRATION.md), [`README.md`](../../README.md), [`CONTRIBUTING.md`](../../CONTRIBUTING.md)
