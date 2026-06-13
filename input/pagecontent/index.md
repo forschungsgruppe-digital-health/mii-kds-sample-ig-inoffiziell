@@ -38,6 +38,7 @@ Implementierende sowie Behörden.
 - [Bezüge zu anderen Modulen](context.html)
 - [Referenzen](references.html)
 - [Artefakte](artifacts.html), [Downloads](downloads.html), [Release Notes](changes.html)
+- [Hinweise zur Mehrsprachigkeit](translationinfo.html)
 
 ### Ansprechpartner und Autoren
 

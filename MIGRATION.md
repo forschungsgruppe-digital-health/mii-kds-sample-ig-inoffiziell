@@ -113,7 +113,10 @@ Fakten, Deutsch als Standard. Erst nach Freigabe erfolgt der Merge.
 ## 11. Anwendung auf ein bestehendes Modul-Repo (isolierter Branch & Pages)
 Additiv und rückbaubar, **ohne** `dev`/`master`/`main` zu verändern:
 - [ ] Branch `hl7-ig-build` vom Default-Branch anlegen (wird nie dorthin gemergt).
-- [ ] Template-Dateien + **reale** Modul-FSH in den Branch übernehmen; Vorlagen-Beispiele löschen.
+- [ ] Template-Dateien gemäß der präzisen Übernehmen-/Nicht-übernehmen-Liste
+  (`skills/mii-ig-migration/references/migration-agent-spec.md` §5a.2) + **reale**
+  Modul-FSH in den Branch übernehmen; Vorlagen-Beispiele löschen. Modul-`README`,
+  Modul-CI, kuratierte `ignoreWarnings.txt`/`qc/` **nicht** überschreiben.
 - [ ] GitHub Pages auf **Source = GitHub Actions** stellen; Pages-Workflow auf den Branch `hl7-ig-build` beschränken (Branch-Filter).
 - [ ] Gerenderten IG (Pages-URL) im Modul-README/Wiki verlinken.
 - [ ] Feature-Branches per PR **in `hl7-ig-build`** mergen (nie in den Default-Branch).

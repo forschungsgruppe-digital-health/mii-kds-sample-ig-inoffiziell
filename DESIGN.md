@@ -46,8 +46,10 @@ Einheitliche, an die jeweilige Kategorie angepasste Schreibweise:
   (`CODE_OF_CONDUCT.md`, `ISSUE_TEMPLATE`, `PULL_REQUEST_TEMPLATE.md`), die Underscores
   verwenden. **Keine** Mischung mit Bindestrichen auf dieser Ebene.
 - **IG-Seiteninhalte** (`input/pagecontent/`) und **Assets** (`input/images/`):
-  **lowercase-kebab-case** — `use-cases.md`, `data-sets.md`, `security-privacy.md`,
-  `mii-logo-PLATZHALTER.svg`. Begründung: stabile, kleingeschriebene URL-/Dateipfade.
+  **lowercase-kebab-case** — `use-cases.md`, `data-sets.md`, `security-privacy.md`.
+  Begründung: stabile, kleingeschriebene URL-/Dateipfade. **Bewusste Ausnahme:**
+  `mii-logo-PLATZHALTER.svg` — das großgeschriebene `PLATZHALTER` ist ein
+  Warnsignal und entfällt mit dem Einbau des offiziellen Logos (§1).
 - **FSH-Quelldateien** (`input/fsh/`): kebab-case nach Artefaktgruppe (`profile.fsh`,
   `valueset.fsh` …).
 - **FHIR-Artefakt-Bezeichner** (in den FSH-Dateien, nicht Dateinamen): `name` =

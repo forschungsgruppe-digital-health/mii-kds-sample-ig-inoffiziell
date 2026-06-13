@@ -59,10 +59,21 @@ for wf in glob.glob(".github/workflows/*.yml"):
         used.add((m.group(1), m.group(2)))
 for action, ref in sorted(used):
     if "/" not in action: continue
+    # Branch-Refs (master/main etc.) sind kein Versionsvergleich — sonst entsteht
+    # bei jedem Lauf ein garantiertes False-Positive-Issue.
+    if not re.match(r'^v?\d', ref):
+        lines.append(f"- `{action}`: genutzt `{ref}` (Branch-Ref, kein Versionsvergleich)")
+        continue
     owner_repo = "/".join(action.split("/")[:2])
     try:
         tag = get_json(f"https://api.github.com/repos/{owner_repo}/releases/latest", gh=True).get("tag_name", "?")
-        flag = "  ⬆️ **Update**" if tag not in ("?", ref) and tag.lstrip("v") != ref.lstrip("v") else ""
+        cur_v, new_v = ref.lstrip("v"), tag.lstrip("v")
+        if re.fullmatch(r'\d+', cur_v):
+            # Major-gepinnt (z. B. v4): nur Major-Komponente vergleichen
+            newer = tag != "?" and new_v.split(".")[0] != cur_v
+        else:
+            newer = tag != "?" and new_v != cur_v
+        flag = "  ⬆️ **Update**" if newer else ""
         if flag: updates += 1
         lines.append(f"- `{action}`: genutzt `{ref}` → neueste `{tag}`{flag}")
     except Exception as e:

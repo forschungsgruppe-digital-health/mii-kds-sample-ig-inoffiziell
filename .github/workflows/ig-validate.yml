@@ -3,8 +3,13 @@ name: Validate IG
 on:
   pull_request:
   push:
-    branches: [ "**" ]
+    # Default-Branch + isolierter Migrations-Branch (Spec §5a); PR-Validierung
+    # übernimmt der pull_request-Trigger — "**" erzeugte Doppel-Builds je PR-Commit.
+    branches: [ "main", "hl7-ig-build" ]
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build:

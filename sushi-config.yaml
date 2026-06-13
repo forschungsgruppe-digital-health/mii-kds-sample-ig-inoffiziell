@@ -43,15 +43,16 @@ parameters:
   # --- HL7-Best-Practice-Parameter (international) ---
   autoload-resources: "true"
   # --- Terminologie (bei Bindung an SNOMED CT/LOINC aktivieren; Policy: Meta-Wiki „Terminology Version Policy") ---
-  # SNOMED CT je CalVer auf datierte INTERNATIONAL-Version pinnen (v2026.* -> 20250701):
-  # - code: system-version
-  #   value: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250701
-  # - code: system-version
-  #   value: http://loinc.org|2.78   # LOINC-Version projektspezifisch
+  # Versions-Pinning erfolgt über Expansion-Parameter (NICHT als IG-Parameter):
+  # path-expansion-params: input/expansion-params.json
+  # Beispiel input/expansion-params.json (Parameters-Ressource) — SNOMED je CalVer
+  # auf datierte INTERNATIONAL-Version pinnen (v2026.* -> 20250701):
+  #   {"resourceType": "Parameters", "parameter": [
+  #     {"name": "system-version", "valueUri": "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250701"},
+  #     {"name": "system-version", "valueUri": "http://loinc.org|2.78"}]}
   shownav: "true"
   # --- Optional ---
   # special-url: ...                 # zusätzliche erlaubte Canonical-Domains
-  # suppressed-ig-version: ...        # falls Versionshinweise unterdrückt werden sollen
 
 # --- Narrative Seiten (deutsch) ---
 pages:
@@ -92,3 +93,4 @@ menu:
   Artefakte: artifacts.html
   Downloads: downloads.html
   Versionierung: changes.html
+  Mehrsprachigkeit: translationinfo.html

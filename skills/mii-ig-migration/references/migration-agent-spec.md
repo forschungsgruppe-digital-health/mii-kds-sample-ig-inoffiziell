@@ -58,6 +58,14 @@ nicht neu erfunden; der Mensch liefert/bestätigt v. a. die **Zielversion**.
    Conformance-Ressourcen werden **nicht** verändert.
 2. **Sprachführung:** Deutsch ist Quell-/Default-Sprache (`i18n-default-lang: de`);
    Englisch optional. FHIR-Artefakt-Bezeichner bleiben englisch.
+   In `sushi-config.yaml` `language: de` setzen (nicht `de-DE`), passend zur
+   i18n-Mechanik. Hinweis: Setzt das Quell-FSH auf Ressourcen explizit
+   `^language = #de-DE`, meldet der IG Publisher pro betroffener Ressource eine
+   Sprach-Mismatch-Warnung (Ressource `de-DE` vs. XHTML `de`). Diese ist
+   kosmetisch (BCP 47: `de-DE` ist Subtag von `de`) und durch das i18n-Feature
+   bedingt — sie wird **mit Begründungskommentar** in
+   `input/ignoreWarnings.txt` des Moduls ergänzt (FSH bleibt unverändert,
+   Guardrail 1).
 3. **FHIR-Version:** R4 (4.0.1).
 4. **Keine Fakten-Erfindung:** Jedes migrierte Artefakt und jeder Narrativ-Abschnitt
    wird auf eine Quellstelle (URL/Repo-Pfad) zurückgeführt; Unklarheiten werden

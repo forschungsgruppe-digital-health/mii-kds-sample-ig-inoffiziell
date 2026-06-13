@@ -31,3 +31,6 @@ msgstr "Versioning"
 
 msgid "Sicherheit & Datenschutz"
 msgstr "Security & Privacy"
+
+msgid "Mehrsprachigkeit"
+msgstr "Multilingual Notes"

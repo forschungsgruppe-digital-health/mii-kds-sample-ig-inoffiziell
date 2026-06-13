@@ -24,7 +24,7 @@ IG-Publisher-/GitHub-Pages-Format dieses Repos überführt werden soll.
   Publisher. Felder, Beispiele und Zielorte: `references/migration-agent-spec.md` §2.1.
 
 ## Ablauf (Kurzform)
-1. Inventarisierung der Quelle → `migration-report` 2. Skelett aus der Vorlage
+1. Inventarisierung der Quelle → `source-inventory` 2. Skelett aus der Vorlage
 3. Artefakte übernehmen (ggf. `gofsh`), IDs/URLs unverändert 4. Narrative gemäß
 Crosswalk migrieren (Pflichtabschnitte ergänzen) 5. Mehrsprachigkeit (`.po`,
 deutsch führend) 6. Build & QA (`sushi`, IG Publisher, `Errors: 0`) 7. Bericht

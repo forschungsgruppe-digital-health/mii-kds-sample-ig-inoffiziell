@@ -69,10 +69,27 @@ zum Nachschlagen):
 ./_genonce.sh           # SUSHI + Build  ->  output/index.html, output/qa.html
 ```
 
-Voraussetzungen: Java 17+, Node 20+, `npm i -g fsh-sushi`.
+Voraussetzungen: Java 17+, Node 20+, `npm i -g fsh-sushi`, Ruby + [Jekyll](https://jekyllrb.com/docs/installation/)
+(HTML-Build des IG Publishers; `_genonce.*` prüft dies im Preflight).
 
 **Schnellstes Setup:** Repo in VS Code öffnen → „Reopen in Container" (Devcontainer
-richtet Java, Node, SUSHI und IG Publisher automatisch ein).
+richtet Java, Node, SUSHI und die IG-Publisher-Abhängigkeiten automatisch ein).
+Die `publisher.jar` selbst wird beim ersten `./_genonce.sh`-Lauf bzw. via
+`./_updatePublisher.sh` geladen.
+
+### CI/CD-Setup (für instanziierte Repos)
+
+`main.yml` (MII-Reusable-Workflows) benötigt folgende **Repository-Secrets** und
+**-Variablen** — ohne sie scheitern DOTNET-Validation, JAVA-Validation bzw.
+Zulip-Notify:
+
+| Typ | Name | Zweck |
+|-----|------|-------|
+| Secret | `SIMPLIFIER_USERNAME`, `SIMPLIFIER_PASSWORD` | DOTNET-/Firely-QC gegen Simplifier |
+| Secret | `ZULIP_API_KEY` | Release-Benachrichtigung (Job `NOTIFY_ZULIP`) |
+| Variable | `SUSHI_VERSION` | SUSHI-Pin der CI |
+| Variable | `JAVA_VALIDATION_OPTIONS`, `JAVA_VALIDATOR_VERSION` | JAVA-Validation-Parameter |
+| Variable | `ENABLE_UPDATE_CHECK` | `false` deaktiviert den monatlichen Update-Check |
 
 ## Struktur
 

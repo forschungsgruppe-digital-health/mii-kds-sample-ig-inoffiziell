@@ -34,6 +34,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TITLE="🔄 Abhängigkeits-Updates verfügbar"
+          # Label idempotent anlegen — in frisch instanziierten Repos existiert es nicht.
+          gh label create dependencies --color 0366d6 --description "Abhängigkeits-Updates" 2>/dev/null || true
           NUM=$(gh issue list --state open --search "in:title $TITLE" --json number --jq '.[0].number' || true)
           if [ -n "$NUM" ] && [ "$NUM" != "null" ]; then
             gh issue comment "$NUM" --body-file update-report.md
