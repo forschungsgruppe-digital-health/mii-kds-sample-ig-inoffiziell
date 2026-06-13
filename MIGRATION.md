@@ -6,6 +6,27 @@ in das **IG-Publisher-basierte** Zielformat. Zwei Wege: **(A) manuell** und
 
 Sprache: **Deutsch ist Standard/verbindlich**, Englisch optional.
 
+## Schnellstart & Wegwahl
+
+**Was wird migriert?** Ein bestehendes MII-KDS-Modul — bestehend aus einem
+**gerenderten Simplifier-IG** und einem **Quell-Repo mit FSH** (Profile,
+Extensions, ValueSets, CodeSystems, Logical Model, CapabilityStatement, Beispiele)
+sowie den **Manteldokument-Narrativen** — wird in das **IG-Publisher-Format dieses
+Repos** überführt. **Ergebnis:** ein lokal/CI baubarer HL7-FHIR-IG (statisches
+HTML, `output/index.html`) mit denselben Artefakten + deutschen Narrativen.
+
+**Dieses Repo IST die Zielvorlage.** Du arbeitest entweder (1) in einem **frischen
+Klon** dieses Repos als neuem Modul-IG, oder (2) bringst die Vorlage in einen
+**isolierten Branch `hl7-ig-build`** eines **bestehenden Modul-Repos** ein (→ §11).
+
+**Welcher Weg?**
+- **KI-gestützt** (empfohlen für strukturgleiche Module mit großem Artefaktbestand)
+  → **Teil B (§4)** — dort kopierfertiger Prompt + Befehlsfolge.
+- **Manuell** (kleine Module, viele neue fachliche Entscheidungen) → **Teil A (§3)**.
+
+Beide Wege haben **identische** Akzeptanzkriterien (§10) und verpflichtende
+Review-Gates (§8); Deutsch bleibt führend; keine eigenständige Veröffentlichung.
+
 ## 1. Voraussetzungen
 - Java 17+, Node 20+
 - Ruby + Jekyll (HTML-Build des IG Publishers; [Installation](https://jekyllrb.com/docs/installation/)) —
@@ -67,11 +88,45 @@ ist, hängt von der Quelle ab:
 
 ## 4. Teil B — KI-gestützte Migration
 Nutzt die herstelleragnostische Spezifikation in [`skills/mii-ig-migration/`](skills/mii-ig-migration/).
-- [ ] **B0 Eingaben:** `SOURCE_RENDERED_IG_URL`, `SOURCE_REPO_URL`, `TARGET_TEMPLATE_REPO`, `MODULE_METADATA`
-  (Modul-`id`/Canonical/CalVer-`version`/Dependencies/Publisher — Felder & Zielorte:
-  [`skills/mii-ig-migration/references/migration-agent-spec.md`](skills/mii-ig-migration/references/migration-agent-spec.md) §2.1).
-- [ ] **B1 Agent instanziieren:** Spezifikation laden; Fähigkeiten gemäß Manifest aktivieren (Web-Abruf, Repo-Read, Datei-IO, Shell, PR).
-- [ ] **B2 Automatisierte Schritte:** Inventarisierung → Skelett → Artefakte (ggf. `gofsh`) → Narrative → optionale Mehrsprachigkeit → Build/QA → `migration-report` → PR. Leitplanken: URL-/ID-Bestandsschutz, Deutsch als Standard, keine Fakten-Erfindung, keine eigenständige Veröffentlichung.
+Voraussetzung: Tools aus §1 installiert; Template-Repo lokal geöffnet (dieses Repo
+ist das Ziel) bzw. Branch `hl7-ig-build` angelegt (§11).
+
+- [ ] **B0 Eingaben festlegen** (vier Werte; Felder & Zielorte: [`migration-agent-spec.md`](skills/mii-ig-migration/references/migration-agent-spec.md) §2.1):
+
+  | Eingabe | Beispiel (Modul Dokument) |
+  |---|---|
+  | `SOURCE_RENDERED_IG_URL` | `https://simplifier.net/guide/mii-ig-dokument-de` |
+  | `SOURCE_REPO_URL` | `https://github.com/medizininformatik-initiative/kerndatensatz-dokument` |
+  | `TARGET_TEMPLATE_REPO` | dieses Repo (lokaler Pfad) |
+  | `MODULE_METADATA` | `id=mii-ig-dokument`, `canonical=https://www.medizininformatik-initiative.de/fhir/ext/modul-dokument`, `version=2026.0.1`, `dependencies=de.basisprofil.r4 1.5.4; …kerndatensatz.meta 2026.0.0; …`, `publisher=Medizininformatik-Initiative` |
+
+- [ ] **B1 Migration starten (Claude Code).** Im Template-Repo `claude` starten und
+  diesen Prompt einfügen (B0-Werte einsetzen). Der Skill `mii-ig-migration` wird
+  durch den Verweis auf die Spezifikation aktiv:
+
+  ```text
+  Migriere das MII-KDS-Modul gemäß skills/mii-ig-migration/references/migration-agent-spec.md.
+  SOURCE_RENDERED_IG_URL=<…>
+  SOURCE_REPO_URL=<…>
+  MODULE_METADATA=<id, canonical, version, dependencies, publisher>
+  Arbeite die Schritte (Spec §5) der Reihe nach ab, protokolliere in
+  .ai-log/migration-report.md und HALTE an jedem Review-Gate (Spec §6) an.
+  Leitplanken: Canonical URLs/IDs nicht ändern (Bestandsschutz); Deutsch führend;
+  Vorlagen-Beispiele vor der Migration löschen; keine Fakten-Erfindung (TODO:REVIEW);
+  NICHT veröffentlichen; ausschließlich im Branch hl7-ig-build arbeiten, PR-Ziel hl7-ig-build.
+  ```
+
+  (Andere tool-fähige Agenten: vollständiges Prompt-Gerüst in [`migration-agent-spec.md`](skills/mii-ig-migration/references/migration-agent-spec.md) Anhang B.)
+
+- [ ] **B2 Was der Agent ausführt** (Schritte → Befehle):
+  1. **Inventarisierung** der Quelle → `.ai-log/source-inventory.json`
+  2. **Skelett:** `ig.ini`/`sushi-config.yaml` mit `MODULE_METADATA`; Vorlagen-Beispiele löschen
+  3. **Artefakte:** FSH übernehmen (nur JSON/XML: `gofsh ./quelle -o input/fsh`); Test: `sushi .`
+  4. **Narrative** gemäß Crosswalk (§6); Simplifier-/FQL-Direktiven via `tools/fql-scan.sh` + [`fql-crosswalk.md`](skills/mii-ig-migration/references/fql-crosswalk.md)
+  5. **Mehrsprachigkeit** (optional, §B5): `tools/ig-translate.sh --scan en`
+  6. **Build & QA:** `./_updatePublisher.sh && ./_genonce.sh` → `output/qa.txt` „Errors: 0"
+  7. **Bericht** `.ai-log/migration-report.md`
+  8. **Pull Request** mit Ziel `hl7-ig-build`
 - [ ] **B3 Übergabe:** Agent stoppt an den Review-Gates (§8); Freigabe/Merge nur durch Menschen.
 - [ ] **B4 Vorlage-Bereinigung (optional, auf Bestätigung):** Nach validierter
   Migration den Skill [`skills/template-sanitize/`](skills/template-sanitize/) aktivieren — er entfernt auf

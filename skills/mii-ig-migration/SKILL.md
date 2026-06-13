@@ -15,6 +15,11 @@ license: CC-BY-4.0
 Wenn ein bestehendes, bisher auf Simplifier publiziertes MII-KDS-Modul in das
 IG-Publisher-/GitHub-Pages-Format dieses Repos überführt werden soll.
 
+## Schnellstart
+Kopierfertiger Start-Prompt + ausgefülltes Eingabe-Beispiel + Befehlsfolge:
+`../../MIGRATION.md` Teil B (§4, B0–B2). Vollständige Schritte/Leitplanken/Gates:
+`references/migration-agent-spec.md` (Anhang B = vendor-neutrales Prompt-Gerüst).
+
 ## Eingaben
 - `SOURCE_RENDERED_IG_URL` — gerenderter Simplifier-IG **[URL]**
 - `SOURCE_REPO_URL` — zugehöriges Quell-GitHub-Repo **[URL]**
