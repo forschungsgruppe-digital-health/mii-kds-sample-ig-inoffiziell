@@ -46,7 +46,7 @@ jobs:
       - uses: actions/checkout@v4
       - id: prep-version
         run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v3
         with:
           name: "${{ steps.prep-version.outputs.version }}"
           draft: true
