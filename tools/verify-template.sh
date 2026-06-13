@@ -192,6 +192,8 @@ chk "Migration: isolierter Branch hl7-ig-build" "grep -q 'hl7-ig-build' skills/m
 chk "Manifest: never_touch_default_branch" "grep -q 'never_touch_default_branch' skills/mii-ig-migration/references/agent-manifest.yaml"
 chk "Skill: wiki-consistency-check" "test -f skills/wiki-consistency-check/SKILL.md"
 chk "Skill: Prüfmatrix" "test -f skills/wiki-consistency-check/references/check-matrix.md"
+chk "Skill: template-sanitize" "test -f skills/template-sanitize/SKILL.md"
+chk "template-sanitize Tool ausführbar" "test -x tools/template-sanitize.sh"
 
 echo "== Kommentarauflösung (zwei Schichten) =="
 chk "COMMENT_RESOLUTION: interne Phase (Governance/NSG)" "grep -q 'Interne Kommentierung' COMMENT_RESOLUTION.md && grep -q 'NSG' COMMENT_RESOLUTION.md"

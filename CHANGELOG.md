@@ -65,6 +65,20 @@ _(in Arbeit — Einträge werden zum Abschluss zusammengeführt)_
   aber in frischen Clones); `DESIGN.md`: Logo-Platzhalter als bewusste
   kebab-case-Ausnahme dokumentiert.
 
+### Added (2026-06-13)
+- Neuer Skill `skills/template-sanitize/` + Tool `tools/template-sanitize.sh`:
+  entfernt nach validierter Migration die reinen Vorlage-/Migrations-Dateien aus
+  einem migrierten Modul-Repo — Dry-Run-Default, `--apply` via `git rm`, nur im
+  Branch `hl7-ig-build`, NEVER-Schutzliste für Modul-Inhalt/Build-Eingang. In
+  `MIGRATION.md` als Schritt A6b (manuell) / B4 (KI-gestützt) verankert, in
+  Migrations-Spec §5a.2 als Alternative bei Komplett-Übernahme referenziert.
+
+### Changed (2026-06-13)
+- Migrations-Spec §5 Schritt 5: Abgrenzung ergänzt — `.po`-Kataloge übersetzen nur
+  Metadaten/Menü, NICHT die Narrative-Seiteninhalte; der `/en/`-Hinweis „There is
+  no translation page available …" ist bei „deutsch führend" erwartet (nicht ein
+  Fehler). `translationinfo.md` um denselben Hinweis ergänzt.
+
 ### Fixed (Folge-Erkenntnis aus Dry-Run #3, 2026-06-13)
 - Migrations-Spec §5 Schritt 5: zwingende `.po`-Benennung `ImplementationGuide-<IG-id>.po`
   (IG-`id`, nicht `packageId`) + msgid==dt. Quelltext dokumentiert. Ohne diese Regel

@@ -112,9 +112,17 @@ nicht neu erfunden; der Mensch liefert/bestätigt v. a. die **Zielversion**.
    umbenennen. **msgid** muss **exakt** dem deutschen Quelltext entsprechen
    (`title`/`publisher`/`description` aus `sushi-config.yaml`), sonst wird die
    Übersetzung **still nicht angewendet**. Menü-Labels (auch Submenü-Einträge)
-   vollständig in `menu.po` übersetzen. → Kriterium: IG baut `/de/` und `/en/`;
-   im `/en/`-Output erscheinen die übersetzten Werte (Stichprobe Titel/Menü);
-   keine fehlenden msgstr für Pflichtfelder (sofern EN gewünscht).
+   vollständig in `menu.po` übersetzen. **Wichtige Abgrenzung:** Diese Kataloge
+   übersetzen nur **Metadaten und Menü** — **nicht** die Inhalte der
+   Narrative-Seiten (`input/pagecontent/*.md`). Ohne übersetzte Seiteninhalte
+   rendert der IG-Publisher die `/en/`-Seiten in Deutsch und blendet den
+   Standard-Hinweis „There is no translation page available …" ein. Das ist bei
+   „deutsch führend, Englisch optional" **erwartet und korrekt**. Eine vollständige
+   EN-Narrative ist ein separater, größerer Schritt (Übersetzung der Seitentexte)
+   und für die KDS-Governance i. d. R. nicht erforderlich. → Kriterium: IG baut
+   `/de/` und `/en/`; im `/en/`-Output erscheinen die übersetzten Metadaten/Menü
+   (Stichprobe Titel/Menü); keine fehlenden msgstr für Pflichtfelder (sofern EN
+   gewünscht).
 6. **Build & QA.** IG Publisher ausführen. → Kriterium: `qa.txt` „Errors: 0";
    alle Beispiele valide.
 7. **Bericht.** Schreibe `.ai-log/migration-report.md` (Mapping-Tabelle, Annahmen,
@@ -145,6 +153,11 @@ main unangetastet** bleiben:
      `DESIGN.md`, `SOURCES.md`, …) — diese gehört zum Template-Repo, nicht in
      ein migriertes Modul.
    - Die **realen FSH-Artefakte** des Moduls (`input/fsh/…`) bleiben unverändert.
+   - **Alternative bei Komplett-Übernahme:** Wurde die Vorlage doch als Ganzes
+     übernommen, statt selektiv, kann der Skill `skills/template-sanitize/` die
+     reinen Vorlage-/Migrations-Dateien nach validierter Migration deterministisch
+     und auf Bestätigung entfernen (Dry-Run-Default; dieselbe Übernehmen-/
+     Nicht-übernehmen-Logik wie hier).
 3. **Bauen via Pages:** GitHub Pages für das Repo auf **Source = GitHub Actions**
    stellen und in `ig-publish-pages.yml` den Branch-Filter von `main` auf
    **`hl7-ig-build`** umstellen, sodass der Workflow **nur auf `hl7-ig-build`**

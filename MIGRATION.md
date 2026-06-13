@@ -30,6 +30,23 @@ ist, hängt von der Quelle ab:
 - [ ] **A4 Mehrsprachigkeit (optional):** Standard ist Deutsch. Für optionales Englisch `.po` unter `input/translations/en` pflegen (msgid = deutsch, msgstr = englisch), inkl. `menu.po`.
 - [ ] **A5 Build & QA:** `./_genonce.sh` (bzw. `.bat`); `output/qa.html`/`qa.txt` → „Errors: 0"; `output/index.html` sichten.
 - [ ] **A6 Benutzerdefinierte Seiten:** §7 anwenden (Review-Gate).
+- [ ] **A6b Vorlage-Bereinigung (nach validierter Migration):** Reine Vorlage-/
+  Migrations-Dateien entfernen, sofern die Vorlage als Ganzes übernommen wurde.
+  **Erst nach** grünem Build/QA (A5) und bestätigten Narrativen (A6). Liste:
+  - **Immer entfernen:** `MIGRATION.md`, `DESIGN.md`, `ROLES.md`, `SOURCES.md`,
+    `AI_USAGE.md`, `skills/`, `tools/verify-template.sh`, `.ai-log/`,
+    `input/images/mii-logo-PLATZHALTER.svg`.
+  - **Abwägen (behalten oder entfernen):** Governance-/Community-Doku
+    (`CONTRIBUTING.md`, `COMMENT_RESOLUTION.md`, `PUBLISHING.md`,
+    `NOTIFICATIONS.md`, `TERMINOLOGY.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`,
+    `NOTICE`, `CHANGELOG.md`), `AGENTS.md`/`CLAUDE.md` + Skill-Symlinks
+    (`.claude/`, `.agents/`), `.devcontainer/`, `.vscode/`, `advisor.json`,
+    `tools/check-updates.py`.
+  - **Niemals entfernen:** `input/fsh`, `input/pagecontent`, `input/translations`,
+    `input/ignoreWarnings.txt`, `input/includes`, `sushi-config.yaml`, `ig.ini`,
+    `package.json`, `publication-request.json`, `qc/`, `.gitignore`, `LICENSE`.
+  - Anschließend verbleibende Verweise auf entfernte Dateien (README/AGENTS/
+    Workflows) bereinigen und Build erneut grün stellen.
 - [ ] **A7 PR & Review:** Branch pushen, Pull Request öffnen; Review-Gates (§8) durchlaufen.
 
 ## 4. Teil B — KI-gestützte Migration
@@ -40,6 +57,10 @@ Nutzt die herstelleragnostische Spezifikation in `skills/mii-ig-migration/`.
 - [ ] **B1 Agent instanziieren:** Spezifikation laden; Fähigkeiten gemäß Manifest aktivieren (Web-Abruf, Repo-Read, Datei-IO, Shell, PR).
 - [ ] **B2 Automatisierte Schritte:** Inventarisierung → Skelett → Artefakte (ggf. `gofsh`) → Narrative → optionale Mehrsprachigkeit → Build/QA → `migration-report` → PR. Leitplanken: URL-/ID-Bestandsschutz, Deutsch als Standard, keine Fakten-Erfindung, keine eigenständige Veröffentlichung.
 - [ ] **B3 Übergabe:** Agent stoppt an den Review-Gates (§8); Freigabe/Merge nur durch Menschen.
+- [ ] **B4 Vorlage-Bereinigung (optional, auf Bestätigung):** Nach validierter
+  Migration den Skill `skills/template-sanitize/` aktivieren — er entfernt auf
+  ausdrückliche Nutzerbestätigung die reinen Vorlage-/Migrations-Dateien
+  (Pendant zu A6b) via `tools/template-sanitize.sh` (Dry-Run-Default, `--apply`).
 
 ## 5. Wahl des Weges
 - **Manuell:** kleine Module, viele neue fachliche Entscheidungen oder fehlende Agenten-Infrastruktur.

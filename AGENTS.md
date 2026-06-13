@@ -24,6 +24,8 @@ sushi .            # FSH -> FHIR (muss fehlerfrei sein)
 ## Skills (Agent-Skills-Open-Standard)
 - `skills/mii-ig-migration/` — Migration Simplifier-IG → HL7 FHIR IG.
 - `skills/wiki-consistency-check/` — Repo gegen MII-Meta-Wiki auf Konsistenz prüfen.
+- `skills/template-sanitize/` — nach validierter Migration die reinen Vorlage-/
+  Migrations-Dateien entfernen (auf Bestätigung, Dry-Run-Default).
 - Vendor-Zugriff über Symlinks: Claude Code `.claude/skills/`, Codex/Standard
   `.agents/skills/` — beide zeigen auf `skills/`.
 
