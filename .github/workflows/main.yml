@@ -43,7 +43,7 @@ jobs:
     permissions:
       contents: write   # softprops/action-gh-release benötigt Schreibrecht für Releases
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - id: prep-version
         run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
       - uses: softprops/action-gh-release@v2
