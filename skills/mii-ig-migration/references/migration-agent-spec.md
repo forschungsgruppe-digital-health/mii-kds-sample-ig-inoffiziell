@@ -105,9 +105,16 @@ nicht neu erfunden; der Mensch liefert/bestätigt v. a. die **Zielversion**.
    `input/pagecontent/*.md` (deutsch). Ergänze fehlende Pflichtabschnitte.
    → Kriterium: alle Pflichtseiten vorhanden, keine leeren Pflichtabschnitte.
 5. **Mehrsprachigkeit.** Lege/aktualisiere `.po`-Kataloge unter
-   `input/translations/en` (msgid=de, msgstr=en), inkl. Menü. → Kriterium:
-   IG baut `/de/` und `/en/`; keine fehlenden msgstr für Pflichtfelder (sofern
-   EN gewünscht).
+   `input/translations/en` (msgid=de, msgstr=en), inkl. Menü. **Benennung
+   zwingend:** der IG-Katalog heißt `ImplementationGuide-<IG-id>.po`, wobei
+   `<IG-id>` der `id` aus `sushi-config.yaml` ist (**nicht** die Package-/
+   `packageId`!) — bei Übernahme aus der Vorlage die Datei entsprechend
+   umbenennen. **msgid** muss **exakt** dem deutschen Quelltext entsprechen
+   (`title`/`publisher`/`description` aus `sushi-config.yaml`), sonst wird die
+   Übersetzung **still nicht angewendet**. Menü-Labels (auch Submenü-Einträge)
+   vollständig in `menu.po` übersetzen. → Kriterium: IG baut `/de/` und `/en/`;
+   im `/en/`-Output erscheinen die übersetzten Werte (Stichprobe Titel/Menü);
+   keine fehlenden msgstr für Pflichtfelder (sofern EN gewünscht).
 6. **Build & QA.** IG Publisher ausführen. → Kriterium: `qa.txt` „Errors: 0";
    alle Beispiele valide.
 7. **Bericht.** Schreibe `.ai-log/migration-report.md` (Mapping-Tabelle, Annahmen,

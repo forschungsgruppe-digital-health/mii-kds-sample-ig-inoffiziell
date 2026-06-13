@@ -65,6 +65,12 @@ _(in Arbeit — Einträge werden zum Abschluss zusammengeführt)_
   aber in frischen Clones); `DESIGN.md`: Logo-Platzhalter als bewusste
   kebab-case-Ausnahme dokumentiert.
 
+### Fixed (Folge-Erkenntnis aus Dry-Run #3, 2026-06-13)
+- Migrations-Spec §5 Schritt 5: zwingende `.po`-Benennung `ImplementationGuide-<IG-id>.po`
+  (IG-`id`, nicht `packageId`) + msgid==dt. Quelltext dokumentiert. Ohne diese Regel
+  wird die EN-Übersetzung still nie angewendet (in Dry-Run #1/#2 unbemerkt; erst
+  Dry-Run #3 mit korrektem Dateinamen rendert den EN-Titel).
+
 ### Fixed (Re-Audit nach Dry-Run #3, 2026-06-13)
 - `input/translations/en/menu.po`: fehlendes Submenü-Label `Szenarien` ergänzt
   (blieb sonst im EN-Output unübersetzt; alle anderen 12 Labels waren abgedeckt).
