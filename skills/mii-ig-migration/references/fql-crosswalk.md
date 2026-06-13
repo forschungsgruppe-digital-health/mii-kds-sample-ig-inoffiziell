@@ -38,7 +38,22 @@ StructureDefinition u. a.: `snapshot`, `diff`, `dict`, `snapshot-by-mustsupport`
 `bindings`, `obligations`, `inv`, `search-params`, `maps`, `xml`, `json-html`
 (vom Publisher unter `_includes/` generiert; per `{% include %}` einbindbar).
 
+## ⚠️ Build-Leitplanke: kein Liquid in `pagecontent`-Kommentaren
+Der IG Publisher rendert `pagecontent`-Seiten über Jekyll/Liquid. **Liquid wertet
+`{% … %}`- und `{{ … }}`-Konstrukte überall aus — auch in `<!-- … -->`-Kommentaren.**
+- Ein ungültiges `{% … %}` (z. B. ein als Beispiel notiertes `{% include … %}`)
+  **bricht den Build hart ab** (verifiziert im Person-Dry-Run).
+- Ein `{{ … }}` mit unbekanntem Inhalt wird still zu Leerstring (kein Abbruch),
+  leckt aber in das HTML.
+Daher: In `pagecontent` (inkl. Provenienz-/TODO-Kommentaren) **keine** Liquid- oder
+Simplifier-Direktiv-Literale notieren — Mechanismen in Prosa beschreiben. Der
+echte `{% include %}` steht außerhalb von Kommentaren.
+
 ## Kontextbezogene Anzeige (FQL-Querytabellen-Ersatz)
+> Verifiziert im Person-Dry-Run: `{% include StructureDefinition-mii-lm-person-dict.xhtml %}`
+> rendert das Element-Wörterbuch (Pfad + Beschreibung) inline — funktionsfähiger
+> Ersatz der FQL-Elementtabelle. Das HL7-Basis-Template nutzt dieselben Fragmente
+> in seinen Layouts.
 - **Element-/Datensatztabelle** (FQL `for differential.element select id, short`)
   → `{% include <Typ>-<id>-dict.xhtml %}` (Element-Wörterbuch mit Definitionen)
   oder eine statische Markdown-Tabelle.
