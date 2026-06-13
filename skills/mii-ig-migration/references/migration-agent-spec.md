@@ -103,7 +103,14 @@ nicht neu erfunden; der Mensch liefert/bestätigt v. a. die **Zielversion**.
    SUSHI-Build erzeugt alle Artefakte; Diff der Canonical URLs = leer.
 4. **Narrative migrieren (Crosswalk).** Überführe Manteldokument-Inhalte in
    `input/pagecontent/*.md` (deutsch). Ergänze fehlende Pflichtabschnitte.
-   → Kriterium: alle Pflichtseiten vorhanden, keine leeren Pflichtabschnitte.
+   **Simplifier-/FQL-Direktiven** (`{{render}}`, `{{pagelink}}`, `{{tree}}`,
+   `<fql>`, ``@``` ``, `<tabs>` …) gemäß `references/fql-crosswalk.md` in
+   IG-Publisher-Äquivalente überführen (Artefakt-Links, `{% include %}`-Fragmente,
+   lokale Bilder). Vorgehen: `tools/fql-scan.sh` ausführen → je Fund die Empfehlung
+   anwenden; mehrdeutige Fälle mit fachlichem Urteil, im Zweifel `TODO:REVIEW`
+   (Guardrail 4). Maßgebliche, **erweiterbare** Regeln: `references/fql-rules.tsv`.
+   → Kriterium: alle Pflichtseiten vorhanden, keine leeren Pflichtabschnitte;
+   `fql-scan` meldet keine `[UNBEKANNT]` und keine ungewollt verbliebenen Direktiven.
 5. **Mehrsprachigkeit (optional, Deutsch führend).** Verifizierte Mechanik des IG
    Publishers (2.2.x) — Details/Skill: `skills/ig-translate/`:
    - **Ressourcen-Texte (rendern):** je StructureDefinition/CodeSystem/Questionnaire

@@ -26,7 +26,7 @@ ist, hängt von der Quelle ab:
 - [ ] **A1 Skelett:** dieses Repo klonen; `ig.ini` und `sushi-config.yaml` anpassen (id, canonical, version, title, dependencies, Menü).
 - [ ] **A1b Vorlagen-Beispiele löschen:** `input/fsh/examples.fsh` und alle Beispiel-Instanzen der Vorlage **händisch entfernen** (nicht übernehmen), um Konflikte mit den realen Modul-Beispielen zu vermeiden.
 - [ ] **A2 Artefakte:** FSH aus dem Quell-Repo nach `input/fsh/` übernehmen; falls nur JSON/XML: `gofsh ./quelle -o input/fsh`. IDs/URLs unverändert lassen; MII-Namenskonvention beibehalten (maßgeblich: [`qc/custom.rules.yaml`](qc/custom.rules.yaml) + [Meta-Wiki](https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki)).
-- [ ] **A3 Narrative:** Manteldokument-Inhalte gemäß Crosswalk (§6) nach `input/pagecontent/*.md` (deutsch) überführen; `context.md`, `references.md`, `use-cases.md` befüllen; Model-to-Profile-Mapping in `data-sets.md` pflegen.
+- [ ] **A3 Narrative:** Manteldokument-Inhalte gemäß Crosswalk (§6) nach `input/pagecontent/*.md` (deutsch) überführen; `context.md`, `references.md`, `use-cases.md` befüllen; Model-to-Profile-Mapping in `data-sets.md` pflegen. **Simplifier-/FQL-Direktiven** (`{{render}}`, `{{pagelink}}`, `{{tree}}`, `<fql>` …) gemäß [`skills/mii-ig-migration/references/fql-crosswalk.md`](skills/mii-ig-migration/references/fql-crosswalk.md) ersetzen; Fundstellen finden mit [`tools/fql-scan.sh`](tools/fql-scan.sh). Regeln sind in [`fql-rules.tsv`](skills/mii-ig-migration/references/fql-rules.tsv) **per Hand erweiterbar**.
 - [ ] **A4 Mehrsprachigkeit (optional):** Standard ist Deutsch. Für optionales
   Englisch (verifizierte Mechanik, IG Publisher 2.2.x):
   - **Ressourcen-Texte (rendern heute):** je StructureDefinition/CodeSystem/

@@ -173,6 +173,9 @@ skills/ig-translate/            Skill: IG ins Englische übersetzen (translate/h
 tools/verify-template.sh        Strukturelle Selbstprüfung der Vorlage (Modus --migrated)
 tools/template-sanitize.sh      Werkzeug zum Entfernen der Vorlage-/Migrations-Dateien
 tools/ig-translate.sh           Übersetzungs-Werkzeug (scan/validate)
+tools/fql-scan.sh               Findet Simplifier-/FQL-Direktiven in Narrativen + Mapping-Empfehlung
+skills/mii-ig-migration/references/fql-crosswalk.md   FQL -> IG-Publisher-Mapping (Doku)
+skills/mii-ig-migration/references/fql-rules.tsv      FQL-Mapping-Regeln (erweiterbar; SSOT für fql-scan)
 ```
 
 > Grenzfälle (z. B. `AGENTS.md`/`CLAUDE.md`, `.devcontainer/`, `tools/check-updates.py`):
