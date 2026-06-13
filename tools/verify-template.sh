@@ -33,7 +33,8 @@ echo "== Sprache: deutsch fuehrend (Governance §4.4) =="
 chk "i18n-default-lang: de" "grep -q 'i18n-default-lang: de' sushi-config.yaml"
 chk "i18n-lang enthaelt en" "grep -A2 'i18n-lang:' sushi-config.yaml | grep -q '\- en'"
 chk "translation-sources en" "grep -q 'input/translations/en' sushi-config.yaml"
-chk "EN .po vorhanden" "ls input/translations/en/*.po >/dev/null 2>&1"
+chk "EN-Supplement (unterstützter Typ) vorhanden" "ls input/translations/en/ 2>/dev/null | grep -qE '^(StructureDefinition|CodeSystem|Questionnaire)-.+\.po$'"
+chk "keine ignorierten .po (IG/menu)" "! ls input/translations/en/ 2>/dev/null | grep -qE '^(ImplementationGuide-.+\.po|menu\.po)$'"
 
 echo "== Manteldokument-Pflichtseiten =="
 for f in index use-cases data-sets uml conformance context references changes downloads translationinfo; do

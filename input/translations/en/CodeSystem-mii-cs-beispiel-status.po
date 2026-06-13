@@ -1,0 +1,16 @@
+# EN-Übersetzungs-Supplement (BEISPIEL einer FUNKTIONIERENDEN Übersetzung).
+# Schema: input/translations/en/<ResourceType>-<id>.po  (nur StructureDefinition,
+# CodeSystem, Questionnaire werden vom IG Publisher unterstützt; ValueSet/IG/Menü
+# NICHT). msgid = exakter deutscher Quelltext aus
+# fsh-generated/resources/CodeSystem-mii-cs-beispiel-status.json.
+#: CodeSystem.description
+msgid "Beispiel-CodeSystem fuer den Status eines Datensatzes."
+msgstr "Example CodeSystem for the status of a record."
+
+#: CodeSystem.concept[0].display
+msgid "Aktiv"
+msgstr "Active"
+
+#: CodeSystem.concept[1].display
+msgid "Inaktiv"
+msgstr "Inactive"

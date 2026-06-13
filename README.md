@@ -161,9 +161,12 @@ NOTICE                          Herkunft, Marken-/Namensklarstellung, Drittkompo
 ## Mehrsprachigkeit
 
 Konfiguration in `sushi-config.yaml`: `i18n-default-lang: de`, `i18n-lang: [en]`,
-`translation-sources: input/translations/en`. Übersetzungen als gettext-`.po`
-(msgid = deutscher Quelltext, msgstr = englische Übersetzung). Navigationslabels
-werden über `menu.po` mitübersetzt.
+`translation-sources: input/translations/en`. Übersetzbar (rendert) sind die Texte
+von **StructureDefinition/CodeSystem/Questionnaire** über Translation-Supplements
+`input/translations/en/<Typ>-<id>.po` (msgid = dt. Quelltext, msgstr = englisch).
+**Nicht** unterstützt: ValueSet, ImplementationGuide-Titel und Menü (bleiben
+deutsch). Narrative-Seiten (`*-en.md`) werden vom Publisher noch nicht gerendert.
+Übersetzung halbautomatisch via Skill `skills/ig-translate/`.
 
 ## Dateinamen-Konventionen
 

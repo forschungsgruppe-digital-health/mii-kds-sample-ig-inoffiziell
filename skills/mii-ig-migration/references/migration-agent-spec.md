@@ -104,25 +104,24 @@ nicht neu erfunden; der Mensch liefert/bestätigt v. a. die **Zielversion**.
 4. **Narrative migrieren (Crosswalk).** Überführe Manteldokument-Inhalte in
    `input/pagecontent/*.md` (deutsch). Ergänze fehlende Pflichtabschnitte.
    → Kriterium: alle Pflichtseiten vorhanden, keine leeren Pflichtabschnitte.
-5. **Mehrsprachigkeit.** Lege/aktualisiere `.po`-Kataloge unter
-   `input/translations/en` (msgid=de, msgstr=en), inkl. Menü. **Benennung
-   zwingend:** der IG-Katalog heißt `ImplementationGuide-<IG-id>.po`, wobei
-   `<IG-id>` der `id` aus `sushi-config.yaml` ist (**nicht** die Package-/
-   `packageId`!) — bei Übernahme aus der Vorlage die Datei entsprechend
-   umbenennen. **msgid** muss **exakt** dem deutschen Quelltext entsprechen
-   (`title`/`publisher`/`description` aus `sushi-config.yaml`), sonst wird die
-   Übersetzung **still nicht angewendet**. Menü-Labels (auch Submenü-Einträge)
-   vollständig in `menu.po` übersetzen. **Wichtige Abgrenzung:** Diese Kataloge
-   übersetzen nur **Metadaten und Menü** — **nicht** die Inhalte der
-   Narrative-Seiten (`input/pagecontent/*.md`). Ohne übersetzte Seiteninhalte
-   rendert der IG-Publisher die `/en/`-Seiten in Deutsch und blendet den
-   Standard-Hinweis „There is no translation page available …" ein. Das ist bei
-   „deutsch führend, Englisch optional" **erwartet und korrekt**. Eine vollständige
-   EN-Narrative ist ein separater, größerer Schritt (Übersetzung der Seitentexte)
-   und für die KDS-Governance i. d. R. nicht erforderlich. → Kriterium: IG baut
-   `/de/` und `/en/`; im `/en/`-Output erscheinen die übersetzten Metadaten/Menü
-   (Stichprobe Titel/Menü); keine fehlenden msgstr für Pflichtfelder (sofern EN
-   gewünscht).
+5. **Mehrsprachigkeit (optional, Deutsch führend).** Verifizierte Mechanik des IG
+   Publishers (2.2.x) — Details/Skill: `skills/ig-translate/`:
+   - **Ressourcen-Texte (rendern):** je StructureDefinition/CodeSystem/Questionnaire
+     ein Translation-Supplement `input/translations/<lang>/<ResourceType>-<id>.po`
+     (`msgid` = exakter dt. Quelltext aus `fsh-generated/resources/<Typ>-<id>.json`,
+     `msgstr` = englisch). Nur diese drei Typen sind unterstützt
+     (`TRANSLATION_SUPPLEMENT_RESOURCE_TYPES`).
+   - **Nicht unterstützt:** **ValueSet**, **ImplementationGuide**-Titel/-Beschreibung
+     und **Menü** — entsprechende `.po` (`ImplementationGuide-*.po`, `menu.po`)
+     werden vom Publisher **ignoriert**; nicht anlegen.
+   - **Narrative-Seiten:** Übersetzung als Geschwisterdatei
+     `input/pagecontent/<name>-<lang>.md`. Wird vom aktuellen Publisher/Template
+     **noch nicht** gerendert (HL7 „ToDo"); zukunftssicher anlegen. `/en/`-Seiten
+     zeigen bis dahin Deutsch + Standardhinweis „There is no translation page
+     available …" — bei „deutsch führend, Englisch optional" **erwartet**.
+   → Kriterium: IG baut `/de/` und `/en/`; übersetzte Element-Texte erscheinen auf
+   den `/en/`-Artefaktseiten; keine ignorierten Falsch-`.po` (`tools/ig-translate.sh
+   --validate <lang>`).
 6. **Build & QA.** IG Publisher ausführen. → Kriterium: `qa.txt` „Errors: 0";
    alle Beispiele valide.
 7. **Bericht.** Schreibe `.ai-log/migration-report.md` (Mapping-Tabelle, Annahmen,

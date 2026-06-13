@@ -65,6 +65,18 @@ _(in Arbeit — Einträge werden zum Abschluss zusammengeführt)_
   aber in frischen Clones); `DESIGN.md`: Logo-Platzhalter als bewusste
   kebab-case-Ausnahme dokumentiert.
 
+### Fixed (Korrektur Übersetzungs-Mechanik, 2026-06-13)
+- **Korrektur einer früheren Fehlannahme:** Commit `f2ca4bc` hatte
+  `ImplementationGuide-<IG-id>.po` als „zwingend" und Menü-Übersetzung via
+  `menu.po` dokumentiert — beides ist FALSCH (Publisher ignoriert IG- und
+  Menü-`.po`). `migration-agent-spec.md` §5, `README.md` und `translationinfo.md`
+  auf die verifizierte Mechanik korrigiert (nur SD/CS/Questionnaire-Supplements
+  rendern).
+- Ignorierte `.po` aus dem Template entfernt: `input/translations/en/menu.po` und
+  `ImplementationGuide-example.fhir.kds.sample.po`. Stattdessen funktionierendes
+  Beispiel `CodeSystem-mii-cs-beispiel-status.po`. `verify-template.sh` prüft jetzt
+  auf ein Supplement eines unterstützten Typs und das Fehlen ignorierter `.po`.
+
 ### Added (2026-06-13, Übersetzung)
 - Neuer Skill `skills/ig-translate/` (+ `references/translate-spec.md`,
   `references/harvest-config.yaml`) und Tool `tools/ig-translate.sh` (scan/validate,
