@@ -27,16 +27,27 @@ Die `*-stats.json` sind die maschinenlesbaren Rohdaten (festes Schema) für eige
 
 | Kennzahl | Diagnose | Person |
 |---|---|---|
+| **Enthaltene IG-Ordner** | **5** | **3** |
 | Publizierte Artefakte | 13 | 14 |
-| Plattform-/FQL-Direktiven | 179 | 334 |
+| Plattform-/FQL-Direktiven (über alle Ordner) | 179 | 334 |
+| Doppelte Inhaltsblöcke (davon ordnerübergreifend) | 292 (292) | 135 (119) |
 | Aufwand **manuell** (Band) | 51–83 h (L) | 74–120 h (XL) |
 | Aufwand **KI-gestützt** (Band) | 30–49 h (L) | 41–67 h (L) |
 | Reifegrad | 74/100 | 76/100 |
 | Hersteller-Lock-in | 41/100 | 85/100 |
 
+> **⚠ Zentraler Befund — mehrere IG-Ordner je Repo:** Beide Repos enthalten **mehrere
+> Versions-/Sprachvarianten** als getrennte Ordner unter `implementation-guides/` (Diagnose:
+> 1.x/2024.x/2025 je DE/EN; Person: 2024.x DE/EN + 2025.x DE). Dadurch ist nahezu der gesamte
+> Text **ordnerübergreifend dupliziert** (Diagnose 292, Person 119 Blöcke). **Konsequenz:** Die
+> Aggregat-Kennzahlen (Direktiven, Wörter, **Aufwand**) summieren über **alle** Ordner und sind
+> für die Migration **einer** (der aktuellen) Version deutlich **überzeichnet** — grob im
+> Verhältnis der Ordnerzahl nach unten zu korrigieren. Das ist selbst ein Diskussionspunkt für
+> die Taskforce (Ablage alter Versionen/Sprachvarianten im Repo).
+
 > **Aufwand wird in Zeit gemessen** (Stunden/Personentage/Kalenderzeit) — bewusst **keine
-> Geldgrößen**. Person ist deutlich direktiven-lastiger (334 vs. 179) und liegt daher beim
-> manuellen Aufwand eine Bandstufe höher (XL vs. L).
+> Geldgrößen**. Personentage = 8-h-Arbeitstage menschlicher Arbeit; bei der KI-Variante die
+> **Bedien-/Review-Zeit** (Prompts, Review-Gates, Korrekturen), **nicht** Rechen-/Wartezeit.
 
 ## Wichtige Vorbehalte (bitte beim Lesen beachten)
 

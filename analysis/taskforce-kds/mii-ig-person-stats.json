@@ -6,7 +6,7 @@
     "path": "/tmp/kds/person",
     "label": "MII KDS Person v2025.0.1",
     "git_commit": "122e30f",
-    "timestamp": "2026-06-26T16:44:23Z",
+    "timestamp": "2026-06-26T18:30:09Z",
     "input": "/tmp/kds/person",
     "resolved_from": "lokaler Pfad"
   },
@@ -852,6 +852,7 @@
   },
   "duplication": {
     "duplicate_block_count": 135,
+    "cross_ig_block_count": 119,
     "duplicate_blocks": [
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \" id\" finden sich in der [fhir ba",
@@ -866,7 +867,12 @@
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \" profile\" finden sich in der [fh",
@@ -881,7 +887,12 @@
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.identifier\" finden sich ",
@@ -892,7 +903,12 @@
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "the following searchparameters are relevant for the module person, also in combination:",
@@ -902,7 +918,11 @@
           "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
           "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
           "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-EN"
+        ],
+        "cross_ig": false
       },
       {
         "snippet": "note: additional information regarding the search using \" id\" can be found in [fhir core s",
@@ -912,7 +932,11 @@
           "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
           "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
           "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-EN"
+        ],
+        "cross_ig": false
       },
       {
         "snippet": "note: additional information regarding the search using \" profile\" can be found in [fhir c",
@@ -922,7 +946,11 @@
           "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
           "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
           "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-EN"
+        ],
+        "cross_ig": false
       },
       {
         "snippet": "weitere vorgaben werden durch die profile für die datentypen humanname und address durch d",
@@ -931,7 +959,12 @@
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.gender\" finden sich in d",
@@ -940,7 +973,12 @@
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.gender.extension:other a",
@@ -949,7 +987,12 @@
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.birthdate\" finden sich i",
@@ -958,7 +1001,12 @@
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.address.postalcode\" find",
@@ -967,7 +1015,12 @@
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.address.country\" finden ",
@@ -976,7 +1029,12 @@
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.address.city.extension:g",
@@ -985,7 +1043,12 @@
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \"condition.subject\" finden sich i",
@@ -994,7 +1057,12 @@
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \"observation.subject\" finden sich",
@@ -1003,7 +1071,12 @@
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
           "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025.x-DE"
+        ],
+        "cross_ig": true
       }
     ],
     "duplicate_file_groups": [
@@ -1054,6 +1127,32 @@
     "examples_total": 5,
     "examples_not_in_narrative": [],
     "note": "Heuristik: 'nicht referenziert' = Dateiname/Artefaktname kommt in keiner Erklärseite vor. Kein Beweis für Ungenutztheit (Referenz kann über Konfiguration/Build erfolgen)."
+  },
+  "contained_igs": {
+    "count": 3,
+    "folders": [
+      {
+        "name": "ImplementationGuide-2024.x-DE",
+        "language": "de",
+        "pages": 18,
+        "content_pages": 16,
+        "words": 6142
+      },
+      {
+        "name": "ImplementationGuide-2024.x-EN",
+        "language": "en",
+        "pages": 17,
+        "content_pages": 15,
+        "words": 6401
+      },
+      {
+        "name": "ImplementationGuide-2025.x-DE",
+        "language": "de",
+        "pages": 18,
+        "content_pages": 16,
+        "words": 6646
+      }
+    ]
   },
   "i18n": {
     "default_lang": null,
@@ -3200,6 +3299,7 @@
       "Nur statisch berechenbare Treiber; id/url-Mismatch, QC-Verletzungen und quell-intrinsische Validierungsfehler erfordern einen Build und sind hier nicht enthalten.",
       "Faktoren sind Erfahrungswerte, noch nicht final kalibriert; Spanne = Basis × 0,8…1,3.",
       "pages = Inhalts-Seiten (Stubs/Navigation < 20 Wörter ausgeschlossen).",
+      "Personentage = Aufwand in 8-h-Arbeitstagen (1 PT = 8 Personenstunden); beide Schätzungen messen MENSCHLICHE Arbeitszeit — manuell die Migration von Hand, KI-gestützt die Bedien-/Review-Zeit der KI (Prompts, Review-Gates, Korrekturen), NICHT die Rechen-/Laufzeit oder Wartezeit der KI.",
       "KI-Schätzung: anbieter-/modellunabhängig (Human-in-the-Loop, Review-Gates). Enthält feste Pauschalen für Einarbeitung/Setup (3 h) und Review-Gates (3 h) sowie einen Validierungs-/Iterationsaufschlag (20 %); unbekannte Direktiven werden wie manuell gerechnet. Bewusst konservativ – keine garantierte Einsparung."
     ]
   },

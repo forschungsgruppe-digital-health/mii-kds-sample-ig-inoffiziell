@@ -6,7 +6,7 @@
     "path": "/tmp/kds/diagnose",
     "label": "MII KDS Diagnose v2025.0.1",
     "git_commit": "c2d2ff4",
-    "timestamp": "2026-06-26T16:44:23Z",
+    "timestamp": "2026-06-26T18:30:09Z",
     "input": "/tmp/kds/diagnose",
     "resolved_from": "lokaler Pfad"
   },
@@ -921,6 +921,7 @@
   },
   "duplication": {
     "duplicate_block_count": 292,
+    "cross_ig_block_count": 292,
     "duplicate_blocks": [
       {
         "snippet": "alexander zautke (hl7 deutschland) andrea essenwanger (bih) antje wulff (highmed) caroline",
@@ -929,7 +930,14 @@
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Index.page.md",
           "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Index.guide.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Index.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-EN",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2024.x-EN",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "anwendungshinweise: weitere informationen zur suche nach \"condition.subject\" finden sich i",
@@ -938,7 +946,12 @@
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "zum modul diagnose: in jedem use case der mii spielen diagnosen eine zentrale rolle.",
@@ -946,7 +959,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "difuture: der difuture ansatz ist use case getrieben, wobei use cases mit konkreten krankh",
@@ -954,7 +973,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "highmed: mangels feingranularer diagnosen, die für die versorgung anstelle der abrechnung ",
@@ -962,7 +987,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "miracum: in allen use cases des miracum konsortiums stehen erkrankungen der patientinnen u",
@@ -970,7 +1001,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "smith: im smith use case asic stehen patienten mit acute respiratory distress syndrome (ar",
@@ -978,7 +1015,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "cord mi: im rahmen von cord mi wird die weiterentwicklung der diagnosendokumentation für p",
@@ -986,7 +1029,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "polar mi: im use case polar mi haben diagnosen eine doppelte bedeutung. zum einen sind sie",
@@ -994,7 +1043,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "es ist zu beachten, dass das logical model rein auf die abbildung der datenelemente und de",
@@ -1002,7 +1057,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "die zielsetzung der einrichtungs und konsortienübergreifenden unterstützung und ermöglichu",
@@ -1010,7 +1071,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "aufgrund der mii priorität der sekundärnutzung von real world data des versorgungskontexte",
@@ -1018,7 +1085,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "einen kleinen beitrag zur überwindung der restriktionen versuchen die autoren des moduls d",
@@ -1026,7 +1099,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "das modul sieht folgende merkmale einer diagnose vor, die bereits oder bald zur automatisi",
@@ -1034,7 +1113,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       },
       {
         "snippet": "der mii kerndatensatz soll alle use cases der mi initiative einrichtungs und konsortien üb",
@@ -1042,7 +1127,13 @@
           "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
           "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
           "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md"
-        ]
+        ],
+        "folders": [
+          "ImplementationGuide-1.x-DE",
+          "ImplementationGuide-2024.x-DE",
+          "ImplementationGuide-2025"
+        ],
+        "cross_ig": true
       }
     ],
     "duplicate_file_groups": [
@@ -1120,6 +1211,46 @@
     "examples_total": 4,
     "examples_not_in_narrative": [],
     "note": "Heuristik: 'nicht referenziert' = Dateiname/Artefaktname kommt in keiner Erklärseite vor. Kein Beweis für Ungenutztheit (Referenz kann über Konfiguration/Build erfolgen)."
+  },
+  "contained_igs": {
+    "count": 5,
+    "folders": [
+      {
+        "name": "ImplementationGuide-1.x-DE",
+        "language": "de",
+        "pages": 8,
+        "content_pages": 8,
+        "words": 6580
+      },
+      {
+        "name": "ImplementationGuide-1.x-EN",
+        "language": "en",
+        "pages": 12,
+        "content_pages": 10,
+        "words": 8046
+      },
+      {
+        "name": "ImplementationGuide-2024.x-DE",
+        "language": "de",
+        "pages": 14,
+        "content_pages": 12,
+        "words": 7629
+      },
+      {
+        "name": "ImplementationGuide-2024.x-EN",
+        "language": "en",
+        "pages": 13,
+        "content_pages": 10,
+        "words": 8129
+      },
+      {
+        "name": "ImplementationGuide-2025",
+        "language": "?",
+        "pages": 14,
+        "content_pages": 12,
+        "words": 7807
+      }
+    ]
   },
   "i18n": {
     "default_lang": null,
@@ -2338,6 +2469,7 @@
       "Nur statisch berechenbare Treiber; id/url-Mismatch, QC-Verletzungen und quell-intrinsische Validierungsfehler erfordern einen Build und sind hier nicht enthalten.",
       "Faktoren sind Erfahrungswerte, noch nicht final kalibriert; Spanne = Basis × 0,8…1,3.",
       "pages = Inhalts-Seiten (Stubs/Navigation < 20 Wörter ausgeschlossen).",
+      "Personentage = Aufwand in 8-h-Arbeitstagen (1 PT = 8 Personenstunden); beide Schätzungen messen MENSCHLICHE Arbeitszeit — manuell die Migration von Hand, KI-gestützt die Bedien-/Review-Zeit der KI (Prompts, Review-Gates, Korrekturen), NICHT die Rechen-/Laufzeit oder Wartezeit der KI.",
       "KI-Schätzung: anbieter-/modellunabhängig (Human-in-the-Loop, Review-Gates). Enthält feste Pauschalen für Einarbeitung/Setup (3 h) und Review-Gates (3 h) sowie einen Validierungs-/Iterationsaufschlag (20 %); unbekannte Direktiven werden wie manuell gerechnet. Bewusst konservativ – keine garantierte Einsparung."
     ]
   },
