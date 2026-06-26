@@ -33,7 +33,7 @@ den Quell-IG vermessen und Aufwand (in Zeit, manuell + KI-gestützt), Reife, Str
 abschätzen — mehrere IGs auch im Vergleich:
 
 ```bash
-python3 tools/ig-stats.py run <SOURCE_REPO_URL_oder_Pfad> [weitere…] -o ig-analyse-out
+python3 tools/ig-stats.py run <SOURCE_REPO_URL_oder_Pfad> [weitere…] -o ig-analyze-out
 ```
 
 Ändert nichts am Quell-IG; ideal als Entscheidungs-/Planungsgrundlage **vor** Teil A/B.
@@ -260,7 +260,7 @@ Fakten, Deutsch als Standard. Erst nach Freigabe erfolgt der Merge.
 - [ ] **Gate A:** URL-/ID-Bestandsschutz + Artefaktvollständigkeit
 - [ ] **Gate B:** Narrative inkl. Pflichtabschnitte; benutzerdefinierte Seiten freigegeben (§7)
 - [ ] **Gate C:** Sprachführung (Deutsch Standard; optionales Englisch konsistent)
-- [ ] **Gate D:** Governance-Freigabe (TF KDS / AG IOP / NSG) — erst danach greift der Pages-Workflow
+- [ ] **Gate D:** Governance-Freigabe (TF KDS = Taskforce Kerndatensatz / AG IOP = Arbeitsgruppe Interoperabilität / NSG = Nationales Steuerungsgremium) — erst danach greift der Pages-Workflow
 
 ## 9. Best-Practice-Checkliste
 - [ ] HL7-Seitenraster (Home/Guidance/Conformance/Artifacts/Downloads/Versioning)
