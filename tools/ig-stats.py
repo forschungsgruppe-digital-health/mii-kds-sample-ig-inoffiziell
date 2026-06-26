@@ -665,7 +665,8 @@ def analyze(igdir, label, content):
         if _f.get("language") and _f["language"] != "?":
             _langs.add(_f["language"].lower())
     linguistics["languages"] = sorted(_langs)
-    linguistics["languages_supported"] = len(_langs)
+    # Floor: eine IG mit Inhalt ist mind. monolingual (1), auch ohne explizites Sprachsignal.
+    linguistics["languages_supported"] = len(_langs) if _langs else (1 if linguistics.get("content_pages") else 0)
 
     # ---- Aufwand: manuell + KI-gestützt ----
     dtot, dunknown = directives["total"], directives["unknown"]
