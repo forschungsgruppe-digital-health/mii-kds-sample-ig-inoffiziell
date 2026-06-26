@@ -7,12 +7,21 @@ metadata:
   name: mii-kds-ig-migration
   version: "1.0"
   description: "Migration Simplifier-basierter MII-KDS-IGs nach HL7 FHIR IG (mehrsprachig), mit menschlichem Review."
+# Schritt 0: baut auf der Analyse-Faehigkeit auf; deren Ausgabe ist Datengrundlage.
+depends_on:
+  - skill: ig-analyze
+    tool: tools/ig-stats.py
+    step: 0
+    produces: .ai-log/ig-analyze/ig-stats.json
+    consumed_for: [scope_decision, version_folder_selection, directive_worklist, language_scope, mandatory_pages]
 inputs:
   source_rendered_ig_url: { type: url, required: true }
   source_repo_url:        { type: url, required: true }
   target_template_repo:   { type: url, required: true }
   module_metadata:        { type: object, required: true }
+  ig_analysis:            { type: object, required: true, source: "ig-analyze (ig-stats.json)" }
 capabilities:
+  - pre_migration_analysis # Schritt 0: ig-analyze -> ig-stats.json als Datengrundlage
   - web_fetch            # gerenderten IG lesen/extrahieren
   - repo_read            # Quell-Repo klonen/lesen (read-only)
   - file_write           # Ziel-Repo Arbeitsbranch beschreiben
@@ -32,12 +41,16 @@ guardrails:
   isolated_branch: hl7-ig-build
   never_touch_default_branch: true
   pull_request_target: hl7-ig-build
+  migrate_current_version_only: true   # nur contained_igs.folders[0] aus ig-analyze
 review_gates: [A_artifacts, B_narrative, C_language, D_governance_release]
 outputs:
+  - .ai-log/ig-analyze/         # Schritt 0: ig-stats.json + Report (Datengrundlage)
   - .ai-log/source-inventory.json
   - .ai-log/migration-report.md
   - pull_request
 definition_of_done:
+  - "pre_migration_analysis: ig-stats.json vorhanden"
+  - "directives_handled == ig-stats.json directives.total"
   - "sushi build: errors=0"
   - "ig publisher qa: errors=0"
   - "manteldokument_crosswalk: complete"

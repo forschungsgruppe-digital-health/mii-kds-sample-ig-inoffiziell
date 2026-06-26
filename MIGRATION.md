@@ -27,16 +27,20 @@ Klon** dieses Repos als neuem Modul-IG, oder (2) bringst die Vorlage in einen
 Beide Wege haben **identische** Akzeptanzkriterien (§10) und verpflichtende
 Review-Gates (§8); Deutsch bleibt führend; keine eigenständige Veröffentlichung.
 
-## 0. Optional: Vorab-Scoping (Aufwand/Risiken abschätzen)
-Vor der eigentlichen Migration kann der read-only-Skill [`skills/ig-analyze/`](skills/ig-analyze/SKILL.md)
-den Quell-IG vermessen und Aufwand (in Zeit, manuell + KI-gestützt), Reife, Strategie/Lock-in und Risiken
-abschätzen — mehrere IGs auch im Vergleich:
+## 0. Vorab-Analyse mit `ig-analyze` (Grundlage der Migration)
+Die Migration **baut auf der `ig-analyze`-Analyse auf** — sie ist **Schritt 0**. Der read-only-Skill
+[`skills/ig-analyze/`](skills/ig-analyze/SKILL.md) vermisst den Quell-IG (Aufwand in Zeit, manuell +
+KI-gestützt; Reife; Strategie/Lock-in; Risiken) und liefert die `ig-stats.json`, die Teil A/B nutzen:
 
 ```bash
-python3 tools/ig-stats.py run <SOURCE_REPO_URL_oder_Pfad> [weitere…] -o ig-analyze-out
+python3 tools/ig-stats.py run <SOURCE_REPO_URL_oder_Pfad> -o .ai-log/ig-analyze
 ```
 
-Ändert nichts am Quell-IG; ideal als Entscheidungs-/Planungsgrundlage **vor** Teil A/B.
+Das Ergebnis steuert die Migration: **Go/Scope** ← `effort`/`maturity`/`risk`; **zu migrierende
+Version** ← `contained_igs.folders[0]` (aktueller IG-Ordner, nicht alle Varianten); **Direktiven-
+Arbeitsliste** ← `directives.occurrences`; **Sprachen** ← `linguistics.languages`; **Pflichtseiten**
+← `narrative.mandatory_missing_in_target`. Ändert nichts am Quell-IG. Mehrere IGs lassen sich auch
+**vergleichen** (Scoping/Priorisierung). Details: [`skills/mii-ig-migration/references/migration-agent-spec.md`](skills/mii-ig-migration/references/migration-agent-spec.md) §5 Schritt 0.
 
 ## 1. Voraussetzungen
 - Java 17+, Node 20+

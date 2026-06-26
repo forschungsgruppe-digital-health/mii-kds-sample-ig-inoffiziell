@@ -164,11 +164,11 @@ input/images/mii-logo-PLATZHALTER.svg   Platzhalter-Logo (durch echtes Logo erse
 .ai-log/                        Migrations-Artefakte (Inventar, Bericht), falls vorhanden
 
 # Agent-Skills & zugehörige Werkzeuge (Vorlage-/Migrationszweck)
-skills/mii-ig-migration/        Migrations-Skill (Simplifier-IG -> HL7-IG)
+skills/mii-ig-migration/        Migrations-Skill (Simplifier-IG -> HL7-IG); baut auf ig-analyze auf (Schritt 0)
 skills/wiki-consistency-check/  Skill: Repo-Abgleich gegen das MII-Meta-Wiki
 skills/template-sanitize/       Skill: Vorlage-/Migrations-Dateien nach Migration entfernen
 skills/ig-translate/            Skill: IG ins Englische übersetzen (translate/harvest)
-skills/ig-analyze/              Skill: IG(s) vermessen (Statistik/Vergleich/Aufwandsschätzung)
+skills/ig-analyze/              Skill: IG(s) vermessen (Statistik/Vergleich/Aufwandsschätzung); Vorstufe/Schritt 0 der Migration
 .claude/skills -> ../skills      Claude-Code-Skills (Symlink)
 .agents/skills -> ../skills      Open-Standard/Codex-Skills (Symlink)
 tools/verify-template.sh        Strukturelle Selbstprüfung der Vorlage (Modus --migrated)

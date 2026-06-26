@@ -16,8 +16,11 @@ license: CC-BY-4.0
 - **Scoping vor einer Migration** (`mii-ig-migration`): Aufwand, Ressourcen und
   Risiken eines Quell-IG abschätzen, bevor migriert wird.
 
-Read-only. Ergänzt `mii-ig-migration` (läuft idealerweise davor), ist aber
-unabhängig nutzbar.
+Read-only. **Vorstufe von `mii-ig-migration`:** dort ist diese Analyse **Schritt 0**
+— die erzeugte `ig-stats.json` ist die Datengrundlage der Migration (zu migrierender
+IG-Ordner `contained_igs.folders[0]`, Direktiven-Arbeitsliste `directives.occurrences`,
+Sprachen `linguistics.languages`, Pflichtseiten, Aufwand/Risiko). Eigenständig
+(z. B. reiner IG-Vergleich) ebenfalls nutzbar.
 
 ## Eingabe & Modi (`tools/ig-stats.py`)
 **Eingabe = eine oder mehrere FHIR-IGs als Pfad ODER URL.** `run` ist der Haupt-
