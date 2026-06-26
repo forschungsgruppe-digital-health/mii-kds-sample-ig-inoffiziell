@@ -1,6 +1,6 @@
 # IG-Statistik — MII KDS Person v2025.0.1
 
-_Modus: `static` · Stand: 2026-06-26T19:53:36Z · Commit: `122e30f`_
+_Modus: `static` · Stand: 2026-06-26T21:58:49Z · Commit: `122e30f`_
 
 ## Executive Summary: Migration des FHIR-Leitfadens "MII IG Person"
 
@@ -8,7 +8,7 @@ _Modus: `static` · Stand: 2026-06-26T19:53:36Z · Commit: `122e30f`_
 
 ### Das Wichtigste in einem Satz
 
-Der Umzug ist **sehr umfangreich** (geschätzt **74–120 Personenstunden**, also rund **9,2–15,0 Personentage**), **mit wenigen vorab zu klärenden Punkten** – die fachliche Substanz liegt bereits in maschinenlesbarer, sauberer Form vor. Mit KI-Unterstützung lässt sich der Aufwand voraussichtlich deutlich senken (modellierte ~41–67 h, ≈ 44 % weniger; Annahmen und Vorbehalte siehe „Aufwand“).
+Der Umzug ist **umfangreich** (geschätzt **74–120 Personenstunden**, also rund **9,2–15,0 Personentage**), **mit wenigen vorab zu klärenden Punkten** – die fachliche Substanz liegt bereits in maschinenlesbarer, sauberer Form vor. Mit KI-Unterstützung lässt sich der Aufwand voraussichtlich deutlich senken (modellierte ~41–66 h, ≈ 44 % weniger; Annahmen und Vorbehalte siehe „Aufwand“).
 
 ### Inhaltlicher Umfang (was migriert wird)
 
@@ -18,10 +18,10 @@ Der Umzug ist **sehr umfangreich** (geschätzt **74–120 Personenstunden**, als
 
 ### Aufwand und was das Band bedeutet
 
-- **Aufwandsband: XL (sehr groß)** – auf einer Skala S (klein, <1 Tag) / M (mittel, einige Tage) / L (groß, 1–2 Wochen) / XL (sehr groß) liegt dieses Vorhaben **an der Obergrenze**.
+- **Aufwandsband: L (groß)** – auf einer Skala S (klein, <1 Tag) / M (mittel, einige Tage) / L (groß, 1–2 Wochen) / XL (sehr groß) liegt dieses Vorhaben **im oberen Bereich**.
 - **Manuell: rund 74–120 Stunden.** Das ist eine **Größenordnungsschätzung zur Budgetplanung** (Faustregel: Menge der Arbeitsschritte × Erfahrungswert) – **kein verbindliches Angebot**.
-- **KI-gestützt teilautomatisiert: rund 41–67 Stunden** (≈ 44 % weniger). Das heißt: eine KI erledigt die wiederkehrenden Umbauten, Menschen prüfen und geben an Kontrollpunkten frei (Human-in-the-Loop / Review-Gates). Die Schätzung gilt **unabhängig davon, welches KI-Produkt eingesetzt wird** – sie ist eine _modellierte_ Annahme mit noch nicht kalibrierten Faktoren, **keine garantierte Einsparung**.
-- **Größte Aufwandstreiber:** 334 plattformspezifische Platzhalter in den Textseiten (sog. „Direktiven“ – das neue Standard-Werkzeug kennt sie nicht, sie werden einzeln umgebaut; ~67 h) und 47 Inhaltsseiten (~24 h).
+- **KI-gestützt teilautomatisiert: rund 41–66 Stunden** (≈ 44 % weniger). Das heißt: eine KI erledigt die wiederkehrenden Umbauten, Menschen prüfen und geben an Kontrollpunkten frei (Human-in-the-Loop / Review-Gates). Die Schätzung gilt **unabhängig davon, welches KI-Produkt eingesetzt wird** – sie ist eine _modellierte_ Annahme mit noch nicht kalibrierten Faktoren, **keine garantierte Einsparung**.
+- **Größte Aufwandstreiber:** 333 plattformspezifische Platzhalter in den Textseiten (sog. „Direktiven“ – das neue Standard-Werkzeug kennt sie nicht, sie werden einzeln umgebaut; ~67 h) und 47 Inhaltsseiten (~24 h).
 - **Reife & Strategie:** Reifegrad **76/100 (reif)** · Hersteller-Lock-in hoch. (Details in den Abschnitten Reife & Freigabe und Strategie.)
 
 ### Wie sauber ist die Quelle?
@@ -40,7 +40,7 @@ Der Umzug ist **sehr umfangreich** (geschätzt **74–120 Personenstunden**, als
 
 ### Bottom Line / Empfehlung
 
-**Vor Durchführung Scope und Ressourcen prüfen.** Der Aufwand ist sehr groß und kalkulierbar (manuell ~9,2–15,0 Personentage, KI-gestützt voraussichtlich spürbar weniger), die Quelle ist mit überschaubaren Vorarbeiten. Konkret einzuplanen: ein abschließender Validierungslauf mit fachlichem Review.
+**Durchführbar – mit Ressourcen- und Zeitplanung.** Der Aufwand ist groß und kalkulierbar (manuell ~9,2–15,0 Personentage, KI-gestützt voraussichtlich spürbar weniger), die Quelle ist mit überschaubaren Vorarbeiten. Konkret einzuplanen: ein abschließender Validierungslauf mit fachlichem Review.
 
 ## Kennzahlen-Überblick
 
@@ -78,24 +78,23 @@ pie showData title Artefakte
 
 _Interne FSH-Konstrukte (nicht in Σ): 9 rulesets, 9 invariants._
 
-### Plattform-Direktiven — Σ 334 (unbekannt: 0)
+### Plattform-Direktiven — Σ 333 (unbekannt: 0)
 
 _Dieser Abschnitt listet die plattformspezifischen Platzhalter in den Erklärseiten, die ein generischer IG Publisher nicht versteht und die daher umgesetzt werden müssen._
 
 <div align="center">
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{"pie1": "#4E79A7", "pie2": "#F28E2B", "pie3": "#59A14F", "pie4": "#E15759", "pie5": "#76B7B2", "pie6": "#EDC948", "pie7": "#B07AA1", "pie8": "#FF9DA7", "pie9": "#9C755F", "pie10": "#BAB0AC", "pie11": "#86BCB6", "pieOpacity": "1", "pieSectionTextColor": "#1A1A1A", "pieTitleTextSize": "18px"}}}%%
+%%{init: {'theme':'base','themeVariables':{"pie1": "#4E79A7", "pie2": "#F28E2B", "pie3": "#59A14F", "pie4": "#E15759", "pie5": "#76B7B2", "pie6": "#EDC948", "pie7": "#B07AA1", "pie8": "#FF9DA7", "pie9": "#9C755F", "pie10": "#BAB0AC", "pieOpacity": "1", "pieSectionTextColor": "#1A1A1A", "pieTitleTextSize": "18px"}}}%%
 pie showData title Direktiven
     "tabs" : 120
     "fql-at" : 57
-    "render-image" : 35
+    "render" : 41
     "json" : 32
     "link" : 29
     "tree" : 17
     "pagelink" : 17
     "xml" : 15
-    "render-resource" : 7
     "index-root" : 3
     "page-title" : 2
 ```
@@ -108,13 +107,12 @@ pie showData title Direktiven
 |---|---|
 | tabs | 120 |
 | fql-at | 57 |
-| render-image | 35 |
+| render | 41 |
 | json | 32 |
 | link | 29 |
 | tree | 17 |
 | pagelink | 17 |
 | xml | 15 |
-| render-resource | 7 |
 | index-root | 3 |
 | page-title | 2 |
 
@@ -151,8 +149,8 @@ _Linguistische Kennzahlen zum Textumfang (Wörter je Seite, Durchschnitt) sowie 
 | Inhalts-Seiten | 16 | 16 | 15 |
 | Wörter | 6646 | 6142 | 6401 |
 | Ø Wörter / Seite | 415 | 384 | 427 |
-| Direktiven | 117 | 113 | 104 |
-| Aufwand manuell ~h (je IG) | 25,1–40,8 | 24,5–39,8 | 22,6–36,8 |
+| Direktiven | 116 | 113 | 104 |
+| Aufwand manuell ~h (je IG) | 25–40,6 | 24,5–39,8 | 22,6–36,8 |
 
 </div>
 
@@ -168,7 +166,7 @@ _Dieser Abschnitt schätzt den Arbeitsaufwand der Überführung als Spanne - man
 
 | Treiber | Menge | manuell [h] | KI-gestützt [h] |
 |---|---|---|---|
-| Direktiven (bekannt) | 334 | 66,8 | 26,7 |
+| Direktiven (bekannt) | 333 | 66,6 | 26,6 |
 | Inhalts-Seiten | 47 | 23,5 | 9,4 |
 | Floating Pins (Versionen fixieren) | 2 | 2 | 1,6 |
 | GoFSH-Vorlauf (Regel-Rückgewinnung) | nein | 0 | 0 |
@@ -179,7 +177,7 @@ _Dieser Abschnitt schätzt den Arbeitsaufwand der Überführung als Spanne - man
 
 </div>
 
-**Manuell:** Band XL · **73,8–120 h**  |  **KI-gestützt (HITL, Review-Gates, anbieter-/modellunabhängig):** Band L · **41–66,6 h** · **≈ 44 % weniger**
+**Manuell:** Band L · **73,7–119,7 h**  |  **KI-gestützt (HITL, Review-Gates, anbieter-/modellunabhängig):** Band L · **40,9–66,5 h** · **≈ 44 % weniger**
 
 _Annahmen:_ • Nur statisch berechenbare Treiber; id/url-Mismatch, QC-Verletzungen und quell-intrinsische Validierungsfehler erfordern einen Build und sind hier nicht enthalten. • Faktoren sind Erfahrungswerte, noch nicht final kalibriert; Spanne = Basis × 0,8…1,3. • pages = Inhalts-Seiten (Stubs/Navigation < 20 Wörter ausgeschlossen). • Personentage = Aufwand in 8-h-Arbeitstagen (1 PT = 8 Personenstunden); beide Schätzungen messen MENSCHLICHE Arbeitszeit — manuell die Migration von Hand, KI-gestützt die Bedien-/Review-Zeit der KI (Prompts, Review-Gates, Korrekturen), NICHT die Rechen-/Laufzeit oder Wartezeit der KI. • KI-Schätzung: anbieter-/modellunabhängig (Human-in-the-Loop, Review-Gates). Enthält feste Pauschalen für Einarbeitung/Setup (3 h) und Review-Gates (3 h) sowie einen Validierungs-/Iterationsaufschlag (20 %); unbekannte Direktiven werden wie manuell gerechnet. Bewusst konservativ – keine garantierte Einsparung.
 
@@ -229,7 +227,7 @@ _Planungsgrößen jenseits reiner Personenstunden: Kalenderzeit, Szenarien (Min/
 | Planungsgröße | Wert |
 |---|---|
 | Kalenderzeit | 16–25 Arbeitstage |
-| Szenario Min / Erwartet / Max | 73,8 / 96,9 / 120 h |
+| Szenario Min / Erwartet / Max | 73,7 / 96,7 / 119,7 h |
 | Schätz-Konfidenz | mittel |
 | Startbereitschaft | 90/100 |
 | Cross-Modul-Abhängigkeit | erhöht (floating Pins) |
@@ -237,7 +235,7 @@ _Planungsgrößen jenseits reiner Personenstunden: Kalenderzeit, Szenarien (Min/
 
 </div>
 
-**Rollen-Mix (grob):** FSH-Rückgewinnung/Pins 2 % · Template/Tooling (Direktiven) 72 % · Redaktion/Doku (Seiten) 25 %. Direktiven & Seiten gut parallelisierbar; Setup/QA seriell.
+**Rollen-Mix (grob):** FSH-Rückgewinnung/Pins 2 % · Template/Tooling (Direktiven) 72 % · Redaktion/Doku (Seiten) 26 %. Direktiven & Seiten gut parallelisierbar; Setup/QA seriell.
 
 _Hinweis: FHIR-/FSH-Fachwissen ist für Review, Validierung und QC-Übernahme generell erforderlich; ein 0-%-Wert bei FSH bedeutet nur, dass **kein FSH-Rückbau (GoFSH)** anfällt. Annahmen Kalenderzeit: 8 h/Tag · Team 1 · Auslastung 60 %._
 
@@ -268,7 +266,7 @@ _Hier stehen je Themenbereich konkrete, aus den Kennzahlen abgeleitete Schritte,
 |---|---|---|
 | Artefakte (FSH) | 14 publiziert, FSH vorhanden | Liegen die Artefakte bereits als FSH vor, können sie unverändert nach input/fsh/ übernommen werden; ein Rückwandeln aus fertigen FHIR-Dateien entfällt. Wichtig: ids und Canonical-URLs bleiben gleich, damit bestehende Verweise weiter funktionieren (Bestandsschutz). |
 | Narrative | 47 Inhalts-Seiten, Format source | Die frei geschriebenen Erklärseiten gehören als Markdown-Dateien nach input/pagecontent/. Reine Platzhalter-/Navigationsseiten werden nicht übernommen, da Navigation und Inhaltsverzeichnis automatisch entstehen. |
-| Direktiven | 334 (0 unbekannt) | Plattformspezifische Platzhalter/Tags werden durch die passenden Mechanismen des IG Publishers ersetzt (meist Vorlagen-Includes oder normale Markdown-Konstrukte). Direktiven ohne bekanntes Gegenstück werden einzeln von Hand geprüft und sinnvoll übersetzt. |
+| Direktiven | 333 (0 unbekannt) | Plattformspezifische Platzhalter/Tags werden durch die passenden Mechanismen des IG Publishers ersetzt (meist Vorlagen-Includes oder normale Markdown-Konstrukte). Direktiven ohne bekanntes Gegenstück werden einzeln von Hand geprüft und sinnvoll übersetzt. |
 | Dependencies | 2 (2 floating) | Alle deklarierten Paket-Abhängigkeiten werden mit fester Version in die sushi-config.yaml übernommen. Feste Versionen (Pinning) sind reproduzierbaren Builds vorzuziehen; bewegliche Einträge werden auf eine konkrete Version festgelegt. |
 | Mehrsprachigkeit | FSH-Übersetzung ja, Supplements 0 | In Ressourcen eingebettete Übersetzungen werden vom Build automatisch in die jeweilige Sprachausgabe übernommen. Für übersetzte Erklärseiten legt man pro Sprache eigene Seiten an; eine Sprache bleibt führend, jede maschinelle Übersetzung ist menschlich zu prüfen. |
 | Pflichtseiten | 1/11 im Zielformat | Das Standard-Seitenraster sollte vollständig vorhanden sein (z.B. Startseite, Anwendungsfälle, Datensätze, Konformität, Kontext, Referenzen, Änderungen, Downloads, Datenschutz, Übersetzungshinweis). Fehlende Zielseiten werden ergänzt und in die Seiten-/Menükonfiguration aufgenommen. |
@@ -288,13 +286,12 @@ _Dieser Abschnitt ordnet jedem Direktiven-Typ sein Gegenstück im IG-Publisher-F
 |---|---|---|---|
 | tabs | 120 | Gruppiert mehrere Inhalte (z.B. Darstellung, XML, JSON) in umschaltbare Reiter. | Die einzelnen Reiterinhalte durch die jeweils passenden generierten Anzeige-Fragmente (Struktur, XML, JSON) ersetzen; eine eigene Reiter-Mechanik ist meist nicht nötig. |
 | fql-at | 57 | Markiert einen Abfrage-Codeblock in besonderer Schreibweise (mit @-Präfix). | Wie einen normalen Abfrageblock behandeln und durch ein generiertes Tabellen-Fragment oder eine statische Tabelle ersetzen. |
-| render-image | 35 | Bindet ein Bild bzw. eine Grafik in die Seite ein. | Das Bild in das Bilderverzeichnis des Ziel-IG (input/images/) legen und über ein normales Markdown- oder HTML-Bild einbinden. |
+| render | 41 | Bindet generierten Inhalt ein - ein Bild/Grafik oder eine vollständige FHIR-Ressource (z.B. CapabilityStatement). | Bild: nach input/images/ kopieren und als Markdown-/HTML-Bild einbinden. Ressource/Artefakt: meist entfernen (der IG Publisher erzeugt je Artefakt automatisch eine Seite) ODER das passende vorgefertigte Anzeige-Fragment einbinden. |
 | json | 32 | Zeigt eine Ressource oder ein Beispiel in JSON-Darstellung an. | Durch das vom IG Publisher erzeugte JSON-Anzeige-Fragment ersetzen. |
 | link | 29 | Erzeugt einen Verweis auf ein einzelnes Artefakt (z.B. dessen Übersichtsseite). | Durch einen normalen Markdown-Link auf die generierte Artefaktseite ersetzen (Form Typ-id.html). |
 | tree | 17 | Zeigt die Struktur eines Profils/einer Extension als aufklappbaren Strukturbaum an. | Durch das vom IG Publisher erzeugte Struktur-Fragment ersetzen (Snapshot- oder Differential-Ansicht bzw. Element-Wörterbuch). |
 | pagelink | 17 | Erzeugt einen Verweis auf eine andere Seite oder ein Artefakt anhand eines Namens-Hinweises. | Durch einen normalen Markdown-Link auf die generierte Artefaktseite ersetzen (Form Typ-id.html); der Artefaktname wird in die kleingeschriebene id umgesetzt. |
 | xml | 15 | Zeigt eine Ressource oder ein Beispiel in XML-Darstellung an. | Durch das vom IG Publisher erzeugte XML-Anzeige-Fragment ersetzen. |
-| render-resource | 7 | Rendert eine vollständige FHIR-Ressource (z.B. ein CapabilityStatement) in die Seite hinein. | Meist entfernen, da der IG Publisher für jedes Artefakt automatisch eine eigene Seite erzeugt; alternativ das passende vorgefertigte Anzeige-Fragment einbinden. |
 | index-root | 3 | Erzeugt an dieser Stelle ein automatisches Inhaltsverzeichnis bzw. die Wurzel der Navigationsstruktur. | Entfällt - Navigation und Inhaltsverzeichnis erzeugt der IG Publisher selbst aus der konfigurierten Seitenstruktur. |
 | page-title | 2 | Setzt an dieser Stelle den Titel der Seite, der aus den Seiteneinstellungen gezogen wird. | Entfällt ersatzlos - Seitentitel und Überschrift steuert man zentral über die Seiten- und Menükonfiguration. |
 
@@ -305,6 +302,8 @@ _Dieser Abschnitt ordnet jedem Direktiven-Typ sein Gegenstück im IG-Publisher-F
 _Im Anhang steht jeder Einzelwert mit seiner Quelle, damit man die Kennzahlen nachvollziehen kann, ohne im Projekt suchen zu müssen._
 
 ## Identität & Herkunft
+
+_Kerndaten des IG (Kennungen, Version, Status, Herausgeber) und woher sie stammen._
 
 <div align="center">
 
@@ -457,22 +456,22 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 |---|---|---|
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md:9 | tree | {{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Struct |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md:13 | fql-at | @``` from StructureDefinition where url =  'https://www.medizininformatik-initia |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md:8 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/KDS_Person_UML_ |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:6 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/11_Abbildung_Pe |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:14 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:21 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:27 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:36 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:71 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:82 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/ProPerson.jpg} |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md:8 | render | {{render:implementation-guides/ImplementationGuide-Common/images/KDS_Person_UML_ |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:6 | render | {{render:implementation-guides/ImplementationGuide-Common/images/11_Abbildung_Pe |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:14 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:21 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:27 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:36 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:71 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:82 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/ProPerson.jpg} |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Index.page.md:19 | index-root | {{index:root}} |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md:1 | page-title | ## {{page-title}} |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md:8 | pagelink | - Im Profil {{pagelink: PersonPatientIn, text: Patient:in (Patient), hint: MII_P |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md:9 | pagelink | - Das Profil {{pagelink: PersonPatientPseudonymisiert, text: Patient:in Pseudony |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md:13 | pagelink | - Neu im Vergleich zu Version 1.0 ist das Profil {{pagelink: PersonTodesursache, |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md:14 | pagelink | - Im {{pagelink: LogicalModel, text: Logischen Modell, hint: Datensätze inkl. Be |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md:18 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md:28 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md:18 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md:28 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md:12 | link | ## {{link}} |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md:18 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md:29 | tabs | <tabs> |
@@ -511,7 +510,7 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md:77 | pagelink | \| ResearchSubject.meta.profile       \| VERPFLICHTEND für die Abfrage im DIZ-Reps |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md:175 | json | {{json:fsh-generated/resources/Patient-mii-exa-person-patient-pseudonymisiert.js |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:12 | link | ## {{link}} |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:20 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:20 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:22 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:33 | tabs | <tabs> |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:34 | tree | <tab title="Darstellung">{{tree, buttons}}</tab> |
@@ -566,17 +565,17 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md:69 | pagelink | \| Observation.meta.profile       \| VERPFLICHTEND für die Abfrage im DIZ-Repsoito |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md:88 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md:194 | json | {{json:fsh-generated/resources/Observation-mii-exa-person-observation-vitalstatu |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md:8 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md:23 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Valu |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:3 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/12_Abbildung_Pe |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:11 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:18 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:24 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:33 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:63 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Index.page.md:5 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md:8 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md:23 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Valu |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:3 | render | {{render:implementation-guides/ImplementationGuide-Common/images/12_Abbildung_Pe |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:11 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:18 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:24 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:33 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md:63 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Index.page.md:5 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Index.page.md:20 | index-root | {{index:root}} |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/CapabilityStatement.page.md:11 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/CapabilityStatement.page.md:11 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md:14 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md:25 | tabs | <tabs> |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md:26 | tree | <tab title="Visualization">{{tree, buttons}}</tab> |
@@ -593,7 +592,7 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md:52 | tabs | <tab title="Link">{{link}}</tab> |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md:53 | tabs | </tabs> |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md:136 | json | {{json:fsh-generated/resources/Condition-mii-exa-person-condition-todesursache.j |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/Index.page.md:10 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/Index.page.md:10 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md:12 | link | ## {{link}} |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md:18 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md:29 | tabs | <tabs> |
@@ -614,7 +613,7 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md:334 | json | {{json:fsh-generated/resources/Patient-mii-exa-person-patient-minimal.json}} |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md:338 | json | {{json:fsh-generated/resources/Patient-mii-exa-person-patient-full.json}} |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md:12 | link | ## {{link}} |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md:20 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md:20 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md:22 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md:33 | tabs | <tabs> |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md:34 | tree | <tab title="Visualization">{{tree, buttons}}</tab> |
@@ -667,23 +666,22 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md:59 | tabs | </tabs> |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md:89 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md:187 | json | {{json:fsh-generated/resources/Observation-mii-exa-person-observation-vitalstatu |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/Terminologies.page.md:5 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/Terminologies.page.md:20 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Code |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/Dataset.page.md:5 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Stru |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/Terminologies.page.md:5 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/Terminologies.page.md:20 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Code |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/Dataset.page.md:5 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Stru |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/Dataset.page.md:9 | fql-at | @``` from StructureDefinition where url =  'https://www.medizininformatik-initia |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/UML.page.md:5 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/UML-Person.png} |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/UML.page.md:5 | render | {{render:implementation-guides/ImplementationGuide-Common/images/UML-Person.png} |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md:9 | tree | {{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Struct |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md:13 | fql-at | @``` from StructureDefinition where url =  'https://www.medizininformatik-initia |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md:8 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/UML-Person-2025 |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:6 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/11_Abbildung_Pe |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:14 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:21 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:27 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:36 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:71 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:82 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/ProPerson.jpg} |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md:8 | render | {{render:implementation-guides/ImplementationGuide-Common/images/UML-Person-2025 |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:6 | render | {{render:implementation-guides/ImplementationGuide-Common/images/11_Abbildung_Pe |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:14 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:21 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:27 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:36 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:71 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md:82 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/ProPerson.jpg} |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Index.page.md:19 | index-root | {{index:root}} |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Index.page.md:73 | render-image | <img src="https://licensebuttons.net/l/by/4.0/88x31.png" alt="CC BY 4.0 Logo" st |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md:1 | page-title | ## {{page-title}} |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md:7 | pagelink | - `Added`: Profil {{pagelink: PersonPatientPseudonymisiert, text: Patient:in Pse |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md:16 | pagelink | - Dadurch Änderung im Profil {{pagelink: PersonPatientIn, text: Patient:in (Pati |
@@ -692,8 +690,8 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md:30 | pagelink | - Das Profil {{pagelink: PersonPatientPseudonymisiert, text: Patient:in Pseudony |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md:34 | pagelink | - Neu im Vergleich zu Version 1.0 ist das Profil {{pagelink: PersonTodesursache, |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md:35 | pagelink | - Im {{pagelink: LogicalModel, text: Logischen Modell, hint: Datensätze inkl. Be |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md:18 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md:28 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md:18 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md:28 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md:12 | link | ## {{link}} |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md:20 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md:31 | tabs | <tabs> |
@@ -714,7 +712,7 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md:335 | json | {{json:fsh-generated/resources/Patient-mii-exa-person-patient-minimal.json}} |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md:339 | json | {{json:fsh-generated/resources/Patient-mii-exa-person-patient-full.json}} |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md:12 | link | ## {{link}} |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md:16 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md:16 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md:32 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md:43 | tabs | <tabs> |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md:44 | tree | <tab title="Darstellung">{{tree, buttons}}</tab> |
@@ -732,7 +730,7 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md:71 | tabs | </tabs> |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md:81 | pagelink | \| ResearchSubject.meta.profile       \| VERPFLICHTEND für die Abfrage im DIZ-Reps |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:12 | link | ## {{link}} |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:20 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:20 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:34 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:45 | tabs | <tabs> |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md:46 | tree | <tab title="Darstellung">{{tree, buttons}}</tab> |
@@ -787,8 +785,8 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md:69 | pagelink | \| Observation.meta.profile       \| VERPFLICHTEND für die Abfrage im DIZ-Repsoito |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md:88 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md:194 | json | {{json:fsh-generated/resources/Observation-mii-exa-person-observation-vitalstatu |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md:8 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
-| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md:23 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Valu |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md:8 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md:23 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Valu |
 
 </div>
 

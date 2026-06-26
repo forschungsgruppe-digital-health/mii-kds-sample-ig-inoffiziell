@@ -1,43 +1,122 @@
-# IG-Vergleich (2 IGs)
+# IG-Vergleich (5 IGs)
 
-_Objektiver Kennzahlen-Vergleich der analysierten IGs inkl. Linguistik und Aufwandsschätzung. Die Spalte „Σ Gesamt“ zeigt den aggregierten Migrations-Gesamtumfang und die -kosten; faire Einordnung über normalisierte Werte._
+_Objektiver Kennzahlen-Vergleich der analysierten IGs inkl. Linguistik und Aufwandsschätzung. Die Spalte „Σ Gesamt“ zeigt den aggregierten Migrations-Gesamtumfang und -aufwand (Zeit); faire Einordnung über normalisierte Werte._
 
 ## Kennzahlen (je IG + Gesamt)
 
 <div align="center">
 
-| Metrik | MII KDS Diagnose v2025.0.1 | MII KDS Person v2025.0.1 | Σ Gesamt |
-|---|---|---|---|
-| Artefakte gesamt | 13 | 14 | 27 |
-| Profile | 1 | 5 | 6 |
-| ValueSets | 5 | 1 | 6 |
-| CodeSystems | 1 | 1 | 2 |
-| Beispiele | 4 | 5 | 9 |
-| Narrative-Inhalts-Seiten | 52 | 47 | 99 |
-| Wörter gesamt | 38118 | 19118 | 57236 |
-| Plattform-Direktiven | 179 | 334 | 513 |
-| Enthaltene IG-Ordner | 5 | 3 | 8 |
-| Doppelte Inhaltsblöcke | 292 | 135 | 427 |
-| davon ordnerübergreifend | 292 | 119 | 411 |
-| Nicht referenzierte Bilder | 5 | 6 | 11 |
-| Dependencies (floating) | 3 (2) | 2 (2) | — |
-| Ø Wörter / Seite | 733 | 406,8 | — |
-| Median Wörter / Seite | 448 | 260 | — |
-| Reifegrad /100 | 74 | 76 | — |
-| Hersteller-Lock-in /100 | 41 | 85 | — |
-| Standard-Terminologie % | 100 | 98 | — |
-| Bus-Faktor % (Top-Autor) | 34 | 57 | — |
-| Aufwand manuell [h] (Band) | 51–82,9 (L) | 73,8–120 (XL) | 124,8–202,9 |
-| Aufwand KI-gestützt [h] (Δ) | 30,1–48,9 (−41 %) | 41–66,6 (−44 %) | 71,1–115,5 |
+| Metrik | MII KDS Diagnose v2025.0.1 | MII KDS Person v2025.0.1 | MII KDS Meta v2026.0.0 | MII KDS Medikation v2026.0.1 | MII KDS Labor 2026.0.3 | Σ Gesamt |
+|---|---|---|---|---|---|---|
+| Artefakte gesamt | 13 | 14 | 175 | 40 | 20 | 262 |
+| Profile | 1 | 5 | 1 | 5 | 3 | 15 |
+| ValueSets | 5 | 1 | 0 | 5 | 7 | 18 |
+| CodeSystems | 1 | 1 | 1 | 1 | 0 | 4 |
+| Beispiele | 4 | 5 | 5 | 25 | 6 | 45 |
+| Narrative-Inhalts-Seiten | 52 | 47 | 11 | 36 | 37 | 183 |
+| Wörter gesamt | 38118 | 19118 | 2218 | 14257 | 10875 | 84586 |
+| Plattform-Direktiven | 178 | 333 | 48 | 316 | 201 | 1076 |
+| Enthaltene IG-Ordner | 5 | 3 | 2 | 2 | 2 | 14 |
+| Doppelte Inhaltsblöcke | 292 | 135 | 3 | 128 | 73 | 631 |
+| davon ordnerübergreifend | 292 | 119 | 3 | 126 | 73 | 613 |
+| Nicht referenzierte Bilder | 5 | 6 | 0 | 18 | 0 | 29 |
+| Dependencies (floating) | 3 (2) | 2 (2) | 0 (0) | 5 (3) | 2 (0) | — |
+| Ø Wörter / Seite | 733 | 406,8 | 201,6 | 396 | 293,9 | — |
+| Median Wörter / Seite | 448 | 260 | 125 | 360 | 164 | — |
+| Reifegrad /100 | 74 | 76 | 70 | 50 | 74 | — |
+| Hersteller-Lock-in /100 | 41 | 85 | 52 | 100 | 65 | — |
+| Standard-Terminologie % | 100 | 98 | 98 | 100 | 100 | — |
+| Bus-Faktor % (Top-Autor) | 34 | 57 | 31 | 51 | 31 | — |
+| Aufwand manuell [h] (Band) | 50,9–82,7 (L) | 73,7–119,7 (L) | 12,1–19,6 (M) | 67,4–109,5 (L) | 47–76,3 (L) | 251,1–407,8 |
+| Aufwand KI-gestützt [h] (Δ) | 30–48,7 (−41 %) | 40,9–66,5 (−44 %) | 10,7–17,4 (−11 %) | 38,3–62,2 (−43 %) | 29,4–47,8 (−37 %) | 149,3–242,6 |
 
 </div>
 
 ## Gesamtumfang & -aufwand der Migration
 
-- **Gesamt-Umfang:** 27 Artefakte · 99 Inhalts-Seiten (~57236 Wörter) · 513 Plattform-Direktiven über 2 IG(s).
-- **Gesamt-Aufwand manuell:** **124,8–202,9 h** (≈ 15,6–25,4 Personentage).
-- **Gesamt-Aufwand KI-gestützt** (HITL, Review-Gates, anbieter-/modellunabhängig): **71,1–115,5 h** (≈ 8,9–14,4 Personentage).
+- **Gesamt-Umfang:** 262 Artefakte · 183 Inhalts-Seiten (~84586 Wörter) · 1076 Plattform-Direktiven über 5 IG(s).
+- **Gesamt-Aufwand manuell:** **251,1–407,8 h** (≈ 31,4–51 Personentage).
+- **Gesamt-Aufwand KI-gestützt** (HITL, Review-Gates, anbieter-/modellunabhängig): **149,3–242,6 h** (≈ 18,7–30,3 Personentage).
 _Aufwand als Spanne (Zeit, keine Geldgröße), kein Festpreis; Faktoren noch nicht final kalibriert._
+
+## Enthaltene IGs je Repo (Aufschlüsselung, aktuell → ältest)
+
+_Repos können mehrere IG-Ordner (Versions-/Sprachvarianten) enthalten; Aufwand je IG zeigt die Migration einer einzelnen Version statt des über alle Ordner summierten Aggregats._
+
+### MII KDS Diagnose v2025.0.1 — 5 IG-Ordner
+
+<div align="center">
+
+| Kennzahl | 2025 | 2024.x-DE | 2024.x-EN | 1.x-DE | 1.x-EN |
+|---|---|---|---|---|---|
+| Sprache | ? | de | en | de | en |
+| Inhalts-Seiten | 12 | 12 | 10 | 8 | 10 |
+| Wörter | 7807 | 7629 | 8129 | 6580 | 8046 |
+| Ø Wörter / Seite | 651 | 636 | 813 | 822 | 805 |
+| Direktiven | 50 | 50 | 38 | 18 | 22 |
+| Aufwand manuell ~h (je IG) | 12,8–20,8 | 12,8–20,8 | 10,1–16,4 | 6,1–9,9 | 7,5–12,2 |
+
+</div>
+
+### MII KDS Person v2025.0.1 — 3 IG-Ordner
+
+<div align="center">
+
+| Kennzahl | 2025.x-DE | 2024.x-DE | 2024.x-EN |
+|---|---|---|---|
+| Sprache | de | de | en |
+| Inhalts-Seiten | 16 | 16 | 15 |
+| Wörter | 6646 | 6142 | 6401 |
+| Ø Wörter / Seite | 415 | 384 | 427 |
+| Direktiven | 116 | 113 | 104 |
+| Aufwand manuell ~h (je IG) | 25–40,6 | 24,5–39,8 | 22,6–36,8 |
+
+</div>
+
+### MII KDS Meta v2026.0.0 — 2 IG-Ordner
+
+<div align="center">
+
+| Kennzahl | 2025 | MedizininformatikInitiative-ImplementationGuide-Template |
+|---|---|---|
+| Sprache | ? | ? |
+| Inhalts-Seiten | 6 | 5 |
+| Wörter | 789 | 1559 |
+| Ø Wörter / Seite | 132 | 312 |
+| Direktiven | 43 | 5 |
+| Aufwand manuell ~h (je IG) | 9,3–15,1 | 2,8–4,5 |
+
+</div>
+
+### MII KDS Medikation v2026.0.1 — 2 IG-Ordner
+
+<div align="center">
+
+| Kennzahl | mii-ig-medikation-v2025 | mii-ig-medikation-de-v2024 |
+|---|---|---|
+| Sprache | ? | de |
+| Inhalts-Seiten | 18 | 18 |
+| Wörter | 7515 | 6792 |
+| Ø Wörter / Seite | 418 | 377 |
+| Direktiven | 155 | 161 |
+| Aufwand manuell ~h (je IG) | 32–52 | 33–53,6 |
+
+</div>
+
+### MII KDS Labor 2026.0.3 — 2 IG-Ordner
+
+<div align="center">
+
+| Kennzahl | 2026.x-DE | 2025.x-DE |
+|---|---|---|
+| Sprache | de | de |
+| Inhalts-Seiten | 19 | 18 |
+| Wörter | 5908 | 5036 |
+| Ø Wörter / Seite | 311 | 280 |
+| Direktiven | 102 | 99 |
+| Aufwand manuell ~h (je IG) | 23,9–38,9 | 23–37,4 |
+
+</div>
 
 ## Portfolio: Wiederverwendung & Konsolidierung
 
@@ -45,17 +124,17 @@ _Artefakte mit identischem Namen in mehreren IGs deuten auf Konsolidierungspoten
 
 _Keine namensgleichen Artefakte über die IGs gefunden — geringe direkte Überlappung._
 
-- **Skaleneffekt KI:** Würde die KI-Einrichtung **programmweit einmal** statt je IG aufgesetzt, entfielen 2−1 der festen Setup-Pauschalen; der Grenzaufwand je weiterem IG sinkt auf den variablen Anteil.
+- **Skaleneffekt KI:** Würde die KI-Einrichtung **programmweit einmal** statt je IG aufgesetzt, entfielen 5−1 der festen Setup-Pauschalen; der Grenzaufwand je weiterem IG sinkt auf den variablen Anteil.
 
 ## Normalisierte Kennzahlen (fairer Vergleich)
 
 <div align="center">
 
-| Metrik | MII KDS Diagnose v2025.0.1 | MII KDS Person v2025.0.1 |
-|---|---|---|
-| Direktiven je Seite | 3.44 | 7.11 |
-| Beispiele je Profil | 4.0 | 1.0 |
-| KI-Ersparnis % | 41 | 44 |
+| Metrik | MII KDS Diagnose v2025.0.1 | MII KDS Person v2025.0.1 | MII KDS Meta v2026.0.0 | MII KDS Medikation v2026.0.1 | MII KDS Labor 2026.0.3 |
+|---|---|---|---|---|---|
+| Direktiven je Seite | 3.42 | 7.09 | 4.36 | 8.78 | 5.43 |
+| Beispiele je Profil | 4.0 | 1.0 | 5.0 | 5.0 | 2.0 |
+| KI-Ersparnis % | 41 | 44 | 11 | 43 | 37 |
 
 </div>
 
@@ -73,8 +152,11 @@ quadrantChart
     quadrant-2 klein & aufwaendig
     quadrant-3 klein & einfach
     quadrant-4 gross & einfach
-    "MII KDS Diagnose v2025.0.1": [0.929, 0.691]
-    "MII KDS Person v2025.0.1": [1.0, 1.0]
+    "MII KDS Diagnose v2025.0.1": [0.074, 0.691]
+    "MII KDS Person v2025.0.1": [0.08, 1.0]
+    "MII KDS Meta v2026.0.0": [1.0, 0.164]
+    "MII KDS Medikation v2026.0.1": [0.229, 0.915]
+    "MII KDS Labor 2026.0.3": [0.114, 0.637]
 ```
 
 </div>

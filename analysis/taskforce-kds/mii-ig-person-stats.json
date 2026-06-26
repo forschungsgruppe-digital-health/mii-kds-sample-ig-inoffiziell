@@ -6,7 +6,7 @@
     "path": "/tmp/kds/person",
     "label": "MII KDS Person v2025.0.1",
     "git_commit": "122e30f",
-    "timestamp": "2026-06-26T19:53:36Z",
+    "timestamp": "2026-06-26T21:58:49Z",
     "input": "/tmp/kds/person",
     "resolved_from": "lokaler Pfad"
   },
@@ -1138,9 +1138,9 @@
         "content_pages": 16,
         "words": 6646,
         "avg_words": 415,
-        "directives": 117,
-        "manual_hours_low": 25.1,
-        "manual_hours_high": 40.8
+        "directives": 116,
+        "manual_hours_low": 25.0,
+        "manual_hours_high": 40.6
       },
       {
         "name": "ImplementationGuide-2024.x-DE",
@@ -1184,15 +1184,14 @@
     ]
   },
   "directives": {
-    "total": 334,
+    "total": 333,
     "by_label": {
       "tree": 17,
       "fql-at": 57,
-      "render-image": 35,
+      "render": 41,
       "index-root": 3,
       "page-title": 2,
       "pagelink": 17,
-      "render-resource": 7,
       "link": 29,
       "tabs": 120,
       "xml": 15,
@@ -1215,49 +1214,49 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md",
         "line": 8,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/KDS_Person_UML_"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 6,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/11_Abbildung_Pe"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 14,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 21,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 27,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 36,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 71,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 82,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ProPerson.jpg}"
       },
       {
@@ -1299,13 +1298,13 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md",
         "line": 18,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md",
         "line": 28,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -1539,7 +1538,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
         "line": 20,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -1869,55 +1868,55 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
         "line": 8,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
         "line": 23,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Valu"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
         "line": 3,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/12_Abbildung_Pe"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
         "line": 11,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
         "line": 18,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
         "line": 24,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
         "line": 33,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
         "line": 63,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Index.page.md",
         "line": 5,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -1929,7 +1928,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/CapabilityStatement.page.md",
         "line": 11,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa"
       },
       {
@@ -2031,7 +2030,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/Index.page.md",
         "line": 10,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -2157,7 +2156,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
         "line": 20,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -2475,19 +2474,19 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/Terminologies.page.md",
         "line": 5,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/Terminologies.page.md",
         "line": 20,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Code"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/Dataset.page.md",
         "line": 5,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Stru"
       },
       {
@@ -2499,7 +2498,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/UML.page.md",
         "line": 5,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/UML-Person.png}"
       },
       {
@@ -2517,49 +2516,49 @@
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md",
         "line": 8,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/UML-Person-2025"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 6,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/11_Abbildung_Pe"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 14,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 21,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 27,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 36,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 71,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
         "line": 82,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ProPerson.jpg}"
       },
       {
@@ -2567,12 +2566,6 @@
         "line": 19,
         "label": "index-root",
         "text": "{{index:root}}"
-      },
-      {
-        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Index.page.md",
-        "line": 73,
-        "label": "render-image",
-        "text": "<img src=\"https://licensebuttons.net/l/by/4.0/88x31.png\" alt=\"CC BY 4.0 Logo\" st"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md",
@@ -2625,13 +2618,13 @@
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md",
         "line": 18,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md",
         "line": 28,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -2757,7 +2750,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
         "line": 16,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -2865,7 +2858,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
         "line": 20,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -3195,13 +3188,13 @@
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
         "line": 8,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
         "line": 23,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Valu"
       }
     ],
@@ -3271,7 +3264,7 @@
   "effort": {
     "drivers": {
       "gofsh_needed": false,
-      "directives": 334,
+      "directives": 333,
       "directives_unknown": 0,
       "pages": 47,
       "floating_pins": 2
@@ -3283,9 +3276,9 @@
         "page": 0.5,
         "floating_pin": 1.0
       },
-      "hours_low": 73.8,
-      "hours_high": 120.0,
-      "band": "XL"
+      "hours_low": 73.7,
+      "hours_high": 119.7,
+      "band": "L"
     },
     "ai": {
       "factors": {
@@ -3298,12 +3291,12 @@
         "setup": 3.0,
         "iteration_pct": 0.2
       },
-      "hours_low": 41.0,
-      "hours_high": 66.6,
+      "hours_low": 40.9,
+      "hours_high": 66.5,
       "band": "L",
       "savings_pct": 44,
-      "variable": 37.7,
-      "iteration": 7.54,
+      "variable": 37.6,
+      "iteration": 7.53,
       "setup": 3.0,
       "gate": 3.0
     },
@@ -3344,7 +3337,7 @@
   "portfolio": {
     "vendor_lockin_score": 85,
     "vendor_lockin_band": "hoch",
-    "directives_per_page": 7.11,
+    "directives_per_page": 7.09,
     "terminology_standard_systems": [
       "SNOMED CT",
       "LOINC",
@@ -3401,14 +3394,14 @@
       "team_size": 1,
       "utilization": 0.6
     },
-    "scenario_min_h": 73.8,
-    "scenario_expected_h": 96.9,
-    "scenario_max_h": 120.0,
+    "scenario_min_h": 73.7,
+    "scenario_expected_h": 96.7,
+    "scenario_max_h": 119.7,
     "confidence": "mittel",
     "role_mix_pct": {
       "FSH-Rückgewinnung/Pins": 2,
       "Template/Tooling (Direktiven)": 72,
-      "Redaktion/Doku (Seiten)": 25
+      "Redaktion/Doku (Seiten)": 26
     },
     "parallelizable": "Direktiven & Seiten gut parallelisierbar; Setup/QA seriell",
     "readiness_score": 90,

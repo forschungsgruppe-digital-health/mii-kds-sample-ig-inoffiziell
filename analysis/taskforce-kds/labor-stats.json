@@ -1,0 +1,2635 @@
+{
+  "schemaVersion": "1.2",
+  "tool": "ig-stats.py",
+  "mode": "static",
+  "analyzed": {
+    "path": "/tmp/kds/labor",
+    "label": "MII KDS Labor 2026.0.3",
+    "git_commit": "fa7c64e",
+    "timestamp": "2026-06-26T21:58:49Z",
+    "input": "/tmp/kds/labor",
+    "resolved_from": "lokaler Pfad"
+  },
+  "identity": {
+    "id": null,
+    "canonical": "https://www.medizininformatik-initiative.de/fhir/core/modul-labor",
+    "packageId": "de.medizininformatikinitiative.kerndatensatz.labor",
+    "name": "de.medizininformatikinitiative.kerndatensatz.labor",
+    "title": "MII IG Laborbefund",
+    "version": "2026.0.3",
+    "calver": true,
+    "status": "active",
+    "fhirVersion": "4.0.1",
+    "license": "CC-BY-4.0",
+    "publisher": null
+  },
+  "artifacts": {
+    "profiles": 3,
+    "extensions": 2,
+    "valuesets": 7,
+    "codesystems": 0,
+    "logicals": 1,
+    "capabilitystatements": 1,
+    "questionnaires": 0,
+    "searchparameters": 0,
+    "operations": 0,
+    "examples": 6,
+    "rulesets": 13,
+    "invariants": 2,
+    "mappings": 1,
+    "total": 20,
+    "_source": "input/fsh (FSH-Deklarationen)"
+  },
+  "artifacts_detail": [
+    {
+      "type": "RuleSet",
+      "name": "SupportResource",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/capabilitystatements/mii-cps-labor-capabilitystatement.fsh",
+      "line": 3
+    },
+    {
+      "type": "RuleSet",
+      "name": "SupportProfile",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/capabilitystatements/mii-cps-labor-capabilitystatement.fsh",
+      "line": 8
+    },
+    {
+      "type": "RuleSet",
+      "name": "SupportInteraction",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/capabilitystatements/mii-cps-labor-capabilitystatement.fsh",
+      "line": 13
+    },
+    {
+      "type": "RuleSet",
+      "name": "SupportSearchParam",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/capabilitystatements/mii-cps-labor-capabilitystatement.fsh",
+      "line": 19
+    },
+    {
+      "type": "Instance",
+      "name": "mii-cps-labor-capabilitystatement",
+      "instanceOf": "CapabilityStatement",
+      "category": "capabilitystatements",
+      "path": "input/fsh/capabilitystatements/mii-cps-labor-capabilitystatement.fsh",
+      "line": 27
+    },
+    {
+      "type": "Extension",
+      "name": "MII_EX_Labor_Interpretationsbeeinflussende_Eigenschaft",
+      "instanceOf": null,
+      "category": "extensions",
+      "path": "input/fsh/extensions/MII_EX_Labor_Interpretationsbeeinflussende_Probeneigenschaft.fsh",
+      "line": 1
+    },
+    {
+      "type": "Extension",
+      "name": "MII_EX_Labor_Quelle_Klinisches_Bezugsdatum",
+      "instanceOf": null,
+      "category": "extensions",
+      "path": "input/fsh/extensions/MII_EX_Labor_Quelle_Klinisches_Bezugsdatum.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-labor-laboranforderung",
+      "instanceOf": "MII_PR_Labor_Laboranforderung",
+      "category": "examples",
+      "path": "input/fsh/instances/mii-exa-labor-laboranforderung.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-labor-laborbefund",
+      "instanceOf": "MII_PR_Labor_Laborbefund",
+      "category": "examples",
+      "path": "input/fsh/instances/mii-exa-labor-laborbefund.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-labor-laborwert-data-absent-reason",
+      "instanceOf": "MII_PR_Labor_Laboruntersuchung",
+      "category": "examples",
+      "path": "input/fsh/instances/mii-exa-labor-laborwert-data-absent-reason.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-labor-laborwert",
+      "instanceOf": "MII_PR_Labor_Laboruntersuchung",
+      "category": "examples",
+      "path": "input/fsh/instances/mii-exa-labor-laborwert.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-labor-laborwert-ratio",
+      "instanceOf": "MII_PR_Labor_Laboruntersuchung",
+      "category": "examples",
+      "path": "input/fsh/instances/mii-exa-labor-laborwert.fsh",
+      "line": 34
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-labor-laborwert-range",
+      "instanceOf": "MII_PR_Labor_Laboruntersuchung",
+      "category": "examples",
+      "path": "input/fsh/instances/mii-exa-labor-laborwert.fsh",
+      "line": 58
+    },
+    {
+      "type": "Invariant",
+      "name": "mii-lab-1",
+      "instanceOf": null,
+      "category": "invariants",
+      "path": "input/fsh/invariants/mii-lab-1.fsh",
+      "line": 1
+    },
+    {
+      "type": "Invariant",
+      "name": "mii-lab-2",
+      "instanceOf": null,
+      "category": "invariants",
+      "path": "input/fsh/invariants/mii-lab-2.fsh",
+      "line": 1
+    },
+    {
+      "type": "Logical",
+      "name": "MII_LM_Labor",
+      "instanceOf": null,
+      "category": "logicals",
+      "path": "input/fsh/logicals/MII_LM_Labor.fsh",
+      "line": 1
+    },
+    {
+      "type": "Mapping",
+      "name": "Labor-LogicalModel",
+      "instanceOf": null,
+      "category": "mappings",
+      "path": "input/fsh/logicals/MII_LM_Labor.fsh",
+      "line": 68
+    },
+    {
+      "type": "Profile",
+      "name": "MII_PR_Labor_Laboranforderung",
+      "instanceOf": null,
+      "category": "profiles",
+      "path": "input/fsh/profiles/MII_PR_Labor_Laboranforderung.fsh",
+      "line": 1
+    },
+    {
+      "type": "Profile",
+      "name": "MII_PR_Labor_Laborbefund",
+      "instanceOf": null,
+      "category": "profiles",
+      "path": "input/fsh/profiles/MII_PR_Labor_Laborbefund.fsh",
+      "line": 1
+    },
+    {
+      "type": "Profile",
+      "name": "MII_PR_Labor_Laboruntersuchung",
+      "instanceOf": null,
+      "category": "profiles",
+      "path": "input/fsh/profiles/MII_PR_Labor_Laboruntersuchung.fsh",
+      "line": 1
+    },
+    {
+      "type": "RuleSet",
+      "name": "LicenseCodeableCCBY40",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/license-term.fsh",
+      "line": 3
+    },
+    {
+      "type": "RuleSet",
+      "name": "LicenseCodeableCCBY40Instance",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/license-term.fsh",
+      "line": 7
+    },
+    {
+      "type": "RuleSet",
+      "name": "MetaProfile",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/meta-profile.fsh",
+      "line": 1
+    },
+    {
+      "type": "RuleSet",
+      "name": "Publisher",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/publisher.fsh",
+      "line": 1
+    },
+    {
+      "type": "RuleSet",
+      "name": "SP_Publisher",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/publisher.fsh",
+      "line": 6
+    },
+    {
+      "type": "RuleSet",
+      "name": "TestDataLabel",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/test-data-label.fsh",
+      "line": 3
+    },
+    {
+      "type": "RuleSet",
+      "name": "Translation",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/translation.fsh",
+      "line": 1
+    },
+    {
+      "type": "RuleSet",
+      "name": "Version",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/version.fsh",
+      "line": 2
+    },
+    {
+      "type": "RuleSet",
+      "name": "PR_CS_VS_Version",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/version.fsh",
+      "line": 5
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Labor_Identifier_Type_Codes",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/MII_VS_Labor_IdentifierTypes.fsh",
+      "line": 1
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Labor_InterpretationsbeeinflussendeEigenschaft_SNOMEDCT",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/MII_VS_Labor_InterpretationsbeeinflussendeProbeneigenschaften.fsh",
+      "line": 1
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Labor_Laborbereich",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/MII_VS_Labor_Laborbereich.fsh",
+      "line": 1
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Labor_Laborergebnis_Qualitativ",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/MII_VS_Labor_Laborergebnis_Qualitativ.fsh",
+      "line": 1
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Labor_Laborergbenis_Semiquantitativ",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/MII_VS_Labor_Laborergebnis_Semiquantitativ.fsh",
+      "line": 1
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Labor_Order_Codes",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/MII_VS_Labor_Order_Codes.fsh",
+      "line": 1
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Labor_Quelle_Klinisches_Bezugsdatum",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/MII_VS_Labor_Quelle_Klinisches_Bezugsdatum.fsh",
+      "line": 1
+    }
+  ],
+  "dependencies": {
+    "count": 2,
+    "pinned": 2,
+    "floating": 0,
+    "items": {
+      "hl7.fhir.uv.ips": "2.0.0",
+      "de.medizininformatikinitiative.kerndatensatz.meta": "2026.0.0"
+    },
+    "floating_items": [],
+    "_source": "sushi-config.yaml: dependencies"
+  },
+  "narrative": {
+    "format": "source",
+    "pages": 37,
+    "pages_all": 42,
+    "words": 10875,
+    "words_all_incl_stubs": 10944,
+    "images": 7,
+    "mandatory_present": [],
+    "mandatory_missing_in_target": [],
+    "files": [
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 95,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 482,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Index.page.md",
+        "words": 14,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 92,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "words": 1435,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/Index.page.md",
+        "words": 394,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 164,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/Referenzen.page.md",
+        "words": 93,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/ReleaseNotes.page.md",
+        "words": 236,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "words": 363,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Beschreibung.page.md",
+        "words": 45,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Operations.page.md",
+        "words": 23,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-REST.page.md",
+        "words": 23,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Search.page.md",
+        "words": 25,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "words": 121,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "words": 522,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "words": 288,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Specimen.page.md",
+        "words": 109,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Index.page.md",
+        "words": 13,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "words": 499,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 95,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 482,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Index.page.md",
+        "words": 14,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 92,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "words": 1434,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/Index.page.md",
+        "words": 393,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 164,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/Referenzen.page.md",
+        "words": 93,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/ReleaseNotes.page.md",
+        "words": 588,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Conformance.page.md",
+        "words": 15,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Extensions.page.md",
+        "words": 492,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "words": 363,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Beschreibung.page.md",
+        "words": 45,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Operations.page.md",
+        "words": 23,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-REST.page.md",
+        "words": 23,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Search.page.md",
+        "words": 25,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "words": 121,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "words": 522,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "words": 288,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Specimen.page.md",
+        "words": 109,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Index.page.md",
+        "words": 13,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "words": 514,
+        "kind": "source",
+        "stub": false
+      }
+    ]
+  },
+  "linguistics": {
+    "content_pages": 37,
+    "words_total": 10875,
+    "words_avg": 293.9,
+    "words_median": 164,
+    "words_min": 23,
+    "words_max": 1435,
+    "longest_page": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+    "shortest_page": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-REST.page.md",
+    "per_page": [
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "words": 1435
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "words": 1434
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/ReleaseNotes.page.md",
+        "words": 588
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "words": 522
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "words": 522
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "words": 514
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "words": 499
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Extensions.page.md",
+        "words": 492
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 482
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 482
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/Index.page.md",
+        "words": 394
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/Index.page.md",
+        "words": 393
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "words": 363
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "words": 363
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "words": 288
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "words": 288
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/ReleaseNotes.page.md",
+        "words": 236
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 164
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 164
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "words": 121
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "words": 121
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Specimen.page.md",
+        "words": 109
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Specimen.page.md",
+        "words": 109
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 95
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 95
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/Referenzen.page.md",
+        "words": 93
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/Referenzen.page.md",
+        "words": 93
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 92
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 92
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Beschreibung.page.md",
+        "words": 45
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Beschreibung.page.md",
+        "words": 45
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Search.page.md",
+        "words": 25
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Search.page.md",
+        "words": 25
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Operations.page.md",
+        "words": 23
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-REST.page.md",
+        "words": 23
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Operations.page.md",
+        "words": 23
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-REST.page.md",
+        "words": 23
+      }
+    ]
+  },
+  "duplication": {
+    "duplicate_block_count": 73,
+    "cross_ig_block_count": 73,
+    "duplicate_blocks": [
+      {
+        "snippet": "from structuredefinition where url = %canonical select canonical: url, status: status, ver",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "constraints/invarianten from structuredefinition where url = %canonical for differential.e",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "laboruntersuchungen spielen bei einem großteil aller medizinischen diagnosen eine entschei",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "die offizielle und abgenommene version des informationsmodells für das modul person findet",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "es ist zu beachten, dass das logical model rein auf die abbildung der datenelemente und de",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "logischer datensatz beschreibung laborbefund.identifikation identifikator des laborbefunds",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "logischer datensatz beschreibung probenmaterial.identifikation id der probe probenmaterial",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "logischer datensatz beschreibung laboruntersuchung.code code des laborparameters (loinc) l",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "logischer datensatz beschreibung laboranforderung.identifikation identifikator der laboran",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "als abstraktere version eines informationsmodells und zur besseren verdeutlichung von bezi",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/UML.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/UML.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "laboruntersuchungen spielen bei einem großteil aller medizinischen diagnosen eine entschei",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "[ ](https://art decor.org/art decor/decor datasets mide ?id=2.16.840.1.113883.3.1937.777.2",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "laborbefunde sind als dokumente zusammengefasste in einem medizinischen labor durchgeführt",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "für eine tabellarische übersicht samt zuordnung zu den entsprechenden fhir items siehe inn",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      },
+      {
+        "snippet": "im verlauf einer laboranalyse, von der abnahme der probe bis zur übermittlung des befundes",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+          "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md"
+        ],
+        "folders": [
+          "ImplementationGuide-2025.x-DE",
+          "ImplementationGuide-2026.x-DE"
+        ],
+        "cross_ig": true
+      }
+    ],
+    "duplicate_file_groups": [
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Index.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Index.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/UML.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/UML.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/KontextimGesamtprojektBezgezuanderenModulen.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/Referenzen.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/Referenzen.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Beschreibung.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Beschreibung.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Operations.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Operations.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-REST.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-REST.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Search.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Search.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Index.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Specimen.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Specimen.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Index.page.md",
+        "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Index.page.md"
+      ]
+    ]
+  },
+  "hygiene": {
+    "images_total": 7,
+    "unreferenced_images": [],
+    "examples_total": 6,
+    "examples_not_in_narrative": [
+      "mii-exa-labor-laborwert-data-absent-reason",
+      "mii-exa-labor-laborwert-ratio",
+      "mii-exa-labor-laborwert-range"
+    ],
+    "note": "Heuristik: 'nicht referenziert' = Dateiname/Artefaktname kommt in keiner Erklärseite vor. Kein Beweis für Ungenutztheit (Referenz kann über Konfiguration/Build erfolgen)."
+  },
+  "contained_igs": {
+    "count": 2,
+    "folders": [
+      {
+        "name": "ImplementationGuide-2026.x-DE",
+        "language": "de",
+        "pages": 22,
+        "content_pages": 19,
+        "words": 5908,
+        "avg_words": 311,
+        "directives": 102,
+        "manual_hours_low": 23.9,
+        "manual_hours_high": 38.9
+      },
+      {
+        "name": "ImplementationGuide-2025.x-DE",
+        "language": "de",
+        "pages": 20,
+        "content_pages": 18,
+        "words": 5036,
+        "avg_words": 280,
+        "directives": 99,
+        "manual_hours_low": 23.0,
+        "manual_hours_high": 37.4
+      }
+    ]
+  },
+  "i18n": {
+    "default_lang": null,
+    "default_lang_source": null,
+    "languages": [],
+    "translation_supplements": 0,
+    "supplement_files": [],
+    "translated_pages": 0,
+    "fsh_translation_ext": true,
+    "fsh_translation_files": [
+      "input/fsh/rulesets/translation.fsh",
+      "input/fsh/profiles/MII_PR_Labor_Laboruntersuchung.fsh",
+      "input/fsh/profiles/MII_PR_Labor_Laborbefund.fsh",
+      "input/fsh/profiles/MII_PR_Labor_Laboranforderung.fsh"
+    ]
+  },
+  "directives": {
+    "total": 201,
+    "by_label": {
+      "tree": 10,
+      "render": 25,
+      "pagelink": 2,
+      "index-root": 2,
+      "page-title": 2,
+      "link": 18,
+      "fql-tag": 22,
+      "tabs": 102,
+      "xml": 6,
+      "json": 12
+    },
+    "unknown": 18,
+    "occurrences": [
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "line": 8,
+        "label": "tree",
+        "text": "{{tree:fsh-generated/resources/StructureDefinition-mii-lm-labor.json}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/UML.page.md",
+        "line": 9,
+        "label": "render",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/UML_Laborbefund"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "line": 6,
+        "label": "render",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/Modul_Laborbefu"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "line": 12,
+        "label": "render",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ART-DECOR_Labo"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "line": 18,
+        "label": "pagelink",
+        "text": "Für eine tabellarische Übersicht samt Zuordnung zu den entsprechenden FHIR-Items"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "line": 79,
+        "label": "render",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ART-DECOR_Labo"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "line": 83,
+        "label": "render",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ART-DECOR_Labo"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "line": 95,
+        "label": "render",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ART-DECOR_Prob"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/Index.page.md",
+        "line": 8,
+        "label": "render",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/Index.page.md",
+        "line": 22,
+        "label": "index-root",
+        "text": "{{index:root}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/ReleaseNotes.page.md",
+        "line": 1,
+        "label": "page-title",
+        "text": "## {{page-title}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 7,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 13,
+        "label": "fql-tag",
+        "text": "<fql output=\"table\" headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 24,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 25,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 25,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 26,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">{{page:FQL-Beschreibung}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 27,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 27,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 28,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 28,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 29,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 29,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 30,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 35,
+        "label": "fql-tag",
+        "text": "<fql headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 41,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 42,
+        "label": "tabs",
+        "text": "<tab title=\"Interaktionen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 44,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 45,
+        "label": "tabs",
+        "text": "<tab title=\"Suchparameter\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 47,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 48,
+        "label": "tabs",
+        "text": "<tab title=\"Operationen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 50,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 51,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 53,
+        "label": "link",
+        "text": "{{link:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Capabil"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 54,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 91,
+        "label": "json",
+        "text": "{{json:mii-exa-labor-laborbefund}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Beschreibung.page.md",
+        "line": 4,
+        "label": "fql-tag",
+        "text": "<fql output=\"inline\" headers=\"false\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Beschreibung.page.md",
+        "line": 14,
+        "label": "fql-tag",
+        "text": "<fql output = \"table\" headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Operations.page.md",
+        "line": 4,
+        "label": "fql-tag",
+        "text": "<fql>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-REST.page.md",
+        "line": 4,
+        "label": "fql-tag",
+        "text": "<fql>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Search.page.md",
+        "line": 4,
+        "label": "fql-tag",
+        "text": "<fql>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "line": 12,
+        "label": "render",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 7,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 13,
+        "label": "fql-tag",
+        "text": "<fql output=\"table\" headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 24,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 25,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 25,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 26,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">{{page:FQL-Beschreibung}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 27,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 27,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 28,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 28,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 29,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 29,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 30,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 35,
+        "label": "fql-tag",
+        "text": "<fql headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 41,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 42,
+        "label": "tabs",
+        "text": "<tab title=\"Interaktionen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 44,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 45,
+        "label": "tabs",
+        "text": "<tab title=\"Suchparameter\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 47,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 48,
+        "label": "tabs",
+        "text": "<tab title=\"Operationen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 50,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 51,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 53,
+        "label": "link",
+        "text": "{{link:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Capabil"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 54,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 101,
+        "label": "json",
+        "text": "{{json:mii-exa-labor-laborwert}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 7,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 13,
+        "label": "fql-tag",
+        "text": "<fql output=\"table\" headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 24,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 25,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 25,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 26,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">{{page:FQL-Beschreibung}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 27,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 27,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 28,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 28,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 29,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 29,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 30,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 35,
+        "label": "fql-tag",
+        "text": "<fql headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 41,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 42,
+        "label": "tabs",
+        "text": "<tab title=\"Interaktionen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 44,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 45,
+        "label": "tabs",
+        "text": "<tab title=\"Suchparameter\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 47,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 48,
+        "label": "tabs",
+        "text": "<tab title=\"Operationen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 50,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 51,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 53,
+        "label": "link",
+        "text": "{{link:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Capabil"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 54,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 88,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/ServiceRequest-mii-exa-labor-laboranforderung.jso"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "line": 45,
+        "label": "render",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Value"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "line": 51,
+        "label": "render",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Value"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "line": 57,
+        "label": "render",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Value"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "line": 63,
+        "label": "render",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Value"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "line": 8,
+        "label": "tree",
+        "text": "{{tree:fsh-generated/resources/StructureDefinition-mii-lm-labor.json}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/AnwendungsflleInformationsmodell/UML.page.md",
+        "line": 9,
+        "label": "render",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/UML_Laborbefund"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "line": 10,
+        "label": "render",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ART-DECOR_Labo"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "line": 16,
+        "label": "pagelink",
+        "text": "Für eine tabellarische Übersicht samt Zuordnung zu den entsprechenden FHIR-Items"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "line": 77,
+        "label": "render",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ART-DECOR_Labo"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "line": 81,
+        "label": "render",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ART-DECOR_Labo"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/BeschreibungModul.page.md",
+        "line": 93,
+        "label": "render",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ART-DECOR_Prob"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/Index.page.md",
+        "line": 8,
+        "label": "render",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/Index.page.md",
+        "line": 22,
+        "label": "index-root",
+        "text": "{{index:root}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/ReleaseNotes.page.md",
+        "line": 1,
+        "label": "page-title",
+        "text": "## {{page-title}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Extensions.page.md",
+        "line": 27,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Structu"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Extensions.page.md",
+        "line": 31,
+        "label": "render",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Value"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Extensions.page.md",
+        "line": 55,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Structu"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Extensions.page.md",
+        "line": 59,
+        "label": "render",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Value"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 7,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 13,
+        "label": "fql-tag",
+        "text": "<fql output=\"table\" headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 24,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 25,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 25,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 26,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">{{page:FQL-Beschreibung}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 27,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 27,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 28,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 28,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 29,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 29,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 30,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 35,
+        "label": "fql-tag",
+        "text": "<fql headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 41,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 42,
+        "label": "tabs",
+        "text": "<tab title=\"Interaktionen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 44,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 45,
+        "label": "tabs",
+        "text": "<tab title=\"Suchparameter\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 47,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 48,
+        "label": "tabs",
+        "text": "<tab title=\"Operationen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 50,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 51,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 53,
+        "label": "link",
+        "text": "{{link:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Capabil"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 54,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 91,
+        "label": "json",
+        "text": "{{json:mii-exa-labor-laborbefund}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Beschreibung.page.md",
+        "line": 4,
+        "label": "fql-tag",
+        "text": "<fql output=\"inline\" headers=\"false\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Beschreibung.page.md",
+        "line": 14,
+        "label": "fql-tag",
+        "text": "<fql output = \"table\" headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Operations.page.md",
+        "line": 4,
+        "label": "fql-tag",
+        "text": "<fql>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-REST.page.md",
+        "line": 4,
+        "label": "fql-tag",
+        "text": "<fql>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-Search.page.md",
+        "line": 4,
+        "label": "fql-tag",
+        "text": "<fql>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "line": 12,
+        "label": "render",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 7,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 13,
+        "label": "fql-tag",
+        "text": "<fql output=\"table\" headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 24,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 25,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 25,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 26,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">{{page:FQL-Beschreibung}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 27,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 27,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 28,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 28,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 29,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 29,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 30,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 35,
+        "label": "fql-tag",
+        "text": "<fql headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 41,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 42,
+        "label": "tabs",
+        "text": "<tab title=\"Interaktionen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 44,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 45,
+        "label": "tabs",
+        "text": "<tab title=\"Suchparameter\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 47,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 48,
+        "label": "tabs",
+        "text": "<tab title=\"Operationen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 50,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 51,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 53,
+        "label": "link",
+        "text": "{{link:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Capabil"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 54,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 101,
+        "label": "json",
+        "text": "{{json:mii-exa-labor-laborwert}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 7,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 13,
+        "label": "fql-tag",
+        "text": "<fql output=\"table\" headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 24,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 25,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 25,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 26,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">{{page:FQL-Beschreibung}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 27,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 27,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 28,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 28,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 29,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 29,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 30,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 35,
+        "label": "fql-tag",
+        "text": "<fql headers=\"true\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 41,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 42,
+        "label": "tabs",
+        "text": "<tab title=\"Interaktionen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 44,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 45,
+        "label": "tabs",
+        "text": "<tab title=\"Suchparameter\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 47,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 48,
+        "label": "tabs",
+        "text": "<tab title=\"Operationen\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 50,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 51,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 53,
+        "label": "link",
+        "text": "{{link:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Capabil"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 54,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 88,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/ServiceRequest-mii-exa-labor-laboranforderung.jso"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "line": 49,
+        "label": "render",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Value"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "line": 55,
+        "label": "render",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Value"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "line": 61,
+        "label": "render",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Value"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/Terminologien.page.md",
+        "line": 67,
+        "label": "render",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-labor/Value"
+      }
+    ],
+    "unknown_occurrences": [
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 43,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-REST}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 46,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Search}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 49,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Operations}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 43,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-REST}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 46,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Search}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 49,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Operations}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 43,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-REST}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 46,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Search}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 49,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Operations}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 43,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-REST}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 46,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Search}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/DiagnosticReport.page.md",
+        "line": 49,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Operations}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 43,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-REST}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 46,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Search}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/Observation.page.md",
+        "line": 49,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Operations}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 43,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-REST}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 46,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Search}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/ServiceRequest.page.md",
+        "line": 49,
+        "label": "UNBEKANNT",
+        "text": "{{page:FQL-Capability-Operations}}"
+      }
+    ]
+  },
+  "quality": {
+    "qc_rules_defined": 8,
+    "qc_rules": [
+      {
+        "name": "parse-fhir-resources",
+        "action": "parse",
+        "status": "Checking if all FHIR Resource files can be parsed",
+        "category": null
+      },
+      {
+        "name": "resource-validation",
+        "action": "validate",
+        "status": "Validating resources against the FHIR standard and their profiles",
+        "category": "Resource"
+      },
+      {
+        "name": "version-filled",
+        "action": null,
+        "status": "Checking if all resources have version filled",
+        "category": null
+      },
+      {
+        "name": null,
+        "action": "Check for valid ids",
+        "status": null,
+        "category": null
+      },
+      {
+        "name": "naming-convention-id",
+        "action": null,
+        "status": "Checking if all resource ids follow the naming convention",
+        "category": null
+      },
+      {
+        "name": "naming-convention-name",
+        "action": null,
+        "status": "Checking if all resource names follow the naming convention",
+        "category": null
+      },
+      {
+        "name": "naming-convention-title",
+        "action": null,
+        "status": "Checking if all resource titles follow the naming convention",
+        "category": null
+      },
+      {
+        "name": "naming-convention-url",
+        "action": null,
+        "status": "Checking if all resource urls follow the naming convention",
+        "category": null
+      }
+    ],
+    "qc_source": "qc/custom.rules.yaml",
+    "qc_violations": null,
+    "suppressed_messages": null,
+    "qa_errors": null,
+    "qa_warnings": null,
+    "qa_hints": null,
+    "broken_links": null,
+    "qa_categories": null
+  },
+  "effort": {
+    "drivers": {
+      "gofsh_needed": false,
+      "directives": 201,
+      "directives_unknown": 18,
+      "pages": 37,
+      "floating_pins": 0
+    },
+    "manual": {
+      "factors": {
+        "gofsh_flat": 8.0,
+        "directive": 0.2,
+        "page": 0.5,
+        "floating_pin": 1.0
+      },
+      "hours_low": 47.0,
+      "hours_high": 76.3,
+      "band": "L"
+    },
+    "ai": {
+      "factors": {
+        "gofsh_flat": 3.0,
+        "directive_known": 0.08,
+        "directive_unknown": 0.2,
+        "page": 0.2,
+        "floating_pin": 0.8,
+        "gate_fixed": 3.0,
+        "setup": 3.0,
+        "iteration_pct": 0.2
+      },
+      "hours_low": 29.4,
+      "hours_high": 47.8,
+      "band": "L",
+      "savings_pct": 37,
+      "variable": 25.6,
+      "iteration": 5.13,
+      "setup": 3.0,
+      "gate": 3.0
+    },
+    "assumptions": [
+      "Nur statisch berechenbare Treiber; id/url-Mismatch, QC-Verletzungen und quell-intrinsische Validierungsfehler erfordern einen Build und sind hier nicht enthalten.",
+      "Faktoren sind Erfahrungswerte, noch nicht final kalibriert; Spanne = Basis × 0,8…1,3.",
+      "pages = Inhalts-Seiten (Stubs/Navigation < 20 Wörter ausgeschlossen).",
+      "Personentage = Aufwand in 8-h-Arbeitstagen (1 PT = 8 Personenstunden); beide Schätzungen messen MENSCHLICHE Arbeitszeit — manuell die Migration von Hand, KI-gestützt die Bedien-/Review-Zeit der KI (Prompts, Review-Gates, Korrekturen), NICHT die Rechen-/Laufzeit oder Wartezeit der KI.",
+      "KI-Schätzung: anbieter-/modellunabhängig (Human-in-the-Loop, Review-Gates). Enthält feste Pauschalen für Einarbeitung/Setup (3 h) und Review-Gates (3 h) sowie einen Validierungs-/Iterationsaufschlag (20 %); unbekannte Direktiven werden wie manuell gerechnet. Bewusst konservativ – keine garantierte Einsparung."
+    ]
+  },
+  "maturity": {
+    "score": 74,
+    "band": "fortgeschritten",
+    "components": {
+      "Status": 85,
+      "Doku-Vollständigkeit": 88,
+      "Beispiel-Abdeckung": 100,
+      "Governance": 25
+    },
+    "example_coverage": {
+      "profiles_total": 3,
+      "covered": 3,
+      "uncovered": [],
+      "coverage_pct": 100
+    },
+    "governance": {
+      "ci_workflows": 1,
+      "publication_request": false,
+      "ig_ini": false,
+      "devcontainer": false,
+      "governance_score": 25
+    },
+    "doc_health_pct": 88
+  },
+  "portfolio": {
+    "vendor_lockin_score": 65,
+    "vendor_lockin_band": "hoch",
+    "directives_per_page": 5.43,
+    "terminology_standard_systems": [
+      "SNOMED CT",
+      "LOINC",
+      "UCUM"
+    ],
+    "terminology_standard_refs": 105,
+    "local_codesystems": 0,
+    "terminology_standard_share_pct": 100,
+    "canonical_reuse_ratio_pct": 100,
+    "external_parents": 3,
+    "local_parents": 0,
+    "fhir_version_label": "R4",
+    "fhir_version_note": "aktuell verbreitet",
+    "dependency_stale_count": 0,
+    "dependency_stale": [],
+    "dependency_staleness_note": "Heuristik aus CalVer-Jahr; exakt nur via Package-Registry (extern).",
+    "release_cadence_per_year": 49.2,
+    "days_since_last_commit": 15,
+    "tags": 9
+  },
+  "risk": {
+    "terminology_license_flags": [
+      {
+        "system": "SNOMED CT",
+        "license": "lizenzpflichtig (Affiliate/Land)"
+      },
+      {
+        "system": "LOINC",
+        "license": "frei (Registrierung)"
+      },
+      {
+        "system": "UCUM",
+        "license": "frei"
+      }
+    ],
+    "terminology_license_risk": true,
+    "suppressed_total": 0,
+    "suppressed_broad": 0,
+    "suppressed_warning_risk": "keine",
+    "privacy_page_words": 0,
+    "privacy_page_substantial": false,
+    "examples_contain_pii_like": false,
+    "bus_factor_top_author_pct": 31,
+    "bus_factor_authors": 13,
+    "bus_factor_risk": "gering",
+    "breaking_change_risk": null,
+    "breaking_change_note": "Erfordert Diff gegen die publizierte Vorversion (Build/extern) — statisch nicht erhoben."
+  },
+  "planning": {
+    "calendar_days_low": 10,
+    "calendar_days_high": 16,
+    "assumptions": {
+      "hours_per_day": 8.0,
+      "team_size": 1,
+      "utilization": 0.6
+    },
+    "scenario_min_h": 47.0,
+    "scenario_expected_h": 61.6,
+    "scenario_max_h": 76.3,
+    "confidence": "niedrig",
+    "role_mix_pct": {
+      "FSH-Rückgewinnung/Pins": 0,
+      "Template/Tooling (Direktiven)": 68,
+      "Redaktion/Doku (Seiten)": 32
+    },
+    "parallelizable": "Direktiven & Seiten gut parallelisierbar; Setup/QA seriell",
+    "readiness_score": 90,
+    "cross_module_dependency_risk": "gering",
+    "ai_fixed_cost_share_pct": 13
+  },
+  "git": {
+    "commits": 347,
+    "authors": 13,
+    "top_author_share": 31,
+    "days_since_last": 15,
+    "commits_per_year": 49.2,
+    "tags": 9,
+    "first": "2019-05-26",
+    "last": "2026-06-11"
+  }
+}

@@ -1,6 +1,6 @@
 # IG-Statistik — MII KDS Diagnose v2025.0.1
 
-_Modus: `static` · Stand: 2026-06-26T19:53:36Z · Commit: `c2d2ff4`_
+_Modus: `static` · Stand: 2026-06-26T21:58:49Z · Commit: `c2d2ff4`_
 
 ## Executive Summary: Migration des FHIR-Leitfadens "MII IG Diagnose"
 
@@ -8,7 +8,7 @@ _Modus: `static` · Stand: 2026-06-26T19:53:36Z · Commit: `c2d2ff4`_
 
 ### Das Wichtigste in einem Satz
 
-Der Umzug ist **umfangreich** (geschätzt **51–83 Personenstunden**, also rund **6,4–10,4 Personentage**), **mit wenigen vorab zu klärenden Punkten** – die fachliche Substanz liegt bereits in maschinenlesbarer, sauberer Form vor. Mit KI-Unterstützung lässt sich der Aufwand voraussichtlich deutlich senken (modellierte ~30–49 h, ≈ 41 % weniger; Annahmen und Vorbehalte siehe „Aufwand“).
+Der Umzug ist **umfangreich** (geschätzt **51–83 Personenstunden**, also rund **6,4–10,3 Personentage**), **mit wenigen vorab zu klärenden Punkten** – die fachliche Substanz liegt bereits in maschinenlesbarer, sauberer Form vor. Mit KI-Unterstützung lässt sich der Aufwand voraussichtlich deutlich senken (modellierte ~30–49 h, ≈ 41 % weniger; Annahmen und Vorbehalte siehe „Aufwand“).
 
 ### Inhaltlicher Umfang (was migriert wird)
 
@@ -21,7 +21,7 @@ Der Umzug ist **umfangreich** (geschätzt **51–83 Personenstunden**, also rund
 - **Aufwandsband: L (groß)** – auf einer Skala S (klein, <1 Tag) / M (mittel, einige Tage) / L (groß, 1–2 Wochen) / XL (sehr groß) liegt dieses Vorhaben **im oberen Bereich**.
 - **Manuell: rund 51–83 Stunden.** Das ist eine **Größenordnungsschätzung zur Budgetplanung** (Faustregel: Menge der Arbeitsschritte × Erfahrungswert) – **kein verbindliches Angebot**.
 - **KI-gestützt teilautomatisiert: rund 30–49 Stunden** (≈ 41 % weniger). Das heißt: eine KI erledigt die wiederkehrenden Umbauten, Menschen prüfen und geben an Kontrollpunkten frei (Human-in-the-Loop / Review-Gates). Die Schätzung gilt **unabhängig davon, welches KI-Produkt eingesetzt wird** – sie ist eine _modellierte_ Annahme mit noch nicht kalibrierten Faktoren, **keine garantierte Einsparung**.
-- **Größte Aufwandstreiber:** 179 plattformspezifische Platzhalter in den Textseiten (sog. „Direktiven“ – das neue Standard-Werkzeug kennt sie nicht, sie werden einzeln umgebaut; ~36 h) und 52 Inhaltsseiten (~26 h).
+- **Größte Aufwandstreiber:** 178 plattformspezifische Platzhalter in den Textseiten (sog. „Direktiven“ – das neue Standard-Werkzeug kennt sie nicht, sie werden einzeln umgebaut; ~36 h) und 52 Inhaltsseiten (~26 h).
 - **Reife & Strategie:** Reifegrad **74/100 (fortgeschritten)** · Hersteller-Lock-in mittel. (Details in den Abschnitten Reife & Freigabe und Strategie.)
 
 ### Wie sauber ist die Quelle?
@@ -40,7 +40,7 @@ Der Umzug ist **umfangreich** (geschätzt **51–83 Personenstunden**, also rund
 
 ### Bottom Line / Empfehlung
 
-**Durchführbar – mit Ressourcen- und Zeitplanung.** Der Aufwand ist groß und kalkulierbar (manuell ~6,4–10,4 Personentage, KI-gestützt voraussichtlich spürbar weniger), die Quelle ist mit überschaubaren Vorarbeiten. Konkret einzuplanen: ein abschließender Validierungslauf mit fachlichem Review.
+**Durchführbar – mit Ressourcen- und Zeitplanung.** Der Aufwand ist groß und kalkulierbar (manuell ~6,4–10,3 Personentage, KI-gestützt voraussichtlich spürbar weniger), die Quelle ist mit überschaubaren Vorarbeiten. Konkret einzuplanen: ein abschließender Validierungslauf mit fachlichem Review.
 
 ## Kennzahlen-Überblick
 
@@ -78,21 +78,20 @@ pie showData title Artefakte
 
 _Interne FSH-Konstrukte (nicht in Σ): 18 rulesets, 2 mappings._
 
-### Plattform-Direktiven — Σ 179 (unbekannt: 0)
+### Plattform-Direktiven — Σ 178 (unbekannt: 0)
 
 _Dieser Abschnitt listet die plattformspezifischen Platzhalter in den Erklärseiten, die ein generischer IG Publisher nicht versteht und die daher umgesetzt werden müssen._
 
 <div align="center">
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{"pie1": "#4E79A7", "pie2": "#F28E2B", "pie3": "#59A14F", "pie4": "#E15759", "pie5": "#76B7B2", "pie6": "#EDC948", "pie7": "#B07AA1", "pie8": "#FF9DA7", "pie9": "#9C755F", "pie10": "#BAB0AC", "pie11": "#86BCB6", "pieOpacity": "1", "pieSectionTextColor": "#1A1A1A", "pieTitleTextSize": "18px"}}}%%
+%%{init: {'theme':'base','themeVariables':{"pie1": "#4E79A7", "pie2": "#F28E2B", "pie3": "#59A14F", "pie4": "#E15759", "pie5": "#76B7B2", "pie6": "#EDC948", "pie7": "#B07AA1", "pie8": "#FF9DA7", "pie9": "#9C755F", "pie10": "#BAB0AC", "pieOpacity": "1", "pieSectionTextColor": "#1A1A1A", "pieTitleTextSize": "18px"}}}%%
 pie showData title Direktiven
-    "render-image" : 53
+    "render" : 66
     "tabs" : 24
     "json" : 21
     "pagelink" : 21
     "fql-at" : 17
-    "render-resource" : 14
     "tree" : 12
     "link" : 6
     "index-root" : 4
@@ -106,12 +105,11 @@ pie showData title Direktiven
 
 | Direktive | Anzahl |
 |---|---|
-| render-image | 53 |
+| render | 66 |
 | tabs | 24 |
 | json | 21 |
 | pagelink | 21 |
 | fql-at | 17 |
-| render-resource | 14 |
 | tree | 12 |
 | link | 6 |
 | index-root | 4 |
@@ -151,8 +149,8 @@ _Linguistische Kennzahlen zum Textumfang (Wörter je Seite, Durchschnitt) sowie 
 | Inhalts-Seiten | 12 | 12 | 10 | 8 | 10 |
 | Wörter | 7807 | 7629 | 8129 | 6580 | 8046 |
 | Ø Wörter / Seite | 651 | 636 | 813 | 822 | 805 |
-| Direktiven | 51 | 50 | 38 | 18 | 22 |
-| Aufwand manuell ~h (je IG) | 13–21,1 | 12,8–20,8 | 10,1–16,4 | 6,1–9,9 | 7,5–12,2 |
+| Direktiven | 50 | 50 | 38 | 18 | 22 |
+| Aufwand manuell ~h (je IG) | 12,8–20,8 | 12,8–20,8 | 10,1–16,4 | 6,1–9,9 | 7,5–12,2 |
 
 </div>
 
@@ -168,18 +166,18 @@ _Dieser Abschnitt schätzt den Arbeitsaufwand der Überführung als Spanne - man
 
 | Treiber | Menge | manuell [h] | KI-gestützt [h] |
 |---|---|---|---|
-| Direktiven (bekannt) | 179 | 35,8 | 14,3 |
+| Direktiven (bekannt) | 178 | 35,6 | 14,2 |
 | Inhalts-Seiten | 52 | 26 | 10,4 |
 | Floating Pins (Versionen fixieren) | 2 | 2 | 1,6 |
 | GoFSH-Vorlauf (Regel-Rückgewinnung) | nein | 0 | 0 |
 | Direktiven (unbekannt → manuell) | 0 | 0 | 0 |
 | Einarbeitung/Setup (einmalig) | — | 0 | 3 |
 | Review-Gates (Pauschale) | — | 0 | 3 |
-| Validierungs-/Iterationsaufschlag (20 %) | — | 0 | 5,3 |
+| Validierungs-/Iterationsaufschlag (20 %) | — | 0 | 5,2 |
 
 </div>
 
-**Manuell:** Band L · **51–82,9 h**  |  **KI-gestützt (HITL, Review-Gates, anbieter-/modellunabhängig):** Band L · **30,1–48,9 h** · **≈ 41 % weniger**
+**Manuell:** Band L · **50,9–82,7 h**  |  **KI-gestützt (HITL, Review-Gates, anbieter-/modellunabhängig):** Band L · **30–48,7 h** · **≈ 41 % weniger**
 
 _Annahmen:_ • Nur statisch berechenbare Treiber; id/url-Mismatch, QC-Verletzungen und quell-intrinsische Validierungsfehler erfordern einen Build und sind hier nicht enthalten. • Faktoren sind Erfahrungswerte, noch nicht final kalibriert; Spanne = Basis × 0,8…1,3. • pages = Inhalts-Seiten (Stubs/Navigation < 20 Wörter ausgeschlossen). • Personentage = Aufwand in 8-h-Arbeitstagen (1 PT = 8 Personenstunden); beide Schätzungen messen MENSCHLICHE Arbeitszeit — manuell die Migration von Hand, KI-gestützt die Bedien-/Review-Zeit der KI (Prompts, Review-Gates, Korrekturen), NICHT die Rechen-/Laufzeit oder Wartezeit der KI. • KI-Schätzung: anbieter-/modellunabhängig (Human-in-the-Loop, Review-Gates). Enthält feste Pauschalen für Einarbeitung/Setup (3 h) und Review-Gates (3 h) sowie einen Validierungs-/Iterationsaufschlag (20 %); unbekannte Direktiven werden wie manuell gerechnet. Bewusst konservativ – keine garantierte Einsparung.
 
@@ -227,7 +225,7 @@ _Planungsgrößen jenseits reiner Personenstunden: Kalenderzeit, Szenarien (Min/
 | Planungsgröße | Wert |
 |---|---|
 | Kalenderzeit | 11–18 Arbeitstage |
-| Szenario Min / Erwartet / Max | 51 / 67 / 82,9 h |
+| Szenario Min / Erwartet / Max | 50,9 / 66,8 / 82,7 h |
 | Schätz-Konfidenz | mittel |
 | Startbereitschaft | 90/100 |
 | Cross-Modul-Abhängigkeit | erhöht (floating Pins) |
@@ -266,7 +264,7 @@ _Hier stehen je Themenbereich konkrete, aus den Kennzahlen abgeleitete Schritte,
 |---|---|---|
 | Artefakte (FSH) | 13 publiziert, FSH vorhanden | Liegen die Artefakte bereits als FSH vor, können sie unverändert nach input/fsh/ übernommen werden; ein Rückwandeln aus fertigen FHIR-Dateien entfällt. Wichtig: ids und Canonical-URLs bleiben gleich, damit bestehende Verweise weiter funktionieren (Bestandsschutz). |
 | Narrative | 52 Inhalts-Seiten, Format source | Die frei geschriebenen Erklärseiten gehören als Markdown-Dateien nach input/pagecontent/. Reine Platzhalter-/Navigationsseiten werden nicht übernommen, da Navigation und Inhaltsverzeichnis automatisch entstehen. |
-| Direktiven | 179 (0 unbekannt) | Plattformspezifische Platzhalter/Tags werden durch die passenden Mechanismen des IG Publishers ersetzt (meist Vorlagen-Includes oder normale Markdown-Konstrukte). Direktiven ohne bekanntes Gegenstück werden einzeln von Hand geprüft und sinnvoll übersetzt. |
+| Direktiven | 178 (0 unbekannt) | Plattformspezifische Platzhalter/Tags werden durch die passenden Mechanismen des IG Publishers ersetzt (meist Vorlagen-Includes oder normale Markdown-Konstrukte). Direktiven ohne bekanntes Gegenstück werden einzeln von Hand geprüft und sinnvoll übersetzt. |
 | Dependencies | 3 (2 floating) | Alle deklarierten Paket-Abhängigkeiten werden mit fester Version in die sushi-config.yaml übernommen. Feste Versionen (Pinning) sind reproduzierbaren Builds vorzuziehen; bewegliche Einträge werden auf eine konkrete Version festgelegt. |
 | Mehrsprachigkeit | FSH-Übersetzung ja, Supplements 0 | In Ressourcen eingebettete Übersetzungen werden vom Build automatisch in die jeweilige Sprachausgabe übernommen. Für übersetzte Erklärseiten legt man pro Sprache eigene Seiten an; eine Sprache bleibt führend, jede maschinelle Übersetzung ist menschlich zu prüfen. |
 | Pflichtseiten | 0/11 im Zielformat | Das Standard-Seitenraster sollte vollständig vorhanden sein (z.B. Startseite, Anwendungsfälle, Datensätze, Konformität, Kontext, Referenzen, Änderungen, Downloads, Datenschutz, Übersetzungshinweis). Fehlende Zielseiten werden ergänzt und in die Seiten-/Menükonfiguration aufgenommen. |
@@ -284,12 +282,11 @@ _Dieser Abschnitt ordnet jedem Direktiven-Typ sein Gegenstück im IG-Publisher-F
 
 | Direktive | Anzahl | Was es tut | Empfehlung (→ IG Publisher) |
 |---|---|---|---|
-| render-image | 53 | Bindet ein Bild bzw. eine Grafik in die Seite ein. | Das Bild in das Bilderverzeichnis des Ziel-IG (input/images/) legen und über ein normales Markdown- oder HTML-Bild einbinden. |
+| render | 66 | Bindet generierten Inhalt ein - ein Bild/Grafik oder eine vollständige FHIR-Ressource (z.B. CapabilityStatement). | Bild: nach input/images/ kopieren und als Markdown-/HTML-Bild einbinden. Ressource/Artefakt: meist entfernen (der IG Publisher erzeugt je Artefakt automatisch eine Seite) ODER das passende vorgefertigte Anzeige-Fragment einbinden. |
 | tabs | 24 | Gruppiert mehrere Inhalte (z.B. Darstellung, XML, JSON) in umschaltbare Reiter. | Die einzelnen Reiterinhalte durch die jeweils passenden generierten Anzeige-Fragmente (Struktur, XML, JSON) ersetzen; eine eigene Reiter-Mechanik ist meist nicht nötig. |
 | json | 21 | Zeigt eine Ressource oder ein Beispiel in JSON-Darstellung an. | Durch das vom IG Publisher erzeugte JSON-Anzeige-Fragment ersetzen. |
 | pagelink | 21 | Erzeugt einen Verweis auf eine andere Seite oder ein Artefakt anhand eines Namens-Hinweises. | Durch einen normalen Markdown-Link auf die generierte Artefaktseite ersetzen (Form Typ-id.html); der Artefaktname wird in die kleingeschriebene id umgesetzt. |
 | fql-at | 17 | Markiert einen Abfrage-Codeblock in besonderer Schreibweise (mit @-Präfix). | Wie einen normalen Abfrageblock behandeln und durch ein generiertes Tabellen-Fragment oder eine statische Tabelle ersetzen. |
-| render-resource | 14 | Rendert eine vollständige FHIR-Ressource (z.B. ein CapabilityStatement) in die Seite hinein. | Meist entfernen, da der IG Publisher für jedes Artefakt automatisch eine eigene Seite erzeugt; alternativ das passende vorgefertigte Anzeige-Fragment einbinden. |
 | tree | 12 | Zeigt die Struktur eines Profils/einer Extension als aufklappbaren Strukturbaum an. | Durch das vom IG Publisher erzeugte Struktur-Fragment ersetzen (Snapshot- oder Differential-Ansicht bzw. Element-Wörterbuch). |
 | link | 6 | Erzeugt einen Verweis auf ein einzelnes Artefakt (z.B. dessen Übersichtsseite). | Durch einen normalen Markdown-Link auf die generierte Artefaktseite ersetzen (Form Typ-id.html). |
 | index-root | 4 | Erzeugt an dieser Stelle ein automatisches Inhaltsverzeichnis bzw. die Wurzel der Navigationsstruktur. | Entfällt - Navigation und Inhaltsverzeichnis erzeugt der IG Publisher selbst aus der konfigurierten Seitenstruktur. |
@@ -303,6 +300,8 @@ _Dieser Abschnitt ordnet jedem Direktiven-Typ sein Gegenstück im IG-Publisher-F
 _Im Anhang steht jeder Einzelwert mit seiner Quelle, damit man die Kennzahlen nachvollziehen kann, ohne im Projekt suchen zu müssen._
 
 ## Identität & Herkunft
+
+_Kerndaten des IG (Kennungen, Version, Status, Herausgeber) und woher sie stammen._
 
 <div align="center">
 
@@ -463,56 +462,56 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | Fundstelle | Direktive | Text (gekürzt) |
 |---|---|---|
 | implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.guide.md:6 | tree | {{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru |
-| implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/UML.guide.md:5 | render-resource | {{render:implementation-guides/ImplementationGuide-Common/images/OldDiagnoseUML. |
-| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:3 | render-resource | {{render:implementation-guides/ImplementationGuide-Common/images/ModulDiagnose.J |
-| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:37 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag |
-| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:157 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe |
-| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:196 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]( |
-| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:275 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}} |
-| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:292 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}} |
-| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:308 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg} |
-| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:319 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers |
+| implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/UML.guide.md:5 | render | {{render:implementation-guides/ImplementationGuide-Common/images/OldDiagnoseUML. |
+| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:3 | render | {{render:implementation-guides/ImplementationGuide-Common/images/ModulDiagnose.J |
+| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:37 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag |
+| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:157 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe |
+| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:196 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]( |
+| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:275 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}} |
+| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:292 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}} |
+| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:308 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg} |
+| implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md:319 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers |
 | implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md:9 | tree | {{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru |
 | implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md:78 | tree | {{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru |
 | implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md:86 | json | {{json:Condition/ExampleCondition}} |
 | implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md:91 | json | {{json:Condition/ExampleConditionDuplicate2}} |
 | implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md:95 | json | {{json:Condition/ExampleConditionDuplicate3}} |
-| implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md:5 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md:5 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md:18 | pagelink | \| Binding \| ([required](http://hl7.org/fhir/terminologies.html#required)) {{page |
-| implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md:21 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va |
-| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:3 | render-resource | {{render:implementation-guides/ImplementationGuide-Common/images/ModulDiagnose.J |
-| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:30 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag |
-| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:154 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe |
-| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:192 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]( |
-| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:271 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}} |
-| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:282 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}} |
-| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:297 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg} |
-| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:308 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers |
-| implementation-guides/ImplementationGuide-1.x-EN/Index.guide.md:5 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md:21 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va |
+| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:3 | render | {{render:implementation-guides/ImplementationGuide-Common/images/ModulDiagnose.J |
+| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:30 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag |
+| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:154 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe |
+| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:192 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]( |
+| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:271 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}} |
+| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:282 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}} |
+| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:297 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg} |
+| implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md:308 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers |
+| implementation-guides/ImplementationGuide-1.x-EN/Index.guide.md:5 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-1.x-EN/Index.guide.md:20 | index-root | {{index:root}} |
 | implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md:9 | tree | {{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru |
 | implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md:82 | tree | {{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru |
 | implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md:90 | json | {{json:Condition/ExampleCondition}} |
 | implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md:95 | json | {{json:Condition/ExampleConditionDuplicate2}} |
 | implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md:99 | json | {{json:Condition/ExampleConditionDuplicate3}} |
-| implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Index.guide.md:12 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
-| implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md:5 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Index.guide.md:12 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md:5 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md:18 | pagelink | \| Binding \| ([required](http://hl7.org/fhir/terminologies.html#required)) {{page |
-| implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md:21 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va |
+| implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md:21 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va |
 | implementation-guides/ImplementationGuide-1.x-EN/UseCases/Datasets.guide.md:6 | tree | {{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru |
 | implementation-guides/ImplementationGuide-1.x-EN/UseCases/Index.guide.md:1 | page-title | ## {{page-title}} |
-| implementation-guides/ImplementationGuide-1.x-EN/UseCases/UML.guide.md:4 | render-resource | {{render:implementation-guides/ImplementationGuide-Common/images/OldDiagnoseUML. |
+| implementation-guides/ImplementationGuide-1.x-EN/UseCases/UML.guide.md:4 | render | {{render:implementation-guides/ImplementationGuide-Common/images/OldDiagnoseUML. |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md:8 | tree | {{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md:13 | fql-at | @``` |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md:8 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/KDS_Diagnose_UM |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:6 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/1_Abbildung_Dia |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:40 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:160 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:194 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]( |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:273 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}} |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:290 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}} |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:306 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg} |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:317 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md:8 | render | {{render:implementation-guides/ImplementationGuide-Common/images/KDS_Diagnose_UM |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:6 | render | {{render:implementation-guides/ImplementationGuide-Common/images/1_Abbildung_Dia |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:40 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:160 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:194 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]( |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:273 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:290 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:306 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg} |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md:317 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Index.page.md:20 | index-root | {{index:root}} |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md:1 | page-title | ## {{page-title}} |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md:8 | pagelink | - Die {{pagelink: FHIRProfile, text: Anforderungsdokumentation, hint: Anforderun |
@@ -522,7 +521,7 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md:17 | pagelink | - Im Profil {{pagelink: DiagnoseCondition, text: Diagnose (Condition), hint: MII |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md:18 | pagelink | - Im Profil {{pagelink: DiagnoseCondition, text: Diagnose (Condition), hint: MII |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md:19 | pagelink | - Das Modul wurde um SearchParameter-Ressourcen erweitert, mittels derer die Suc |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md:18 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md:18 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:13 | link | ## {{link}} |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:25 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:36 | tabs | <tabs> |
@@ -545,24 +544,24 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:213 | json | {{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-prim |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:215 | json | {{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-seku |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:220 | json | {{json:fsh-generated/resources/Condition-mii-exa-diagnose-multiple-kodierungen.j |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md:28 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:9 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md:28 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:9 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:24 | pagelink | \| Binding \| ([required](http://hl7.org/fhir/terminologies.html#required)) {{page |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:27 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:27 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:38 | pagelink | \| Binding \| ([required](http://hl7.org/fhir/terminologies.html#required)) {{page |
-| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:41 | render-resource | {{render:http://fhir.de/ValueSet/lebensphase-de}} |
+| implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:41 | render | {{render:http://fhir.de/ValueSet/lebensphase-de}} |
 | implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:45 | fql-at | @``` |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:3 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/2_Abbildung_Dia |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:30 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:154 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:192 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]( |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:271 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}} |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:282 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}} |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:297 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg} |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:308 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Index.guide.md:5 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:3 | render | {{render:implementation-guides/ImplementationGuide-Common/images/2_Abbildung_Dia |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:30 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:154 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:192 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]( |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:271 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:282 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:297 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg} |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md:308 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Index.guide.md:5 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Index.guide.md:20 | index-root | {{index:root}} |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/CapabilityStatement.page.md:10 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/CapabilityStatement.page.md:10 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md:12 | link | ## {{link}} |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md:18 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md:29 | tabs | <tabs> |
@@ -583,26 +582,25 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md:135 | json | {{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-prim |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md:137 | json | {{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-seku |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md:142 | json | {{json:fsh-generated/resources/Condition-mii-exa-diagnose-multiple-kodierungen.j |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Index.guide.md:12 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md:5 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Index.guide.md:12 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md:5 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md:18 | pagelink | \| Binding \| ([required](http://hl7.org/fhir/terminologies.html#required)) {{page |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md:21 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md:21 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Datasets.guide.md:6 | tree | {{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru |
 | implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Index.guide.md:1 | page-title | ## {{page-title}} |
-| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/UML.guide.md:4 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/diagnoseUML.png |
+| implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/UML.guide.md:4 | render | {{render:implementation-guides/ImplementationGuide-Common/images/diagnoseUML.png |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md:8 | tree | {{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md:13 | fql-at | @``` |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md:8 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/KDS_Diagnose_UM |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:6 | render-image | {{render:implementation-guides/ImplementationGuide-Common/images/1_Abbildung_Dia |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:40 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:160 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:194 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]( |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:273 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}} |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:290 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}} |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:306 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg} |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:317 | render-image | [{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md:8 | render | {{render:implementation-guides/ImplementationGuide-Common/images/KDS_Diagnose_UM |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:6 | render | {{render:implementation-guides/ImplementationGuide-Common/images/1_Abbildung_Dia |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:40 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:160 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:194 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]( |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:273 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}} |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:290 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}} |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:306 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg} |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md:317 | render | [{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Index.page.md:20 | index-root | {{index:root}} |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Index.page.md:74 | render-image | <img src="https://licensebuttons.net/l/by/4.0/88x31.png" alt="CC BY 4.0 Logo" st |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md:1 | page-title | ## {{page-title}} |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md:30 | pagelink | - Die {{pagelink: FHIRProfile, text: Anforderungsdokumentation, hint: Anforderun |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md:32 | pagelink | - Beim Wechsel von Modul Diagnose Versionen 1.0 auf die Version 2.0 (2024.0.0) d |
@@ -611,7 +609,7 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md:39 | pagelink | - Im Profil {{pagelink: DiagnoseCondition, text: Diagnose (Condition), hint: MII |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md:40 | pagelink | - Im Profil {{pagelink: DiagnoseCondition, text: Diagnose (Condition), hint: MII |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md:41 | pagelink | - Das Modul wurde um SearchParameter-Ressourcen erweitert, mittels derer die Suc |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md:18 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md:18 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:13 | link | ## {{link}} |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:27 | fql-at | @``` |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:38 | tabs | <tabs> |
@@ -634,12 +632,12 @@ _Jede gefundene Direktive mit genauer Fundstelle und Originaltext zur weiteren B
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:215 | json | {{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-prim |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:217 | json | {{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-seku |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md:222 | json | {{json:fsh-generated/resources/Condition-mii-exa-diagnose-multiple-kodierungen.j |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md:28 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:9 | render-image | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md:28 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:9 | render | \| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}} |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:24 | pagelink | \| Binding \| ([required](http://hl7.org/fhir/terminologies.html#required)) {{page |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:27 | render-resource | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:27 | render | {{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:38 | pagelink | \| Binding \| ([required](http://hl7.org/fhir/terminologies.html#required)) {{page |
-| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:41 | render-resource | {{render:http://fhir.de/ValueSet/lebensphase-de}} |
+| implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:41 | render | {{render:http://fhir.de/ValueSet/lebensphase-de}} |
 | implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md:45 | fql-at | @``` |
 
 </div>

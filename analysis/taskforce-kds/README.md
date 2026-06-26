@@ -1,58 +1,61 @@
-# IG-Analyse: MII KDS Diagnose & Person (v2025.0.1)
+# IG-Analyse: MII KDS Module (Vergleich)
 
 Diskussionsgrundlage für die **Taskforce KDS**. Erstellt mit dem read-only-Skill
 [`ig-analyze`](../../skills/ig-analyze/SKILL.md) dieses Repos — eine objektive,
-reproduzierbare Vermessung zweier KDS-Module zum **Vergleich** und zur
+reproduzierbare Vermessung mehrerer KDS-Module zum **Vergleich** und zur
 **Vorab-Schätzung des Migrationsaufwands** (Simplifier → generischer HL7-FHIR-IG-Publisher).
 
 ## Was wurde analysiert
 
-| | Modul Diagnose | Modul Person |
-|---|---|---|
-| Quelle | github.com/medizininformatik-initiative/kerndatensatzmodul-diagnose | …/kerndatensatzmodul-person |
-| Version (Tag) | `v2025.0.1` | `v2025.0.1` |
-| Commit | `c2d2ff4` | `122e30f` |
+Jeweils die **aktuellste veröffentlichte Version** (siehe Simplifier), als voller Git-Clone:
 
-Analyse-Datum: 2026-06-26 · Modus: **statisch** (keine IG-Publisher-Builds).
+| Modul | Repo (medizininformatik-initiative/…) | Version (Tag) | Commit |
+|---|---|---|---|
+| Diagnose | `kerndatensatzmodul-diagnose` | `v2025.0.1` | `c2d2ff4` |
+| Person | `kerndatensatzmodul-person` | `v2025.0.1` | `122e30f` |
+| Meta | `kerndatensatz-meta` | `v2026.0.0` | `6935ebb` |
+| Medikation | `kerndatensatzmodul-medikation` | `v2026.0.1` | `58b4996` |
+| Labor | `kerndatensatzmodul-labor` | `2026.0.3` | `fa7c64e` |
+
+Analyse-Datum: 2026-06-27 · Modus: **statisch** (keine IG-Publisher-Builds).
 
 ## Ergebnisdateien
 
-- [`mii-ig-diagnose-report.md`](mii-ig-diagnose-report.md) — Einzelreport Diagnose (+ `…-stats.json`)
-- [`mii-ig-person-report.md`](mii-ig-person-report.md) — Einzelreport Person (+ `…-stats.json`)
-- [`compare-report.md`](compare-report.md) — Vergleichsreport (Σ Gesamt, Cross-IG-Konsolidierung)
-
-Die `*-stats.json` sind die maschinenlesbaren Rohdaten (festes Schema) für eigene Auswertungen.
+Je Modul ein Einzelreport (`<id>-report.md` + `<id>-stats.json`) plus
+[`compare-report.md`](compare-report.md) (Σ Gesamt, Aufschlüsselung je Repo, Cross-IG-Konsolidierung):
+[Diagnose](mii-ig-diagnose-report.md) · [Person](mii-ig-person-report.md) ·
+[Meta](mii-ig-meta-report.md) · [Medikation](mii-ig-medikation-report.md) · [Labor](labor-report.md).
+Die `*-stats.json` sind die maschinenlesbaren Rohdaten (festes Schema).
 
 ## Headline-Vergleich (Auszug — Details in den Reports)
 
-| Kennzahl | Diagnose | Person |
+| Modul (Version) | IG-Ordner | Artefakte | Direktiven¹ | Aufwand manuell¹ | Aufwand KI¹ | Reife | Lock-in | Dopplungen (ordnerübergr.) |
+|---|---|---|---|---|---|---|---|---|
+| Diagnose (v2025.0.1) | 5 | 13 | 178 | 51–83 h (L) | 30–49 h | 74 | 41 | 292 (292) |
+| Person (v2025.0.1) | 3 | 14 | 333 | 74–120 h (L) | 41–67 h | 76 | 85 | 135 (119) |
+| Meta (v2026.0.0) | 2 | **175** | 48 | 12–20 h (M) | 11–17 h | 70 | 52 | 3 (3) |
+| Medikation (v2026.0.1) | 2 | 40 | 316 | 67–110 h (L) | 38–62 h | **50** | **100** | 128 (126) |
+| Labor (2026.0.3) | 2 | 20 | 201 | 47–76 h (L) | 29–48 h | 74 | 65 | 73 (73) |
+
+¹ **über alle IG-Ordner summiert** — siehe Caveat unten.
+
+> **⚠ Zentraler Befund — jedes Repo enthält mehrere IG-Ordner:** Alle Module legen **mehrere
+> Versions-/Sprachvarianten** als getrennte Ordner unter `implementation-guides/` ab (z.B. Diagnose:
+> 1.x und 2024.x je DE/EN + 2025 einzeln = 5; Person: 2024.x DE/EN + 2025.x DE = 3; Meta/Medikation/Labor je 2).
+> Dadurch ist Text **ordnerübergreifend dupliziert** (Diagnose 292, Medikation 126, Person 119, Labor 73, Meta 3 Blöcke).
+> **Konsequenz:** Die mit ¹ markierten Aggregat-Kennzahlen summieren über **alle** Ordner und sind für die
+> Migration **einer** (der aktuellen) Version deutlich **überzeichnet**. Das ist selbst ein Taskforce-Thema
+> (Ablage alter Versionen/Sprachvarianten im Repo).
+
+**Aufwand der AKTUELLEN Version je IG** (aus der Je-IG-Aufschlüsselung der Reports, aktuell→ältest):
+
+| Modul | Direktiven (aktuelle Version) | Aufwand manuell (je IG) |
 |---|---|---|
-| **Enthaltene IG-Ordner** | **5** | **3** |
-| Publizierte Artefakte | 13 | 14 |
-| Plattform-/FQL-Direktiven (über alle Ordner) | 179 | 334 |
-| Doppelte Inhaltsblöcke (davon ordnerübergreifend) | 292 (292) | 135 (119) |
-| Aufwand **manuell** (Band) | 51–83 h (L) | 74–120 h (XL) |
-| Aufwand **KI-gestützt** (Band) | 30–49 h (L) | 41–67 h (L) |
-| Reifegrad | 74/100 | 76/100 |
-| Hersteller-Lock-in | 41/100 | 85/100 |
-
-> **⚠ Zentraler Befund — mehrere IG-Ordner je Repo:** Beide Repos enthalten **mehrere
-> Versions-/Sprachvarianten** als getrennte Ordner unter `implementation-guides/` (Diagnose:
-> 1.x/2024.x/2025 je DE/EN; Person: 2024.x DE/EN + 2025.x DE). Dadurch ist nahezu der gesamte
-> Text **ordnerübergreifend dupliziert** (Diagnose 292, Person 119 Blöcke). **Konsequenz:** Die
-> Aggregat-Kennzahlen (Direktiven, Wörter, **Aufwand**) summieren über **alle** Ordner und sind
-> für die Migration **einer** (der aktuellen) Version deutlich **überzeichnet** — grob im
-> Verhältnis der Ordnerzahl nach unten zu korrigieren. Das ist selbst ein Diskussionspunkt für
-> die Taskforce (Ablage alter Versionen/Sprachvarianten im Repo).
-
-**Aufschlüsselung je IG-Ordner (aktuell → ältest):** Die Einzelreports enthalten jetzt eine
-horizontale Tabelle je IG-Ordner (Seiten, Wörter, Direktiven, Aufwand). Der Aufwand für die
-Migration **nur der aktuellen Version** liegt damit weit unter dem Aggregat:
-
-| aktuelle Version | Direktiven | Aufwand manuell (je IG) |
-|---|---|---|
-| Diagnose `2025` | 51 | ~13–21 h |
-| Person `2025.x-DE` | 117 | ~25–41 h |
+| Diagnose | 50 | ~13–21 h |
+| Person | 116 | ~25–41 h |
+| Meta | 43 | ~9–15 h |
+| Medikation | 155 | ~32–52 h |
+| Labor | 102 | ~24–39 h |
 
 > **Aufwand wird in Zeit gemessen** (Stunden/Personentage/Kalenderzeit) — bewusst **keine
 > Geldgrößen**. Personentage = 8-h-Arbeitstage menschlicher Arbeit; bei der KI-Variante die
@@ -61,23 +64,27 @@ Migration **nur der aktuellen Version** liegt damit weit unter dem Aggregat:
 ## Wichtige Vorbehalte (bitte beim Lesen beachten)
 
 - **Statische Analyse**: nur Quelldateien + Git-Historie, **kein IG-Publisher-Build**. Build-
-  abhängige Größen (Validierungsfehler, Broken Links, Breaking-Change ggü. Vorversion) sind
-  **nicht** erhoben (`null`).
-- **Schätzungen sind Spannen, kein Festpreis/keine Deadline.** Die Aufwandsfaktoren sind
-  Erfahrungswerte und **noch nicht final kalibriert**; Nutzen v. a. **relativ** (Diagnose vs.
-  Person), nicht als Absolutzusage.
-- **Heuristiken** sind im Report als solche markiert (z. B. Lock-in = Direktiven/Seite,
-  Standard-Terminologie-Anteil aus Textvorkommen, Dependency-Veraltung aus CalVer-Jahr).
-- Jeder Report enthält im Anhang eine **Methodik-/Metrik-Erklärung** (was jede Kennzahl misst
-  und wie sie ermittelt wird) sowie ein **Glossar**.
+  abhängige Größen (Validierungsfehler, Broken Links, Breaking-Change ggü. Vorversion) sind **nicht** erhoben (`null`).
+- **Schätzungen sind Spannen, kein Festpreis/keine Deadline.** Faktoren sind Erfahrungswerte,
+  **noch nicht final kalibriert**; Nutzen v. a. **relativ** (Modul vs. Modul).
+- **Versionsstände gemischt**: Diagnose/Person auf 2025.0.1, Meta/Medikation/Labor bereits auf 2026.x —
+  jeweils die aktuelle veröffentlichte Version. Labor (`FSHOnly`) führt keinen IG-`id` im sushi-config (im Report `—`).
+- **Heuristiken** sind im Report als solche markiert (Lock-in = Direktiven/Seite, Standard-Terminologie-Anteil
+  aus Textvorkommen, Dependency-Veraltung aus CalVer-Jahr). Jeder Report hat im Anhang **Methodik-Erklärung + Glossar**.
 
 ## Reproduzieren
 
+**Vollständigen Clone verwenden (kein `--depth 1`)** — sonst sind git-historische Kennzahlen
+(Pflege-Kadenz, Bus-Faktor) verfälscht.
+
 ```bash
-git clone --branch v2025.0.1 https://github.com/medizininformatik-initiative/kerndatensatzmodul-diagnose.git /tmp/diagnose
-git clone --branch v2025.0.1 https://github.com/medizininformatik-initiative/kerndatensatzmodul-person.git   /tmp/person
-python3 tools/ig-stats.py run /tmp/diagnose /tmp/person -o out \
-  --label "MII KDS Diagnose v2025.0.1,MII KDS Person v2025.0.1"
+git clone --branch v2025.0.1 https://github.com/medizininformatik-initiative/kerndatensatzmodul-diagnose.git   /tmp/diagnose
+git clone --branch v2025.0.1 https://github.com/medizininformatik-initiative/kerndatensatzmodul-person.git     /tmp/person
+git clone --branch v2026.0.0 https://github.com/medizininformatik-initiative/kerndatensatz-meta.git            /tmp/meta
+git clone --branch v2026.0.1 https://github.com/medizininformatik-initiative/kerndatensatzmodul-medikation.git /tmp/medikation
+git clone --branch 2026.0.3  https://github.com/medizininformatik-initiative/kerndatensatzmodul-labor.git      /tmp/labor
+python3 tools/ig-stats.py run /tmp/diagnose /tmp/person /tmp/meta /tmp/medikation /tmp/labor -o out \
+  --label "MII KDS Diagnose v2025.0.1,MII KDS Person v2025.0.1,MII KDS Meta v2026.0.0,MII KDS Medikation v2026.0.1,MII KDS Labor 2026.0.3"
 ```
 
 `tools/ig-stats.py` kann auch direkt Git-URLs verarbeiten; Faktoren/Annahmen sind im Tool

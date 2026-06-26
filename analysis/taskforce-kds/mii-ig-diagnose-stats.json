@@ -6,7 +6,7 @@
     "path": "/tmp/kds/diagnose",
     "label": "MII KDS Diagnose v2025.0.1",
     "git_commit": "c2d2ff4",
-    "timestamp": "2026-06-26T19:53:36Z",
+    "timestamp": "2026-06-26T21:58:49Z",
     "input": "/tmp/kds/diagnose",
     "resolved_from": "lokaler Pfad"
   },
@@ -1222,9 +1222,9 @@
         "content_pages": 12,
         "words": 7807,
         "avg_words": 651,
-        "directives": 51,
-        "manual_hours_low": 13.0,
-        "manual_hours_high": 21.1
+        "directives": 50,
+        "manual_hours_low": 12.8,
+        "manual_hours_high": 20.8
       },
       {
         "name": "ImplementationGuide-2024.x-DE",
@@ -1286,11 +1286,10 @@
     ]
   },
   "directives": {
-    "total": 179,
+    "total": 178,
     "by_label": {
       "tree": 12,
-      "render-resource": 14,
-      "render-image": 53,
+      "render": 66,
       "json": 21,
       "pagelink": 21,
       "index-root": 4,
@@ -1311,55 +1310,55 @@
       {
         "file": "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/UML.guide.md",
         "line": 5,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/OldDiagnoseUML."
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
         "line": 3,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/ModulDiagnose.J"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
         "line": 37,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
         "line": 157,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
         "line": 196,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]("
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
         "line": 275,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
         "line": 292,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
         "line": 308,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
         "line": 319,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers"
       },
       {
@@ -1395,7 +1394,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md",
         "line": 5,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -1407,61 +1406,61 @@
       {
         "file": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md",
         "line": 21,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
         "line": 3,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/ModulDiagnose.J"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
         "line": 30,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
         "line": 154,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
         "line": 192,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]("
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
         "line": 271,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
         "line": 282,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
         "line": 297,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
         "line": 308,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Index.guide.md",
         "line": 5,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -1503,13 +1502,13 @@
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Index.guide.md",
         "line": 12,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md",
         "line": 5,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -1521,7 +1520,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md",
         "line": 21,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va"
       },
       {
@@ -1539,7 +1538,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-1.x-EN/UseCases/UML.guide.md",
         "line": 4,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/OldDiagnoseUML."
       },
       {
@@ -1557,55 +1556,55 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md",
         "line": 8,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/KDS_Diagnose_UM"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 6,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/1_Abbildung_Dia"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 40,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 160,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 194,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]("
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 273,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 290,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 306,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 317,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers"
       },
       {
@@ -1665,7 +1664,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md",
         "line": 18,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca"
       },
       {
@@ -1803,13 +1802,13 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md",
         "line": 28,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
         "line": 9,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -1821,7 +1820,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
         "line": 27,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va"
       },
       {
@@ -1833,7 +1832,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
         "line": 41,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:http://fhir.de/ValueSet/lebensphase-de}}"
       },
       {
@@ -1845,55 +1844,55 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
         "line": 3,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/2_Abbildung_Dia"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
         "line": 30,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
         "line": 154,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
         "line": 192,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]("
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
         "line": 271,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
         "line": 282,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
         "line": 297,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
         "line": 308,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Index.guide.md",
         "line": 5,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -1905,7 +1904,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/CapabilityStatement.page.md",
         "line": 10,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca"
       },
       {
@@ -2031,13 +2030,13 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Index.guide.md",
         "line": 12,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md",
         "line": 5,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -2049,7 +2048,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md",
         "line": 21,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va"
       },
       {
@@ -2067,7 +2066,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/UML.guide.md",
         "line": 4,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/diagnoseUML.png"
       },
       {
@@ -2085,55 +2084,55 @@
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md",
         "line": 8,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/KDS_Diagnose_UM"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 6,
-        "label": "render-image",
+        "label": "render",
         "text": "{{render:implementation-guides/ImplementationGuide-Common/images/1_Abbildung_Dia"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 40,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 160,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 194,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]("
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 273,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 290,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 306,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
         "line": 317,
-        "label": "render-image",
+        "label": "render",
         "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers"
       },
       {
@@ -2141,12 +2140,6 @@
         "line": 20,
         "label": "index-root",
         "text": "{{index:root}}"
-      },
-      {
-        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Index.page.md",
-        "line": 74,
-        "label": "render-image",
-        "text": "<img src=\"https://licensebuttons.net/l/by/4.0/88x31.png\" alt=\"CC BY 4.0 Logo\" st"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md",
@@ -2199,7 +2192,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md",
         "line": 18,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca"
       },
       {
@@ -2337,13 +2330,13 @@
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md",
         "line": 28,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
         "line": 9,
-        "label": "render-image",
+        "label": "render",
         "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
       },
       {
@@ -2355,7 +2348,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
         "line": 27,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va"
       },
       {
@@ -2367,7 +2360,7 @@
       {
         "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
         "line": 41,
-        "label": "render-resource",
+        "label": "render",
         "text": "{{render:http://fhir.de/ValueSet/lebensphase-de}}"
       },
       {
@@ -2449,7 +2442,7 @@
   "effort": {
     "drivers": {
       "gofsh_needed": false,
-      "directives": 179,
+      "directives": 178,
       "directives_unknown": 0,
       "pages": 52,
       "floating_pins": 2
@@ -2461,8 +2454,8 @@
         "page": 0.5,
         "floating_pin": 1.0
       },
-      "hours_low": 51.0,
-      "hours_high": 82.9,
+      "hours_low": 50.9,
+      "hours_high": 82.7,
       "band": "L"
     },
     "ai": {
@@ -2476,12 +2469,12 @@
         "setup": 3.0,
         "iteration_pct": 0.2
       },
-      "hours_low": 30.1,
-      "hours_high": 48.9,
+      "hours_low": 30.0,
+      "hours_high": 48.7,
       "band": "L",
       "savings_pct": 41,
-      "variable": 26.3,
-      "iteration": 5.26,
+      "variable": 26.2,
+      "iteration": 5.25,
       "setup": 3.0,
       "gate": 3.0
     },
@@ -2520,7 +2513,7 @@
   "portfolio": {
     "vendor_lockin_score": 41,
     "vendor_lockin_band": "mittel",
-    "directives_per_page": 3.44,
+    "directives_per_page": 3.42,
     "terminology_standard_systems": [
       "SNOMED CT",
       "ICD-10"
@@ -2572,9 +2565,9 @@
       "team_size": 1,
       "utilization": 0.6
     },
-    "scenario_min_h": 51.0,
-    "scenario_expected_h": 67.0,
-    "scenario_max_h": 82.9,
+    "scenario_min_h": 50.9,
+    "scenario_expected_h": 66.8,
+    "scenario_max_h": 82.7,
     "confidence": "mittel",
     "role_mix_pct": {
       "FSH-Rückgewinnung/Pins": 3,
