@@ -114,7 +114,7 @@
     },
     "linguistics": {
       "type": "object",
-      "description": "Textumfang der Erklaerseiten (Woerter je Seite, Durchschnitt/Median, Extremwerte).",
+      "description": "Textumfang der Erklaerseiten (Woerter je Seite, Durchschnitt/Median, Extremwerte) + unterstuetzte Sprachen.",
       "properties": {
         "content_pages": { "type": "integer" },
         "words_total": { "type": "integer" },
@@ -124,7 +124,9 @@
         "words_max": { "type": "integer" },
         "longest_page": { "type": ["string", "null"] },
         "shortest_page": { "type": ["string", "null"] },
-        "per_page": { "type": "array", "items": { "type": "object" } }
+        "per_page": { "type": "array", "items": { "type": "object" } },
+        "languages": { "type": "array", "items": { "type": "string" }, "description": "Basis-Sprachcodes, z.B. [de, en]" },
+        "languages_supported": { "type": "integer" }
       }
     },
     "duplication": {

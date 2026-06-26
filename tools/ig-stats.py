@@ -655,6 +655,18 @@ def analyze(igdir, label, content):
 
     linguistics, duplication, hygiene = linguistics_hygiene(igdir, ndetail, artifact_list)
     contained_igs = compute_contained_igs(igdir, ndetail, directives)
+    # Unterstützte Sprachen (Linguistik): Default-Sprache + i18n-Konfig + IG-Ordner-Suffixe (-de/-en)
+    _langs = set()
+    if i18n.get("default_lang"):
+        _langs.add(i18n["default_lang"].split("-")[0].lower())
+    for _l in (i18n.get("languages") or []):
+        _langs.add(_l.split("-")[0].lower())
+    for _f in contained_igs.get("folders", []):
+        if _f.get("language") and _f["language"] != "?":
+            _langs.add(_f["language"].lower())
+    linguistics["languages"] = sorted(_langs)
+    # Floor: eine IG mit Inhalt ist mind. monolingual (1), auch ohne explizites Sprachsignal.
+    linguistics["languages_supported"] = len(_langs) if _langs else (1 if linguistics.get("content_pages") else 0)
 
     # ---- Aufwand: manuell + KI-gestützt ----
     dtot, dunknown = directives["total"], directives["unknown"]
@@ -1003,6 +1015,7 @@ def report(stats, content, out):
         ("Wörter gesamt", lg["words_total"]),
         ("Ø Wörter / Seite", _de(lg["words_avg"])),
         ("Median Wörter / Seite", lg["words_median"]),
+        ("Unterstützte Sprachen", "%d (%s)" % (lg.get("languages_supported", 0), ", ".join(lg.get("languages", [])) or "—")),
         ("kürzeste / längste Seite", "%d / %d Wörter" % (lg["words_min"], lg["words_max"])),
         ("doppelte Inhaltsblöcke", "%d (davon %d ordnerübergreifend)" % (dup["duplicate_block_count"], dup.get("cross_ig_block_count", 0))),
         ("identische Seiten (Gruppen)", len(dup["duplicate_file_groups"])),
@@ -1270,12 +1283,15 @@ def report(stats, content, out):
 # ---------- compare ------------------------------------------------------------
 def compare(statslist, content, out):
     pal = _palette(content)
+    # Spalten/IGs nach Migrationsaufwand AUFSTEIGEND sortieren (geringster Aufwand zuerst).
+    statslist = sorted(statslist, key=lambda s: (s["effort"]["manual"]["hours_low"], s["effort"]["manual"]["hours_high"]))
 
     def lab(s):
         return s["analyzed"]["label"]
     B = []
     B.append("# IG-Vergleich (%d IGs)" % len(statslist))
     B.append("_Objektiver Kennzahlen-Vergleich der analysierten IGs inkl. Linguistik und Aufwandsschätzung. "
+             "**Spalten nach Migrationsaufwand aufsteigend sortiert** (geringster Aufwand links). "
              "Die Spalte „Σ Gesamt“ zeigt den aggregierten Migrations-Gesamtumfang und -aufwand (Zeit); "
              "faire Einordnung über normalisierte Werte._")
 
@@ -1301,6 +1317,7 @@ def compare(statslist, content, out):
     for name, fn in [("Dependencies (floating)", lambda s: "%d (%d)" % (s["dependencies"]["count"], s["dependencies"]["floating"])),
                      ("Ø Wörter / Seite", lambda s: _de(s["linguistics"]["words_avg"])),
                      ("Median Wörter / Seite", lambda s: s["linguistics"]["words_median"]),
+                     ("Unterstützte Sprachen", lambda s: "%d (%s)" % (s["linguistics"].get("languages_supported", 0), ", ".join(s["linguistics"].get("languages", [])) or "—")),
                      ("Reifegrad /100", lambda s: _nz(s["maturity"]["score"])),
                      ("Hersteller-Lock-in /100", lambda s: s["portfolio"]["vendor_lockin_score"]),
                      ("Standard-Terminologie %", lambda s: _nz(s["portfolio"]["terminology_standard_share_pct"])),
@@ -1373,8 +1390,13 @@ def compare(statslist, content, out):
         ["KI-Ersparnis %"] + [s["effort"]["ai"]["savings_pct"] for s in statslist],
     ]))
 
-    maxart = max((s["artifacts"]["total"] for s in statslist), default=1) or 1
-    maxh = max((s["effort"]["manual"]["hours_high"] for s in statslist), default=1) or 1
+    arts = [s["artifacts"]["total"] for s in statslist]
+    effs = [s["effort"]["manual"]["hours_high"] for s in statslist]
+    amin, amax, emin, emax = min(arts), max(arts), min(effs), max(effs)
+
+    def _q(v, lo, hi):
+        # auf sicheren Innenbereich [0.07, 0.93] abbilden — quadrantChart bricht bei 0/1.
+        return round(0.07 + 0.86 * (v - lo) / (hi - lo), 3) if hi > lo else 0.5
     B.append("## Scope vs. Migrationsaufwand")
     tv = {"quadrant1Fill": pal[0], "quadrant2Fill": pal[1], "quadrant3Fill": pal[2], "quadrant4Fill": pal[3],
           "quadrant1TextFill": "#FFFFFF", "quadrant2TextFill": "#FFFFFF", "quadrant3TextFill": "#FFFFFF",
@@ -1382,11 +1404,11 @@ def compare(statslist, content, out):
           "quadrantXAxisTextFill": "#1A1A1A", "quadrantYAxisTextFill": "#1A1A1A", "quadrantTitleFill": "#1A1A1A"}
     mer = ["```mermaid", "%%{init: {'theme':'base','themeVariables':" + json.dumps(tv) + "}}%%", "quadrantChart",
            "    title Scope vs. Migrationsaufwand", "    x-axis Klein --> Gross",
-           "    y-axis Geringer_Aufwand --> Hoher_Aufwand", "    quadrant-1 gross & aufwaendig",
-           "    quadrant-2 klein & aufwaendig", "    quadrant-3 klein & einfach", "    quadrant-4 gross & einfach"]
+           "    y-axis Geringer_Aufwand --> Hoher_Aufwand", "    quadrant-1 gross/aufwaendig",
+           "    quadrant-2 klein/aufwaendig", "    quadrant-3 klein/einfach", "    quadrant-4 gross/einfach"]
     for s in statslist:
-        mer.append('    "%s": [%s, %s]' % (lab(s), round(s["artifacts"]["total"] / maxart, 3),
-                                           round(s["effort"]["manual"]["hours_high"] / maxh, 3)))
+        mer.append('    "%s": [%s, %s]' % (lab(s).replace('"', ""), _q(s["artifacts"]["total"], amin, amax),
+                                           _q(s["effort"]["manual"]["hours_high"], emin, emax)))
     mer.append("```")
     B.append("\n".join(mer))
 
