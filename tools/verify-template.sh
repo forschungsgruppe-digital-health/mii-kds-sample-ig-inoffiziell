@@ -204,6 +204,7 @@ chk "fql-scan Tool ausführbar" "test -x tools/fql-scan.sh"
 chk "Skill: ig-analyze" "test -f skills/ig-analyze/SKILL.md"
 chk "ig-analyze Metrik-Katalog" "test -f skills/ig-analyze/references/metrics-catalog.md"
 chk "ig-analyze JSON-Schema (valide)" "python3 -c 'import json;json.load(open(\"skills/ig-analyze/references/ig-stats-schema.json\"))'"
+chk "ig-analyze Report-Content (valide)" "python3 -c 'import json;d=json.load(open(\"skills/ig-analyze/references/report-content.json\"));assert d[\"glossary\"] and d[\"directive_patterns\"] and d[\"mapping_rows\"]'"
 chk "ig-stats Tool ausführbar" "test -x tools/ig-stats.py"
 
 echo "== Kommentarauflösung (zwei Schichten) =="

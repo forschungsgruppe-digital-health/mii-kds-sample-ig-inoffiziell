@@ -19,35 +19,61 @@ license: CC-BY-4.0
 Read-only. Ergänzt `mii-ig-migration` (läuft idealerweise davor), ist aber
 unabhängig nutzbar.
 
-## Modi (`tools/ig-stats.py`)
-- `analyze <ig-dir> [-o stats.json]` — **statische** Vermessung → `ig-stats.json`.
-- `report <stats.json> [-o report.md]` — Einzel-IG-Report (Markdown + Mermaid).
-- `compare <stats.json…> [-o compare.md]` — Vergleich über N IGs (Markdown + Mermaid).
+## Eingabe & Modi (`tools/ig-stats.py`)
+**Eingabe = eine oder mehrere FHIR-IGs als Pfad ODER URL.** `run` ist der Haupt-
+einstieg und löst jede Eingabe selbst auf (lokaler Pfad, Git-URL → flacher Clone,
+Package-`.tgz` → Download mit reduzierter Analyse):
+- `run <input…> [-o OUTDIR] [--label a,b]` — je IG ein eigener Report **+ bei ≥2 IGs
+  automatisch ein Vergleichsreport** (`compare-report.md`).
+- `analyze <ig-dir> [-o stats.json]` — Einzel-Vermessung → `ig-stats.json` (Power-User).
+- `report <stats.json> [-o report.md]` / `compare <stats.json…> [-o compare.md]`.
 
-**Static vs. Full:** Der `analyze`-Modus ist **statisch** (sushi-config/package.json,
-FSH-Zählungen, Narrative, Direktiven, Dependencies) — schnell, ohne Build. Metriken,
-die einen **IG-Publisher-Build** brauchen (`qa.json`: Errors/Warnings/Broken Links,
-Validierung), sind im Katalog als *Build* markiert und im statischen Modus leer/`null`.
+**Static vs. Full/Reduced:** Standard ist **statisch** (sushi-config/package.json,
+FSH-Zählungen, Narrative, Direktiven, Dependencies, Linguistik, Dopplungen, Hygiene) —
+schnell, ohne Build. Eine reine Package-Quelle (`.tgz`) liefert eine **reduzierte**
+Analyse (nur generierte Ressourcen). Build-Metriken (`qa.json`: Errors/Warnings/Broken
+Links, Validierung) sind im Katalog als *Build* markiert und statisch leer/`null`.
 
 ## Was gemessen wird
-Vollständiger, **per Hand erweiterbarer** Parameter-Katalog (Gruppen A–I, je Metrik
-mit Quelle und Nutzen V=Vergleich/A=Aufwand): `references/metrics-catalog.md`.
-Ausgabeschema: `references/ig-stats-schema.json`.
+Vollständiger, **per Hand erweiterbarer** Parameter-Katalog (Gruppen **A–N**, je Metrik
+mit Quelle und Nutzen V=Vergleich/A=Aufwand/S=Strategie/P=Planung/R=Risiko):
+`references/metrics-catalog.md`. Umfasst neben Umfang/Komplexität/Aufwand auch:
+**linguistische** Kennzahlen, **Dopplungen** und **ungenutzte Dateien** (J);
+**Reife & Freigabe** (K), **Strategie/Lock-in/Zukunftssicherheit** (L), **Planung &
+Terminierung** (M) und **Risiko & Compliance** (N). **Maßstab für Aufwand ist Zeit**
+(Stunden/Personentage/Kalenderzeit), **bewusst keine Geld-/Kostenrechnung**. Planungs-
+Annahmen kalibrierbar (`PLANNING_PARAMS`); Heuristiken sind als solche markiert, nicht
+statisch erhebbare Größen bleiben `null` (z. B. Breaking-Change nur per Build).
+Ausgabeschema: `references/ig-stats-schema.json`. Laientexte, Direktiven-Muster, Glossar
+und **Metrik-Erklärungen** (self-contained, neutral): `references/report-content.json`.
 
 ## Reporting
 - **Maschinenlesbar:** `ig-stats.json` je IG (festes Schema) — für Aggregation,
   Diff über Zeit (CI-Trending) und Vergleich.
-- **Menschlich:** Markdown-Report je IG + Vergleichsreport über mehrere IGs, mit
-  **Mermaid**-Charts (GitHub-nativ, kein JS): Artefakt-Verteilung (Pie/Bar),
-  Binding-Stärken (Stacked Bar), Qualität (Bar), Risiko/Aufwand. Vergleich nutzt
-  **normalisierte** Kennzahlen + Ranking/Delta zu einem Referenz-IG.
+- **Menschlich:** Markdown-Report je IG + Vergleichsreport, **GitHub-zentriert**
+  (`<div align="center">`), mit **farbigen Mermaid**-Charts (Pie/Quadrant, kein JS),
+  numerisch **absteigend** sortiert. Aufbau: **Executive Summary für Entscheider**
+  (CTO/CIO, laienverständlich) → Kennzahlen-Überblick → Inhaltsumfang & Hygiene →
+  Aufwand (manuell + KI, **Zeit**) → **Reife & Freigabe** → **Strategie (Lock-in/
+  Zukunftssicherheit)** → **Planung & Terminierung** → **Risiko & Compliance** →
+  Empfehlungen → Direktiven-Mapping → **Anhang** (Detailaufschlüsselung +
+  **Methodik/Metrik-Erklärung** + **Glossar**). Vergleich aggregiert zusätzlich
+  **Σ Gesamt** (Umfang + Aufwand) und zeigt **Cross-IG-Konsolidierung**; nutzt
+  **normalisierte** Kennzahlen. Jeder Report enthält im Anhang die **Metrik-Erklärung**.
+- **Neutral & self-contained:** Der Report referenziert **keine** anderen Repo-Skills/
+  Dateien; alle Empfehlungen sind allgemeines IG-Publisher-Wissen.
 
 ## Aufwands-/Ressourcen-Modell (Ziel A)
-Transparentes Scoring `Σ (Treiber.Menge × Faktor[h])` → Phasen (Vorarbeit/Migration/
-Nacharbeit) → Aufwandsband **S/M/L/XL** + Personenstunden-**Spanne**. Treiber u. a.:
-GoFSH nötig, # FQL-/Simplifier-Direktiven, # Narrative-Seiten, # id/url-Mismatch,
-floating Pins, # QC-Verletzungen, # quell-intrinsische Validierungsfehler. Die
-Faktoren stehen im Tool (Sektion `EFFORT_FACTORS`) und sind **kalibrierbar**.
+Transparentes Scoring `Σ (Treiber.Menge × Faktor[h])` → Aufwandsband **S/M/L/XL** +
+Personenstunden-**Spanne**, in **zwei** Varianten:
+- **manuell** (`EFFORT_FACTORS`),
+- **KI-gestützt teilautomatisiert** (`EFFORT_FACTORS_AI`) — **Human-in-the-Loop,
+  Review-Gates, hersteller-/modellagnostisch**: die KI transformiert wiederkehrende
+  Muster, Menschen prüfen an Kontrollpunkten (feste Gate-Pauschale; unbekannte
+  Direktiven zum Manuell-Satz), plus ausgewiesene **Ersparnis %**.
+
+Treiber u. a.: GoFSH nötig, # Direktiven (bekannt/unbekannt), # Narrative-Seiten,
+floating Pins. Faktoren stehen im Tool und sind **kalibrierbar**.
 
 ## Verbindliche Leitplanken
 - **Read-only.** Keine Änderung am analysierten IG; kein Build erzwingen (außer
@@ -62,5 +88,6 @@ Faktoren stehen im Tool (Sektion `EFFORT_FACTORS`) und sind **kalibrierbar**.
 ## Referenzen
 - `references/metrics-catalog.md` — Parameter-Katalog (erweiterbare SSOT).
 - `references/ig-stats-schema.json` — JSON-Schema der `ig-stats.json`.
-- `../../tools/ig-stats.py` — Analyse-/Report-/Vergleichs-Tool.
-- `../mii-ig-migration/references/fql-crosswalk.md` — Direktiven (für Aufwandstreiber).
+- `references/report-content.json` — Laientexte, Glossar, Direktiven-Muster
+  (hand-editierbar, neutral, self-contained).
+- `../../tools/ig-stats.py` — Analyse-/Report-/Vergleichs-Tool (`run`/`analyze`/`report`/`compare`).

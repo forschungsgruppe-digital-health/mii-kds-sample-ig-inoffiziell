@@ -9,6 +9,23 @@ Aufwand/Risiko. **Quelle:** woraus die Metrik gelesen wird. **Modus:** *static*
 > gleichen `metric_id` befüllen und im JSON-Schema ergänzen. Nicht implementierte
 > Metriken bleiben dokumentiert (Roadmap), liefern aber `null`.
 
+## Report-Aufbau
+Der `report`-Modus erzeugt: **Executive Summary** (Identität, Umfang, Aufwandsband,
+Top-Treiber, Flags) · **Übersicht** mit Mermaid-Charts **und** Tabellen · eine
+**Detailaufschlüsselung (Single Source of Truth)** mit Herkunft/Pfad je Eintrag
+(Identität, Dependencies, Artefakte mit Quelldatei:Zeile, Narrative-Seiten,
+Direktiven-Fundstellen, definierte QC-Regeln, Mehrsprachigkeit) · **Aufwandsmodell**
+mit Treiber-Beitragstabelle. Provenienz-Arrays in der `ig-stats.json`:
+`artifacts_detail`, `narrative.files`, `directives.occurrences`, `quality.qc_rules`,
+`i18n.supplement_files`/`fsh_translation_files`.
+
+> **Artefakt-Zählung:** `artifacts.total` = nur **publizierte** Artefakte
+> (Profile/Extensions/VS/CS/Logical/CapabilityStatement/Questionnaire/SearchParameter/
+> Operation/Beispiele). RuleSets, Invarianten und Mappings sind interne
+> FSH-Konstrukte und werden separat geführt (nicht im Vergleichs-`total`).
+> **Direktiven** werden anhand `mii-ig-migration/references/fql-rules.tsv` (SSOT)
+> erkannt; nicht abgedeckte → `UNBEKANNT` (im Report mit Fundstelle gelistet).
+
 ## A. Identität & Scope
 | metric_id | Misst | Quelle | Modus | Nutzen |
 |---|---|---|---|---|
@@ -79,4 +96,62 @@ Aufwand/Risiko. **Quelle:** woraus die Metrik gelesen wird. **Modus:** *static*
 | `driver_qc_violations` | # QC-/Naming-Verletzungen | G | static/build | A |
 | `driver_source_errors` | quell-intrinsische Validierungsfehler | `qa.json` (Diff Quelle↔migriert) | build | A |
 | `heterogeneity` | Naming-Varianz, gemischte Sprachen, Strukturabweichung | abgeleitet | static* | A |
-| `effort_hours_low/high`,`effort_band` | Aufwands-Spanne + Band S/M/L/XL | Modell (Tool `EFFORT_FACTORS`) | static | A |
+| `effort.manual.hours_low/high`,`.band` | **manuelle** Aufwands-Spanne + Band S/M/L/XL | Modell (`EFFORT_FACTORS`) | static | A |
+| `effort.ai.hours_low/high`,`.band`,`.savings_pct` | **KI-gestützt teilautomatisiert** (HITL, Review-Gates), hersteller-/modellagnostisch + Ersparnis % | Modell (`EFFORT_FACTORS_AI`) | static | A |
+
+## J. Linguistik & Repo-Hygiene
+
+| metric_id | Misst | Quelle | Modus | Nutzen |
+|---|---|---|---|---|
+| `linguistics.words_avg`,`_median`,`_min`,`_max`,`longest_page`,`shortest_page`,`per_page` | Textumfang je Seite (Ø/Median/Extremwerte) zur Umfangseinschätzung | Narrative-Seiten | static | V·A |
+| `duplication.duplicate_block_count`,`duplicate_blocks` | inhaltliche Dopplungen (identische Absätze ≥ 12 Wörter, mit Fundstellen) | Narrative-Absätze (Hash) | static | A |
+| `duplication.duplicate_file_groups` | identische Seiten (Datei-Dubletten) | Narrative-Dateien (Hash) | static | A |
+| `hygiene.unreferenced_images` | Bilder, die in keiner Erklärseite referenziert werden (Dead-Code-Analogie) | Bilddateien vs. Seitentext | static | A |
+| `hygiene.examples_not_in_narrative` | Beispiele, die in keiner Erklärseite eingebunden sind (heuristisch) | Beispiel-Namen vs. Seitentext | static | A |
+
+---
+
+> **Entscheidungs-Gruppen K–N** (Nutzen zusätzlich: **S**=Strategie · **P**=Planung ·
+> **R**=Risiko). Maßstab für Aufwand ist **Zeit** (Stunden/Personentage/Kalenderzeit),
+> **bewusst keine Geld-/Kostenrechnung**. Planungs-Annahmen kalibrierbar
+> (`PLANNING_PARAMS`); Heuristiken klar als solche markiert.
+
+## K. Reife & Freigabe
+
+| metric_id | Misst | Quelle | Modus | Nutzen |
+|---|---|---|---|---|
+| `maturity.score`,`.band`,`.components` | verdichteter Reifegrad (Status, Doku, Beispiele, Governance) als Freigabe-Indikator | abgeleitet | static | S·R |
+| `maturity.doc_health_pct` | Anteil substanzieller Inhalts-Seiten (ohne Stubs) | Narrative | static | S |
+| `maturity.example_coverage` (`coverage_pct`,`uncovered`) | Profile mit ≥ 1 Beispiel; Profile ohne Beispiel | `artifacts_detail` (InstanceOf) | static | S·R |
+| `maturity.governance` (`ci_workflows`,`publication_request`,`ig_ini`,`devcontainer`,`governance_score`) | Governance-/Freigabe-Reife | Repo-Dateien | static | S·R |
+
+## L. Strategie: Wiederverwendung, Lock-in & Zukunftssicherheit
+
+| metric_id | Misst | Quelle | Modus | Nutzen |
+|---|---|---|---|---|
+| `portfolio.vendor_lockin_score`,`_band`,`directives_per_page` | Bindung an die Quellplattform (proprietäre Direktiven) | Direktiven/Seiten | static | S |
+| `portfolio.terminology_standard_share_pct`,`terminology_standard_systems` | Anteil Standard- vs. Eigen-Terminologie | FSH | static | S·R |
+| `portfolio.canonical_reuse_ratio_pct`,`external_parents` | Wiederverwendung externer Basis-Profile | FSH `Parent:` | static | S |
+| `portfolio.fhir_version_label`,`_note` | FHIR-Versions-Aktualität (R4/R4B/R5) | sushi-config | static | S |
+| `portfolio.dependency_stale_count`,`dependency_stale` | veraltete Dependencies (CalVer-Heuristik; exakt extern) | deps-Versionen | static* | S·R |
+| `portfolio.release_cadence_per_year`,`days_since_last_commit`,`tags` · `git.*` | Pflege-/Aktivitäts-Kadenz, Contributor-Verteilung | Git-Historie | static | S·R |
+| `compare`: Cross-IG-Overlap, Konsolidierungs-/Skaleneffekt | Schnittmengen-Reuse & Programm-Skaleneffekt über mehrere IGs | `artifacts_detail` über IGs | static | S |
+
+## M. Planung & Terminierung
+
+| metric_id | Misst | Quelle | Modus | Nutzen |
+|---|---|---|---|---|
+| `planning.calendar_days_low/high` (`assumptions`) | Kalenderzeit (h ÷ Tag·Team·Auslastung) | `PLANNING_PARAMS` | static | P |
+| `planning.scenario_min/expected/max_h`,`confidence` | Szenarien + Schätz-Konfidenz | Treiber/Unbekannte | static | P |
+| `planning.role_mix_pct`,`parallelizable` | Rollen-/Skill-Mix, Parallelisierbarkeit | Treiber-Stunden | static | P |
+| `planning.readiness_score`,`cross_module_dependency_risk`,`ai_fixed_cost_share_pct` | Startbereitschaft, Timing-Risiko, Fixkostenanteil | abgeleitet | static | P |
+
+## N. Risiko & Compliance
+
+| metric_id | Misst | Quelle | Modus | Nutzen |
+|---|---|---|---|---|
+| `risk.terminology_license_flags`,`terminology_license_risk` | Lizenz-/IP-Risiko gebundener Terminologien (SNOMED etc.) | FSH/Bindings | static | R |
+| `risk.suppressed_total`,`suppressed_broad`,`suppressed_warning_risk` | Risiko-Klassifikation unterdrückter Warnungen (breit vs. eng) | ignoreWarnings.txt | static | R |
+| `risk.privacy_page_substantial`,`examples_contain_pii_like` | Datenschutz-Substanz + PII-Heuristik in Beispielen | Narrative/FSH | static | R |
+| `risk.bus_factor_top_author_pct`,`bus_factor_risk` | Wissenskonzentration (Schlüsselpersonen-Risiko) | Git-Historie | static | R |
+| `risk.breaking_change_risk` | Kompatibilitätsbruch ggü. Vorversion | Vorversions-Diff | build | R |
