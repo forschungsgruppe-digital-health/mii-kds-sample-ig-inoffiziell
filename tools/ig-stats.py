@@ -1389,8 +1389,13 @@ def compare(statslist, content, out):
         ["KI-Ersparnis %"] + [s["effort"]["ai"]["savings_pct"] for s in statslist],
     ]))
 
-    maxart = max((s["artifacts"]["total"] for s in statslist), default=1) or 1
-    maxh = max((s["effort"]["manual"]["hours_high"] for s in statslist), default=1) or 1
+    arts = [s["artifacts"]["total"] for s in statslist]
+    effs = [s["effort"]["manual"]["hours_high"] for s in statslist]
+    amin, amax, emin, emax = min(arts), max(arts), min(effs), max(effs)
+
+    def _q(v, lo, hi):
+        # auf sicheren Innenbereich [0.07, 0.93] abbilden — quadrantChart bricht bei 0/1.
+        return round(0.07 + 0.86 * (v - lo) / (hi - lo), 3) if hi > lo else 0.5
     B.append("## Scope vs. Migrationsaufwand")
     tv = {"quadrant1Fill": pal[0], "quadrant2Fill": pal[1], "quadrant3Fill": pal[2], "quadrant4Fill": pal[3],
           "quadrant1TextFill": "#FFFFFF", "quadrant2TextFill": "#FFFFFF", "quadrant3TextFill": "#FFFFFF",
@@ -1398,11 +1403,11 @@ def compare(statslist, content, out):
           "quadrantXAxisTextFill": "#1A1A1A", "quadrantYAxisTextFill": "#1A1A1A", "quadrantTitleFill": "#1A1A1A"}
     mer = ["```mermaid", "%%{init: {'theme':'base','themeVariables':" + json.dumps(tv) + "}}%%", "quadrantChart",
            "    title Scope vs. Migrationsaufwand", "    x-axis Klein --> Gross",
-           "    y-axis Geringer_Aufwand --> Hoher_Aufwand", "    quadrant-1 gross & aufwaendig",
-           "    quadrant-2 klein & aufwaendig", "    quadrant-3 klein & einfach", "    quadrant-4 gross & einfach"]
+           "    y-axis Geringer_Aufwand --> Hoher_Aufwand", "    quadrant-1 gross/aufwaendig",
+           "    quadrant-2 klein/aufwaendig", "    quadrant-3 klein/einfach", "    quadrant-4 gross/einfach"]
     for s in statslist:
-        mer.append('    "%s": [%s, %s]' % (lab(s), round(s["artifacts"]["total"] / maxart, 3),
-                                           round(s["effort"]["manual"]["hours_high"] / maxh, 3)))
+        mer.append('    "%s": [%s, %s]' % (lab(s).replace('"', ""), _q(s["artifacts"]["total"], amin, amax),
+                                           _q(s["effort"]["manual"]["hours_high"], emin, emax)))
     mer.append("```")
     B.append("\n".join(mer))
 
