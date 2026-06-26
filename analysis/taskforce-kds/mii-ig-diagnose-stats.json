@@ -1,0 +1,2447 @@
+{
+  "schemaVersion": "1.2",
+  "tool": "ig-stats.py",
+  "mode": "static",
+  "analyzed": {
+    "path": "/tmp/kds/diagnose",
+    "label": "MII KDS Diagnose v2025.0.1",
+    "git_commit": "c2d2ff4",
+    "timestamp": "2026-06-26T16:44:23Z",
+    "input": "/tmp/kds/diagnose",
+    "resolved_from": "lokaler Pfad"
+  },
+  "identity": {
+    "id": "mii-ig-diagnose",
+    "canonical": "https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose",
+    "packageId": "de.medizininformatikinitiative.kerndatensatz.diagnose",
+    "name": "MII_IG_Diagnose",
+    "title": "MII IG Diagnose",
+    "version": "2025.0.1",
+    "calver": true,
+    "status": "active",
+    "fhirVersion": "4.0.1",
+    "license": "CC-BY-4.0",
+    "publisher": "Medizininformatik Initiative"
+  },
+  "artifacts": {
+    "profiles": 1,
+    "extensions": 0,
+    "valuesets": 5,
+    "codesystems": 1,
+    "logicals": 1,
+    "capabilitystatements": 1,
+    "questionnaires": 0,
+    "searchparameters": 0,
+    "operations": 0,
+    "examples": 4,
+    "rulesets": 18,
+    "invariants": 0,
+    "mappings": 2,
+    "total": 13,
+    "_source": "input/fsh (FSH-Deklarationen)"
+  },
+  "artifacts_detail": [
+    {
+      "type": "RuleSet",
+      "name": "SupportResource",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/capabilitystatements/CapabilityStatement.fsh",
+      "line": 3
+    },
+    {
+      "type": "RuleSet",
+      "name": "Profile",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/capabilitystatements/CapabilityStatement.fsh",
+      "line": 14
+    },
+    {
+      "type": "RuleSet",
+      "name": "SupportProfile",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/capabilitystatements/CapabilityStatement.fsh",
+      "line": 19
+    },
+    {
+      "type": "RuleSet",
+      "name": "SupportInteraction",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/capabilitystatements/CapabilityStatement.fsh",
+      "line": 25
+    },
+    {
+      "type": "RuleSet",
+      "name": "SupportSearchParam",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/capabilitystatements/CapabilityStatement.fsh",
+      "line": 31
+    },
+    {
+      "type": "RuleSet",
+      "name": "SupportSpecialSearchParam",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/capabilitystatements/CapabilityStatement.fsh",
+      "line": 39
+    },
+    {
+      "type": "Instance",
+      "name": "mii-cps-diagnose-capabilitystatement",
+      "instanceOf": "CapabilityStatement",
+      "category": "capabilitystatements",
+      "path": "input/fsh/capabilitystatements/CapabilityStatement.fsh",
+      "line": 46
+    },
+    {
+      "type": "CodeSystem",
+      "name": "MII_CS_Diagnose_Lebensphase_Supplement_SNOMED",
+      "instanceOf": null,
+      "category": "codesystems",
+      "path": "input/fsh/codesystems/mii-cs-diagnose-lebensphase-supplement-snomed.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-diagnose-condition-minimal",
+      "instanceOf": "MII_PR_Diagnose_Condition",
+      "category": "examples",
+      "path": "input/fsh/instances/mii-exa-diagnose-condition-minimal.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-diagnose-mehrfachkodierung-primaercode",
+      "instanceOf": "MII_PR_Diagnose_Condition",
+      "category": "examples",
+      "path": "input/fsh/instances/mii-exa-diagnose-mehrfachkodierung-primaercode.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-diagnose-mehrfachkodierung-sekundaercode",
+      "instanceOf": "MII_PR_Diagnose_Condition",
+      "category": "examples",
+      "path": "input/fsh/instances/mii-exa-diagnose-mehrfachkodierung-sekundaercode.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-diagnose-multiple-kodierungen",
+      "instanceOf": "MII_PR_Diagnose_Condition",
+      "category": "examples",
+      "path": "input/fsh/instances/mii-exa-diagnose-multiple-kodierungen.fsh",
+      "line": 1
+    },
+    {
+      "type": "Logical",
+      "name": "MII_LM_Diagnose",
+      "instanceOf": null,
+      "category": "logicals",
+      "path": "input/fsh/logicals/MII_LM_Diagnose.fsh",
+      "line": 1
+    },
+    {
+      "type": "Mapping",
+      "name": "Diagnose-LogicalModel",
+      "instanceOf": null,
+      "category": "mappings",
+      "path": "input/fsh/logicals/MII_LM_Diagnose.fsh",
+      "line": 39
+    },
+    {
+      "type": "Profile",
+      "name": "MII_PR_Diagnose_Condition",
+      "instanceOf": null,
+      "category": "profiles",
+      "path": "input/fsh/profiles/MII_PR_Diagnose_Condition.fsh",
+      "line": 1
+    },
+    {
+      "type": "Mapping",
+      "name": "FHIR-LogicalModel",
+      "instanceOf": null,
+      "category": "mappings",
+      "path": "input/fsh/profiles/MII_PR_Diagnose_Condition.fsh",
+      "line": 161
+    },
+    {
+      "type": "RuleSet",
+      "name": "LicenseCodeableCCBY40",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/license-terms.fsh",
+      "line": 3
+    },
+    {
+      "type": "RuleSet",
+      "name": "LicenseCodeableCCBY40Instance",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/license-terms.fsh",
+      "line": 7
+    },
+    {
+      "type": "RuleSet",
+      "name": "MetaProfile",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/meta-profile.fsh",
+      "line": 1
+    },
+    {
+      "type": "RuleSet",
+      "name": "Publisher",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/publisher.fsh",
+      "line": 1
+    },
+    {
+      "type": "RuleSet",
+      "name": "SP_Publisher",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/publisher.fsh",
+      "line": 6
+    },
+    {
+      "type": "RuleSet",
+      "name": "Translation",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/translation.fsh",
+      "line": 1
+    },
+    {
+      "type": "RuleSet",
+      "name": "AddSnomedCodingTranslation",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/translation.fsh",
+      "line": 8
+    },
+    {
+      "type": "RuleSet",
+      "name": "AddIcd10CodingTranslation",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/translation.fsh",
+      "line": 16
+    },
+    {
+      "type": "RuleSet",
+      "name": "AddAlphaIdCodingTranslation",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/translation.fsh",
+      "line": 24
+    },
+    {
+      "type": "RuleSet",
+      "name": "AddOrphaCodingTranslation",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/translation.fsh",
+      "line": 32
+    },
+    {
+      "type": "RuleSet",
+      "name": "Version",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/version.fsh",
+      "line": 2
+    },
+    {
+      "type": "RuleSet",
+      "name": "PR_CS_VS_Version",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/version.fsh",
+      "line": 5
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Diagnose_DiagnoseCodes_SNOMED",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/MII_VS_Diagnose_DiagnoseCodes_SNOMED.fsh",
+      "line": 1
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Diagnose_AlphaID",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/mii-vs-diagnose-alphaid.fsh",
+      "line": 1
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Diagnose_BodyStructure_SNOMED",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/mii-vs-diagnose-bodysite-snomed.fsh",
+      "line": 1
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Diagnose_ICD10GM",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/mii-vs-diagnose-icd-10-gm.fsh",
+      "line": 1
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Diagnose_Orphanet",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/mii-vs-diagnose-orphanet.fsh",
+      "line": 1
+    }
+  ],
+  "dependencies": {
+    "count": 3,
+    "pinned": 1,
+    "floating": 2,
+    "items": {
+      "de.basisprofil.r4": "1.5.x",
+      "de.medizininformatikinitiative.kerndatensatz.meta": "2025.0.x",
+      "kbv.all.st": "1.27.0"
+    },
+    "floating_items": [
+      "de.basisprofil.r4",
+      "de.medizininformatikinitiative.kerndatensatz.meta"
+    ],
+    "_source": "sushi-config.yaml: dependencies"
+  },
+  "narrative": {
+    "format": "source",
+    "pages": 52,
+    "pages_all": 61,
+    "words": 38118,
+    "words_all_incl_stubs": 38191,
+    "images": 19,
+    "mandatory_present": [],
+    "mandatory_missing_in_target": [],
+    "files": [
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
+        "words": 492,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.guide.md",
+        "words": 606,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/UML.guide.md",
+        "words": 53,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+        "words": 3862,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/KontextimGesamtprojektBezgezuanderenModulen.guide.md",
+        "words": 733,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/Referenzen.guide.md",
+        "words": 156,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md",
+        "words": 504,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md",
+        "words": 174,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Context.guide.md",
+        "words": 817,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+        "words": 4362,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Index.guide.md",
+        "words": 479,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/References.guide.md",
+        "words": 186,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "words": 546,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Index.guide.md",
+        "words": 133,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Index.guide.md",
+        "words": 3,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md",
+        "words": 185,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/UseCases/Datasets.guide.md",
+        "words": 705,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/UseCases/Index.guide.md",
+        "words": 2,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/UseCases/Scenariodescription.guide.md",
+        "words": 561,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/UseCases/UML.guide.md",
+        "words": 67,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 495,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 93,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Index.page.md",
+        "words": 13,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 24,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "words": 3855,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Index.page.md",
+        "words": 410,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 736,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Referenzen.page.md",
+        "words": 155,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md",
+        "words": 361,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md",
+        "words": 93,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "words": 898,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md",
+        "words": 223,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Index.page.md",
+        "words": 12,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "words": 261,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Context.guide.md",
+        "words": 817,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
+        "words": 4362,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Index.guide.md",
+        "words": 474,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/References.guide.md",
+        "words": 186,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/CapabilityStatement.page.md",
+        "words": 13,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "words": 621,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Index.guide.md",
+        "words": 133,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Index.guide.md",
+        "words": 3,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md",
+        "words": 185,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Datasets.guide.md",
+        "words": 705,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Index.guide.md",
+        "words": 2,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Scenariodescription.guide.md",
+        "words": 561,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/UML.guide.md",
+        "words": 67,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 495,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 93,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Index.page.md",
+        "words": 13,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 22,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "words": 3855,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Index.page.md",
+        "words": 423,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 736,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Referenzen.page.md",
+        "words": 155,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md",
+        "words": 528,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md",
+        "words": 94,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "words": 901,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md",
+        "words": 223,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Index.page.md",
+        "words": 12,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "words": 257,
+        "kind": "source",
+        "stub": false
+      }
+    ]
+  },
+  "linguistics": {
+    "content_pages": 52,
+    "words_total": 38118,
+    "words_avg": 733.0,
+    "words_median": 448,
+    "words_min": 22,
+    "words_max": 4362,
+    "longest_page": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+    "shortest_page": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md",
+    "per_page": [
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+        "words": 4362
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
+        "words": 4362
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+        "words": 3862
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "words": 3855
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "words": 3855
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "words": 901
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "words": 898
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Context.guide.md",
+        "words": 817
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Context.guide.md",
+        "words": 817
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 736
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 736
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/KontextimGesamtprojektBezgezuanderenModulen.guide.md",
+        "words": 733
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/UseCases/Datasets.guide.md",
+        "words": 705
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Datasets.guide.md",
+        "words": 705
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "words": 621
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.guide.md",
+        "words": 606
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/UseCases/Scenariodescription.guide.md",
+        "words": 561
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Scenariodescription.guide.md",
+        "words": 561
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "words": 546
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md",
+        "words": 528
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md",
+        "words": 504
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 495
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 495
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
+        "words": 492
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Index.guide.md",
+        "words": 479
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Index.guide.md",
+        "words": 474
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Index.page.md",
+        "words": 423
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Index.page.md",
+        "words": 410
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md",
+        "words": 361
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "words": 261
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "words": 257
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md",
+        "words": 223
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md",
+        "words": 223
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/References.guide.md",
+        "words": 186
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/References.guide.md",
+        "words": 186
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md",
+        "words": 185
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md",
+        "words": 185
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md",
+        "words": 174
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/Referenzen.guide.md",
+        "words": 156
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Referenzen.page.md",
+        "words": 155
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Referenzen.page.md",
+        "words": 155
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Index.guide.md",
+        "words": 133
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Index.guide.md",
+        "words": 133
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md",
+        "words": 94
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 93
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md",
+        "words": 93
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 93
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-EN/UseCases/UML.guide.md",
+        "words": 67
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/UML.guide.md",
+        "words": 67
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/UML.guide.md",
+        "words": 53
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 24
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 22
+      }
+    ]
+  },
+  "duplication": {
+    "duplicate_block_count": 292,
+    "duplicate_blocks": [
+      {
+        "snippet": "alexander zautke (hl7 deutschland) andrea essenwanger (bih) antje wulff (highmed) caroline",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-EN/Index.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Index.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Index.guide.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Index.page.md"
+        ]
+      },
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \"condition.subject\" finden sich i",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md"
+        ]
+      },
+      {
+        "snippet": "zum modul diagnose: in jedem use case der mii spielen diagnosen eine zentrale rolle.",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
+        ]
+      },
+      {
+        "snippet": "difuture: der difuture ansatz ist use case getrieben, wobei use cases mit konkreten krankh",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
+        ]
+      },
+      {
+        "snippet": "highmed: mangels feingranularer diagnosen, die für die versorgung anstelle der abrechnung ",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
+        ]
+      },
+      {
+        "snippet": "miracum: in allen use cases des miracum konsortiums stehen erkrankungen der patientinnen u",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
+        ]
+      },
+      {
+        "snippet": "smith: im smith use case asic stehen patienten mit acute respiratory distress syndrome (ar",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
+        ]
+      },
+      {
+        "snippet": "cord mi: im rahmen von cord mi wird die weiterentwicklung der diagnosendokumentation für p",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
+        ]
+      },
+      {
+        "snippet": "polar mi: im use case polar mi haben diagnosen eine doppelte bedeutung. zum einen sind sie",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
+        ]
+      },
+      {
+        "snippet": "es ist zu beachten, dass das logical model rein auf die abbildung der datenelemente und de",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md"
+        ]
+      },
+      {
+        "snippet": "die zielsetzung der einrichtungs und konsortienübergreifenden unterstützung und ermöglichu",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md"
+        ]
+      },
+      {
+        "snippet": "aufgrund der mii priorität der sekundärnutzung von real world data des versorgungskontexte",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md"
+        ]
+      },
+      {
+        "snippet": "einen kleinen beitrag zur überwindung der restriktionen versuchen die autoren des moduls d",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md"
+        ]
+      },
+      {
+        "snippet": "das modul sieht folgende merkmale einer diagnose vor, die bereits oder bald zur automatisi",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md"
+        ]
+      },
+      {
+        "snippet": "der mii kerndatensatz soll alle use cases der mi initiative einrichtungs und konsortien üb",
+        "locations": [
+          "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+          "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md"
+        ]
+      }
+    ],
+    "duplicate_file_groups": [
+      [
+        "implementation-guides/ImplementationGuide-1.x-EN/Context.guide.md",
+        "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Context.guide.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+        "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-1.x-EN/References.guide.md",
+        "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/References.guide.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Index.guide.md",
+        "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Index.guide.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Index.guide.md",
+        "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Index.guide.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-1.x-EN/UseCases/Datasets.guide.md",
+        "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Datasets.guide.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-1.x-EN/UseCases/Index.guide.md",
+        "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Index.guide.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-1.x-EN/UseCases/Scenariodescription.guide.md",
+        "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Scenariodescription.guide.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-1.x-EN/UseCases/UML.guide.md",
+        "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/UML.guide.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Index.page.md",
+        "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Index.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/KontextimGesamtprojektBezgezuanderenModulen.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Referenzen.page.md",
+        "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Referenzen.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md",
+        "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Index.page.md",
+        "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Index.page.md"
+      ]
+    ]
+  },
+  "hygiene": {
+    "images_total": 19,
+    "unreferenced_images": [
+      "implementation-guides/ImplementationGuide-Common/images/Diagnose.png",
+      "implementation-guides/ImplementationGuide-Common/images/DiagnoseEinordungNeu.jpg",
+      "implementation-guides/ImplementationGuide-Common/images/KDS_Modul_Diagnose_de.png",
+      "implementation-guides/ImplementationGuide-Common/images/KDS_Modul_Diagnose_en.png",
+      "implementation-guides/ImplementationGuide-Common/images/MiiLogo.jpg"
+    ],
+    "examples_total": 4,
+    "examples_not_in_narrative": [],
+    "note": "Heuristik: 'nicht referenziert' = Dateiname/Artefaktname kommt in keiner Erklärseite vor. Kein Beweis für Ungenutztheit (Referenz kann über Konfiguration/Build erfolgen)."
+  },
+  "i18n": {
+    "default_lang": null,
+    "default_lang_source": null,
+    "languages": [],
+    "translation_supplements": 0,
+    "supplement_files": [],
+    "translated_pages": 0,
+    "fsh_translation_ext": true,
+    "fsh_translation_files": [
+      "input/fsh/rulesets/translation.fsh",
+      "input/fsh/profiles/MII_PR_Diagnose_Condition.fsh"
+    ]
+  },
+  "directives": {
+    "total": 179,
+    "by_label": {
+      "tree": 12,
+      "render-resource": 14,
+      "render-image": 53,
+      "json": 21,
+      "pagelink": 21,
+      "index-root": 4,
+      "page-title": 4,
+      "fql-at": 17,
+      "link": 6,
+      "tabs": 24,
+      "xml": 3
+    },
+    "unknown": 0,
+    "occurrences": [
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.guide.md",
+        "line": 6,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/AnwendungsflleInformationsmodell/UML.guide.md",
+        "line": 5,
+        "label": "render-resource",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/OldDiagnoseUML."
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+        "line": 3,
+        "label": "render-resource",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/ModulDiagnose.J"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+        "line": 37,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+        "line": 157,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+        "line": 196,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]("
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+        "line": 275,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+        "line": 292,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+        "line": 308,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/BeschreibungModul.guide.md",
+        "line": 319,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md",
+        "line": 9,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md",
+        "line": 78,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md",
+        "line": 86,
+        "label": "json",
+        "text": "{{json:Condition/ExampleCondition}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md",
+        "line": 91,
+        "label": "json",
+        "text": "{{json:Condition/ExampleConditionDuplicate2}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/FHIRProfile/Condition.guide.md",
+        "line": 95,
+        "label": "json",
+        "text": "{{json:Condition/ExampleConditionDuplicate3}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md",
+        "line": 5,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md",
+        "line": 18,
+        "label": "pagelink",
+        "text": "| Binding | ([required](http://hl7.org/fhir/terminologies.html#required)) {{page"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-DE/TechnischeImplementierung/Terminologien.guide.md",
+        "line": 21,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+        "line": 3,
+        "label": "render-resource",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/ModulDiagnose.J"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+        "line": 30,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+        "line": 154,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+        "line": 192,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]("
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+        "line": 271,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+        "line": 282,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+        "line": 297,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Description.guide.md",
+        "line": 308,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Index.guide.md",
+        "line": 5,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Index.guide.md",
+        "line": 20,
+        "label": "index-root",
+        "text": "{{index:root}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 9,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 82,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 90,
+        "label": "json",
+        "text": "{{json:Condition/ExampleCondition}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 95,
+        "label": "json",
+        "text": "{{json:Condition/ExampleConditionDuplicate2}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 99,
+        "label": "json",
+        "text": "{{json:Condition/ExampleConditionDuplicate3}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/FHIRprofiles/Index.guide.md",
+        "line": 12,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md",
+        "line": 5,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md",
+        "line": 18,
+        "label": "pagelink",
+        "text": "| Binding | ([required](http://hl7.org/fhir/terminologies.html#required)) {{page"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/Technicalimplementation/Terminologies.guide.md",
+        "line": 21,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/UseCases/Datasets.guide.md",
+        "line": 6,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/UseCases/Index.guide.md",
+        "line": 1,
+        "label": "page-title",
+        "text": "## {{page-title}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-1.x-EN/UseCases/UML.guide.md",
+        "line": 4,
+        "label": "render-resource",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/OldDiagnoseUML."
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "line": 8,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "line": 13,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md",
+        "line": 8,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/KDS_Diagnose_UM"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 6,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/1_Abbildung_Dia"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 40,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 160,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 194,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]("
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 273,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 290,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 306,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 317,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Index.page.md",
+        "line": 20,
+        "label": "index-root",
+        "text": "{{index:root}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 1,
+        "label": "page-title",
+        "text": "## {{page-title}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 8,
+        "label": "pagelink",
+        "text": "- Die {{pagelink: FHIRProfile, text: Anforderungsdokumentation, hint: Anforderun"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 10,
+        "label": "pagelink",
+        "text": "- Beim Wechsel von Modul Diagnose Versionen 1.0 auf die Version 2.0 (2024.0.0) d"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 15,
+        "label": "pagelink",
+        "text": "- Siehe auch Beschreibung und Beispiele unter {{pagelink: DiagnoseCondition, tex"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 16,
+        "label": "pagelink",
+        "text": "- Im Profil {{pagelink: DiagnoseCondition, text: Diagnose (Condition), hint: MII"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 17,
+        "label": "pagelink",
+        "text": "- Im Profil {{pagelink: DiagnoseCondition, text: Diagnose (Condition), hint: MII"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 18,
+        "label": "pagelink",
+        "text": "- Im Profil {{pagelink: DiagnoseCondition, text: Diagnose (Condition), hint: MII"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 19,
+        "label": "pagelink",
+        "text": "- Das Modul wurde um SearchParameter-Ressourcen erweitert, mittels derer die Suc"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md",
+        "line": 18,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 13,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 25,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 36,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 37,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 37,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 38,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 39,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 49,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 60,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 61,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 61,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 62,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 62,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 63,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 63,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 64,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 94,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 117,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 208,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-condition-minimal.json"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 213,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-prim"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 215,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-seku"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 220,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-multiple-kodierungen.j"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md",
+        "line": 28,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 9,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 24,
+        "label": "pagelink",
+        "text": "| Binding | ([required](http://hl7.org/fhir/terminologies.html#required)) {{page"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 27,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 38,
+        "label": "pagelink",
+        "text": "| Binding | ([required](http://hl7.org/fhir/terminologies.html#required)) {{page"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 41,
+        "label": "render-resource",
+        "text": "{{render:http://fhir.de/ValueSet/lebensphase-de}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 45,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
+        "line": 3,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/2_Abbildung_Dia"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
+        "line": 30,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
+        "line": 154,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
+        "line": 192,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]("
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
+        "line": 271,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
+        "line": 282,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
+        "line": 297,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Description.guide.md",
+        "line": 308,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Index.guide.md",
+        "line": 5,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Index.guide.md",
+        "line": 20,
+        "label": "index-root",
+        "text": "{{index:root}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/CapabilityStatement.page.md",
+        "line": 10,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 18,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 29,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 30,
+        "label": "tree",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 30,
+        "label": "tabs",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 31,
+        "label": "tabs",
+        "text": "<tab title=\"Description\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 32,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 42,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 53,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 54,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 54,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 55,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 56,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 56,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 57,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 130,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-condition-minimal.json"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 135,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-prim"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 137,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-seku"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Condition.guide.md",
+        "line": 142,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-multiple-kodierungen.j"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/FHIRprofiles/Index.guide.md",
+        "line": 12,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md",
+        "line": 5,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md",
+        "line": 18,
+        "label": "pagelink",
+        "text": "| Binding | ([required](http://hl7.org/fhir/terminologies.html#required)) {{page"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/Technicalimplementation/Terminologies.guide.md",
+        "line": 21,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Datasets.guide.md",
+        "line": 6,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/Index.guide.md",
+        "line": 1,
+        "label": "page-title",
+        "text": "## {{page-title}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulDiagnoseEN/UseCases/UML.guide.md",
+        "line": 4,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/diagnoseUML.png"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "line": 8,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Stru"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "line": 13,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md",
+        "line": 8,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/KDS_Diagnose_UM"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 6,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/1_Abbildung_Dia"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 40,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/BasismodulDiag"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 160,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/KlinRelvZeitNe"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 194,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ICDNeu.jpg}}]("
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 273,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/AlphaNeu.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 290,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/OrphaNeu.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 306,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/SnomedNeu.jpg}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/BeschreibungModul.page.md",
+        "line": 317,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/WeitereKodiers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Index.page.md",
+        "line": 20,
+        "label": "index-root",
+        "text": "{{index:root}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Index.page.md",
+        "line": 74,
+        "label": "render-image",
+        "text": "<img src=\"https://licensebuttons.net/l/by/4.0/88x31.png\" alt=\"CC BY 4.0 Logo\" st"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 1,
+        "label": "page-title",
+        "text": "## {{page-title}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 30,
+        "label": "pagelink",
+        "text": "- Die {{pagelink: FHIRProfile, text: Anforderungsdokumentation, hint: Anforderun"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 32,
+        "label": "pagelink",
+        "text": "- Beim Wechsel von Modul Diagnose Versionen 1.0 auf die Version 2.0 (2024.0.0) d"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 37,
+        "label": "pagelink",
+        "text": "- Siehe auch Beschreibung und Beispiele unter {{pagelink: DiagnoseCondition, tex"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 38,
+        "label": "pagelink",
+        "text": "- Im Profil {{pagelink: DiagnoseCondition, text: Diagnose (Condition), hint: MII"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 39,
+        "label": "pagelink",
+        "text": "- Im Profil {{pagelink: DiagnoseCondition, text: Diagnose (Condition), hint: MII"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 40,
+        "label": "pagelink",
+        "text": "- Im Profil {{pagelink: DiagnoseCondition, text: Diagnose (Condition), hint: MII"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/Release-Notes.page.md",
+        "line": 41,
+        "label": "pagelink",
+        "text": "- Das Modul wurde um SearchParameter-Ressourcen erweitert, mittels derer die Suc"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/CapabilityStatement.page.md",
+        "line": 18,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Ca"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 13,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 27,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 38,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 39,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 39,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 40,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 41,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 51,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 62,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 63,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 63,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 64,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 64,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 65,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 65,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 66,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 96,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 119,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 210,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-condition-minimal.json"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 215,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-prim"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 217,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-mehrfachkodierung-seku"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Diagnose-Condition.page.md",
+        "line": 222,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-diagnose-multiple-kodierungen.j"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/FHIRProfile/Index.page.md",
+        "line": 28,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 9,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 24,
+        "label": "pagelink",
+        "text": "| Binding | ([required](http://hl7.org/fhir/terminologies.html#required)) {{page"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 27,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/Va"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 38,
+        "label": "pagelink",
+        "text": "| Binding | ([required](http://hl7.org/fhir/terminologies.html#required)) {{page"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 41,
+        "label": "render-resource",
+        "text": "{{render:http://fhir.de/ValueSet/lebensphase-de}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/TechnischeImplementierung/Terminologien.page.md",
+        "line": 45,
+        "label": "fql-at",
+        "text": "@```"
+      }
+    ],
+    "unknown_occurrences": []
+  },
+  "quality": {
+    "qc_rules_defined": 9,
+    "qc_rules": [
+      {
+        "name": "parse-fhir-resources",
+        "action": "parse",
+        "status": "Checking if all FHIR Resource files can be parsed",
+        "category": null
+      },
+      {
+        "name": "resource-validation",
+        "action": "validate",
+        "status": "Validating resources against the FHIR standard and their profiles",
+        "category": "Resource"
+      },
+      {
+        "name": "version-filled",
+        "action": null,
+        "status": "Checking if all resources have version filled",
+        "category": null
+      },
+      {
+        "name": "instance-version-filled",
+        "action": null,
+        "status": "Checking if all instances have correct version filled",
+        "category": "example"
+      },
+      {
+        "name": null,
+        "action": "Check for valid ids",
+        "status": null,
+        "category": null
+      },
+      {
+        "name": "naming-convention-id",
+        "action": null,
+        "status": "Checking if all resource ids follow the naming convention",
+        "category": null
+      },
+      {
+        "name": "naming-convention-name",
+        "action": null,
+        "status": "Checking if all resource names follow the naming convention",
+        "category": null
+      },
+      {
+        "name": "naming-convention-title",
+        "action": null,
+        "status": "Checking if all resource titles follow the naming convention",
+        "category": null
+      },
+      {
+        "name": "naming-convention-url",
+        "action": null,
+        "status": "Checking if all resource urls follow the naming convention",
+        "category": null
+      }
+    ],
+    "qc_source": "qc/custom.rules.yaml",
+    "qc_violations": null,
+    "suppressed_messages": null,
+    "qa_errors": null,
+    "qa_warnings": null,
+    "qa_hints": null,
+    "broken_links": null,
+    "qa_categories": null
+  },
+  "effort": {
+    "drivers": {
+      "gofsh_needed": false,
+      "directives": 179,
+      "directives_unknown": 0,
+      "pages": 52,
+      "floating_pins": 2
+    },
+    "manual": {
+      "factors": {
+        "gofsh_flat": 8.0,
+        "directive": 0.2,
+        "page": 0.5,
+        "floating_pin": 1.0
+      },
+      "hours_low": 51.0,
+      "hours_high": 82.9,
+      "band": "L"
+    },
+    "ai": {
+      "factors": {
+        "gofsh_flat": 3.0,
+        "directive_known": 0.08,
+        "directive_unknown": 0.2,
+        "page": 0.2,
+        "floating_pin": 0.8,
+        "gate_fixed": 3.0,
+        "setup": 3.0,
+        "iteration_pct": 0.2
+      },
+      "hours_low": 30.1,
+      "hours_high": 48.9,
+      "band": "L",
+      "savings_pct": 41,
+      "variable": 26.3,
+      "iteration": 5.26,
+      "setup": 3.0,
+      "gate": 3.0
+    },
+    "assumptions": [
+      "Nur statisch berechenbare Treiber; id/url-Mismatch, QC-Verletzungen und quell-intrinsische Validierungsfehler erfordern einen Build und sind hier nicht enthalten.",
+      "Faktoren sind Erfahrungswerte, noch nicht final kalibriert; Spanne = Basis × 0,8…1,3.",
+      "pages = Inhalts-Seiten (Stubs/Navigation < 20 Wörter ausgeschlossen).",
+      "KI-Schätzung: anbieter-/modellunabhängig (Human-in-the-Loop, Review-Gates). Enthält feste Pauschalen für Einarbeitung/Setup (3 h) und Review-Gates (3 h) sowie einen Validierungs-/Iterationsaufschlag (20 %); unbekannte Direktiven werden wie manuell gerechnet. Bewusst konservativ – keine garantierte Einsparung."
+    ]
+  },
+  "maturity": {
+    "score": 74,
+    "band": "fortgeschritten",
+    "components": {
+      "Status": 85,
+      "Doku-Vollständigkeit": 85,
+      "Beispiel-Abdeckung": 100,
+      "Governance": 25
+    },
+    "example_coverage": {
+      "profiles_total": 1,
+      "covered": 1,
+      "uncovered": [],
+      "coverage_pct": 100
+    },
+    "governance": {
+      "ci_workflows": 1,
+      "publication_request": false,
+      "ig_ini": false,
+      "devcontainer": false,
+      "governance_score": 25
+    },
+    "doc_health_pct": 85
+  },
+  "portfolio": {
+    "vendor_lockin_score": 41,
+    "vendor_lockin_band": "mittel",
+    "directives_per_page": 3.44,
+    "terminology_standard_systems": [
+      "SNOMED CT",
+      "ICD-10"
+    ],
+    "terminology_standard_refs": 221,
+    "local_codesystems": 1,
+    "terminology_standard_share_pct": 100,
+    "canonical_reuse_ratio_pct": 100,
+    "external_parents": 1,
+    "local_parents": 0,
+    "fhir_version_label": "R4",
+    "fhir_version_note": "aktuell verbreitet",
+    "dependency_stale_count": 0,
+    "dependency_stale": [],
+    "dependency_staleness_note": "Heuristik aus CalVer-Jahr; exakt nur via Package-Registry (extern).",
+    "release_cadence_per_year": 53.4,
+    "days_since_last_commit": 249,
+    "tags": 11
+  },
+  "risk": {
+    "terminology_license_flags": [
+      {
+        "system": "SNOMED CT",
+        "license": "lizenzpflichtig (Affiliate/Land)"
+      },
+      {
+        "system": "ICD-10",
+        "license": "frei"
+      }
+    ],
+    "terminology_license_risk": true,
+    "suppressed_total": 0,
+    "suppressed_broad": 0,
+    "suppressed_warning_risk": "keine",
+    "privacy_page_words": 0,
+    "privacy_page_substantial": false,
+    "examples_contain_pii_like": false,
+    "bus_factor_top_author_pct": 34,
+    "bus_factor_authors": 9,
+    "bus_factor_risk": "gering",
+    "breaking_change_risk": null,
+    "breaking_change_note": "Erfordert Diff gegen die publizierte Vorversion (Build/extern) — statisch nicht erhoben."
+  },
+  "planning": {
+    "calendar_days_low": 11,
+    "calendar_days_high": 18,
+    "assumptions": {
+      "hours_per_day": 8.0,
+      "team_size": 1,
+      "utilization": 0.6
+    },
+    "scenario_min_h": 51.0,
+    "scenario_expected_h": 67.0,
+    "scenario_max_h": 82.9,
+    "confidence": "mittel",
+    "role_mix_pct": {
+      "FSH-Rückgewinnung/Pins": 3,
+      "Template/Tooling (Direktiven)": 56,
+      "Redaktion/Doku (Seiten)": 41
+    },
+    "parallelizable": "Direktiven & Seiten gut parallelisierbar; Setup/QA seriell",
+    "readiness_score": 90,
+    "cross_module_dependency_risk": "erhöht (floating Pins)",
+    "ai_fixed_cost_share_pct": 12
+  },
+  "git": {
+    "commits": 309,
+    "authors": 9,
+    "top_author_share": 34,
+    "days_since_last": 249,
+    "commits_per_year": 53.4,
+    "tags": 11,
+    "first": "2020-01-09",
+    "last": "2025-10-20"
+  }
+}

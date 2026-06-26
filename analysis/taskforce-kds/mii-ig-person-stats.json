@@ -1,0 +1,3316 @@
+{
+  "schemaVersion": "1.2",
+  "tool": "ig-stats.py",
+  "mode": "static",
+  "analyzed": {
+    "path": "/tmp/kds/person",
+    "label": "MII KDS Person v2025.0.1",
+    "git_commit": "122e30f",
+    "timestamp": "2026-06-26T16:44:23Z",
+    "input": "/tmp/kds/person",
+    "resolved_from": "lokaler Pfad"
+  },
+  "identity": {
+    "id": "mii-ig-person",
+    "canonical": "https://www.medizininformatik-initiative.de/fhir/core/modul-person",
+    "packageId": "de.medizininformatikinitiative.kerndatensatz.person",
+    "name": "MII_IG_Person",
+    "title": "MII IG Person",
+    "version": "2025.0.1",
+    "calver": true,
+    "status": "active",
+    "fhirVersion": "4.0.1",
+    "license": "CC-BY-4.0",
+    "publisher": "Medizininformatik Initiative"
+  },
+  "artifacts": {
+    "profiles": 5,
+    "extensions": 0,
+    "valuesets": 1,
+    "codesystems": 1,
+    "logicals": 1,
+    "capabilitystatements": 1,
+    "questionnaires": 0,
+    "searchparameters": 0,
+    "operations": 0,
+    "examples": 5,
+    "rulesets": 9,
+    "invariants": 9,
+    "mappings": 0,
+    "total": 14,
+    "_source": "input/fsh (FSH-Deklarationen)"
+  },
+  "artifacts_detail": [
+    {
+      "type": "Instance",
+      "name": "mii-cps-person-capabilitystatement",
+      "instanceOf": "CapabilityStatement",
+      "category": "capabilitystatements",
+      "path": "input/fsh/capabilitystatements/MII_CPS_Person_CapabilityStatement.fsh",
+      "line": 1
+    },
+    {
+      "type": "CodeSystem",
+      "name": "MII_CS_Person_Vitalstatus",
+      "instanceOf": null,
+      "category": "codesystems",
+      "path": "input/fsh/codesystems/MII_CS_Person_Vitalstatus.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-person-condition-todesursache",
+      "instanceOf": "MII_PR_Person_Todesursache",
+      "category": "examples",
+      "path": "input/fsh/instances/MII_EXA_Person_Condition_Todesursache.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-person-observation-vitalstatus",
+      "instanceOf": "MII_PR_Person_Vitalstatus",
+      "category": "examples",
+      "path": "input/fsh/instances/MII_EXA_Person_Observation_Vitalstatus.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-person-patient-pseudonymisiert",
+      "instanceOf": "MII_PR_Person_PatientPseudonymisiert",
+      "category": "examples",
+      "path": "input/fsh/instances/MII_EXA_Person_Patient_Pseudonymisiert.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-person-patient-full",
+      "instanceOf": "MII_PR_Person_Patient",
+      "category": "examples",
+      "path": "input/fsh/instances/MII_EXA_Person_Patient_full.fsh",
+      "line": 1
+    },
+    {
+      "type": "Instance",
+      "name": "mii-exa-person-patient-minimal",
+      "instanceOf": "MII_PR_Person_Patient",
+      "category": "examples",
+      "path": "input/fsh/instances/MII_EXA_Person_Patient_minimal.fsh",
+      "line": 1
+    },
+    {
+      "type": "Invariant",
+      "name": "GeburtsdatumRundenAufQuartal",
+      "instanceOf": null,
+      "category": "invariants",
+      "path": "input/fsh/invariants/GeburtsdatumRundenAufQuartal.fsh",
+      "line": 1
+    },
+    {
+      "type": "Invariant",
+      "name": "PostleitzahlEinschraenkung",
+      "instanceOf": null,
+      "category": "invariants",
+      "path": "input/fsh/invariants/PostleitzahlEinschraenkung.fsh",
+      "line": 1
+    },
+    {
+      "type": "Invariant",
+      "name": "TodesdatumKeineZeitangabe",
+      "instanceOf": null,
+      "category": "invariants",
+      "path": "input/fsh/invariants/TodesdatumKeineZeitangabe.fsh",
+      "line": 1
+    },
+    {
+      "type": "Invariant",
+      "name": "ide-masked-1",
+      "instanceOf": null,
+      "category": "invariants",
+      "path": "input/fsh/invariants/ide-masked-1.fsh",
+      "line": 1
+    },
+    {
+      "type": "Invariant",
+      "name": "mii-pat-1",
+      "instanceOf": null,
+      "category": "invariants",
+      "path": "input/fsh/invariants/mii-pat-1.fsh",
+      "line": 1
+    },
+    {
+      "type": "Invariant",
+      "name": "mii-pat-2",
+      "instanceOf": null,
+      "category": "invariants",
+      "path": "input/fsh/invariants/mii-pat-2.fsh",
+      "line": 1
+    },
+    {
+      "type": "Invariant",
+      "name": "pat-cnt-2or3-char",
+      "instanceOf": null,
+      "category": "invariants",
+      "path": "input/fsh/invariants/pat-cnt-2or3-char.fsh",
+      "line": 1
+    },
+    {
+      "type": "Invariant",
+      "name": "pat-pseuded-1",
+      "instanceOf": null,
+      "category": "invariants",
+      "path": "input/fsh/invariants/pat-pseuded-1.fsh",
+      "line": 1
+    },
+    {
+      "type": "Invariant",
+      "name": "pat-pseuded-2",
+      "instanceOf": null,
+      "category": "invariants",
+      "path": "input/fsh/invariants/pat-pseuded-2.fsh",
+      "line": 1
+    },
+    {
+      "type": "Logical",
+      "name": "MII_LM_Person",
+      "instanceOf": null,
+      "category": "logicals",
+      "path": "input/fsh/logicals/MII_LM_Person_LogicalModel.fsh",
+      "line": 1
+    },
+    {
+      "type": "Profile",
+      "name": "MII_PR_Person_Patient",
+      "instanceOf": null,
+      "category": "profiles",
+      "path": "input/fsh/profiles/MII_PR_Person_Patient.fsh",
+      "line": 1
+    },
+    {
+      "type": "Profile",
+      "name": "MII_PR_Person_PatientPseudonymisiert",
+      "instanceOf": null,
+      "category": "profiles",
+      "path": "input/fsh/profiles/MII_PR_Person_PatientPseudonymisiert.fsh",
+      "line": 1
+    },
+    {
+      "type": "Profile",
+      "name": "MII_PR_Person_Proband",
+      "instanceOf": null,
+      "category": "profiles",
+      "path": "input/fsh/profiles/MII_PR_Person_Proband.fsh",
+      "line": 1
+    },
+    {
+      "type": "Profile",
+      "name": "MII_PR_Person_Todesursache",
+      "instanceOf": null,
+      "category": "profiles",
+      "path": "input/fsh/profiles/MII_PR_Person_Todesursache.fsh",
+      "line": 1
+    },
+    {
+      "type": "Profile",
+      "name": "MII_PR_Person_Vitalstatus",
+      "instanceOf": null,
+      "category": "profiles",
+      "path": "input/fsh/profiles/MII_PR_Person_Vitalstatus.fsh",
+      "line": 1
+    },
+    {
+      "type": "RuleSet",
+      "name": "LicenseCodeableCCBY40",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/license-terms.fsh",
+      "line": 3
+    },
+    {
+      "type": "RuleSet",
+      "name": "LicenseCodeableCCBY40Instance",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/license-terms.fsh",
+      "line": 7
+    },
+    {
+      "type": "RuleSet",
+      "name": "MetaProfile",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/meta-profile.fsh",
+      "line": 1
+    },
+    {
+      "type": "RuleSet",
+      "name": "Publisher",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/publisher.fsh",
+      "line": 1
+    },
+    {
+      "type": "RuleSet",
+      "name": "SP_Publisher",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/publisher.fsh",
+      "line": 6
+    },
+    {
+      "type": "RuleSet",
+      "name": "TestDataLabel",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/test-data-label.fsh",
+      "line": 3
+    },
+    {
+      "type": "RuleSet",
+      "name": "Translation",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/translation.fsh",
+      "line": 1
+    },
+    {
+      "type": "RuleSet",
+      "name": "Version",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/version.fsh",
+      "line": 2
+    },
+    {
+      "type": "RuleSet",
+      "name": "PR_CS_VS_Version",
+      "instanceOf": null,
+      "category": "rulesets",
+      "path": "input/fsh/rulesets/version.fsh",
+      "line": 5
+    },
+    {
+      "type": "ValueSet",
+      "name": "MII_VS_Person_Vitalstatus",
+      "instanceOf": null,
+      "category": "valuesets",
+      "path": "input/fsh/valuesets/MII_VS_Person_Vitalstatus.fsh",
+      "line": 1
+    }
+  ],
+  "dependencies": {
+    "count": 2,
+    "pinned": 0,
+    "floating": 2,
+    "items": {
+      "de.basisprofil.r4": "1.5.x",
+      "de.medizininformatikinitiative.kerndatensatz.meta": "2025.0.x"
+    },
+    "floating_items": [
+      "de.basisprofil.r4",
+      "de.medizininformatikinitiative.kerndatensatz.meta"
+    ],
+    "_source": "sushi-config.yaml: dependencies"
+  },
+  "narrative": {
+    "format": "source",
+    "pages": 47,
+    "pages_all": 54,
+    "words": 19118,
+    "words_all_incl_stubs": 19206,
+    "images": 18,
+    "mandatory_present": [
+      "index"
+    ],
+    "mandatory_missing_in_target": [],
+    "files": [
+      {
+        "path": "input/pagecontent/index.md",
+        "words": 17,
+        "kind": "target",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 214,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 93,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Index.page.md",
+        "words": 13,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 70,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "words": 836,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Index.page.md",
+        "words": 409,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 245,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Referenzen.page.md",
+        "words": 119,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "words": 233,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md",
+        "words": 93,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "words": 222,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "words": 1266,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "words": 612,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "words": 650,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "words": 369,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "words": 581,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Index.page.md",
+        "words": 12,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
+        "words": 105,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Context.guide.md",
+        "words": 279,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
+        "words": 944,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Index.page.md",
+        "words": 483,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/References.guide.md",
+        "words": 137,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/CapabilityStatement.page.md",
+        "words": 98,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "words": 373,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/Index.page.md",
+        "words": 136,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "words": 1389,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "words": 762,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "words": 643,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "words": 576,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/Index.page.md",
+        "words": 9,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/Terminologies.page.md",
+        "words": 112,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/Dataset.page.md",
+        "words": 112,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/Index.page.md",
+        "words": 12,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/Scenariodescription.page.md",
+        "words": 260,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/UML.page.md",
+        "words": 76,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 214,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 93,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Index.page.md",
+        "words": 13,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 91,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "words": 836,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Index.page.md",
+        "words": 422,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 245,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Referenzen.page.md",
+        "words": 119,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "words": 465,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md",
+        "words": 94,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "words": 222,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "words": 1325,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "words": 635,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "words": 711,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "words": 425,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "words": 626,
+        "kind": "source",
+        "stub": false
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Index.page.md",
+        "words": 12,
+        "kind": "source",
+        "stub": true
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
+        "words": 98,
+        "kind": "source",
+        "stub": false
+      }
+    ]
+  },
+  "linguistics": {
+    "content_pages": 47,
+    "words_total": 19118,
+    "words_avg": 406.8,
+    "words_median": 260,
+    "words_min": 70,
+    "words_max": 1389,
+    "longest_page": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+    "shortest_page": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md",
+    "per_page": [
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "words": 1389
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "words": 1325
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "words": 1266
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
+        "words": 944
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "words": 836
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "words": 836
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "words": 762
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "words": 711
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "words": 650
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "words": 643
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "words": 635
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "words": 626
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "words": 612
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "words": 581
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "words": 576
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Index.page.md",
+        "words": 483
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "words": 465
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "words": 425
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Index.page.md",
+        "words": 422
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Index.page.md",
+        "words": 409
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "words": 373
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "words": 369
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Context.guide.md",
+        "words": 279
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/Scenariodescription.page.md",
+        "words": 260
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 245
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "words": 245
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "words": 233
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "words": 222
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "words": 222
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 214
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "words": 214
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/References.guide.md",
+        "words": 137
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/Index.page.md",
+        "words": 136
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Referenzen.page.md",
+        "words": 119
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Referenzen.page.md",
+        "words": 119
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/Terminologies.page.md",
+        "words": 112
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/Dataset.page.md",
+        "words": 112
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
+        "words": 105
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/CapabilityStatement.page.md",
+        "words": 98
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
+        "words": 98
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md",
+        "words": 94
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 93
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md",
+        "words": 93
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "words": 93
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 91
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/UML.page.md",
+        "words": 76
+      },
+      {
+        "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md",
+        "words": 70
+      }
+    ]
+  },
+  "duplication": {
+    "duplicate_block_count": 135,
+    "duplicate_blocks": [
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \" id\" finden sich in der [fhir ba",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md"
+        ]
+      },
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \" profile\" finden sich in der [fh",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md"
+        ]
+      },
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.identifier\" finden sich ",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
+        ]
+      },
+      {
+        "snippet": "the following searchparameters are relevant for the module person, also in combination:",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md"
+        ]
+      },
+      {
+        "snippet": "note: additional information regarding the search using \" id\" can be found in [fhir core s",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md"
+        ]
+      },
+      {
+        "snippet": "note: additional information regarding the search using \" profile\" can be found in [fhir c",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md"
+        ]
+      },
+      {
+        "snippet": "weitere vorgaben werden durch die profile für die datentypen humanname und address durch d",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
+        ]
+      },
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.gender\" finden sich in d",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
+        ]
+      },
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.gender.extension:other a",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
+        ]
+      },
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.birthdate\" finden sich i",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
+        ]
+      },
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.address.postalcode\" find",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
+        ]
+      },
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.address.country\" finden ",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
+        ]
+      },
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \"patient.address.city.extension:g",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md"
+        ]
+      },
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \"condition.subject\" finden sich i",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md"
+        ]
+      },
+      {
+        "snippet": "anwendungshinweise: weitere informationen zur suche nach \"observation.subject\" finden sich",
+        "locations": [
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+          "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+          "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md"
+        ]
+      }
+    ],
+    "duplicate_file_groups": [
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md",
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Index.page.md",
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Index.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/KontextimGesamtprojektBezgezuanderenModulen.page.md",
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/KontextimGesamtprojektBezgezuanderenModulen.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Referenzen.page.md",
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Referenzen.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md"
+      ],
+      [
+        "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Index.page.md",
+        "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Index.page.md"
+      ]
+    ]
+  },
+  "hygiene": {
+    "images_total": 18,
+    "unreferenced_images": [
+      "implementation-guides/ImplementationGuide-Common/images/DemoPerson.jpg",
+      "implementation-guides/ImplementationGuide-Common/images/ModulPerson.JPG",
+      "implementation-guides/ImplementationGuide-Common/images/NamePerson.jpg",
+      "implementation-guides/ImplementationGuide-Common/images/PatPerson.jpg",
+      "implementation-guides/ImplementationGuide-Common/images/PersonGanz.jpg",
+      "implementation-guides/ImplementationGuide-Common/images/art-decor-person-2x-probandin.png"
+    ],
+    "examples_total": 5,
+    "examples_not_in_narrative": [],
+    "note": "Heuristik: 'nicht referenziert' = Dateiname/Artefaktname kommt in keiner Erklärseite vor. Kein Beweis für Ungenutztheit (Referenz kann über Konfiguration/Build erfolgen)."
+  },
+  "i18n": {
+    "default_lang": null,
+    "default_lang_source": null,
+    "languages": [],
+    "translation_supplements": 0,
+    "supplement_files": [],
+    "translated_pages": 0,
+    "fsh_translation_ext": true,
+    "fsh_translation_files": [
+      "input/fsh/rulesets/translation.fsh",
+      "input/fsh/profiles/MII_PR_Person_Vitalstatus.fsh",
+      "input/fsh/profiles/MII_PR_Person_Patient.fsh",
+      "input/fsh/profiles/MII_PR_Person_Todesursache.fsh",
+      "input/fsh/profiles/MII_PR_Person_PatientPseudonymisiert.fsh",
+      "input/fsh/logicals/MII_LM_Person_LogicalModel.fsh"
+    ]
+  },
+  "directives": {
+    "total": 334,
+    "by_label": {
+      "tree": 17,
+      "fql-at": 57,
+      "render-image": 35,
+      "index-root": 3,
+      "page-title": 2,
+      "pagelink": 17,
+      "render-resource": 7,
+      "link": 29,
+      "tabs": 120,
+      "xml": 15,
+      "json": 32
+    },
+    "unknown": 0,
+    "occurrences": [
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "line": 9,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Struct"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "line": 13,
+        "label": "fql-at",
+        "text": "@``` from StructureDefinition where url =  'https://www.medizininformatik-initia"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md",
+        "line": 8,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/KDS_Person_UML_"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 6,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/11_Abbildung_Pe"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 14,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 21,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 27,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 36,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 71,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 82,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ProPerson.jpg}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Index.page.md",
+        "line": 19,
+        "label": "index-root",
+        "text": "{{index:root}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 1,
+        "label": "page-title",
+        "text": "## {{page-title}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 8,
+        "label": "pagelink",
+        "text": "- Im Profil {{pagelink: PersonPatientIn, text: Patient:in (Patient), hint: MII_P"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 9,
+        "label": "pagelink",
+        "text": "- Das Profil {{pagelink: PersonPatientPseudonymisiert, text: Patient:in Pseudony"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 13,
+        "label": "pagelink",
+        "text": "- Neu im Vergleich zu Version 1.0 ist das Profil {{pagelink: PersonTodesursache,"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 14,
+        "label": "pagelink",
+        "text": "- Im {{pagelink: LogicalModel, text: Logischen Modell, hint: Datensätze inkl. Be"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md",
+        "line": 18,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "line": 28,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 18,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 29,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 30,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 30,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 31,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 32,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 42,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 53,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 54,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 54,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 55,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 56,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 56,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 57,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 113,
+        "label": "fql-at",
+        "text": "**Constraints**: @``` from StructureDefinition where url = 'https://www.medizini"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 334,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Patient-mii-exa-person-patient-minimal.json}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 338,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Patient-mii-exa-person-patient-full.json}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 28,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 39,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 40,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 40,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 41,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 42,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 52,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 63,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 64,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 64,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 65,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 65,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 66,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 66,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 67,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 77,
+        "label": "pagelink",
+        "text": "| ResearchSubject.meta.profile       | VERPFLICHTEND für die Abfrage im DIZ-Reps"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 175,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Patient-mii-exa-person-patient-pseudonymisiert.js"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 20,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 22,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 33,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 34,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 34,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 35,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 36,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 46,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 57,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 58,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 58,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 59,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 59,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 60,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 60,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 61,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 98,
+        "label": "fql-at",
+        "text": "**Constraints**: @``` from StructureDefinition where url = 'https://www.medizini"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 211,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Patient-mii-exa-person-patient-pseudonymisiert.js"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 18,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 29,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 30,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 30,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 31,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 32,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 42,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 53,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 54,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 54,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 55,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 56,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 56,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 57,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 68,
+        "label": "pagelink",
+        "text": "| Condition.meta.profile       | VERPFLICHTEND für die Abfrage im DIZ-Repsoitory"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 143,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-person-condition-todesursache.j"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 20,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 31,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 32,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 32,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 33,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 34,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 44,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 56,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 56,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 57,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 57,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 58,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 58,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 59,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 69,
+        "label": "pagelink",
+        "text": "| Observation.meta.profile       | VERPFLICHTEND für die Abfrage im DIZ-Repsoito"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 88,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 194,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Observation-mii-exa-person-observation-vitalstatu"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
+        "line": 8,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
+        "line": 23,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Valu"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
+        "line": 3,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/12_Abbildung_Pe"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
+        "line": 11,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
+        "line": 18,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
+        "line": 24,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
+        "line": 33,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Description.guide.md",
+        "line": 63,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Index.page.md",
+        "line": 5,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Index.page.md",
+        "line": 20,
+        "label": "index-root",
+        "text": "{{index:root}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/CapabilityStatement.page.md",
+        "line": 11,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 14,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 25,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 26,
+        "label": "tree",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 26,
+        "label": "tabs",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 27,
+        "label": "tabs",
+        "text": "<tab title=\"Description\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 28,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 38,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 49,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 50,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 50,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 51,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 51,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 52,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 52,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 53,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/CauseOfDeathCondition.page.md",
+        "line": 136,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-person-condition-todesursache.j"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/Index.page.md",
+        "line": 10,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 18,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 29,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 30,
+        "label": "tree",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 30,
+        "label": "tabs",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 31,
+        "label": "tabs",
+        "text": "<tab title=\"Description\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 32,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 42,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 53,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 54,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 54,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 55,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 56,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 56,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 57,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 114,
+        "label": "fql-at",
+        "text": "**Constraints**: @``` from StructureDefinition where url = 'https://www.medizini"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 334,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Patient-mii-exa-person-patient-minimal.json}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PatientPatient.page.md",
+        "line": 338,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Patient-mii-exa-person-patient-full.json}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 20,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 22,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 33,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 34,
+        "label": "tree",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 34,
+        "label": "tabs",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 35,
+        "label": "tabs",
+        "text": "<tab title=\"Description\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 36,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 46,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 57,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 58,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 58,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 59,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 59,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 60,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 60,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 61,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 98,
+        "label": "fql-at",
+        "text": "**Constraints**: @``` from StructureDefinition where url = 'https://www.medizini"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/PseudonymisedPatient.page.md",
+        "line": 219,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Patient-mii-exa-person-patient-pseudonymisiert.js"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 28,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 39,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 40,
+        "label": "tree",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 40,
+        "label": "tabs",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 41,
+        "label": "tabs",
+        "text": "<tab title=\"Description\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 42,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 52,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 63,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 64,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 64,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 65,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 65,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 66,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 66,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 67,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/TestPersonResearchSubject.page.md",
+        "line": 175,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/ResearchSubject-mii-exa-person-researchsubject-st"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 20,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 31,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 32,
+        "label": "tree",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 32,
+        "label": "tabs",
+        "text": "<tab title=\"Visualization\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 33,
+        "label": "tabs",
+        "text": "<tab title=\"Description\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 34,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 44,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 56,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 56,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 57,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 57,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 58,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 58,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 59,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 89,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/FHIRprofiles/VitalStatusObservation.page.md",
+        "line": 187,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Observation-mii-exa-person-observation-vitalstatu"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/Terminologies.page.md",
+        "line": 5,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/Technicalimplementation/Terminologies.page.md",
+        "line": 20,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Code"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/Dataset.page.md",
+        "line": 5,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Stru"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/Dataset.page.md",
+        "line": 9,
+        "label": "fql-at",
+        "text": "@``` from StructureDefinition where url =  'https://www.medizininformatik-initia"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2024.x-EN/MIIIGModulPersonEN/UseCases/UML.page.md",
+        "line": 5,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/UML-Person.png}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "line": 9,
+        "label": "tree",
+        "text": "{{tree:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Struct"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md",
+        "line": 13,
+        "label": "fql-at",
+        "text": "@``` from StructureDefinition where url =  'https://www.medizininformatik-initia"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md",
+        "line": 8,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/UML-Person-2025"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 6,
+        "label": "render-image",
+        "text": "{{render:implementation-guides/ImplementationGuide-Common/images/11_Abbildung_Pe"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 14,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 21,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 27,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 36,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 71,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/art-decor-pers"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/BeschreibungModul.page.md",
+        "line": 82,
+        "label": "render-image",
+        "text": "[{{render:implementation-guides/ImplementationGuide-Common/images/ProPerson.jpg}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Index.page.md",
+        "line": 19,
+        "label": "index-root",
+        "text": "{{index:root}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Index.page.md",
+        "line": 73,
+        "label": "render-image",
+        "text": "<img src=\"https://licensebuttons.net/l/by/4.0/88x31.png\" alt=\"CC BY 4.0 Logo\" st"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 1,
+        "label": "page-title",
+        "text": "## {{page-title}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 7,
+        "label": "pagelink",
+        "text": "- `Added`: Profil {{pagelink: PersonPatientPseudonymisiert, text: Patient:in Pse"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 16,
+        "label": "pagelink",
+        "text": "- Dadurch Änderung im Profil {{pagelink: PersonPatientIn, text: Patient:in (Pati"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 17,
+        "label": "pagelink",
+        "text": "- Das Profil {{pagelink: PersonProbandIn, text: Proband:in (ResearchSubject), hi"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 29,
+        "label": "pagelink",
+        "text": "- Im Profil {{pagelink: PersonPatientIn, text: Patient:in (Patient), hint: MII_P"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 30,
+        "label": "pagelink",
+        "text": "- Das Profil {{pagelink: PersonPatientPseudonymisiert, text: Patient:in Pseudony"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 34,
+        "label": "pagelink",
+        "text": "- Neu im Vergleich zu Version 1.0 ist das Profil {{pagelink: PersonTodesursache,"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/Release-Notes.page.md",
+        "line": 35,
+        "label": "pagelink",
+        "text": "- Im {{pagelink: LogicalModel, text: Logischen Modell, hint: Datensätze inkl. Be"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/CapabilityStatement.page.md",
+        "line": 18,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Capa"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/Index.page.md",
+        "line": 28,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 20,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 31,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 32,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 32,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 33,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 34,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 44,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 56,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 56,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 57,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 57,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 58,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 58,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 59,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 114,
+        "label": "fql-at",
+        "text": "**Constraints**: @``` from StructureDefinition where url = 'https://www.medizini"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 335,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Patient-mii-exa-person-patient-minimal.json}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PatientInPatient.page.md",
+        "line": 339,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Patient-mii-exa-person-patient-full.json}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 16,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 32,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 43,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 44,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 44,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 45,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 46,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 56,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 67,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 68,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 68,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 69,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 69,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 70,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 70,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 71,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/ProbandInResearchSubject.page.md",
+        "line": 81,
+        "label": "pagelink",
+        "text": "| ResearchSubject.meta.profile       | VERPFLICHTEND für die Abfrage im DIZ-Reps"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 20,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 34,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 45,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 46,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 46,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 47,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 48,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 58,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 69,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 70,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 70,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 71,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 71,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 72,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 72,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 73,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 106,
+        "label": "fql-at",
+        "text": "**Constraints**: @``` from StructureDefinition where url = 'https://www.medizini"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/PseudonymisiertePatientinPatient.page.md",
+        "line": 195,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Patient-mii-exa-person-patient-pseudonymisiert.js"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 20,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 31,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 32,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 32,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 33,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 34,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 44,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 56,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 56,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 57,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 57,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 58,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 58,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 59,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 70,
+        "label": "pagelink",
+        "text": "| Condition.meta.profile       | VERPFLICHTEND für die Abfrage im DIZ-Repsoitory"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/TodesursacheCondition.page.md",
+        "line": 145,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Condition-mii-exa-person-condition-todesursache.j"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 12,
+        "label": "link",
+        "text": "## {{link}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 20,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 31,
+        "label": "tabs",
+        "text": "<tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 32,
+        "label": "tree",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 32,
+        "label": "tabs",
+        "text": "<tab title=\"Darstellung\">{{tree, buttons}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 33,
+        "label": "tabs",
+        "text": "<tab title=\"Beschreibung\">"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 34,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 44,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 55,
+        "label": "tabs",
+        "text": "</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 56,
+        "label": "xml",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 56,
+        "label": "tabs",
+        "text": "<tab title=\"XML\">{{xml}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 57,
+        "label": "json",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 57,
+        "label": "tabs",
+        "text": "<tab title=\"JSON\">{{json}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 58,
+        "label": "link",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 58,
+        "label": "tabs",
+        "text": "<tab title=\"Link\">{{link}}</tab>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 59,
+        "label": "tabs",
+        "text": "</tabs>"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 69,
+        "label": "pagelink",
+        "text": "| Observation.meta.profile       | VERPFLICHTEND für die Abfrage im DIZ-Repsoito"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 88,
+        "label": "fql-at",
+        "text": "@```"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/FHIR-Profile/VitalstatusObservation.page.md",
+        "line": 194,
+        "label": "json",
+        "text": "{{json:fsh-generated/resources/Observation-mii-exa-person-observation-vitalstatu"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
+        "line": 8,
+        "label": "render-image",
+        "text": "| {{render:implementation-guides/ImplementationGuide-Common/images/Warning.jpg}}"
+      },
+      {
+        "file": "implementation-guides/ImplementationGuide-2025.x-DE/MIIIGModulPerson/TechnischeImplementierung/Terminologie.page.md",
+        "line": 23,
+        "label": "render-resource",
+        "text": "{{render:https://www.medizininformatik-initiative.de/fhir/core/modul-person/Valu"
+      }
+    ],
+    "unknown_occurrences": []
+  },
+  "quality": {
+    "qc_rules_defined": 8,
+    "qc_rules": [
+      {
+        "name": "parse-fhir-resources",
+        "action": "parse",
+        "status": "Checking if all FHIR Resource files can be parsed",
+        "category": null
+      },
+      {
+        "name": "conformance-version-filled",
+        "action": null,
+        "status": "Checking if all conformance resources have correct version filled",
+        "category": null
+      },
+      {
+        "name": "instance-version-filled",
+        "action": null,
+        "status": "Checking if all instances have correct version filled",
+        "category": "example"
+      },
+      {
+        "name": null,
+        "action": "Check for valid ids",
+        "status": null,
+        "category": null
+      },
+      {
+        "name": "naming-convention-id",
+        "action": null,
+        "status": "Checking if all resource ids follow the naming convention",
+        "category": null
+      },
+      {
+        "name": "naming-convention-name",
+        "action": null,
+        "status": "Checking if all resource names follow the naming convention",
+        "category": null
+      },
+      {
+        "name": "naming-convention-title",
+        "action": null,
+        "status": "Checking if all resource titles follow the naming convention",
+        "category": null
+      },
+      {
+        "name": "naming-convention-url",
+        "action": null,
+        "status": "Checking if all resource urls follow the naming convention",
+        "category": null
+      }
+    ],
+    "qc_source": "qc/custom.rules.yaml",
+    "qc_violations": null,
+    "suppressed_messages": null,
+    "qa_errors": null,
+    "qa_warnings": null,
+    "qa_hints": null,
+    "broken_links": null,
+    "qa_categories": null
+  },
+  "effort": {
+    "drivers": {
+      "gofsh_needed": false,
+      "directives": 334,
+      "directives_unknown": 0,
+      "pages": 47,
+      "floating_pins": 2
+    },
+    "manual": {
+      "factors": {
+        "gofsh_flat": 8.0,
+        "directive": 0.2,
+        "page": 0.5,
+        "floating_pin": 1.0
+      },
+      "hours_low": 73.8,
+      "hours_high": 120.0,
+      "band": "XL"
+    },
+    "ai": {
+      "factors": {
+        "gofsh_flat": 3.0,
+        "directive_known": 0.08,
+        "directive_unknown": 0.2,
+        "page": 0.2,
+        "floating_pin": 0.8,
+        "gate_fixed": 3.0,
+        "setup": 3.0,
+        "iteration_pct": 0.2
+      },
+      "hours_low": 41.0,
+      "hours_high": 66.6,
+      "band": "L",
+      "savings_pct": 44,
+      "variable": 37.7,
+      "iteration": 7.54,
+      "setup": 3.0,
+      "gate": 3.0
+    },
+    "assumptions": [
+      "Nur statisch berechenbare Treiber; id/url-Mismatch, QC-Verletzungen und quell-intrinsische Validierungsfehler erfordern einen Build und sind hier nicht enthalten.",
+      "Faktoren sind Erfahrungswerte, noch nicht final kalibriert; Spanne = Basis × 0,8…1,3.",
+      "pages = Inhalts-Seiten (Stubs/Navigation < 20 Wörter ausgeschlossen).",
+      "KI-Schätzung: anbieter-/modellunabhängig (Human-in-the-Loop, Review-Gates). Enthält feste Pauschalen für Einarbeitung/Setup (3 h) und Review-Gates (3 h) sowie einen Validierungs-/Iterationsaufschlag (20 %); unbekannte Direktiven werden wie manuell gerechnet. Bewusst konservativ – keine garantierte Einsparung."
+    ]
+  },
+  "maturity": {
+    "score": 76,
+    "band": "reif",
+    "components": {
+      "Status": 85,
+      "Doku-Vollständigkeit": 87,
+      "Beispiel-Abdeckung": 80,
+      "Governance": 50
+    },
+    "example_coverage": {
+      "profiles_total": 5,
+      "covered": 4,
+      "uncovered": [
+        "MII_PR_Person_Proband"
+      ],
+      "coverage_pct": 80
+    },
+    "governance": {
+      "ci_workflows": 1,
+      "publication_request": false,
+      "ig_ini": true,
+      "devcontainer": false,
+      "governance_score": 50
+    },
+    "doc_health_pct": 87
+  },
+  "portfolio": {
+    "vendor_lockin_score": 85,
+    "vendor_lockin_band": "hoch",
+    "directives_per_page": 7.11,
+    "terminology_standard_systems": [
+      "SNOMED CT",
+      "LOINC",
+      "ICD-10"
+    ],
+    "terminology_standard_refs": 63,
+    "local_codesystems": 1,
+    "terminology_standard_share_pct": 98,
+    "canonical_reuse_ratio_pct": 100,
+    "external_parents": 5,
+    "local_parents": 0,
+    "fhir_version_label": "R4",
+    "fhir_version_note": "aktuell verbreitet",
+    "dependency_stale_count": 0,
+    "dependency_stale": [],
+    "dependency_staleness_note": "Heuristik aus CalVer-Jahr; exakt nur via Package-Registry (extern).",
+    "release_cadence_per_year": 152.9,
+    "days_since_last_commit": 261,
+    "tags": 18
+  },
+  "risk": {
+    "terminology_license_flags": [
+      {
+        "system": "SNOMED CT",
+        "license": "lizenzpflichtig (Affiliate/Land)"
+      },
+      {
+        "system": "LOINC",
+        "license": "frei (Registrierung)"
+      },
+      {
+        "system": "ICD-10",
+        "license": "frei"
+      }
+    ],
+    "terminology_license_risk": true,
+    "suppressed_total": 0,
+    "suppressed_broad": 0,
+    "suppressed_warning_risk": "keine",
+    "privacy_page_words": 0,
+    "privacy_page_substantial": false,
+    "examples_contain_pii_like": true,
+    "bus_factor_top_author_pct": 57,
+    "bus_factor_authors": 11,
+    "bus_factor_risk": "gering",
+    "breaking_change_risk": null,
+    "breaking_change_note": "Erfordert Diff gegen die publizierte Vorversion (Build/extern) — statisch nicht erhoben."
+  },
+  "planning": {
+    "calendar_days_low": 16,
+    "calendar_days_high": 25,
+    "assumptions": {
+      "hours_per_day": 8.0,
+      "team_size": 1,
+      "utilization": 0.6
+    },
+    "scenario_min_h": 73.8,
+    "scenario_expected_h": 96.9,
+    "scenario_max_h": 120.0,
+    "confidence": "mittel",
+    "role_mix_pct": {
+      "FSH-Rückgewinnung/Pins": 2,
+      "Template/Tooling (Direktiven)": 72,
+      "Redaktion/Doku (Seiten)": 25
+    },
+    "parallelizable": "Direktiven & Seiten gut parallelisierbar; Setup/QA seriell",
+    "readiness_score": 90,
+    "cross_module_dependency_risk": "erhöht (floating Pins)",
+    "ai_fixed_cost_share_pct": 9
+  },
+  "git": {
+    "commits": 927,
+    "authors": 11,
+    "top_author_share": 57,
+    "days_since_last": 261,
+    "commits_per_year": 152.9,
+    "tags": 18,
+    "first": "2019-09-17",
+    "last": "2025-10-08"
+  }
+}
