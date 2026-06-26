@@ -168,12 +168,14 @@ skills/mii-ig-migration/        Migrations-Skill (Simplifier-IG -> HL7-IG)
 skills/wiki-consistency-check/  Skill: Repo-Abgleich gegen das MII-Meta-Wiki
 skills/template-sanitize/       Skill: Vorlage-/Migrations-Dateien nach Migration entfernen
 skills/ig-translate/            Skill: IG ins Englische übersetzen (translate/harvest)
+skills/ig-analyze/              Skill: IG(s) vermessen (Statistik/Vergleich/Aufwandsschätzung)
 .claude/skills -> ../skills      Claude-Code-Skills (Symlink)
 .agents/skills -> ../skills      Open-Standard/Codex-Skills (Symlink)
 tools/verify-template.sh        Strukturelle Selbstprüfung der Vorlage (Modus --migrated)
 tools/template-sanitize.sh      Werkzeug zum Entfernen der Vorlage-/Migrations-Dateien
 tools/ig-translate.sh           Übersetzungs-Werkzeug (scan/validate)
 tools/fql-scan.sh               Findet Simplifier-/FQL-Direktiven in Narrativen + Mapping-Empfehlung
+tools/ig-stats.py               IG-Statistik/Vergleich/Aufwandsschätzung (analyze/report/compare)
 skills/mii-ig-migration/references/fql-crosswalk.md   FQL -> IG-Publisher-Mapping (Doku)
 skills/mii-ig-migration/references/fql-rules.tsv      FQL-Mapping-Regeln (erweiterbar; SSOT für fql-scan)
 ```

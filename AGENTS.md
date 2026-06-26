@@ -28,6 +28,8 @@ sushi .            # FSH -> FHIR (muss fehlerfrei sein)
   Migrations-Dateien entfernen (auf Bestätigung, Dry-Run-Default).
 - [`skills/ig-translate/`](skills/ig-translate/SKILL.md) — IG ins Englische übersetzen (Modus translate/harvest);
   Übersetzungen an die vom Publisher vorgesehenen Stellen ablegen.
+- [`skills/ig-analyze/`](skills/ig-analyze/SKILL.md) — IG(s) read-only vermessen (Statistik,
+  Vergleich, Migrations-Aufwandsschätzung).
 - Vendor-Zugriff über Symlinks: Claude Code `.claude/skills/`, Codex/Standard
   `.agents/skills/` — beide zeigen auf `skills/`.
 

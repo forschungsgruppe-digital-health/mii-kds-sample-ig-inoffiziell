@@ -201,6 +201,10 @@ chk "ig-translate harvest-config" "test -f skills/ig-translate/references/harves
 chk "FQL-Crosswalk vorhanden" "test -f skills/mii-ig-migration/references/fql-crosswalk.md"
 chk "FQL-Regeln (tsv, erweiterbar)" "test -f skills/mii-ig-migration/references/fql-rules.tsv"
 chk "fql-scan Tool ausführbar" "test -x tools/fql-scan.sh"
+chk "Skill: ig-analyze" "test -f skills/ig-analyze/SKILL.md"
+chk "ig-analyze Metrik-Katalog" "test -f skills/ig-analyze/references/metrics-catalog.md"
+chk "ig-analyze JSON-Schema (valide)" "python3 -c 'import json;json.load(open(\"skills/ig-analyze/references/ig-stats-schema.json\"))'"
+chk "ig-stats Tool ausführbar" "test -x tools/ig-stats.py"
 
 echo "== Kommentarauflösung (zwei Schichten) =="
 chk "COMMENT_RESOLUTION: interne Phase (Governance/NSG)" "grep -q 'Interne Kommentierung' COMMENT_RESOLUTION.md && grep -q 'NSG' COMMENT_RESOLUTION.md"

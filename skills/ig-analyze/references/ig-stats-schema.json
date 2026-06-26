@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/fhir/kds-sample/ig-stats-schema.json",
+  "title": "ig-stats",
+  "description": "Maschinenlesbare Statistik eines FHIR-IG (Ausgabe von tools/ig-stats.py analyze). Build-only-Felder sind im statischen Modus null.",
+  "type": "object",
+  "required": ["schemaVersion", "tool", "mode", "analyzed", "identity", "artifacts"],
+  "additionalProperties": true,
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "tool": { "type": "string" },
+    "mode": { "type": "string", "enum": ["static", "full"] },
+    "analyzed": {
+      "type": "object",
+      "properties": {
+        "path": { "type": "string" },
+        "label": { "type": "string" },
+        "git_commit": { "type": ["string", "null"] },
+        "timestamp": { "type": ["string", "null"] }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "properties": {
+        "id": { "type": ["string", "null"] },
+        "canonical": { "type": ["string", "null"] },
+        "packageId": { "type": ["string", "null"] },
+        "name": { "type": ["string", "null"] },
+        "title": { "type": ["string", "null"] },
+        "version": { "type": ["string", "null"] },
+        "calver": { "type": ["boolean", "null"] },
+        "status": { "type": ["string", "null"] },
+        "fhirVersion": { "type": ["string", "null"] },
+        "license": { "type": ["string", "null"] },
+        "publisher": { "type": ["string", "null"] }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "description": "Zählungen je Artefakttyp (FSH + fsh-generated).",
+      "properties": {
+        "profiles": { "type": "integer" },
+        "extensions": { "type": "integer" },
+        "valuesets": { "type": "integer" },
+        "codesystems": { "type": "integer" },
+        "logicals": { "type": "integer" },
+        "capabilitystatements": { "type": "integer" },
+        "questionnaires": { "type": "integer" },
+        "searchparameters": { "type": "integer" },
+        "operations": { "type": "integer" },
+        "examples": { "type": "integer" },
+        "mappings": { "type": "integer" },
+        "invariants": { "type": "integer" },
+        "rulesets": { "type": "integer" },
+        "total": { "type": "integer" }
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "count": { "type": "integer" },
+        "pinned": { "type": "integer" },
+        "floating": { "type": "integer" },
+        "items": { "type": "object" },
+        "floating_items": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "narrative": {
+      "type": "object",
+      "properties": {
+        "pages": { "type": "integer" },
+        "words": { "type": "integer" },
+        "images": { "type": "integer" },
+        "mandatory_present": { "type": "array", "items": { "type": "string" } },
+        "mandatory_missing": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "i18n": {
+      "type": "object",
+      "properties": {
+        "default_lang": { "type": ["string", "null"] },
+        "languages": { "type": "array", "items": { "type": "string" } },
+        "translation_supplements": { "type": "integer" },
+        "translated_pages": { "type": "integer" },
+        "fsh_translation_ext": { "type": "boolean" }
+      }
+    },
+    "directives": {
+      "type": "object",
+      "description": "Simplifier-/FQL-Direktiven in Narrativen (Migrations-Aufwandstreiber).",
+      "properties": {
+        "total": { "type": "integer" },
+        "by_label": { "type": "object" },
+        "unknown": { "type": "integer" }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "description": "qc_* statisch; qa_* nur im full-Modus (sonst null).",
+      "properties": {
+        "qc_rules_defined": { "type": ["integer", "null"] },
+        "suppressed_messages": { "type": ["integer", "null"] },
+        "qa_errors": { "type": ["integer", "null"] },
+        "qa_warnings": { "type": ["integer", "null"] },
+        "qa_hints": { "type": ["integer", "null"] },
+        "broken_links": { "type": ["integer", "null"] },
+        "qa_categories": { "type": ["object", "null"] }
+      }
+    },
+    "effort": {
+      "type": "object",
+      "description": "Aufwands-/Risiko-Schätzung. Spanne, kein Punktwert.",
+      "properties": {
+        "drivers": { "type": "object" },
+        "factors": { "type": "object", "description": "h pro Einheit je Treiber (kalibrierbar)" },
+        "hours_low": { "type": "number" },
+        "hours_high": { "type": "number" },
+        "band": { "type": "string", "enum": ["S", "M", "L", "XL"] },
+        "assumptions": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
