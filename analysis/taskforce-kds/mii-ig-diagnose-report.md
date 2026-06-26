@@ -1,10 +1,10 @@
 # IG-Statistik — MII KDS Diagnose v2025.0.1
 
-_Modus: `static` · Stand: 2026-06-26T22:32:28Z · Commit: `c2d2ff4`_
+_Modus: `static` · Stand: 2026-06-26T22:47:07Z · Commit: `c2d2ff4`_
 
 ## Executive Summary: Migration des FHIR-Leitfadens "MII IG Diagnose"
 
-> **Worum geht es?** Ein FHIR Implementation Guide (kurz „IG“) ist die technische Spezifikation eines Datenstandards im Gesundheitswesen – das Regelwerk plus die zugehörige Online-Dokumentation. Dieser IG soll von einer herstellergebundenen Plattform auf das herstellerneutrale Standard-Werkzeug der FHIR-Community (den „IG Publisher“) umgezogen werden. Inhaltlich ändert sich nichts – nur die technische Bauweise der Veröffentlichung. _Fachbegriffe sind im Glossar am Dokumentende erklärt._
+> **Worum geht es?** Ein FHIR Implementation Guide (kurz „IG“) ist die technische Spezifikation eines Datenstandards im Gesundheitswesen – das Regelwerk plus die zugehörige Online-Dokumentation. Dieser IG soll von einer herstellergebundenen Plattform auf das herstellerneutrale Standard-Werkzeug der FHIR-Community (den „IG Publisher“) umgezogen werden. Inhaltlich ändert sich nichts – nur die technische Bauweise der Veröffentlichung. _Fachbegriffe sind im [Glossar](#anhang-glossar) am Dokumentende erklärt._
 
 ### Das Wichtigste in einem Satz
 
@@ -19,7 +19,7 @@ Der Umzug ist **umfangreich** (geschätzt **51–83 Personenstunden**, also rund
 ### Aufwand und was das Band bedeutet
 
 - **Aufwandsband: L (groß)** – auf einer Skala S (klein, <1 Tag) / M (mittel, einige Tage) / L (groß, 1–2 Wochen) / XL (sehr groß) liegt dieses Vorhaben **im oberen Bereich**.
-- **Manuell: rund 51–83 Stunden.** Das ist eine **Größenordnungsschätzung zur Budgetplanung** (Faustregel: Menge der Arbeitsschritte × Erfahrungswert) – **kein verbindliches Angebot**.
+- **Manuell: rund 51–83 Stunden.** Das ist eine **Größenordnungsschätzung zur Aufwandsplanung** (Faustregel: Menge der Arbeitsschritte × Erfahrungswert) – **kein verbindliches Angebot**.
 - **KI-gestützt teilautomatisiert: rund 30–49 Stunden** (≈ 41 % weniger). Das heißt: eine KI erledigt die wiederkehrenden Umbauten, Menschen prüfen und geben an Kontrollpunkten frei (Human-in-the-Loop / Review-Gates). Die Schätzung gilt **unabhängig davon, welches KI-Produkt eingesetzt wird** – sie ist eine _modellierte_ Annahme mit noch nicht kalibrierten Faktoren, **keine garantierte Einsparung**.
 - **Größte Aufwandstreiber:** 178 plattformspezifische Platzhalter in den Textseiten (sog. „Direktiven“ – das neue Standard-Werkzeug kennt sie nicht, sie werden einzeln umgebaut; ~36 h) und 52 Inhaltsseiten (~26 h).
 - **Reife & Strategie:** Reifegrad **74/100 (fortgeschritten)** · Hersteller-Lock-in mittel. (Details in den Abschnitten Reife & Freigabe und Strategie.)
@@ -783,7 +783,7 @@ _Kurzerklärung der im Report verwendeten Fachbegriffe für Leser mit grundlegen
 | Include (Vorlagen-Fragment) | Vorlagen-Mechanismus des IG Publishers: Mit einem Include-Befehl bindet man vorgefertigte HTML-Fragmente (z.B. die Strukturtabelle einer Ressource) in eine Seite ein. |
 | Invariant | Eine zusätzliche Prüfregel (Bedingung), die eine Ressource erfüllen muss, um gültig zu sein. |
 | KDS | Kerndatensatz der MII - modular aufgebauter gemeinsamer Datenbestand (Module wie Diagnose, Person, Dokument). |
-| Lizenz | Die Nutzungsbedingungen des IG; CC0-1.0 bedeutet Gemeinfreiheit, also freie Nutzung ohne Einschränkung. |
+| Lizenz | Die Nutzungsbedingungen des IG (z.B. CC-BY-4.0, CC0-1.0) - legen fest, unter welchen Bedingungen Inhalte genutzt und weitergegeben werden dürfen. |
 | Logical Model | Ein abstraktes Datenmodell, das Inhalte fachlich beschreibt, ohne direkt an einen FHIR-Ressourcentyp gebunden zu sein. |
 | LOINC | Internationale Terminologie für Laborwerte/Messungen und Dokumenttypen; frei (Registrierung). |
 | Mapping | Eine Zuordnung, die zeigt, wie Elemente eines Modells anderen Standards oder Modellen entsprechen. |

@@ -6,7 +6,7 @@
     "path": "/tmp/kds/medikation",
     "label": "MII KDS Medikation v2026.0.1",
     "git_commit": "58b4996",
-    "timestamp": "2026-06-26T22:32:29Z",
+    "timestamp": "2026-06-26T22:47:07Z",
     "input": "/tmp/kds/medikation",
     "resolved_from": "lokaler Pfad"
   },
