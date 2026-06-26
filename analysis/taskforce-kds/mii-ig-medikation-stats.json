@@ -6,7 +6,7 @@
     "path": "/tmp/kds/medikation",
     "label": "MII KDS Medikation v2026.0.1",
     "git_commit": "58b4996",
-    "timestamp": "2026-06-26T21:58:49Z",
+    "timestamp": "2026-06-26T22:32:29Z",
     "input": "/tmp/kds/medikation",
     "resolved_from": "lokaler Pfad"
   },
@@ -1050,7 +1050,11 @@
         "path": "implementation-guides/mii-ig-medikation-de-v2024/MIIIGModulMedikation/TechnischeImplementierung/CapabilityStatement.page.md",
         "words": 85
       }
-    ]
+    ],
+    "languages": [
+      "de"
+    ],
+    "languages_supported": 1
   },
   "duplication": {
     "duplicate_block_count": 128,
@@ -3489,7 +3493,7 @@
     "dependency_stale": [],
     "dependency_staleness_note": "Heuristik aus CalVer-Jahr; exakt nur via Package-Registry (extern).",
     "release_cadence_per_year": 72.3,
-    "days_since_last_commit": 133,
+    "days_since_last_commit": 134,
     "tags": 8
   },
   "risk": {
@@ -3558,7 +3562,7 @@
     "commits": 468,
     "authors": 11,
     "top_author_share": 51,
-    "days_since_last": 133,
+    "days_since_last": 134,
     "commits_per_year": 72.3,
     "tags": 8,
     "first": "2019-08-26",

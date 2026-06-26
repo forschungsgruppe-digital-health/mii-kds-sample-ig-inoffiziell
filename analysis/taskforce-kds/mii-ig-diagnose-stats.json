@@ -6,7 +6,7 @@
     "path": "/tmp/kds/diagnose",
     "label": "MII KDS Diagnose v2025.0.1",
     "git_commit": "c2d2ff4",
-    "timestamp": "2026-06-26T21:58:49Z",
+    "timestamp": "2026-06-26T22:32:28Z",
     "input": "/tmp/kds/diagnose",
     "resolved_from": "lokaler Pfad"
   },
@@ -917,7 +917,12 @@
         "path": "implementation-guides/ImplementationGuide-2025/MIIIGModulDiagnose/AnwendungsflleInformationsmodell/UML.page.md",
         "words": 22
       }
-    ]
+    ],
+    "languages": [
+      "de",
+      "en"
+    ],
+    "languages_supported": 2
   },
   "duplication": {
     "duplicate_block_count": 292,
@@ -2530,7 +2535,7 @@
     "dependency_stale": [],
     "dependency_staleness_note": "Heuristik aus CalVer-Jahr; exakt nur via Package-Registry (extern).",
     "release_cadence_per_year": 53.4,
-    "days_since_last_commit": 249,
+    "days_since_last_commit": 250,
     "tags": 11
   },
   "risk": {
@@ -2583,7 +2588,7 @@
     "commits": 309,
     "authors": 9,
     "top_author_share": 34,
-    "days_since_last": 249,
+    "days_since_last": 250,
     "commits_per_year": 53.4,
     "tags": 11,
     "first": "2020-01-09",

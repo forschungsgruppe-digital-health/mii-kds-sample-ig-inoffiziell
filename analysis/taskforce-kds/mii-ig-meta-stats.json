@@ -6,7 +6,7 @@
     "path": "/tmp/kds/meta",
     "label": "MII KDS Meta v2026.0.0",
     "git_commit": "6935ebb",
-    "timestamp": "2026-06-26T21:58:49Z",
+    "timestamp": "2026-06-26T22:32:28Z",
     "input": "/tmp/kds/meta",
     "resolved_from": "lokaler Pfad"
   },
@@ -1838,7 +1838,9 @@
         "path": "implementation-guides/MedizininformatikInitiative-ImplementationGuide-Template/MII-IG-Modul--Modul/TechnischeImplementierung/FHIRProfile/FHIR-Profil--Ressourcentyp.page.md",
         "words": 28
       }
-    ]
+    ],
+    "languages": [],
+    "languages_supported": 1
   },
   "duplication": {
     "duplicate_block_count": 3,
@@ -2435,7 +2437,7 @@
     "dependency_stale": [],
     "dependency_staleness_note": "Heuristik aus CalVer-Jahr; exakt nur via Package-Registry (extern).",
     "release_cadence_per_year": 62.2,
-    "days_since_last_commit": 214,
+    "days_since_last_commit": 215,
     "tags": 6
   },
   "risk": {
@@ -2484,7 +2486,7 @@
     "commits": 368,
     "authors": 18,
     "top_author_share": 31,
-    "days_since_last": 214,
+    "days_since_last": 215,
     "commits_per_year": 62.2,
     "tags": 6,
     "first": "2019-12-27",

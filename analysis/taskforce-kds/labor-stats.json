@@ -6,7 +6,7 @@
     "path": "/tmp/kds/labor",
     "label": "MII KDS Labor 2026.0.3",
     "git_commit": "fa7c64e",
-    "timestamp": "2026-06-26T21:58:49Z",
+    "timestamp": "2026-06-26T22:32:29Z",
     "input": "/tmp/kds/labor",
     "resolved_from": "lokaler Pfad"
   },
@@ -763,7 +763,11 @@
         "path": "implementation-guides/ImplementationGuide-2026.x-DE/MIIIGModulLaborbefund/TechnischeImplementierung/FHIR-Profile/FQL-Capability-REST.page.md",
         "words": 23
       }
-    ]
+    ],
+    "languages": [
+      "de"
+    ],
+    "languages_supported": 1
   },
   "duplication": {
     "duplicate_block_count": 73,
@@ -2569,7 +2573,7 @@
     "dependency_stale": [],
     "dependency_staleness_note": "Heuristik aus CalVer-Jahr; exakt nur via Package-Registry (extern).",
     "release_cadence_per_year": 49.2,
-    "days_since_last_commit": 15,
+    "days_since_last_commit": 16,
     "tags": 9
   },
   "risk": {
@@ -2626,7 +2630,7 @@
     "commits": 347,
     "authors": 13,
     "top_author_share": 31,
-    "days_since_last": 15,
+    "days_since_last": 16,
     "commits_per_year": 49.2,
     "tags": 9,
     "first": "2019-05-26",

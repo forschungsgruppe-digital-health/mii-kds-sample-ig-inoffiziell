@@ -29,13 +29,15 @@ Die `*-stats.json` sind die maschinenlesbaren Rohdaten (festes Schema).
 
 ## Headline-Vergleich (Auszug — Details in den Reports)
 
-| Modul (Version) | IG-Ordner | Artefakte | Direktiven¹ | Aufwand manuell¹ | Aufwand KI¹ | Reife | Lock-in | Dopplungen (ordnerübergr.) |
-|---|---|---|---|---|---|---|---|---|
-| Diagnose (v2025.0.1) | 5 | 13 | 178 | 51–83 h (L) | 30–49 h | 74 | 41 | 292 (292) |
-| Person (v2025.0.1) | 3 | 14 | 333 | 74–120 h (L) | 41–67 h | 76 | 85 | 135 (119) |
-| Meta (v2026.0.0) | 2 | **175** | 48 | 12–20 h (M) | 11–17 h | 70 | 52 | 3 (3) |
-| Medikation (v2026.0.1) | 2 | 40 | 316 | 67–110 h (L) | 38–62 h | **50** | **100** | 128 (126) |
-| Labor (2026.0.3) | 2 | 20 | 201 | 47–76 h (L) | 29–48 h | 74 | 65 | 73 (73) |
+Zeilen **nach Migrationsaufwand aufsteigend** (wie die Spalten im [Vergleichsreport](compare-report.md)):
+
+| Modul (Version) | IG-Ordner | Sprachen | Artefakte | Direktiven¹ | Aufwand manuell¹ | Aufwand KI¹ | Reife | Lock-in | Dopplungen (ordnerübergr.) |
+|---|---|---|---|---|---|---|---|---|---|
+| Meta (v2026.0.0) | 2 | 1 (—) | **175** | 48 | 12–20 h (M) | 11–17 h | 70 | 52 | 3 (3) |
+| Labor (2026.0.3) | 2 | 1 (de) | 20 | 201 | 47–76 h (L) | 29–48 h | 74 | 65 | 73 (73) |
+| Diagnose (v2025.0.1) | 5 | 2 (de, en) | 13 | 178 | 51–83 h (L) | 30–49 h | 74 | 41 | 292 (292) |
+| Medikation (v2026.0.1) | 2 | 1 (de) | 40 | 316 | 67–110 h (L) | 38–62 h | **50** | **100** | 128 (126) |
+| Person (v2025.0.1) | 3 | 2 (de, en) | 14 | 333 | 74–120 h (L) | 41–67 h | 76 | 85 | 135 (119) |
 
 ¹ **über alle IG-Ordner summiert** — siehe Caveat unten.
 
@@ -51,11 +53,11 @@ Die `*-stats.json` sind die maschinenlesbaren Rohdaten (festes Schema).
 
 | Modul | Direktiven (aktuelle Version) | Aufwand manuell (je IG) |
 |---|---|---|
-| Diagnose | 50 | ~13–21 h |
-| Person | 116 | ~25–41 h |
 | Meta | 43 | ~9–15 h |
-| Medikation | 155 | ~32–52 h |
+| Diagnose | 50 | ~13–21 h |
 | Labor | 102 | ~24–39 h |
+| Person | 116 | ~25–41 h |
+| Medikation | 155 | ~32–52 h |
 
 > **Aufwand wird in Zeit gemessen** (Stunden/Personentage/Kalenderzeit) — bewusst **keine
 > Geldgrößen**. Personentage = 8-h-Arbeitstage menschlicher Arbeit; bei der KI-Variante die

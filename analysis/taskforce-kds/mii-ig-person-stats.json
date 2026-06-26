@@ -6,7 +6,7 @@
     "path": "/tmp/kds/person",
     "label": "MII KDS Person v2025.0.1",
     "git_commit": "122e30f",
-    "timestamp": "2026-06-26T21:58:49Z",
+    "timestamp": "2026-06-26T22:32:28Z",
     "input": "/tmp/kds/person",
     "resolved_from": "lokaler Pfad"
   },
@@ -848,7 +848,12 @@
         "path": "implementation-guides/ImplementationGuide-2024.x-DE/MIIIGModulPerson/AnwendungsflleInformationsmodell/UML.page.md",
         "words": 70
       }
-    ]
+    ],
+    "languages": [
+      "de",
+      "en"
+    ],
+    "languages_supported": 2
   },
   "duplication": {
     "duplicate_block_count": 135,
@@ -3355,7 +3360,7 @@
     "dependency_stale": [],
     "dependency_staleness_note": "Heuristik aus CalVer-Jahr; exakt nur via Package-Registry (extern).",
     "release_cadence_per_year": 152.9,
-    "days_since_last_commit": 261,
+    "days_since_last_commit": 262,
     "tags": 18
   },
   "risk": {
@@ -3412,7 +3417,7 @@
     "commits": 927,
     "authors": 11,
     "top_author_share": 57,
-    "days_since_last": 261,
+    "days_since_last": 262,
     "commits_per_year": 152.9,
     "tags": 18,
     "first": "2019-09-17",

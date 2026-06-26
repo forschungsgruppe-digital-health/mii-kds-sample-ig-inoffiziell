@@ -1,6 +1,6 @@
 # IG-Statistik — MII KDS Diagnose v2025.0.1
 
-_Modus: `static` · Stand: 2026-06-26T21:58:49Z · Commit: `c2d2ff4`_
+_Modus: `static` · Stand: 2026-06-26T22:32:28Z · Commit: `c2d2ff4`_
 
 ## Executive Summary: Migration des FHIR-Leitfadens "MII IG Diagnose"
 
@@ -131,6 +131,7 @@ _Linguistische Kennzahlen zum Textumfang (Wörter je Seite, Durchschnitt) sowie 
 | Wörter gesamt | 38118 |
 | Ø Wörter / Seite | 733 |
 | Median Wörter / Seite | 448 |
+| Unterstützte Sprachen | 2 (de, en) |
 | kürzeste / längste Seite | 22 / 4362 Wörter |
 | doppelte Inhaltsblöcke | 292 (davon 292 ordnerübergreifend) |
 | identische Seiten (Gruppen) | 15 |
@@ -210,7 +211,7 @@ _Strategische Kennzahlen: Bindung an die Quellplattform (Lock-in), Anteil standa
 | Wiederverwendung externer Profile (Parents) | 100 % (1 von 1 Profil-Parents extern; abstrakte LM-Basistypen ausgeschlossen) |
 | FHIR-Version | R4 — aktuell verbreitet |
 | Dependency-Veraltung | 0 veraltet (Heuristik) |
-| Pflege-Kadenz | 53.4 Commits/Jahr · letzter Commit vor 249 Tagen |
+| Pflege-Kadenz | 53.4 Commits/Jahr · letzter Commit vor 250 Tagen |
 
 </div>
 
@@ -715,6 +716,7 @@ _Beschreibung jeder im Report verwendeten Kennzahl - was sie misst und wie sie e
 | Artefakte (publiziert) | Anzahl der vom IG bereitgestellten FHIR-Konformitätsressourcen je Typ (Profile, Extensions, ValueSets, CodeSystems, Logical Models, CapabilityStatements, Beispiele). | Zählung der Deklarationen in input/fsh (bzw. generierten Ressourcen); interne FSH-Konstrukte (RuleSets/Invarianten/Mappings) separat, nicht im Total. |
 | Plattform-/Simplifier-Direktiven | Vorkommen plattformspezifischer Platzhalter in den Erklärseiten, die ein generischer IG Publisher nicht versteht (Migrations-Aufwandstreiber). | Mustererkennung je Direktiven-Typ in den Narrative-Seiten; nicht abgedeckte -> UNBEKANNT. |
 | Linguistik (Wörter/Seite) | Textumfang der Inhalts-Seiten als Durchschnitt, Median und Extremwerte - Indikator für Dokumentations- und Übersetzungsumfang. | Wortzählung je Inhalts-Seite (ohne Stubs). |
+| Unterstützte Sprachen | Anzahl (und Liste) der im Repo unterstützten Sprachen, z.B. de + en. | Vereinigung aus Default-Sprache, konfigurierten i18n-Sprachen und den Sprach-Suffixen der IG-Ordner (-de/-en); auf den Basis-Sprachcode normalisiert (de-DE -> de). |
 | Enthaltene IG-Ordner | Anzahl der im Repo enthaltenen IG-/Leitfaden-Ordner (unter implementation-guides/). Enthält das Repo MEHRERE IGs (z.B. Versions-/Sprachvarianten), wird die Statistik JE IG aufgeschlüsselt (horizontal, je IG eine Spalte: Sprache, Seiten, Wörter, Direktiven, geschätzter Aufwand) - sortiert von der aktuellen zur ältesten Version. | Unterordner von implementation-guides/ mit Narrative-Seiten (Asset-Ordner ausgeschlossen); Sprache aus Ordnernamen-Suffix -de/-en; Sortierung über Versionsnummern im Ordnernamen; Direktiven/Aufwand je Ordner aus den Fundstellen. Fallback input/pagecontent. |
 | Inhaltliche Dopplungen | Identische Textabsätze (>= 12 Wörter) bzw. identische Seiten - Hinweis auf Redundanz/Aufräumpotenzial; ordnerübergreifende Dopplungen (gleicher Block in mehreren IG-Ordnern) werden gesondert gezählt. | Hash-Vergleich normalisierter Absätze/Dateien; Zuordnung der Fundstellen zu IG-Ordnern. |
 | Repo-Hygiene (ungenutzte Dateien) | Bilder/Beispiele, die in keiner Erklärseite referenziert sind (Dead-Code-Analogie). | Heuristik: Datei-/Artefaktname kommt im Seitentext nicht vor (kein Beweis für Ungenutztheit). |
