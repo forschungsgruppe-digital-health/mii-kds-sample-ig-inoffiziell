@@ -394,7 +394,7 @@ def parse_qc(path):
     return len(rules), rules
 
 
-# ---------- Strategie/Risiko/Planung/Wirtschaftlichkeit (Gruppen K–P) ----------
+# ---------- Strategie/Reife/Risiko/Planung (Gruppen K–N) ----------
 def git_stats(d):
     out = {"commits": None, "authors": None, "top_author_share": None, "days_since_last": None,
            "commits_per_year": None, "tags": None, "first": None, "last": None}
@@ -693,7 +693,7 @@ def analyze(igdir, label, content):
             "(%d %%); unbekannte Direktiven werden wie manuell gerechnet. Bewusst konservativ – keine garantierte "
             "Einsparung." % (a["setup"], a["gate_fixed"], round(a["iteration_pct"] * 100))]}
 
-    # ---- Strategie / Reife / Risiko / Planung / Wirtschaftlichkeit (Gruppen K–P) ----
+    # ---- Strategie / Reife / Risiko / Planung (Gruppen K–N) ----
     fsh_text = " ".join(read(f) for f in fsh_files)
     decl_names = {x["name"] for x in artifact_list}
     gs = git_stats(igdir)
@@ -796,6 +796,19 @@ def _palette(content):
 
 def _intro(content, key):
     return (content.get("section_intros") or {}).get(key)
+
+
+def _ig_breakdown_table(ci):
+    """Horizontale Aufschlüsselung je IG-Ordner (Spalten, aktuell -> ältest). Einzel- + Vergleichsbericht."""
+    fl = ci["folders"]
+    return _table(["Kennzahl"] + [_short_ig_label(f["name"]) for f in fl], [
+        ["Sprache"] + [f["language"] for f in fl],
+        ["Inhalts-Seiten"] + [f["content_pages"] for f in fl],
+        ["Wörter"] + [f["words"] for f in fl],
+        ["Ø Wörter / Seite"] + [f.get("avg_words", 0) for f in fl],
+        ["Direktiven"] + [f.get("directives", 0) for f in fl],
+        ["Aufwand manuell ~h (je IG)"] + ["%s–%s" % (_de(f.get("manual_hours_low", 0)), _de(f.get("manual_hours_high", 0))) for f in fl],
+    ])
 
 
 def _plural(n, sing, plur):
@@ -997,16 +1010,8 @@ def report(stats, content, out):
         ("Beispiele nicht in Narrativen", "%d von %d" % (len(hy["examples_not_in_narrative"]), hy["examples_total"])),
     ]))
     if ci["count"] > 1:
-        fl = ci["folders"]   # bereits sortiert: aktuell -> ältest
         B.append("**Enthaltene IG-Ordner (%d) — Aufschlüsselung je IG (Spalten: aktuell → ältest):**" % ci["count"])
-        B.append(_table(["Kennzahl"] + [_short_ig_label(f["name"]) for f in fl], [
-            ["Sprache"] + [f["language"] for f in fl],
-            ["Inhalts-Seiten"] + [f["content_pages"] for f in fl],
-            ["Wörter"] + [f["words"] for f in fl],
-            ["Ø Wörter / Seite"] + [f.get("avg_words", 0) for f in fl],
-            ["Direktiven"] + [f.get("directives", 0) for f in fl],
-            ["Aufwand manuell ~h (je IG)"] + ["%s–%s" % (_de(f.get("manual_hours_low", 0)), _de(f.get("manual_hours_high", 0))) for f in fl],
-        ]))
+        B.append(_ig_breakdown_table(ci))
     elif ci["folders"]:
         f = ci["folders"][0]
         B.append("**Enthaltener IG-Ordner:** `%s` (%s) — %d Inhalts-Seiten, %d Wörter." % (f["name"], f["language"], f["content_pages"], f["words"]))
@@ -1271,7 +1276,7 @@ def compare(statslist, content, out):
     B = []
     B.append("# IG-Vergleich (%d IGs)" % len(statslist))
     B.append("_Objektiver Kennzahlen-Vergleich der analysierten IGs inkl. Linguistik und Aufwandsschätzung. "
-             "Die Spalte „Σ Gesamt“ zeigt den aggregierten Migrations-Gesamtumfang und die -kosten; "
+             "Die Spalte „Σ Gesamt“ zeigt den aggregierten Migrations-Gesamtumfang und -aufwand (Zeit); "
              "faire Einordnung über normalisierte Werte._")
 
     B.append("## Kennzahlen (je IG + Gesamt)")
@@ -1323,6 +1328,22 @@ def compare(statslist, content, out):
         "- **Gesamt-Aufwand KI-gestützt** (HITL, Review-Gates, anbieter-/modellunabhängig): **%s–%s h** (≈ %s–%s Personentage)."
         % (_de(round(ai_low, 1)), _de(round(ai_high, 1)), _de(round(ai_low / 8, 1)), _de(round(ai_high / 8, 1))),
         "_Aufwand als Spanne (Zeit, keine Geldgröße), kein Festpreis; Faktoren noch nicht final kalibriert._"]))
+
+    # Enthaltene IGs je Repo — Aufschlüsselung (neue Kenngröße, auch im Vergleich)
+    if any(s["contained_igs"]["count"] > 1 for s in statslist):
+        B.append("## Enthaltene IGs je Repo (Aufschlüsselung, aktuell → ältest)")
+        B.append("_Repos können mehrere IG-Ordner (Versions-/Sprachvarianten) enthalten; Aufwand je IG zeigt die "
+                 "Migration einer einzelnen Version statt des über alle Ordner summierten Aggregats._")
+        for s in statslist:
+            ci = s["contained_igs"]
+            if ci["count"] > 1:
+                B.append("### %s — %d IG-Ordner" % (lab(s), ci["count"]))
+                B.append(_ig_breakdown_table(ci))
+            elif ci["folders"]:
+                f = ci["folders"][0]
+                B.append("### %s — 1 IG-Ordner" % lab(s))
+                B.append("`%s` (%s) — %d Inhalts-Seiten, %d Wörter, %d Direktiven." %
+                         (f["name"], f["language"], f["content_pages"], f["words"], f.get("directives", 0)))
 
     # Portfolio: Wiederverwendung & Konsolidierung (Cross-IG-Overlap, Skaleneffekt)
     name_to_igs = {}

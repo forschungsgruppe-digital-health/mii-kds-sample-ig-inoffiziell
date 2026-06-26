@@ -77,7 +77,7 @@
         "words": { "type": "integer" },
         "images": { "type": "integer" },
         "mandatory_present": { "type": "array", "items": { "type": "string" } },
-        "mandatory_missing": { "type": "array", "items": { "type": "string" } }
+        "mandatory_missing_in_target": { "type": "array", "items": { "type": "string" } }
       }
     },
     "i18n": {
@@ -139,7 +139,7 @@
     },
     "contained_igs": {
       "type": "object",
-      "description": "Im Repo enthaltene IG-/Leitfaden-Ordner (unter implementation-guides/); count + folders[{name,language,pages,content_pages,words}].",
+      "description": "Im Repo enthaltene IG-/Leitfaden-Ordner (unter implementation-guides/); count + folders[{name,language,pages,content_pages,words,avg_words,directives,manual_hours_low,manual_hours_high}], sortiert aktuell -> aeltest.",
       "properties": {
         "count": { "type": "integer" },
         "folders": { "type": "array", "items": { "type": "object" } }

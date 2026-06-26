@@ -27,6 +27,17 @@ Klon** dieses Repos als neuem Modul-IG, oder (2) bringst die Vorlage in einen
 Beide Wege haben **identische** Akzeptanzkriterien (§10) und verpflichtende
 Review-Gates (§8); Deutsch bleibt führend; keine eigenständige Veröffentlichung.
 
+## 0. Optional: Vorab-Scoping (Aufwand/Risiken abschätzen)
+Vor der eigentlichen Migration kann der read-only-Skill [`skills/ig-analyze/`](skills/ig-analyze/SKILL.md)
+den Quell-IG vermessen und Aufwand (in Zeit, manuell + KI-gestützt), Reife, Strategie/Lock-in und Risiken
+abschätzen — mehrere IGs auch im Vergleich:
+
+```bash
+python3 tools/ig-stats.py run <SOURCE_REPO_URL_oder_Pfad> [weitere…] -o ig-analyse-out
+```
+
+Ändert nichts am Quell-IG; ideal als Entscheidungs-/Planungsgrundlage **vor** Teil A/B.
+
 ## 1. Voraussetzungen
 - Java 17+, Node 20+
 - Ruby + Jekyll (HTML-Build des IG Publishers; [Installation](https://jekyllrb.com/docs/installation/)) —
