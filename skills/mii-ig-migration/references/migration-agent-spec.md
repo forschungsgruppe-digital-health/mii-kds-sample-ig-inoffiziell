@@ -55,6 +55,11 @@ nicht vom Menschen an. **Einzige menschliche Entscheidung:** die Ziel-`version`
 gelten die **aus der Quelle gelesenen offiziellen Werte**.
 
 ### 3. Benötigte Fähigkeiten/Werkzeuge (abstrakt, nicht herstellerspezifisch)
+- **Vorab-Analyse (Skill `ig-analyze`, `tools/ig-stats.py`):** read-only-Vermessung des
+  Quell-IG zur Aufwands-/Risiko-Schätzung **und** als strukturierte Datengrundlage
+  (Direktiven-Inventar, enthaltene IG-Ordner/Version, Sprachen, Pflichtseiten) für die
+  folgenden Schritte. **Läuft als Schritt 0** und liefert die `ig-stats.json`, die der
+  Migrationsablauf konsumiert (siehe Abschnitt 5).
 - **Web-Abruf/Extraktion:** Lesen und strukturierte Extraktion des gerenderten IG.
 - **Repository-Zugriff:** Klonen/Lesen des Quell-Repos (read-only).
 - **Datei-IO:** Schreiben in einen Arbeits-Branch des Ziel-Repos.
@@ -96,13 +101,32 @@ gelten die **aus der Quelle gelesenen offiziellen Werte**.
 9. **Default-Branch-Schutz:** `dev`/`master`/`main` werden **nicht** verändert. Die
    Migration erfolgt in einem **isolierten Branch** (Standard: `hl7-ig-build`); ein
    PR geht ausschließlich in diesen Branch, nicht in den Default-Branch.
+10. **Aktuelle Version migrieren:** Enthält das Quell-Repo mehrere IG-/Leitfaden-Ordner
+   (Versions-/Sprachvarianten; siehe Vorab-Analyse `contained_igs`, sortiert aktuell→ältest),
+   wird **nur die aktuelle Version** (`folders[0]`) als Narrativ-Quelle migriert — nicht der
+   über alle Ordner summierte Bestand (`cross_ig_block_count` zeigt die ordnerübergreifende
+   Dopplung). Altversionen/Sprachvarianten werden nicht mitmigriert.
 
 ### 5. Arbeitsablauf (Schritte → Ausgaben → Akzeptanzkriterien)
-1. **Inventarisierung Quelle.** Extrahiere aus `SOURCE_RENDERED_IG_URL` und
-   `SOURCE_REPO_URL` die Artefaktliste (Profile, Extensions, ValueSets,
-   CodeSystems, CapabilityStatements, Beispiele) und die Narrativ-Struktur.
-   → Ausgabe: `.ai-log/source-inventory.json`. → Kriterium: Inventar vollständig,
-   jede Position mit Quellpfad.
+0. **Vorab-Analyse (Skill `ig-analyze`).** Vermiss den Quell-IG read-only:
+   `python3 tools/ig-stats.py run <SOURCE_REPO_URL> -o .ai-log/ig-analyze`.
+   → Ausgabe: `.ai-log/ig-analyze/<id>-stats.json` + `-report.md`. → Diese Analyse
+   **steuert die Migration** und wird in den Schritten 1–5 genutzt:
+   - **Scope/Go & Erwartung:** `effort` (manuell + KI, Band/Spanne), `maturity`,
+     `risk` (Terminologie-Lizenz, Datenschutz) → Entscheidung & Bericht.
+   - **Zu migrierende Version (Leitplanke 10):** `contained_igs.folders` (aktuell→ältest)
+     → Narrativ-Quelle = **`folders[0]`** (aktueller IG-Ordner), nicht alle Varianten.
+   - **Direktiven-Arbeitsliste:** `directives.occurrences` (Datei:Zeile + Label) +
+     `directives.by_label` → Checkliste/Mengengerüst für Schritt 4.
+   - **Sprachen:** `linguistics.languages` → Umfang von Schritt 5.
+   - **Pflichtseiten:** `narrative.mandatory_missing_in_target` → in Schritt 4 zu ergänzen.
+   → Kriterium: `ig-stats.json` vorhanden; Kernzahlen + Folder-Wahl in den
+   Migrations-Bericht (`.ai-log/migration-report.md`) übernommen.
+1. **Inventarisierung Quelle.** **Übernimm das Inventar aus Schritt 0** (Artefakte aus
+   `ig-stats.json` `artifacts_detail`, Narrative/Direktiven aus dem gewählten IG-Ordner
+   `folders[0]`) und ergänze quell-spezifische Details aus `SOURCE_RENDERED_IG_URL` /
+   `SOURCE_REPO_URL`. → Ausgabe: `.ai-log/source-inventory.json`. → Kriterium: Inventar
+   vollständig, jede Position mit Quellpfad; deckungsgleich mit der Vorab-Analyse.
 2. **Skelett anlegen.** Kopiere die Zielvorlage; setze `ig.ini`/`sushi-config.yaml`
    (id, canonical, version, dependencies, Menü, i18n=de/en). **Lösche die
    Vorlagen-Beispiele** (`input/fsh/examples.fsh`, Beispiel-Instanzen). → Kriterium:
@@ -115,11 +139,15 @@ gelten die **aus der Quelle gelesenen offiziellen Werte**.
    **Simplifier-/FQL-Direktiven** (`{{render}}`, `{{pagelink}}`, `{{tree}}`,
    `<fql>`, ``@``` ``, `<tabs>` …) gemäß `references/fql-crosswalk.md` in
    IG-Publisher-Äquivalente überführen (Artefakt-Links, `{% include %}`-Fragmente,
-   lokale Bilder). Vorgehen: `tools/fql-scan.sh` ausführen → je Fund die Empfehlung
-   anwenden; mehrdeutige Fälle mit fachlichem Urteil, im Zweifel `TODO:REVIEW`
+   lokale Bilder). **Arbeitsliste = `directives.occurrences` aus der Vorab-Analyse
+   (Schritt 0)** (Datei:Zeile + Label, Soll-Menge je Typ aus `directives.by_label`);
+   `narrative.mandatory_missing_in_target` listet die zu ergänzenden Pflichtseiten.
+   Vorgehen: `tools/fql-scan.sh` ausführen → je Fund die Empfehlung anwenden;
+   mehrdeutige Fälle mit fachlichem Urteil, im Zweifel `TODO:REVIEW`
    (Guardrail 4). Maßgebliche, **erweiterbare** Regeln: `references/fql-rules.tsv`.
    → Kriterium: alle Pflichtseiten vorhanden, keine leeren Pflichtabschnitte;
-   `fql-scan` meldet keine `[UNBEKANNT]` und keine ungewollt verbliebenen Direktiven.
+   `fql-scan` meldet keine `[UNBEKANNT]` und keine ungewollt verbliebenen Direktiven;
+   Anzahl behandelter Direktiven **deckt sich mit `directives.total`** der Vorab-Analyse.
 5. **Mehrsprachigkeit (optional, Deutsch führend).** Verifizierte Mechanik des IG
    Publishers (2.2.x) — Details/Skill: `skills/ig-translate/`:
    - **Ressourcen-Texte (rendern):** je StructureDefinition/CodeSystem/Questionnaire

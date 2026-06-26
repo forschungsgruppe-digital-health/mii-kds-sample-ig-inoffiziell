@@ -23,8 +23,10 @@ mit Treiber-Beitragstabelle. Provenienz-Arrays in der `ig-stats.json`:
 > (Profile/Extensions/VS/CS/Logical/CapabilityStatement/Questionnaire/SearchParameter/
 > Operation/Beispiele). RuleSets, Invarianten und Mappings sind interne
 > FSH-Konstrukte und werden separat geführt (nicht im Vergleichs-`total`).
-> **Direktiven** werden anhand `mii-ig-migration/references/fql-rules.tsv` (SSOT)
-> erkannt; nicht abgedeckte → `UNBEKANNT` (im Report mit Fundstelle gelistet).
+> **Direktiven** werden anhand der **self-contained** Muster in
+> `skills/ig-analyze/references/report-content.json` (`directive_patterns`) erkannt —
+> bewusst an `mii-ig-migration/references/fql-rules.tsv` angelehnt (gleiche Label-Namen),
+> aber **unabhängig** gepflegt; nicht abgedeckte → `UNBEKANNT` (mit Fundstelle gelistet).
 
 ## A. Identität & Scope
 | metric_id | Misst | Quelle | Modus | Nutzen |
@@ -62,7 +64,7 @@ mit Treiber-Beitragstabelle. Provenienz-Arrays in der `ig-stats.json`:
 |---|---|---|---|---|
 | `narrative_pages`,`narrative_words`,`images` | Doku-Umfang | `input/pagecontent/**`, `implementation-guides/**`, `input/images` | static | V·A |
 | `mandatory_pages_present`/`_missing` | Pflichtabschnitte | Seitenliste vs. Soll-Set | static | V·A |
-| `simplifier_directives_total`,`_by_label`,`_unknown` | Simplifier-/FQL-Direktiven (Narrativ-Nacharbeit) | `tools/fql-scan.sh` bzw. eingebaute Muster | static | A |
+| `directives.total`,`_by_label`,`_unknown` | Simplifier-/FQL-Direktiven (Narrativ-Nacharbeit) | `report-content.json` (`directive_patterns`) | static | A |
 
 ## F. Mehrsprachigkeit
 | metric_id | Misst | Quelle | Modus | Nutzen |
@@ -104,7 +106,9 @@ mit Treiber-Beitragstabelle. Provenienz-Arrays in der `ig-stats.json`:
 | metric_id | Misst | Quelle | Modus | Nutzen |
 |---|---|---|---|---|
 | `linguistics.words_avg`,`_median`,`_min`,`_max`,`longest_page`,`shortest_page`,`per_page` | Textumfang je Seite (Ø/Median/Extremwerte) zur Umfangseinschätzung | Narrative-Seiten | static | V·A |
-| `duplication.duplicate_block_count`,`duplicate_blocks` | inhaltliche Dopplungen (identische Absätze ≥ 12 Wörter, mit Fundstellen) | Narrative-Absätze (Hash) | static | A |
+| `linguistics.languages_supported`,`languages` | Anzahl + Liste **unterstützter Sprachen** (z.B. de, en) | Default-Sprache + i18n-Konfig + IG-Ordner-Suffixe | static | V·A |
+| `contained_igs.count`,`folders[]` | **enthaltene IG-/Leitfaden-Ordner** im Repo (mehrere möglich, z.B. je Sprache), je Sprache/Seiten/Wörter | `implementation-guides/*` | static | V·A |
+| `duplication.duplicate_block_count`,`duplicate_blocks`,`cross_ig_block_count` | inhaltliche Dopplungen (identische Absätze ≥ 12 Wörter, mit Fundstellen); **ordnerübergreifend** gesondert | Narrative-Absätze (Hash) + IG-Ordner-Zuordnung | static | A |
 | `duplication.duplicate_file_groups` | identische Seiten (Datei-Dubletten) | Narrative-Dateien (Hash) | static | A |
 | `hygiene.unreferenced_images` | Bilder, die in keiner Erklärseite referenziert werden (Dead-Code-Analogie) | Bilddateien vs. Seitentext | static | A |
 | `hygiene.examples_not_in_narrative` | Beispiele, die in keiner Erklärseite eingebunden sind (heuristisch) | Beispiel-Namen vs. Seitentext | static | A |
@@ -144,7 +148,7 @@ mit Treiber-Beitragstabelle. Provenienz-Arrays in der `ig-stats.json`:
 | `planning.calendar_days_low/high` (`assumptions`) | Kalenderzeit (h ÷ Tag·Team·Auslastung) | `PLANNING_PARAMS` | static | P |
 | `planning.scenario_min/expected/max_h`,`confidence` | Szenarien + Schätz-Konfidenz | Treiber/Unbekannte | static | P |
 | `planning.role_mix_pct`,`parallelizable` | Rollen-/Skill-Mix, Parallelisierbarkeit | Treiber-Stunden | static | P |
-| `planning.readiness_score`,`cross_module_dependency_risk`,`ai_fixed_cost_share_pct` | Startbereitschaft, Timing-Risiko, Fixkostenanteil | abgeleitet | static | P |
+| `planning.readiness_score`,`cross_module_dependency_risk`,`ai_fixed_cost_share_pct` | Startbereitschaft, Timing-Risiko, KI-Fix-Aufwandsanteil | abgeleitet | static | P |
 
 ## N. Risiko & Compliance
 

@@ -16,8 +16,11 @@ license: CC-BY-4.0
 - **Scoping vor einer Migration** (`mii-ig-migration`): Aufwand, Ressourcen und
   Risiken eines Quell-IG abschätzen, bevor migriert wird.
 
-Read-only. Ergänzt `mii-ig-migration` (läuft idealerweise davor), ist aber
-unabhängig nutzbar.
+Read-only. **Vorstufe von `mii-ig-migration`:** dort ist diese Analyse **Schritt 0**
+— die erzeugte `ig-stats.json` ist die Datengrundlage der Migration (zu migrierender
+IG-Ordner `contained_igs.folders[0]`, Direktiven-Arbeitsliste `directives.occurrences`,
+Sprachen `linguistics.languages`, Pflichtseiten, Aufwand/Risiko). Eigenständig
+(z. B. reiner IG-Vergleich) ebenfalls nutzbar.
 
 ## Eingabe & Modi (`tools/ig-stats.py`)
 **Eingabe = eine oder mehrere FHIR-IGs als Pfad ODER URL.** `run` ist der Haupt-
@@ -53,12 +56,14 @@ und **Metrik-Erklärungen** (self-contained, neutral): `references/report-conten
 - **Menschlich:** Markdown-Report je IG + Vergleichsreport, **GitHub-zentriert**
   (`<div align="center">`), mit **farbigen Mermaid**-Charts (Pie/Quadrant, kein JS),
   numerisch **absteigend** sortiert. Aufbau: **Executive Summary für Entscheider**
-  (CTO/CIO, laienverständlich) → Kennzahlen-Überblick → Inhaltsumfang & Hygiene →
-  Aufwand (manuell + KI, **Zeit**) → **Reife & Freigabe** → **Strategie (Lock-in/
-  Zukunftssicherheit)** → **Planung & Terminierung** → **Risiko & Compliance** →
-  Empfehlungen → Direktiven-Mapping → **Anhang** (Detailaufschlüsselung +
-  **Methodik/Metrik-Erklärung** + **Glossar**). Vergleich aggregiert zusätzlich
-  **Σ Gesamt** (Umfang + Aufwand) und zeigt **Cross-IG-Konsolidierung**; nutzt
+  (CTO/CIO, laienverständlich) → Kennzahlen-Überblick → Inhaltsumfang & Hygiene
+  (inkl. **Aufschlüsselung der enthaltenen IG-/Leitfaden-Ordner** je Sprache/Version,
+  aktuell→ältest, + ordnerübergreifende Dopplungen) → Aufwand (manuell + KI, **Zeit**)
+  → **Reife & Freigabe** → **Strategie (Lock-in/Zukunftssicherheit)** → **Planung &
+  Terminierung** → **Risiko & Compliance** → Empfehlungen → Direktiven-Mapping →
+  **Anhang** (Detailaufschlüsselung + **Methodik/Metrik-Erklärung** + **Glossar**).
+  Vergleich aggregiert zusätzlich **Σ Gesamt** (Umfang + Aufwand), schlüsselt die
+  **enthaltenen IGs je Repo** auf und zeigt **Cross-IG-Konsolidierung**; nutzt
   **normalisierte** Kennzahlen. Jeder Report enthält im Anhang die **Metrik-Erklärung**.
 - **Neutral & self-contained:** Der Report referenziert **keine** anderen Repo-Skills/
   Dateien; alle Empfehlungen sind allgemeines IG-Publisher-Wissen.
@@ -77,7 +82,7 @@ floating Pins. Faktoren stehen im Tool und sind **kalibrierbar**.
 
 ## Verbindliche Leitplanken
 - **Read-only.** Keine Änderung am analysierten IG; kein Build erzwingen (außer
-  ausdrücklich `--full` in einer späteren Ausbaustufe).
+  ein optionales `--full` (Build) ist als spätere Ausbaustufe vorgesehen, derzeit **nicht implementiert**).
 - **Schätzungen als Spanne mit Annahmen** ausweisen, nie als Punktwert. Faktoren
   sind unkalibriert (`TODO:REVIEW`) — Nutzen v. a. **relativ** (IG-A vs. IG-B).
 - **Quell-intrinsisch vs. migrationsbedingt** trennen: Fehler, die schon im

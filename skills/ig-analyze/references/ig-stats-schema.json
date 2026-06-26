@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://example.org/fhir/kds-sample/ig-stats-schema.json",
   "title": "ig-stats",
-  "description": "Maschinenlesbare Statistik eines FHIR-IG (Ausgabe von tools/ig-stats.py analyze). Build-only-Felder sind im statischen Modus null. Ab 1.1: Detail-/Provenienz-Arrays (artifacts_detail, narrative.files, directives.occurrences, quality.qc_rules, i18n.*_files) + artifacts.total = nur publizierte Artefakte (RuleSets/Invarianten/Mappings separat).",
+  "description": "Maschinenlesbare Statistik eines FHIR-IG (Ausgabe von tools/ig-stats.py analyze). Build-only-Felder sind im statischen Modus null. Ab 1.1: Detail-/Provenienz-Arrays (artifacts_detail, narrative.files, directives.occurrences, quality.qc_rules, i18n.*_files) + artifacts.total = nur publizierte Artefakte (RuleSets/Invarianten/Mappings separat). Ab 1.2: linguistics.languages/languages_supported, contained_igs (count + folders[] je IG-Ordner), duplication.cross_ig_block_count.",
   "type": "object",
   "required": ["schemaVersion", "tool", "mode", "analyzed", "identity", "artifacts"],
   "additionalProperties": true,
@@ -77,7 +77,11 @@
         "words": { "type": "integer" },
         "images": { "type": "integer" },
         "mandatory_present": { "type": "array", "items": { "type": "string" } },
-        "mandatory_missing": { "type": "array", "items": { "type": "string" } }
+        "mandatory_missing_in_target": { "type": "array", "items": { "type": "string" } },
+        "format": { "type": "string" },
+        "pages_all": { "type": "integer" },
+        "words_all_incl_stubs": { "type": "integer" },
+        "files": { "type": "array", "items": { "type": "object" } }
       }
     },
     "i18n": {
@@ -86,8 +90,10 @@
         "default_lang": { "type": ["string", "null"] },
         "languages": { "type": "array", "items": { "type": "string" } },
         "translation_supplements": { "type": "integer" },
+        "supplement_files": { "type": "array", "items": { "type": "string" } },
         "translated_pages": { "type": "integer" },
-        "fsh_translation_ext": { "type": "boolean" }
+        "fsh_translation_ext": { "type": "boolean" },
+        "fsh_translation_files": { "type": "array", "items": { "type": "string" } }
       }
     },
     "directives": {
@@ -104,6 +110,8 @@
       "description": "qc_* statisch; qa_* nur im full-Modus (sonst null).",
       "properties": {
         "qc_rules_defined": { "type": ["integer", "null"] },
+        "qc_rules": { "type": "array", "items": { "type": "object" } },
+        "qc_violations": { "type": ["integer", "null"] },
         "suppressed_messages": { "type": ["integer", "null"] },
         "qa_errors": { "type": ["integer", "null"] },
         "qa_warnings": { "type": ["integer", "null"] },
@@ -114,7 +122,7 @@
     },
     "linguistics": {
       "type": "object",
-      "description": "Textumfang der Erklaerseiten (Woerter je Seite, Durchschnitt/Median, Extremwerte).",
+      "description": "Textumfang der Erklaerseiten (Woerter je Seite, Durchschnitt/Median, Extremwerte) + unterstuetzte Sprachen.",
       "properties": {
         "content_pages": { "type": "integer" },
         "words_total": { "type": "integer" },
@@ -124,16 +132,27 @@
         "words_max": { "type": "integer" },
         "longest_page": { "type": ["string", "null"] },
         "shortest_page": { "type": ["string", "null"] },
-        "per_page": { "type": "array", "items": { "type": "object" } }
+        "per_page": { "type": "array", "items": { "type": "object" } },
+        "languages": { "type": "array", "items": { "type": "string" }, "description": "Basis-Sprachcodes, z.B. [de, en]" },
+        "languages_supported": { "type": "integer" }
       }
     },
     "duplication": {
       "type": "object",
-      "description": "Inhaltliche Dopplungen: identische Absaetze (>= 12 Woerter) und identische Seiten.",
+      "description": "Inhaltliche Dopplungen: identische Absaetze (>= 12 Woerter) und identische Seiten; cross_ig_block_count = ordneruebergreifende Dopplungen.",
       "properties": {
         "duplicate_block_count": { "type": "integer" },
+        "cross_ig_block_count": { "type": "integer" },
         "duplicate_blocks": { "type": "array", "items": { "type": "object" } },
         "duplicate_file_groups": { "type": "array", "items": { "type": "array", "items": { "type": "string" } } }
+      }
+    },
+    "contained_igs": {
+      "type": "object",
+      "description": "Im Repo enthaltene IG-/Leitfaden-Ordner (unter implementation-guides/); count + folders[{name,language,pages,content_pages,words,avg_words,directives,manual_hours_low,manual_hours_high}], sortiert aktuell -> aeltest.",
+      "properties": {
+        "count": { "type": "integer" },
+        "folders": { "type": "array", "items": { "type": "object" } }
       }
     },
     "hygiene": {

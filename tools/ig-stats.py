@@ -239,6 +239,62 @@ def _norm_text(s):
     return re.sub(r'\s+', ' ', s).strip().lower()
 
 
+def _ig_folder_of(path):
+    """IG-Ordner einer Narrative-Datei (Unterordner von implementation-guides/, sonst input/pagecontent)."""
+    p = path.replace("\\", "/")
+    m = re.search(r'implementation-guides/([^/]+)/', p)
+    if m:
+        return m.group(1)
+    if "input/pagecontent" in p:
+        return "input/pagecontent"
+    return p.split("/")[0]
+
+
+def _version_key(name):
+    """Sortierschlüssel aus Versionsnummern im Ordnernamen (für 'aktuell -> ältest')."""
+    m = re.search(r'\d{4}(?:\.\d+|\.x)*|\d+(?:\.\d+)+|\d+', name)
+    return tuple(int(x) for x in re.findall(r'\d+', m.group(0))) if m else (-1,)
+
+
+def _short_ig_label(name):
+    return re.sub(r'^ImplementationGuide-', '', name)
+
+
+def compute_contained_igs(igdir, ndetail, directives):
+    """Im Repo enthaltene IG-/Leitfaden-Ordner (mehrere möglich, z.B. je Sprache/Version),
+    je IG mit Seiten/Wörtern/Direktiven/geschätztem Aufwand; sortiert neueste -> älteste Version."""
+    occ = directives.get("occurrences", []) if directives else []
+
+    def _mk(name, pgs, lang):
+        cp = [x for x in pgs if not x["stub"]]
+        words = sum(x["words"] for x in pgs)
+        dirs = sum(1 for o in occ if _ig_folder_of(o["file"]) == name)
+        base = dirs * EFFORT_FACTORS["directive"] + len(cp) * EFFORT_FACTORS["page"]
+        return {"name": name, "language": lang, "pages": len(pgs), "content_pages": len(cp),
+                "words": words, "avg_words": round(words / len(cp)) if cp else 0, "directives": dirs,
+                "manual_hours_low": round(base * 0.8, 1), "manual_hours_high": round(base * 1.3, 1)}
+
+    base_dir = os.path.join(igdir, "implementation-guides")
+    folders = []
+    if os.path.isdir(base_dir):
+        for d in sorted(os.listdir(base_dir)):
+            if not os.path.isdir(os.path.join(base_dir, d)):
+                continue
+            pgs = [x for x in ndetail if _ig_folder_of(x["path"]) == d]
+            if not pgs:                                  # Asset-Ordner (images/binaries) überspringen
+                continue
+            low = d.lower()
+            lang = "de" if low.endswith("-de") or "-de-" in low else "en" if low.endswith("-en") or "-en-" in low else "?"
+            folders.append(_mk(d, pgs, lang))
+    if not folders:
+        tgt = [x for x in ndetail if x["kind"] == "target"]
+        if tgt:
+            folders.append(_mk("input/pagecontent", tgt, "?"))
+    folders.sort(key=lambda f: f["name"])
+    folders.sort(key=lambda f: _version_key(f["name"]), reverse=True)
+    return {"count": len(folders), "folders": folders}
+
+
 def linguistics_hygiene(igdir, ndetail, artifact_list):
     pages = [x for x in ndetail if not x["stub"]]
     words = sorted(x["words"] for x in pages)
@@ -270,8 +326,12 @@ def linguistics_hygiene(igdir, ndetail, artifact_list):
                 e["locations"].append(x["path"])
     dup_blocks = sorted([v for v in para_map.values() if len(v["locations"]) > 1],
                         key=lambda v: -len(v["locations"]))
+    for v in dup_blocks:
+        v["folders"] = sorted({_ig_folder_of(p) for p in v["locations"]})
+        v["cross_ig"] = len(v["folders"]) > 1
     dup_files = [p for p in file_hash.values() if len(p) > 1]
     duplication = {"duplicate_block_count": len(dup_blocks),
+                   "cross_ig_block_count": sum(1 for v in dup_blocks if v["cross_ig"]),
                    "duplicate_blocks": dup_blocks[:15],
                    "duplicate_file_groups": dup_files}
 
@@ -334,7 +394,7 @@ def parse_qc(path):
     return len(rules), rules
 
 
-# ---------- Strategie/Risiko/Planung/Wirtschaftlichkeit (Gruppen K–P) ----------
+# ---------- Strategie/Reife/Risiko/Planung (Gruppen K–N) ----------
 def git_stats(d):
     out = {"commits": None, "authors": None, "top_author_share": None, "days_since_last": None,
            "commits_per_year": None, "tags": None, "first": None, "last": None}
@@ -594,6 +654,19 @@ def analyze(igdir, label, content):
                "qa_warnings": None, "qa_hints": None, "broken_links": None, "qa_categories": None}
 
     linguistics, duplication, hygiene = linguistics_hygiene(igdir, ndetail, artifact_list)
+    contained_igs = compute_contained_igs(igdir, ndetail, directives)
+    # Unterstützte Sprachen (Linguistik): Default-Sprache + i18n-Konfig + IG-Ordner-Suffixe (-de/-en)
+    _langs = set()
+    if i18n.get("default_lang"):
+        _langs.add(i18n["default_lang"].split("-")[0].lower())
+    for _l in (i18n.get("languages") or []):
+        _langs.add(_l.split("-")[0].lower())
+    for _f in contained_igs.get("folders", []):
+        if _f.get("language") and _f["language"] != "?":
+            _langs.add(_f["language"].lower())
+    linguistics["languages"] = sorted(_langs)
+    # Floor: eine IG mit Inhalt ist mind. monolingual (1), auch ohne explizites Sprachsignal.
+    linguistics["languages_supported"] = len(_langs) if _langs else (1 if linguistics.get("content_pages") else 0)
 
     # ---- Aufwand: manuell + KI-gestützt ----
     dtot, dunknown = directives["total"], directives["unknown"]
@@ -624,12 +697,15 @@ def analyze(igdir, label, content):
             "Validierungsfehler erfordern einen Build und sind hier nicht enthalten.",
             "Faktoren sind Erfahrungswerte, noch nicht final kalibriert; Spanne = Basis × 0,8…1,3.",
             "pages = Inhalts-Seiten (Stubs/Navigation < %d Wörter ausgeschlossen)." % STUB_MIN_WORDS,
+            "Personentage = Aufwand in 8-h-Arbeitstagen (1 PT = 8 Personenstunden); beide Schätzungen messen "
+            "MENSCHLICHE Arbeitszeit — manuell die Migration von Hand, KI-gestützt die Bedien-/Review-Zeit der KI "
+            "(Prompts, Review-Gates, Korrekturen), NICHT die Rechen-/Laufzeit oder Wartezeit der KI.",
             "KI-Schätzung: anbieter-/modellunabhängig (Human-in-the-Loop, Review-Gates). Enthält feste Pauschalen "
             "für Einarbeitung/Setup (%g h) und Review-Gates (%g h) sowie einen Validierungs-/Iterationsaufschlag "
             "(%d %%); unbekannte Direktiven werden wie manuell gerechnet. Bewusst konservativ – keine garantierte "
             "Einsparung." % (a["setup"], a["gate_fixed"], round(a["iteration_pct"] * 100))]}
 
-    # ---- Strategie / Reife / Risiko / Planung / Wirtschaftlichkeit (Gruppen K–P) ----
+    # ---- Strategie / Reife / Risiko / Planung (Gruppen K–N) ----
     fsh_text = " ".join(read(f) for f in fsh_files)
     decl_names = {x["name"] for x in artifact_list}
     gs = git_stats(igdir)
@@ -655,7 +731,7 @@ def analyze(igdir, label, content):
                          "git_commit": git_commit(igdir), "timestamp": ts},
             "identity": identity, "artifacts": artifacts, "artifacts_detail": artifact_list,
             "dependencies": dependencies, "narrative": narrative, "linguistics": linguistics,
-            "duplication": duplication, "hygiene": hygiene, "i18n": i18n,
+            "duplication": duplication, "hygiene": hygiene, "contained_igs": contained_igs, "i18n": i18n,
             "directives": directives, "quality": quality, "effort": effort,
             "maturity": maturity, "portfolio": portfolio, "risk": risk, "planning": planning,
             "git": gs}
@@ -734,6 +810,19 @@ def _intro(content, key):
     return (content.get("section_intros") or {}).get(key)
 
 
+def _ig_breakdown_table(ci):
+    """Horizontale Aufschlüsselung je IG-Ordner (Spalten, aktuell -> ältest). Einzel- + Vergleichsbericht."""
+    fl = ci["folders"]
+    return _table(["Kennzahl"] + [_short_ig_label(f["name"]) for f in fl], [
+        ["Sprache"] + [f["language"] for f in fl],
+        ["Inhalts-Seiten"] + [f["content_pages"] for f in fl],
+        ["Wörter"] + [f["words"] for f in fl],
+        ["Ø Wörter / Seite"] + [f.get("avg_words", 0) for f in fl],
+        ["Direktiven"] + [f.get("directives", 0) for f in fl],
+        ["Aufwand manuell ~h (je IG)"] + ["%s–%s" % (_de(f.get("manual_hours_low", 0)), _de(f.get("manual_hours_high", 0))) for f in fl],
+    ])
+
+
 def _plural(n, sing, plur):
     return "%d %s" % (n, sing if n == 1 else plur)
 
@@ -806,7 +895,7 @@ def exec_summary_blocks(stats):
              "eines Datenstandards im Gesundheitswesen – das Regelwerk plus die zugehörige Online-Dokumentation. "
              "Dieser IG soll von einer herstellergebundenen Plattform auf das herstellerneutrale Standard-Werkzeug "
              "der FHIR-Community (den „IG Publisher“) umgezogen werden. Inhaltlich ändert sich nichts – nur die "
-             "technische Bauweise der Veröffentlichung. _Fachbegriffe sind im Glossar am Dokumentende erklärt._")
+             "technische Bauweise der Veröffentlichung. _Fachbegriffe sind im [Glossar](#anhang-glossar) am Dokumentende erklärt._")
     B.append("### Das Wichtigste in einem Satz")
     B.append("Der Umzug ist **%s** (geschätzt **%d–%d Personenstunden**, also rund **%s–%s Personentage**), "
              "**%s** – %s. %s"
@@ -816,14 +905,15 @@ def exec_summary_blocks(stats):
         "- **Identität:** `%s`, Version %s, Herausgeber %s, Lizenz %s, Status „%s“."
         % (i.get("id"), i.get("version"), i.get("publisher"), i.get("license"), i.get("status")),
         "- **%s fachliche Bausteine:** %s." % (a.get("total"), ", ".join(parts)),
-        "- **Dokumentation:** %d inhaltliche Textseiten (~%d Wörter, Ø %s Wörter/Seite) und %d Bilder."
-        % (lg["content_pages"], lg["words_total"], avg_s, n["images"])]))
+        "- **Dokumentation:** %s (~%d Wörter, Ø %s Wörter/Seite) und %s."
+        % (_plural(lg["content_pages"], "inhaltliche Textseite", "inhaltliche Textseiten"),
+           lg["words_total"], avg_s, _plural(n["images"], "Bild", "Bilder"))]))
     B.append("### Aufwand und was das Band bedeutet")
     B.append("\n".join([
         "- **Aufwandsband: %s (%s)** – auf einer Skala S (klein, <1 Tag) / M (mittel, einige Tage) / "
         "L (groß, 1–2 Wochen) / XL (sehr groß) liegt dieses Vorhaben **%s**."
         % (band, BAND_LABEL.get(band, band), BAND_EINORDNUNG.get(band, "")),
-        "- **Manuell: rund %d–%d Stunden.** Das ist eine **Größenordnungsschätzung zur Budgetplanung** "
+        "- **Manuell: rund %d–%d Stunden.** Das ist eine **Größenordnungsschätzung zur Aufwandsplanung** "
         "(Faustregel: Menge der Arbeitsschritte × Erfahrungswert) – **kein verbindliches Angebot**." % (mh_low, mh_high),
         "- **KI-gestützt teilautomatisiert: rund %d–%d Stunden** (≈ %s). Das heißt: eine KI erledigt die "
         "wiederkehrenden Umbauten, Menschen prüfen und geben an Kontrollpunkten frei (Human-in-the-Loop / Review-Gates). "
@@ -840,8 +930,8 @@ def exec_summary_blocks(stats):
     src_lines.append("- **%s**" % ("Regeln liegen bereits in der bearbeitbaren Textform (FSH) vor – kein aufwändiger "
                      "Rückbau nötig (Effizienzvorteil)." if not drv["gofsh_needed"] else
                      "Regeln müssen aus den fertigen Dateien in die Textform zurückgewonnen werden (zusätzlicher Vorlauf)."))
-    src_lines.append("- **%d externe Abhängigkeiten, davon %d fest verankert, %d beweglich.** %s"
-                     % (d["count"], d["pinned"], d["floating"],
+    src_lines.append("- **%s, davon %d fest verankert, %d beweglich.** %s"
+                     % (_plural(d["count"], "externe Abhängigkeit", "externe Abhängigkeiten"), d["pinned"], d["floating"],
                         "Feste Versionen bedeuten reproduzierbare, stabile Builds – kein wackeliges Fundament."
                         if d["floating"] == 0 else "Bewegliche Versionen vor der Migration auf feste Stände festlegen."))
     if i.get("calver"):
@@ -863,11 +953,13 @@ def exec_summary_blocks(stats):
     risk.append("- **Risikomindernd:** Der Umzug erfolgt isoliert auf einem separaten Arbeitszweig, ohne Eingriff in "
                 "den produktiven Stand; ein menschliches Abschluss-Review ist vorgesehen.")
     B.append("\n".join(risk))
+    ki_phrase = ("KI-gestützt voraussichtlich spürbar weniger" if sp >= 10 else
+                 "KI-gestützt etwa gleich" if sp >= -10 else
+                 "KI-gestützt bei dieser Größe eher mehr – die festen Setup-/Review-Pauschalen überwiegen")
     B.append("### Bottom Line / Empfehlung")
-    B.append("**%s** Der Aufwand ist %s und kalkulierbar (manuell ~%s–%s Personentage, KI-gestützt voraussichtlich "
-             "spürbar weniger), die Quelle ist %s. Konkret einzuplanen: %sein abschließender Validierungslauf mit "
-             "fachlichem Review."
-             % (empfehlung, BAND_LABEL.get(band, band), pt_low_s, pt_high_s,
+    B.append("**%s** Der Aufwand ist %s und kalkulierbar (manuell ~%s–%s Personentage, %s), die Quelle ist %s. "
+             "Konkret einzuplanen: %sein abschließender Validierungslauf mit fachlichem Review."
+             % (empfehlung, BAND_LABEL.get(band, band), pt_low_s, pt_high_s, ki_phrase,
                 "reif" if not drv["gofsh_needed"] and d["floating"] == 0 else "mit überschaubaren Vorarbeiten",
                 ("die %d von Hand zu übertragenden Platzhalter sowie " % drv["directives_unknown"]) if drv["directives_unknown"] else ""))
     return B
@@ -914,22 +1006,36 @@ def report(stats, content, out):
             B.append(pie)
         B.append(_table(["Direktive", "Anzahl"], sorted(t["by_label"].items(), key=lambda x: -x[1])))
 
-    # Inhaltsumfang & Repo-Hygiene (Linguistik, Dopplungen, ungenutzte Dateien)
+    # Inhaltsumfang & Repo-Hygiene (Linguistik, IG-Ordner, Dopplungen, ungenutzte Dateien)
     lg, dup, hy = stats["linguistics"], stats["duplication"], stats["hygiene"]
+    ci = stats["contained_igs"]
     B.append("## Inhaltsumfang & Repo-Hygiene")
     if _intro(content, "inhaltsumfang"):
         B.append("_%s_" % _intro(content, "inhaltsumfang"))
     B.append(_table(["Kennzahl", "Wert"], [
+        ("Enthaltene IG-Ordner", ci["count"]),
         ("Inhalts-Seiten", lg["content_pages"]),
         ("Wörter gesamt", lg["words_total"]),
         ("Ø Wörter / Seite", _de(lg["words_avg"])),
         ("Median Wörter / Seite", lg["words_median"]),
+        ("Unterstützte Sprachen", "%d (%s)" % (lg.get("languages_supported", 0), ", ".join(lg.get("languages", [])) or "—")),
         ("kürzeste / längste Seite", "%d / %d Wörter" % (lg["words_min"], lg["words_max"])),
-        ("doppelte Inhaltsblöcke", dup["duplicate_block_count"]),
+        ("doppelte Inhaltsblöcke", "%d (davon %d ordnerübergreifend)" % (dup["duplicate_block_count"], dup.get("cross_ig_block_count", 0))),
         ("identische Seiten (Gruppen)", len(dup["duplicate_file_groups"])),
         ("Bilder nicht referenziert", "%d von %d" % (len(hy["unreferenced_images"]), hy["images_total"])),
         ("Beispiele nicht in Narrativen", "%d von %d" % (len(hy["examples_not_in_narrative"]), hy["examples_total"])),
     ]))
+    if ci["count"] > 1:
+        B.append("**Enthaltene IG-Ordner (%d) — Aufschlüsselung je IG (Spalten: aktuell → ältest):**" % ci["count"])
+        B.append(_ig_breakdown_table(ci))
+    elif ci["folders"]:
+        f = ci["folders"][0]
+        B.append("**Enthaltener IG-Ordner:** `%s` (%s) — %d Inhalts-Seiten, %d Wörter." % (f["name"], f["language"], f["content_pages"], f["words"]))
+    if ci["count"] > 1:
+        B.append("> ⚠ Das Repo enthält **%d IG-Ordner** (Versions-/Sprachvarianten). Aggregat-Kennzahlen "
+                 "(Direktiven, Wörter, **Aufwand**) summieren über **alle** Ordner — für die Migration **einer** "
+                 "Version entsprechend nach unten zu korrigieren; die %d ordnerübergreifenden Dopplungen zeigen das Ausmaß."
+                 % (ci["count"], dup.get("cross_ig_block_count", 0)))
     B.append("_%s_" % hy["note"])
 
     # Aufwand: manuell vs. KI-gestützt
@@ -1145,8 +1251,12 @@ def report(stats, content, out):
         if _intro(content, "hygiene_detail"):
             B.append("_%s_" % _intro(content, "hygiene_detail"))
         if dup["duplicate_blocks"]:
-            B.append(_table(["Doppelter Inhaltsblock (gekürzt)", "Vorkommen"],
-                            [(b["snippet"], " · ".join(b["locations"])) for b in dup["duplicate_blocks"]]))
+            B.append(_table(["Doppelter Inhaltsblock (gekürzt)", "IG-Ordner", "Vorkommen"],
+                            [(b["snippet"], ("⚠ " if b.get("cross_ig") else "") + " / ".join(b.get("folders", [])),
+                              " · ".join(b["locations"])) for b in dup["duplicate_blocks"]]))
+        if dup.get("cross_ig_block_count"):
+            B.append("> ⚠ %d Inhaltsblock/-blöcke kommen **ordnerübergreifend** (in mehreren IG-Ordnern) vor — "
+                     "Kandidat für Konsolidierung bzw. ausgelagerte Übersetzung." % dup["cross_ig_block_count"])
         if dup["duplicate_file_groups"]:
             B.append("**Identische Seiten:** " + "; ".join(" = ".join("`%s`" % p for p in g) for g in dup["duplicate_file_groups"]))
         if hy["unreferenced_images"]:
@@ -1176,13 +1286,16 @@ def report(stats, content, out):
 # ---------- compare ------------------------------------------------------------
 def compare(statslist, content, out):
     pal = _palette(content)
+    # Spalten/IGs nach Migrationsaufwand AUFSTEIGEND sortieren (geringster Aufwand zuerst).
+    statslist = sorted(statslist, key=lambda s: (s["effort"]["manual"]["hours_low"], s["effort"]["manual"]["hours_high"]))
 
     def lab(s):
         return s["analyzed"]["label"]
     B = []
     B.append("# IG-Vergleich (%d IGs)" % len(statslist))
     B.append("_Objektiver Kennzahlen-Vergleich der analysierten IGs inkl. Linguistik und Aufwandsschätzung. "
-             "Die Spalte „Σ Gesamt“ zeigt den aggregierten Migrations-Gesamtumfang und die -kosten; "
+             "**Spalten nach Migrationsaufwand aufsteigend sortiert** (geringster Aufwand links). "
+             "Die Spalte „Σ Gesamt“ zeigt den aggregierten Migrations-Gesamtumfang und -aufwand (Zeit); "
              "faire Einordnung über normalisierte Werte._")
 
     B.append("## Kennzahlen (je IG + Gesamt)")
@@ -1195,7 +1308,9 @@ def compare(statslist, content, out):
         ("Narrative-Inhalts-Seiten", lambda s: s["narrative"]["pages"]),
         ("Wörter gesamt", lambda s: s["linguistics"]["words_total"]),
         ("Plattform-Direktiven", lambda s: s["directives"]["total"]),
+        ("Enthaltene IG-Ordner", lambda s: s["contained_igs"]["count"]),
         ("Doppelte Inhaltsblöcke", lambda s: s["duplication"]["duplicate_block_count"]),
+        ("davon ordnerübergreifend", lambda s: s["duplication"].get("cross_ig_block_count", 0)),
         ("Nicht referenzierte Bilder", lambda s: len(s["hygiene"]["unreferenced_images"])),
     ]
     krows = []
@@ -1205,6 +1320,7 @@ def compare(statslist, content, out):
     for name, fn in [("Dependencies (floating)", lambda s: "%d (%d)" % (s["dependencies"]["count"], s["dependencies"]["floating"])),
                      ("Ø Wörter / Seite", lambda s: _de(s["linguistics"]["words_avg"])),
                      ("Median Wörter / Seite", lambda s: s["linguistics"]["words_median"]),
+                     ("Unterstützte Sprachen", lambda s: "%d (%s)" % (s["linguistics"].get("languages_supported", 0), ", ".join(s["linguistics"].get("languages", [])) or "—")),
                      ("Reifegrad /100", lambda s: _nz(s["maturity"]["score"])),
                      ("Hersteller-Lock-in /100", lambda s: s["portfolio"]["vendor_lockin_score"]),
                      ("Standard-Terminologie %", lambda s: _nz(s["portfolio"]["terminology_standard_share_pct"])),
@@ -1232,6 +1348,22 @@ def compare(statslist, content, out):
         "- **Gesamt-Aufwand KI-gestützt** (HITL, Review-Gates, anbieter-/modellunabhängig): **%s–%s h** (≈ %s–%s Personentage)."
         % (_de(round(ai_low, 1)), _de(round(ai_high, 1)), _de(round(ai_low / 8, 1)), _de(round(ai_high / 8, 1))),
         "_Aufwand als Spanne (Zeit, keine Geldgröße), kein Festpreis; Faktoren noch nicht final kalibriert._"]))
+
+    # Enthaltene IGs je Repo — Aufschlüsselung (neue Kenngröße, auch im Vergleich)
+    if any(s["contained_igs"]["count"] > 1 for s in statslist):
+        B.append("## Enthaltene IGs je Repo (Aufschlüsselung, aktuell → ältest)")
+        B.append("_Repos können mehrere IG-Ordner (Versions-/Sprachvarianten) enthalten; Aufwand je IG zeigt die "
+                 "Migration einer einzelnen Version statt des über alle Ordner summierten Aggregats._")
+        for s in statslist:
+            ci = s["contained_igs"]
+            if ci["count"] > 1:
+                B.append("### %s — %d IG-Ordner" % (lab(s), ci["count"]))
+                B.append(_ig_breakdown_table(ci))
+            elif ci["folders"]:
+                f = ci["folders"][0]
+                B.append("### %s — 1 IG-Ordner" % lab(s))
+                B.append("`%s` (%s) — %d Inhalts-Seiten, %d Wörter, %d Direktiven." %
+                         (f["name"], f["language"], f["content_pages"], f["words"], f.get("directives", 0)))
 
     # Portfolio: Wiederverwendung & Konsolidierung (Cross-IG-Overlap, Skaleneffekt)
     name_to_igs = {}
@@ -1261,8 +1393,13 @@ def compare(statslist, content, out):
         ["KI-Ersparnis %"] + [s["effort"]["ai"]["savings_pct"] for s in statslist],
     ]))
 
-    maxart = max((s["artifacts"]["total"] for s in statslist), default=1) or 1
-    maxh = max((s["effort"]["manual"]["hours_high"] for s in statslist), default=1) or 1
+    arts = [s["artifacts"]["total"] for s in statslist]
+    effs = [s["effort"]["manual"]["hours_high"] for s in statslist]
+    amin, amax, emin, emax = min(arts), max(arts), min(effs), max(effs)
+
+    def _q(v, lo, hi):
+        # auf sicheren Innenbereich [0.07, 0.93] abbilden — quadrantChart bricht bei 0/1.
+        return round(0.07 + 0.86 * (v - lo) / (hi - lo), 3) if hi > lo else 0.5
     B.append("## Scope vs. Migrationsaufwand")
     tv = {"quadrant1Fill": pal[0], "quadrant2Fill": pal[1], "quadrant3Fill": pal[2], "quadrant4Fill": pal[3],
           "quadrant1TextFill": "#FFFFFF", "quadrant2TextFill": "#FFFFFF", "quadrant3TextFill": "#FFFFFF",
@@ -1270,11 +1407,11 @@ def compare(statslist, content, out):
           "quadrantXAxisTextFill": "#1A1A1A", "quadrantYAxisTextFill": "#1A1A1A", "quadrantTitleFill": "#1A1A1A"}
     mer = ["```mermaid", "%%{init: {'theme':'base','themeVariables':" + json.dumps(tv) + "}}%%", "quadrantChart",
            "    title Scope vs. Migrationsaufwand", "    x-axis Klein --> Gross",
-           "    y-axis Geringer_Aufwand --> Hoher_Aufwand", "    quadrant-1 gross & aufwaendig",
-           "    quadrant-2 klein & aufwaendig", "    quadrant-3 klein & einfach", "    quadrant-4 gross & einfach"]
+           "    y-axis Geringer_Aufwand --> Hoher_Aufwand", "    quadrant-1 gross/aufwaendig",
+           "    quadrant-2 klein/aufwaendig", "    quadrant-3 klein/einfach", "    quadrant-4 gross/einfach"]
     for s in statslist:
-        mer.append('    "%s": [%s, %s]' % (lab(s), round(s["artifacts"]["total"] / maxart, 3),
-                                           round(s["effort"]["manual"]["hours_high"] / maxh, 3)))
+        mer.append('    "%s": [%s, %s]' % (lab(s).replace('"', ""), _q(s["artifacts"]["total"], amin, amax),
+                                           _q(s["effort"]["manual"]["hours_high"], emin, emax)))
     mer.append("```")
     B.append("\n".join(mer))
 
@@ -1383,12 +1520,12 @@ def main():
             print(outp)
         return 0
     if args.cmd == "report":
-        report(json.load(open(args.stats, encoding="utf-8")), content, args.o)
-        print("Report -> %s" % args.o if args.o else "")
+        txt = report(json.load(open(args.stats, encoding="utf-8")), content, args.o)
+        print("Report -> %s" % args.o, file=sys.stderr) if args.o else sys.stdout.write(txt)
         return 0
     if args.cmd == "compare":
-        compare([json.load(open(p, encoding="utf-8")) for p in args.stats], content, args.o)
-        print("Vergleich -> %s" % args.o if args.o else "")
+        txt = compare([json.load(open(p, encoding="utf-8")) for p in args.stats], content, args.o)
+        print("Vergleich -> %s" % args.o, file=sys.stderr) if args.o else sys.stdout.write(txt)
         return 0
     return 0
 

@@ -137,7 +137,7 @@ CONTRIBUTING.md                 Beiträge, Branching/Release/Packaging, Kommenti
 COMMENT_RESOLUTION.md           Kommentierung & Auflösung (Phasen: MII-intern + HL7-DE), praxisnah
 PUBLISHING.md                   Pages-Vorschau, Registry-Release, HL7-CI-Build-Kette
 NOTIFICATIONS.md                Release-Benachrichtigung (Zulip, GitHub Releases/Atom-Feeds, Package-Feed)
-TERMINOLOGY.md                  Terminologie-/Lizenzleitfaden (SNOMED CT, LOINC; SU-TermServ)
+TERMINOLOGY.md                  Terminologie-/Lizenzleitfaden (SNOMED CT, LOINC; MII-Terminologieserver)
 CHANGELOG.md                    Changelog (Keep a Changelog, CalVer)
 README.md                       Dieses Dokument
 SECURITY.md                     Security-Policy (Meldeweg)
@@ -164,18 +164,18 @@ input/images/mii-logo-PLATZHALTER.svg   Platzhalter-Logo (durch echtes Logo erse
 .ai-log/                        Migrations-Artefakte (Inventar, Bericht), falls vorhanden
 
 # Agent-Skills & zugehörige Werkzeuge (Vorlage-/Migrationszweck)
-skills/mii-ig-migration/        Migrations-Skill (Simplifier-IG -> HL7-IG)
+skills/mii-ig-migration/        Migrations-Skill (Simplifier-IG -> HL7-IG); baut auf ig-analyze auf (Schritt 0)
 skills/wiki-consistency-check/  Skill: Repo-Abgleich gegen das MII-Meta-Wiki
 skills/template-sanitize/       Skill: Vorlage-/Migrations-Dateien nach Migration entfernen
 skills/ig-translate/            Skill: IG ins Englische übersetzen (translate/harvest)
-skills/ig-analyze/              Skill: IG(s) vermessen (Statistik/Vergleich/Aufwandsschätzung)
+skills/ig-analyze/              Skill: IG(s) vermessen (Statistik/Vergleich/Aufwandsschätzung); Vorstufe/Schritt 0 der Migration
 .claude/skills -> ../skills      Claude-Code-Skills (Symlink)
 .agents/skills -> ../skills      Open-Standard/Codex-Skills (Symlink)
 tools/verify-template.sh        Strukturelle Selbstprüfung der Vorlage (Modus --migrated)
 tools/template-sanitize.sh      Werkzeug zum Entfernen der Vorlage-/Migrations-Dateien
 tools/ig-translate.sh           Übersetzungs-Werkzeug (scan/validate)
 tools/fql-scan.sh               Findet Simplifier-/FQL-Direktiven in Narrativen + Mapping-Empfehlung
-tools/ig-stats.py               IG-Statistik/Vergleich/Aufwandsschätzung (analyze/report/compare)
+tools/ig-stats.py               IG-Statistik/Vergleich/Aufwandsschätzung (run/analyze/report/compare)
 skills/mii-ig-migration/references/fql-crosswalk.md   FQL -> IG-Publisher-Mapping (Doku)
 skills/mii-ig-migration/references/fql-rules.tsv      FQL-Mapping-Regeln (erweiterbar; SSOT für fql-scan)
 ```
