@@ -10,6 +10,18 @@ Format: [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionierung 
 ## [Unreleased]
 _(in Arbeit — Einträge werden zum Abschluss zusammengeführt)_
 
+### Added (2026-06-26, IG-Analyse)
+- Neuer Skill [`skills/ig-analyze/`](skills/ig-analyze/SKILL.md) (+ `references/metrics-catalog.md`,
+  `ig-stats-schema.json`, `report-content.json`) und Tool [`tools/ig-stats.py`](tools/ig-stats.py)
+  (`run`/`analyze`/`report`/`compare`): vermisst FHIR-IGs read-only (Pfad/Git-URL/`.tgz`), erzeugt eine
+  maschinen- + menschenlesbare Statistik je IG und einen Vergleichsreport mehrerer IGs.
+- Migrations-**Aufwandsschätzung in Zeit** (manuell **und** KI-gestützt teilautomatisiert, HITL/Review-Gates,
+  hersteller-/modellagnostisch) — bewusst **keine** Geld-/Kostenrechnung.
+- Entscheidungs-Kennzahlen (Gruppen A–N): Reife & Freigabe, Strategie/Lock-in/Zukunftssicherheit,
+  Planung & Terminierung, Risiko & Compliance; Linguistik, Dopplungen/Hygiene; **Aufschlüsselung der
+  enthaltenen IG-/Leitfaden-Ordner** je Repo (aktuell→ältest) inkl. ordnerübergreifender Dopplungen.
+- Reports GitHub-zentriert (nur Grafiken/Tabellen), farbiges Mermaid, Anhang mit Metrik-Erklärung + Glossar.
+
 ### Fixed (Befunde aus Migrations-Dry-Run am Modul Dokument, 2026-06-12)
 - [`sushi-config.yaml`](sushi-config.yaml): ungültigen IG-Parameter `show-inherited-extensions` entfernt
   (nicht in `ig-parameters|1.1.2`; verursachte 4 Publisher-Validierungsfehler).

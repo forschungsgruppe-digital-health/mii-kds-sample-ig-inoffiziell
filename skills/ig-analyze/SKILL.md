@@ -53,12 +53,14 @@ und **Metrik-Erklärungen** (self-contained, neutral): `references/report-conten
 - **Menschlich:** Markdown-Report je IG + Vergleichsreport, **GitHub-zentriert**
   (`<div align="center">`), mit **farbigen Mermaid**-Charts (Pie/Quadrant, kein JS),
   numerisch **absteigend** sortiert. Aufbau: **Executive Summary für Entscheider**
-  (CTO/CIO, laienverständlich) → Kennzahlen-Überblick → Inhaltsumfang & Hygiene →
-  Aufwand (manuell + KI, **Zeit**) → **Reife & Freigabe** → **Strategie (Lock-in/
-  Zukunftssicherheit)** → **Planung & Terminierung** → **Risiko & Compliance** →
-  Empfehlungen → Direktiven-Mapping → **Anhang** (Detailaufschlüsselung +
-  **Methodik/Metrik-Erklärung** + **Glossar**). Vergleich aggregiert zusätzlich
-  **Σ Gesamt** (Umfang + Aufwand) und zeigt **Cross-IG-Konsolidierung**; nutzt
+  (CTO/CIO, laienverständlich) → Kennzahlen-Überblick → Inhaltsumfang & Hygiene
+  (inkl. **Aufschlüsselung der enthaltenen IG-/Leitfaden-Ordner** je Sprache/Version,
+  aktuell→ältest, + ordnerübergreifende Dopplungen) → Aufwand (manuell + KI, **Zeit**)
+  → **Reife & Freigabe** → **Strategie (Lock-in/Zukunftssicherheit)** → **Planung &
+  Terminierung** → **Risiko & Compliance** → Empfehlungen → Direktiven-Mapping →
+  **Anhang** (Detailaufschlüsselung + **Methodik/Metrik-Erklärung** + **Glossar**).
+  Vergleich aggregiert zusätzlich **Σ Gesamt** (Umfang + Aufwand), schlüsselt die
+  **enthaltenen IGs je Repo** auf und zeigt **Cross-IG-Konsolidierung**; nutzt
   **normalisierte** Kennzahlen. Jeder Report enthält im Anhang die **Metrik-Erklärung**.
 - **Neutral & self-contained:** Der Report referenziert **keine** anderen Repo-Skills/
   Dateien; alle Empfehlungen sind allgemeines IG-Publisher-Wissen.
@@ -77,7 +79,7 @@ floating Pins. Faktoren stehen im Tool und sind **kalibrierbar**.
 
 ## Verbindliche Leitplanken
 - **Read-only.** Keine Änderung am analysierten IG; kein Build erzwingen (außer
-  ausdrücklich `--full` in einer späteren Ausbaustufe).
+  ein optionales `--full` (Build) ist als spätere Ausbaustufe vorgesehen, derzeit **nicht implementiert**).
 - **Schätzungen als Spanne mit Annahmen** ausweisen, nie als Punktwert. Faktoren
   sind unkalibriert (`TODO:REVIEW`) — Nutzen v. a. **relativ** (IG-A vs. IG-B).
 - **Quell-intrinsisch vs. migrationsbedingt** trennen: Fehler, die schon im
