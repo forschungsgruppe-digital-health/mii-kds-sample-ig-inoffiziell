@@ -104,7 +104,8 @@ mit Treiber-Beitragstabelle. Provenienz-Arrays in der `ig-stats.json`:
 | metric_id | Misst | Quelle | Modus | Nutzen |
 |---|---|---|---|---|
 | `linguistics.words_avg`,`_median`,`_min`,`_max`,`longest_page`,`shortest_page`,`per_page` | Textumfang je Seite (Ø/Median/Extremwerte) zur Umfangseinschätzung | Narrative-Seiten | static | V·A |
-| `duplication.duplicate_block_count`,`duplicate_blocks` | inhaltliche Dopplungen (identische Absätze ≥ 12 Wörter, mit Fundstellen) | Narrative-Absätze (Hash) | static | A |
+| `contained_igs.count`,`folders[]` | **enthaltene IG-/Leitfaden-Ordner** im Repo (mehrere möglich, z.B. je Sprache), je Sprache/Seiten/Wörter | `implementation-guides/*` | static | V·A |
+| `duplication.duplicate_block_count`,`duplicate_blocks`,`cross_ig_block_count` | inhaltliche Dopplungen (identische Absätze ≥ 12 Wörter, mit Fundstellen); **ordnerübergreifend** gesondert | Narrative-Absätze (Hash) + IG-Ordner-Zuordnung | static | A |
 | `duplication.duplicate_file_groups` | identische Seiten (Datei-Dubletten) | Narrative-Dateien (Hash) | static | A |
 | `hygiene.unreferenced_images` | Bilder, die in keiner Erklärseite referenziert werden (Dead-Code-Analogie) | Bilddateien vs. Seitentext | static | A |
 | `hygiene.examples_not_in_narrative` | Beispiele, die in keiner Erklärseite eingebunden sind (heuristisch) | Beispiel-Namen vs. Seitentext | static | A |

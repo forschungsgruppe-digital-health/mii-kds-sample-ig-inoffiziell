@@ -129,11 +129,20 @@
     },
     "duplication": {
       "type": "object",
-      "description": "Inhaltliche Dopplungen: identische Absaetze (>= 12 Woerter) und identische Seiten.",
+      "description": "Inhaltliche Dopplungen: identische Absaetze (>= 12 Woerter) und identische Seiten; cross_ig_block_count = ordneruebergreifende Dopplungen.",
       "properties": {
         "duplicate_block_count": { "type": "integer" },
+        "cross_ig_block_count": { "type": "integer" },
         "duplicate_blocks": { "type": "array", "items": { "type": "object" } },
         "duplicate_file_groups": { "type": "array", "items": { "type": "array", "items": { "type": "string" } } }
+      }
+    },
+    "contained_igs": {
+      "type": "object",
+      "description": "Im Repo enthaltene IG-/Leitfaden-Ordner (unter implementation-guides/); count + folders[{name,language,pages,content_pages,words}].",
+      "properties": {
+        "count": { "type": "integer" },
+        "folders": { "type": "array", "items": { "type": "object" } }
       }
     },
     "hygiene": {

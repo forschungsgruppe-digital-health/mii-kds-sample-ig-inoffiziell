@@ -239,6 +239,42 @@ def _norm_text(s):
     return re.sub(r'\s+', ' ', s).strip().lower()
 
 
+def _ig_folder_of(path):
+    """IG-Ordner einer Narrative-Datei (Unterordner von implementation-guides/, sonst input/pagecontent)."""
+    p = path.replace("\\", "/")
+    m = re.search(r'implementation-guides/([^/]+)/', p)
+    if m:
+        return m.group(1)
+    if "input/pagecontent" in p:
+        return "input/pagecontent"
+    return p.split("/")[0]
+
+
+def compute_contained_igs(igdir, ndetail):
+    """Im Repo enthaltene IG-/Leitfaden-Ordner (mehrere möglich, z.B. je Sprache)."""
+    base = os.path.join(igdir, "implementation-guides")
+    folders = []
+    if os.path.isdir(base):
+        for d in sorted(os.listdir(base)):
+            if not os.path.isdir(os.path.join(base, d)):
+                continue
+            pgs = [x for x in ndetail if _ig_folder_of(x["path"]) == d]
+            if not pgs:                                  # Asset-Ordner (images/binaries) überspringen
+                continue
+            low = d.lower()
+            lang = "de" if low.endswith("-de") or "-de-" in low else "en" if low.endswith("-en") or "-en-" in low else "?"
+            folders.append({"name": d, "language": lang, "pages": len(pgs),
+                            "content_pages": len([x for x in pgs if not x["stub"]]),
+                            "words": sum(x["words"] for x in pgs)})
+    if not folders:
+        tgt = [x for x in ndetail if x["kind"] == "target"]
+        if tgt:
+            folders.append({"name": "input/pagecontent", "language": "?", "pages": len(tgt),
+                            "content_pages": len([x for x in tgt if not x["stub"]]),
+                            "words": sum(x["words"] for x in tgt)})
+    return {"count": len(folders), "folders": folders}
+
+
 def linguistics_hygiene(igdir, ndetail, artifact_list):
     pages = [x for x in ndetail if not x["stub"]]
     words = sorted(x["words"] for x in pages)
@@ -270,8 +306,12 @@ def linguistics_hygiene(igdir, ndetail, artifact_list):
                 e["locations"].append(x["path"])
     dup_blocks = sorted([v for v in para_map.values() if len(v["locations"]) > 1],
                         key=lambda v: -len(v["locations"]))
+    for v in dup_blocks:
+        v["folders"] = sorted({_ig_folder_of(p) for p in v["locations"]})
+        v["cross_ig"] = len(v["folders"]) > 1
     dup_files = [p for p in file_hash.values() if len(p) > 1]
     duplication = {"duplicate_block_count": len(dup_blocks),
+                   "cross_ig_block_count": sum(1 for v in dup_blocks if v["cross_ig"]),
                    "duplicate_blocks": dup_blocks[:15],
                    "duplicate_file_groups": dup_files}
 
@@ -594,6 +634,7 @@ def analyze(igdir, label, content):
                "qa_warnings": None, "qa_hints": None, "broken_links": None, "qa_categories": None}
 
     linguistics, duplication, hygiene = linguistics_hygiene(igdir, ndetail, artifact_list)
+    contained_igs = compute_contained_igs(igdir, ndetail)
 
     # ---- Aufwand: manuell + KI-gestützt ----
     dtot, dunknown = directives["total"], directives["unknown"]
@@ -624,6 +665,9 @@ def analyze(igdir, label, content):
             "Validierungsfehler erfordern einen Build und sind hier nicht enthalten.",
             "Faktoren sind Erfahrungswerte, noch nicht final kalibriert; Spanne = Basis × 0,8…1,3.",
             "pages = Inhalts-Seiten (Stubs/Navigation < %d Wörter ausgeschlossen)." % STUB_MIN_WORDS,
+            "Personentage = Aufwand in 8-h-Arbeitstagen (1 PT = 8 Personenstunden); beide Schätzungen messen "
+            "MENSCHLICHE Arbeitszeit — manuell die Migration von Hand, KI-gestützt die Bedien-/Review-Zeit der KI "
+            "(Prompts, Review-Gates, Korrekturen), NICHT die Rechen-/Laufzeit oder Wartezeit der KI.",
             "KI-Schätzung: anbieter-/modellunabhängig (Human-in-the-Loop, Review-Gates). Enthält feste Pauschalen "
             "für Einarbeitung/Setup (%g h) und Review-Gates (%g h) sowie einen Validierungs-/Iterationsaufschlag "
             "(%d %%); unbekannte Direktiven werden wie manuell gerechnet. Bewusst konservativ – keine garantierte "
@@ -655,7 +699,7 @@ def analyze(igdir, label, content):
                          "git_commit": git_commit(igdir), "timestamp": ts},
             "identity": identity, "artifacts": artifacts, "artifacts_detail": artifact_list,
             "dependencies": dependencies, "narrative": narrative, "linguistics": linguistics,
-            "duplication": duplication, "hygiene": hygiene, "i18n": i18n,
+            "duplication": duplication, "hygiene": hygiene, "contained_igs": contained_igs, "i18n": i18n,
             "directives": directives, "quality": quality, "effort": effort,
             "maturity": maturity, "portfolio": portfolio, "risk": risk, "planning": planning,
             "git": gs}
@@ -914,22 +958,28 @@ def report(stats, content, out):
             B.append(pie)
         B.append(_table(["Direktive", "Anzahl"], sorted(t["by_label"].items(), key=lambda x: -x[1])))
 
-    # Inhaltsumfang & Repo-Hygiene (Linguistik, Dopplungen, ungenutzte Dateien)
+    # Inhaltsumfang & Repo-Hygiene (Linguistik, IG-Ordner, Dopplungen, ungenutzte Dateien)
     lg, dup, hy = stats["linguistics"], stats["duplication"], stats["hygiene"]
+    ci = stats["contained_igs"]
     B.append("## Inhaltsumfang & Repo-Hygiene")
     if _intro(content, "inhaltsumfang"):
         B.append("_%s_" % _intro(content, "inhaltsumfang"))
     B.append(_table(["Kennzahl", "Wert"], [
+        ("Enthaltene IG-Ordner", ci["count"]),
         ("Inhalts-Seiten", lg["content_pages"]),
         ("Wörter gesamt", lg["words_total"]),
         ("Ø Wörter / Seite", _de(lg["words_avg"])),
         ("Median Wörter / Seite", lg["words_median"]),
         ("kürzeste / längste Seite", "%d / %d Wörter" % (lg["words_min"], lg["words_max"])),
-        ("doppelte Inhaltsblöcke", dup["duplicate_block_count"]),
+        ("doppelte Inhaltsblöcke", "%d (davon %d ordnerübergreifend)" % (dup["duplicate_block_count"], dup.get("cross_ig_block_count", 0))),
         ("identische Seiten (Gruppen)", len(dup["duplicate_file_groups"])),
         ("Bilder nicht referenziert", "%d von %d" % (len(hy["unreferenced_images"]), hy["images_total"])),
         ("Beispiele nicht in Narrativen", "%d von %d" % (len(hy["examples_not_in_narrative"]), hy["examples_total"])),
     ]))
+    if ci["folders"]:
+        B.append("**Enthaltene IG-Ordner (%d):**" % ci["count"])
+        B.append(_table(["IG-Ordner", "Sprache", "Inhalts-Seiten", "Wörter"],
+                        [(f["name"], f["language"], f["content_pages"], f["words"]) for f in ci["folders"]]))
     B.append("_%s_" % hy["note"])
 
     # Aufwand: manuell vs. KI-gestützt
@@ -1145,8 +1195,12 @@ def report(stats, content, out):
         if _intro(content, "hygiene_detail"):
             B.append("_%s_" % _intro(content, "hygiene_detail"))
         if dup["duplicate_blocks"]:
-            B.append(_table(["Doppelter Inhaltsblock (gekürzt)", "Vorkommen"],
-                            [(b["snippet"], " · ".join(b["locations"])) for b in dup["duplicate_blocks"]]))
+            B.append(_table(["Doppelter Inhaltsblock (gekürzt)", "IG-Ordner", "Vorkommen"],
+                            [(b["snippet"], ("⚠ " if b.get("cross_ig") else "") + " / ".join(b.get("folders", [])),
+                              " · ".join(b["locations"])) for b in dup["duplicate_blocks"]]))
+        if dup.get("cross_ig_block_count"):
+            B.append("> ⚠ %d Inhaltsblock/-blöcke kommen **ordnerübergreifend** (in mehreren IG-Ordnern) vor — "
+                     "Kandidat für Konsolidierung bzw. ausgelagerte Übersetzung." % dup["cross_ig_block_count"])
         if dup["duplicate_file_groups"]:
             B.append("**Identische Seiten:** " + "; ".join(" = ".join("`%s`" % p for p in g) for g in dup["duplicate_file_groups"]))
         if hy["unreferenced_images"]:
@@ -1195,7 +1249,9 @@ def compare(statslist, content, out):
         ("Narrative-Inhalts-Seiten", lambda s: s["narrative"]["pages"]),
         ("Wörter gesamt", lambda s: s["linguistics"]["words_total"]),
         ("Plattform-Direktiven", lambda s: s["directives"]["total"]),
+        ("Enthaltene IG-Ordner", lambda s: s["contained_igs"]["count"]),
         ("Doppelte Inhaltsblöcke", lambda s: s["duplication"]["duplicate_block_count"]),
+        ("davon ordnerübergreifend", lambda s: s["duplication"].get("cross_ig_block_count", 0)),
         ("Nicht referenzierte Bilder", lambda s: len(s["hygiene"]["unreferenced_images"])),
     ]
     krows = []
