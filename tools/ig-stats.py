@@ -980,6 +980,11 @@ def report(stats, content, out):
         B.append("**Enthaltene IG-Ordner (%d):**" % ci["count"])
         B.append(_table(["IG-Ordner", "Sprache", "Inhalts-Seiten", "Wörter"],
                         [(f["name"], f["language"], f["content_pages"], f["words"]) for f in ci["folders"]]))
+    if ci["count"] > 1:
+        B.append("> ⚠ Das Repo enthält **%d IG-Ordner** (Versions-/Sprachvarianten). Aggregat-Kennzahlen "
+                 "(Direktiven, Wörter, **Aufwand**) summieren über **alle** Ordner — für die Migration **einer** "
+                 "Version entsprechend nach unten zu korrigieren; die %d ordnerübergreifenden Dopplungen zeigen das Ausmaß."
+                 % (ci["count"], dup.get("cross_ig_block_count", 0)))
     B.append("_%s_" % hy["note"])
 
     # Aufwand: manuell vs. KI-gestützt
