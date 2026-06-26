@@ -250,28 +250,48 @@ def _ig_folder_of(path):
     return p.split("/")[0]
 
 
-def compute_contained_igs(igdir, ndetail):
-    """Im Repo enthaltene IG-/Leitfaden-Ordner (mehrere möglich, z.B. je Sprache)."""
-    base = os.path.join(igdir, "implementation-guides")
+def _version_key(name):
+    """Sortierschlüssel aus Versionsnummern im Ordnernamen (für 'aktuell -> ältest')."""
+    m = re.search(r'\d{4}(?:\.\d+|\.x)*|\d+(?:\.\d+)+|\d+', name)
+    return tuple(int(x) for x in re.findall(r'\d+', m.group(0))) if m else (-1,)
+
+
+def _short_ig_label(name):
+    return re.sub(r'^ImplementationGuide-', '', name)
+
+
+def compute_contained_igs(igdir, ndetail, directives):
+    """Im Repo enthaltene IG-/Leitfaden-Ordner (mehrere möglich, z.B. je Sprache/Version),
+    je IG mit Seiten/Wörtern/Direktiven/geschätztem Aufwand; sortiert neueste -> älteste Version."""
+    occ = directives.get("occurrences", []) if directives else []
+
+    def _mk(name, pgs, lang):
+        cp = [x for x in pgs if not x["stub"]]
+        words = sum(x["words"] for x in pgs)
+        dirs = sum(1 for o in occ if _ig_folder_of(o["file"]) == name)
+        base = dirs * EFFORT_FACTORS["directive"] + len(cp) * EFFORT_FACTORS["page"]
+        return {"name": name, "language": lang, "pages": len(pgs), "content_pages": len(cp),
+                "words": words, "avg_words": round(words / len(cp)) if cp else 0, "directives": dirs,
+                "manual_hours_low": round(base * 0.8, 1), "manual_hours_high": round(base * 1.3, 1)}
+
+    base_dir = os.path.join(igdir, "implementation-guides")
     folders = []
-    if os.path.isdir(base):
-        for d in sorted(os.listdir(base)):
-            if not os.path.isdir(os.path.join(base, d)):
+    if os.path.isdir(base_dir):
+        for d in sorted(os.listdir(base_dir)):
+            if not os.path.isdir(os.path.join(base_dir, d)):
                 continue
             pgs = [x for x in ndetail if _ig_folder_of(x["path"]) == d]
             if not pgs:                                  # Asset-Ordner (images/binaries) überspringen
                 continue
             low = d.lower()
             lang = "de" if low.endswith("-de") or "-de-" in low else "en" if low.endswith("-en") or "-en-" in low else "?"
-            folders.append({"name": d, "language": lang, "pages": len(pgs),
-                            "content_pages": len([x for x in pgs if not x["stub"]]),
-                            "words": sum(x["words"] for x in pgs)})
+            folders.append(_mk(d, pgs, lang))
     if not folders:
         tgt = [x for x in ndetail if x["kind"] == "target"]
         if tgt:
-            folders.append({"name": "input/pagecontent", "language": "?", "pages": len(tgt),
-                            "content_pages": len([x for x in tgt if not x["stub"]]),
-                            "words": sum(x["words"] for x in tgt)})
+            folders.append(_mk("input/pagecontent", tgt, "?"))
+    folders.sort(key=lambda f: f["name"])
+    folders.sort(key=lambda f: _version_key(f["name"]), reverse=True)
     return {"count": len(folders), "folders": folders}
 
 
@@ -634,7 +654,7 @@ def analyze(igdir, label, content):
                "qa_warnings": None, "qa_hints": None, "broken_links": None, "qa_categories": None}
 
     linguistics, duplication, hygiene = linguistics_hygiene(igdir, ndetail, artifact_list)
-    contained_igs = compute_contained_igs(igdir, ndetail)
+    contained_igs = compute_contained_igs(igdir, ndetail, directives)
 
     # ---- Aufwand: manuell + KI-gestützt ----
     dtot, dunknown = directives["total"], directives["unknown"]
@@ -976,10 +996,20 @@ def report(stats, content, out):
         ("Bilder nicht referenziert", "%d von %d" % (len(hy["unreferenced_images"]), hy["images_total"])),
         ("Beispiele nicht in Narrativen", "%d von %d" % (len(hy["examples_not_in_narrative"]), hy["examples_total"])),
     ]))
-    if ci["folders"]:
-        B.append("**Enthaltene IG-Ordner (%d):**" % ci["count"])
-        B.append(_table(["IG-Ordner", "Sprache", "Inhalts-Seiten", "Wörter"],
-                        [(f["name"], f["language"], f["content_pages"], f["words"]) for f in ci["folders"]]))
+    if ci["count"] > 1:
+        fl = ci["folders"]   # bereits sortiert: aktuell -> ältest
+        B.append("**Enthaltene IG-Ordner (%d) — Aufschlüsselung je IG (Spalten: aktuell → ältest):**" % ci["count"])
+        B.append(_table(["Kennzahl"] + [_short_ig_label(f["name"]) for f in fl], [
+            ["Sprache"] + [f["language"] for f in fl],
+            ["Inhalts-Seiten"] + [f["content_pages"] for f in fl],
+            ["Wörter"] + [f["words"] for f in fl],
+            ["Ø Wörter / Seite"] + [f.get("avg_words", 0) for f in fl],
+            ["Direktiven"] + [f.get("directives", 0) for f in fl],
+            ["Aufwand manuell ~h (je IG)"] + ["%s–%s" % (_de(f.get("manual_hours_low", 0)), _de(f.get("manual_hours_high", 0))) for f in fl],
+        ]))
+    elif ci["folders"]:
+        f = ci["folders"][0]
+        B.append("**Enthaltener IG-Ordner:** `%s` (%s) — %d Inhalts-Seiten, %d Wörter." % (f["name"], f["language"], f["content_pages"], f["words"]))
     if ci["count"] > 1:
         B.append("> ⚠ Das Repo enthält **%d IG-Ordner** (Versions-/Sprachvarianten). Aggregat-Kennzahlen "
                  "(Direktiven, Wörter, **Aufwand**) summieren über **alle** Ordner — für die Migration **einer** "
