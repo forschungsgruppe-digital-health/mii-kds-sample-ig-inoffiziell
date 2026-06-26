@@ -1,6 +1,6 @@
 # IG-Statistik — MII KDS Diagnose v2025.0.1
 
-_Modus: `static` · Stand: 2026-06-26T18:30:09Z · Commit: `c2d2ff4`_
+_Modus: `static` · Stand: 2026-06-26T19:53:36Z · Commit: `c2d2ff4`_
 
 ## Executive Summary: Migration des FHIR-Leitfadens "MII IG Diagnose"
 
@@ -141,17 +141,18 @@ _Linguistische Kennzahlen zum Textumfang (Wörter je Seite, Durchschnitt) sowie 
 
 </div>
 
-**Enthaltene IG-Ordner (5):**
+**Enthaltene IG-Ordner (5) — Aufschlüsselung je IG (Spalten: aktuell → ältest):**
 
 <div align="center">
 
-| IG-Ordner | Sprache | Inhalts-Seiten | Wörter |
-|---|---|---|---|
-| ImplementationGuide-1.x-DE | de | 8 | 6580 |
-| ImplementationGuide-1.x-EN | en | 10 | 8046 |
-| ImplementationGuide-2024.x-DE | de | 12 | 7629 |
-| ImplementationGuide-2024.x-EN | en | 10 | 8129 |
-| ImplementationGuide-2025 | ? | 12 | 7807 |
+| Kennzahl | 2025 | 2024.x-DE | 2024.x-EN | 1.x-DE | 1.x-EN |
+|---|---|---|---|---|---|
+| Sprache | ? | de | en | de | en |
+| Inhalts-Seiten | 12 | 12 | 10 | 8 | 10 |
+| Wörter | 7807 | 7629 | 8129 | 6580 | 8046 |
+| Ø Wörter / Seite | 651 | 636 | 813 | 822 | 805 |
+| Direktiven | 51 | 50 | 38 | 18 | 22 |
+| Aufwand manuell ~h (je IG) | 13–21,1 | 12,8–20,8 | 10,1–16,4 | 6,1–9,9 | 7,5–12,2 |
 
 </div>
 
@@ -716,7 +717,7 @@ _Beschreibung jeder im Report verwendeten Kennzahl - was sie misst und wie sie e
 | Artefakte (publiziert) | Anzahl der vom IG bereitgestellten FHIR-Konformitätsressourcen je Typ (Profile, Extensions, ValueSets, CodeSystems, Logical Models, CapabilityStatements, Beispiele). | Zählung der Deklarationen in input/fsh (bzw. generierten Ressourcen); interne FSH-Konstrukte (RuleSets/Invarianten/Mappings) separat, nicht im Total. |
 | Plattform-/Simplifier-Direktiven | Vorkommen plattformspezifischer Platzhalter in den Erklärseiten, die ein generischer IG Publisher nicht versteht (Migrations-Aufwandstreiber). | Mustererkennung je Direktiven-Typ in den Narrative-Seiten; nicht abgedeckte -> UNBEKANNT. |
 | Linguistik (Wörter/Seite) | Textumfang der Inhalts-Seiten als Durchschnitt, Median und Extremwerte - Indikator für Dokumentations- und Übersetzungsumfang. | Wortzählung je Inhalts-Seite (ohne Stubs). |
-| Enthaltene IG-Ordner | Anzahl und Aufschlüsselung der im Repo enthaltenen IG-/Leitfaden-Ordner (unter implementation-guides/), je mit Sprache, Seiten und Wörtern - ein Repo kann mehrere IGs/Sprachvarianten enthalten. | Unterordner von implementation-guides/ (Sprache aus Ordnernamen-Suffix -de/-en); Fallback input/pagecontent. |
+| Enthaltene IG-Ordner | Anzahl der im Repo enthaltenen IG-/Leitfaden-Ordner (unter implementation-guides/). Enthält das Repo MEHRERE IGs (z.B. Versions-/Sprachvarianten), wird die Statistik JE IG aufgeschlüsselt (horizontal, je IG eine Spalte: Sprache, Seiten, Wörter, Direktiven, geschätzter Aufwand) - sortiert von der aktuellen zur ältesten Version. | Unterordner von implementation-guides/ mit Narrative-Seiten (Asset-Ordner ausgeschlossen); Sprache aus Ordnernamen-Suffix -de/-en; Sortierung über Versionsnummern im Ordnernamen; Direktiven/Aufwand je Ordner aus den Fundstellen. Fallback input/pagecontent. |
 | Inhaltliche Dopplungen | Identische Textabsätze (>= 12 Wörter) bzw. identische Seiten - Hinweis auf Redundanz/Aufräumpotenzial; ordnerübergreifende Dopplungen (gleicher Block in mehreren IG-Ordnern) werden gesondert gezählt. | Hash-Vergleich normalisierter Absätze/Dateien; Zuordnung der Fundstellen zu IG-Ordnern. |
 | Repo-Hygiene (ungenutzte Dateien) | Bilder/Beispiele, die in keiner Erklärseite referenziert sind (Dead-Code-Analogie). | Heuristik: Datei-/Artefaktname kommt im Seitentext nicht vor (kein Beweis für Ungenutztheit). |
 | Aufwand manuell (Band + Spanne) | Geschätzter Arbeitsaufwand der Migration in Stunden, eingeordnet in ein Band S/M/L/XL. | Summe (Treibermenge x Erfahrungsfaktor) über GoFSH, Direktiven, Inhalts-Seiten, floating Pins; Spanne = Basis x 0,8...1,3. Faktoren kalibrierbar (EFFORT_FACTORS), noch nicht final kalibriert. 1 Personentag = 8 Personenstunden produktiver menschlicher Arbeit - hier die manuelle Migrationsarbeit von Hand. |

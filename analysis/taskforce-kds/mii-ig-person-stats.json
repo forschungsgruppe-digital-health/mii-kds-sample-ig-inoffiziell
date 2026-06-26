@@ -6,7 +6,7 @@
     "path": "/tmp/kds/person",
     "label": "MII KDS Person v2025.0.1",
     "git_commit": "122e30f",
-    "timestamp": "2026-06-26T18:30:09Z",
+    "timestamp": "2026-06-26T19:53:36Z",
     "input": "/tmp/kds/person",
     "resolved_from": "lokaler Pfad"
   },
@@ -1132,25 +1132,37 @@
     "count": 3,
     "folders": [
       {
+        "name": "ImplementationGuide-2025.x-DE",
+        "language": "de",
+        "pages": 18,
+        "content_pages": 16,
+        "words": 6646,
+        "avg_words": 415,
+        "directives": 117,
+        "manual_hours_low": 25.1,
+        "manual_hours_high": 40.8
+      },
+      {
         "name": "ImplementationGuide-2024.x-DE",
         "language": "de",
         "pages": 18,
         "content_pages": 16,
-        "words": 6142
+        "words": 6142,
+        "avg_words": 384,
+        "directives": 113,
+        "manual_hours_low": 24.5,
+        "manual_hours_high": 39.8
       },
       {
         "name": "ImplementationGuide-2024.x-EN",
         "language": "en",
         "pages": 17,
         "content_pages": 15,
-        "words": 6401
-      },
-      {
-        "name": "ImplementationGuide-2025.x-DE",
-        "language": "de",
-        "pages": 18,
-        "content_pages": 16,
-        "words": 6646
+        "words": 6401,
+        "avg_words": 427,
+        "directives": 104,
+        "manual_hours_low": 22.6,
+        "manual_hours_high": 36.8
       }
     ]
   },

@@ -1,6 +1,6 @@
 # IG-Statistik — MII KDS Person v2025.0.1
 
-_Modus: `static` · Stand: 2026-06-26T18:30:09Z · Commit: `122e30f`_
+_Modus: `static` · Stand: 2026-06-26T19:53:36Z · Commit: `122e30f`_
 
 ## Executive Summary: Migration des FHIR-Leitfadens "MII IG Person"
 
@@ -141,15 +141,18 @@ _Linguistische Kennzahlen zum Textumfang (Wörter je Seite, Durchschnitt) sowie 
 
 </div>
 
-**Enthaltene IG-Ordner (3):**
+**Enthaltene IG-Ordner (3) — Aufschlüsselung je IG (Spalten: aktuell → ältest):**
 
 <div align="center">
 
-| IG-Ordner | Sprache | Inhalts-Seiten | Wörter |
+| Kennzahl | 2025.x-DE | 2024.x-DE | 2024.x-EN |
 |---|---|---|---|
-| ImplementationGuide-2024.x-DE | de | 16 | 6142 |
-| ImplementationGuide-2024.x-EN | en | 15 | 6401 |
-| ImplementationGuide-2025.x-DE | de | 16 | 6646 |
+| Sprache | de | de | en |
+| Inhalts-Seiten | 16 | 16 | 15 |
+| Wörter | 6646 | 6142 | 6401 |
+| Ø Wörter / Seite | 415 | 384 | 427 |
+| Direktiven | 117 | 113 | 104 |
+| Aufwand manuell ~h (je IG) | 25,1–40,8 | 24,5–39,8 | 22,6–36,8 |
 
 </div>
 
@@ -861,7 +864,7 @@ _Beschreibung jeder im Report verwendeten Kennzahl - was sie misst und wie sie e
 | Artefakte (publiziert) | Anzahl der vom IG bereitgestellten FHIR-Konformitätsressourcen je Typ (Profile, Extensions, ValueSets, CodeSystems, Logical Models, CapabilityStatements, Beispiele). | Zählung der Deklarationen in input/fsh (bzw. generierten Ressourcen); interne FSH-Konstrukte (RuleSets/Invarianten/Mappings) separat, nicht im Total. |
 | Plattform-/Simplifier-Direktiven | Vorkommen plattformspezifischer Platzhalter in den Erklärseiten, die ein generischer IG Publisher nicht versteht (Migrations-Aufwandstreiber). | Mustererkennung je Direktiven-Typ in den Narrative-Seiten; nicht abgedeckte -> UNBEKANNT. |
 | Linguistik (Wörter/Seite) | Textumfang der Inhalts-Seiten als Durchschnitt, Median und Extremwerte - Indikator für Dokumentations- und Übersetzungsumfang. | Wortzählung je Inhalts-Seite (ohne Stubs). |
-| Enthaltene IG-Ordner | Anzahl und Aufschlüsselung der im Repo enthaltenen IG-/Leitfaden-Ordner (unter implementation-guides/), je mit Sprache, Seiten und Wörtern - ein Repo kann mehrere IGs/Sprachvarianten enthalten. | Unterordner von implementation-guides/ (Sprache aus Ordnernamen-Suffix -de/-en); Fallback input/pagecontent. |
+| Enthaltene IG-Ordner | Anzahl der im Repo enthaltenen IG-/Leitfaden-Ordner (unter implementation-guides/). Enthält das Repo MEHRERE IGs (z.B. Versions-/Sprachvarianten), wird die Statistik JE IG aufgeschlüsselt (horizontal, je IG eine Spalte: Sprache, Seiten, Wörter, Direktiven, geschätzter Aufwand) - sortiert von der aktuellen zur ältesten Version. | Unterordner von implementation-guides/ mit Narrative-Seiten (Asset-Ordner ausgeschlossen); Sprache aus Ordnernamen-Suffix -de/-en; Sortierung über Versionsnummern im Ordnernamen; Direktiven/Aufwand je Ordner aus den Fundstellen. Fallback input/pagecontent. |
 | Inhaltliche Dopplungen | Identische Textabsätze (>= 12 Wörter) bzw. identische Seiten - Hinweis auf Redundanz/Aufräumpotenzial; ordnerübergreifende Dopplungen (gleicher Block in mehreren IG-Ordnern) werden gesondert gezählt. | Hash-Vergleich normalisierter Absätze/Dateien; Zuordnung der Fundstellen zu IG-Ordnern. |
 | Repo-Hygiene (ungenutzte Dateien) | Bilder/Beispiele, die in keiner Erklärseite referenziert sind (Dead-Code-Analogie). | Heuristik: Datei-/Artefaktname kommt im Seitentext nicht vor (kein Beweis für Ungenutztheit). |
 | Aufwand manuell (Band + Spanne) | Geschätzter Arbeitsaufwand der Migration in Stunden, eingeordnet in ein Band S/M/L/XL. | Summe (Treibermenge x Erfahrungsfaktor) über GoFSH, Direktiven, Inhalts-Seiten, floating Pins; Spanne = Basis x 0,8...1,3. Faktoren kalibrierbar (EFFORT_FACTORS), noch nicht final kalibriert. 1 Personentag = 8 Personenstunden produktiver menschlicher Arbeit - hier die manuelle Migrationsarbeit von Hand. |

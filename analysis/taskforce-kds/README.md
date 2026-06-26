@@ -45,6 +45,15 @@ Die `*-stats.json` sind die maschinenlesbaren Rohdaten (festes Schema) für eige
 > Verhältnis der Ordnerzahl nach unten zu korrigieren. Das ist selbst ein Diskussionspunkt für
 > die Taskforce (Ablage alter Versionen/Sprachvarianten im Repo).
 
+**Aufschlüsselung je IG-Ordner (aktuell → ältest):** Die Einzelreports enthalten jetzt eine
+horizontale Tabelle je IG-Ordner (Seiten, Wörter, Direktiven, Aufwand). Der Aufwand für die
+Migration **nur der aktuellen Version** liegt damit weit unter dem Aggregat:
+
+| aktuelle Version | Direktiven | Aufwand manuell (je IG) |
+|---|---|---|
+| Diagnose `2025` | 51 | ~13–21 h |
+| Person `2025.x-DE` | 117 | ~25–41 h |
+
 > **Aufwand wird in Zeit gemessen** (Stunden/Personentage/Kalenderzeit) — bewusst **keine
 > Geldgrößen**. Personentage = 8-h-Arbeitstage menschlicher Arbeit; bei der KI-Variante die
 > **Bedien-/Review-Zeit** (Prompts, Review-Gates, Korrekturen), **nicht** Rechen-/Wartezeit.

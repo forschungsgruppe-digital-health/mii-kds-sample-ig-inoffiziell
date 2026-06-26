@@ -6,7 +6,7 @@
     "path": "/tmp/kds/diagnose",
     "label": "MII KDS Diagnose v2025.0.1",
     "git_commit": "c2d2ff4",
-    "timestamp": "2026-06-26T18:30:09Z",
+    "timestamp": "2026-06-26T19:53:36Z",
     "input": "/tmp/kds/diagnose",
     "resolved_from": "lokaler Pfad"
   },
@@ -1216,39 +1216,59 @@
     "count": 5,
     "folders": [
       {
-        "name": "ImplementationGuide-1.x-DE",
-        "language": "de",
-        "pages": 8,
-        "content_pages": 8,
-        "words": 6580
-      },
-      {
-        "name": "ImplementationGuide-1.x-EN",
-        "language": "en",
-        "pages": 12,
-        "content_pages": 10,
-        "words": 8046
+        "name": "ImplementationGuide-2025",
+        "language": "?",
+        "pages": 14,
+        "content_pages": 12,
+        "words": 7807,
+        "avg_words": 651,
+        "directives": 51,
+        "manual_hours_low": 13.0,
+        "manual_hours_high": 21.1
       },
       {
         "name": "ImplementationGuide-2024.x-DE",
         "language": "de",
         "pages": 14,
         "content_pages": 12,
-        "words": 7629
+        "words": 7629,
+        "avg_words": 636,
+        "directives": 50,
+        "manual_hours_low": 12.8,
+        "manual_hours_high": 20.8
       },
       {
         "name": "ImplementationGuide-2024.x-EN",
         "language": "en",
         "pages": 13,
         "content_pages": 10,
-        "words": 8129
+        "words": 8129,
+        "avg_words": 813,
+        "directives": 38,
+        "manual_hours_low": 10.1,
+        "manual_hours_high": 16.4
       },
       {
-        "name": "ImplementationGuide-2025",
-        "language": "?",
-        "pages": 14,
-        "content_pages": 12,
-        "words": 7807
+        "name": "ImplementationGuide-1.x-DE",
+        "language": "de",
+        "pages": 8,
+        "content_pages": 8,
+        "words": 6580,
+        "avg_words": 822,
+        "directives": 18,
+        "manual_hours_low": 6.1,
+        "manual_hours_high": 9.9
+      },
+      {
+        "name": "ImplementationGuide-1.x-EN",
+        "language": "en",
+        "pages": 12,
+        "content_pages": 10,
+        "words": 8046,
+        "avg_words": 805,
+        "directives": 22,
+        "manual_hours_low": 7.5,
+        "manual_hours_high": 12.2
       }
     ]
   },
