@@ -895,7 +895,7 @@ def exec_summary_blocks(stats):
              "eines Datenstandards im Gesundheitswesen – das Regelwerk plus die zugehörige Online-Dokumentation. "
              "Dieser IG soll von einer herstellergebundenen Plattform auf das herstellerneutrale Standard-Werkzeug "
              "der FHIR-Community (den „IG Publisher“) umgezogen werden. Inhaltlich ändert sich nichts – nur die "
-             "technische Bauweise der Veröffentlichung. _Fachbegriffe sind im Glossar am Dokumentende erklärt._")
+             "technische Bauweise der Veröffentlichung. _Fachbegriffe sind im [Glossar](#anhang-glossar) am Dokumentende erklärt._")
     B.append("### Das Wichtigste in einem Satz")
     B.append("Der Umzug ist **%s** (geschätzt **%d–%d Personenstunden**, also rund **%s–%s Personentage**), "
              "**%s** – %s. %s"
@@ -905,14 +905,15 @@ def exec_summary_blocks(stats):
         "- **Identität:** `%s`, Version %s, Herausgeber %s, Lizenz %s, Status „%s“."
         % (i.get("id"), i.get("version"), i.get("publisher"), i.get("license"), i.get("status")),
         "- **%s fachliche Bausteine:** %s." % (a.get("total"), ", ".join(parts)),
-        "- **Dokumentation:** %d inhaltliche Textseiten (~%d Wörter, Ø %s Wörter/Seite) und %d Bilder."
-        % (lg["content_pages"], lg["words_total"], avg_s, n["images"])]))
+        "- **Dokumentation:** %s (~%d Wörter, Ø %s Wörter/Seite) und %s."
+        % (_plural(lg["content_pages"], "inhaltliche Textseite", "inhaltliche Textseiten"),
+           lg["words_total"], avg_s, _plural(n["images"], "Bild", "Bilder"))]))
     B.append("### Aufwand und was das Band bedeutet")
     B.append("\n".join([
         "- **Aufwandsband: %s (%s)** – auf einer Skala S (klein, <1 Tag) / M (mittel, einige Tage) / "
         "L (groß, 1–2 Wochen) / XL (sehr groß) liegt dieses Vorhaben **%s**."
         % (band, BAND_LABEL.get(band, band), BAND_EINORDNUNG.get(band, "")),
-        "- **Manuell: rund %d–%d Stunden.** Das ist eine **Größenordnungsschätzung zur Budgetplanung** "
+        "- **Manuell: rund %d–%d Stunden.** Das ist eine **Größenordnungsschätzung zur Aufwandsplanung** "
         "(Faustregel: Menge der Arbeitsschritte × Erfahrungswert) – **kein verbindliches Angebot**." % (mh_low, mh_high),
         "- **KI-gestützt teilautomatisiert: rund %d–%d Stunden** (≈ %s). Das heißt: eine KI erledigt die "
         "wiederkehrenden Umbauten, Menschen prüfen und geben an Kontrollpunkten frei (Human-in-the-Loop / Review-Gates). "
@@ -929,8 +930,8 @@ def exec_summary_blocks(stats):
     src_lines.append("- **%s**" % ("Regeln liegen bereits in der bearbeitbaren Textform (FSH) vor – kein aufwändiger "
                      "Rückbau nötig (Effizienzvorteil)." if not drv["gofsh_needed"] else
                      "Regeln müssen aus den fertigen Dateien in die Textform zurückgewonnen werden (zusätzlicher Vorlauf)."))
-    src_lines.append("- **%d externe Abhängigkeiten, davon %d fest verankert, %d beweglich.** %s"
-                     % (d["count"], d["pinned"], d["floating"],
+    src_lines.append("- **%s, davon %d fest verankert, %d beweglich.** %s"
+                     % (_plural(d["count"], "externe Abhängigkeit", "externe Abhängigkeiten"), d["pinned"], d["floating"],
                         "Feste Versionen bedeuten reproduzierbare, stabile Builds – kein wackeliges Fundament."
                         if d["floating"] == 0 else "Bewegliche Versionen vor der Migration auf feste Stände festlegen."))
     if i.get("calver"):
@@ -952,11 +953,13 @@ def exec_summary_blocks(stats):
     risk.append("- **Risikomindernd:** Der Umzug erfolgt isoliert auf einem separaten Arbeitszweig, ohne Eingriff in "
                 "den produktiven Stand; ein menschliches Abschluss-Review ist vorgesehen.")
     B.append("\n".join(risk))
+    ki_phrase = ("KI-gestützt voraussichtlich spürbar weniger" if sp >= 10 else
+                 "KI-gestützt etwa gleich" if sp >= -10 else
+                 "KI-gestützt bei dieser Größe eher mehr – die festen Setup-/Review-Pauschalen überwiegen")
     B.append("### Bottom Line / Empfehlung")
-    B.append("**%s** Der Aufwand ist %s und kalkulierbar (manuell ~%s–%s Personentage, KI-gestützt voraussichtlich "
-             "spürbar weniger), die Quelle ist %s. Konkret einzuplanen: %sein abschließender Validierungslauf mit "
-             "fachlichem Review."
-             % (empfehlung, BAND_LABEL.get(band, band), pt_low_s, pt_high_s,
+    B.append("**%s** Der Aufwand ist %s und kalkulierbar (manuell ~%s–%s Personentage, %s), die Quelle ist %s. "
+             "Konkret einzuplanen: %sein abschließender Validierungslauf mit fachlichem Review."
+             % (empfehlung, BAND_LABEL.get(band, band), pt_low_s, pt_high_s, ki_phrase,
                 "reif" if not drv["gofsh_needed"] and d["floating"] == 0 else "mit überschaubaren Vorarbeiten",
                 ("die %d von Hand zu übertragenden Platzhalter sowie " % drv["directives_unknown"]) if drv["directives_unknown"] else ""))
     return B
@@ -1517,12 +1520,12 @@ def main():
             print(outp)
         return 0
     if args.cmd == "report":
-        report(json.load(open(args.stats, encoding="utf-8")), content, args.o)
-        print("Report -> %s" % args.o if args.o else "")
+        txt = report(json.load(open(args.stats, encoding="utf-8")), content, args.o)
+        print("Report -> %s" % args.o, file=sys.stderr) if args.o else sys.stdout.write(txt)
         return 0
     if args.cmd == "compare":
-        compare([json.load(open(p, encoding="utf-8")) for p in args.stats], content, args.o)
-        print("Vergleich -> %s" % args.o if args.o else "")
+        txt = compare([json.load(open(p, encoding="utf-8")) for p in args.stats], content, args.o)
+        print("Vergleich -> %s" % args.o, file=sys.stderr) if args.o else sys.stdout.write(txt)
         return 0
     return 0
 

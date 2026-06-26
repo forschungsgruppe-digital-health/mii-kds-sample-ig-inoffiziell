@@ -137,7 +137,7 @@ CONTRIBUTING.md                 Beiträge, Branching/Release/Packaging, Kommenti
 COMMENT_RESOLUTION.md           Kommentierung & Auflösung (Phasen: MII-intern + HL7-DE), praxisnah
 PUBLISHING.md                   Pages-Vorschau, Registry-Release, HL7-CI-Build-Kette
 NOTIFICATIONS.md                Release-Benachrichtigung (Zulip, GitHub Releases/Atom-Feeds, Package-Feed)
-TERMINOLOGY.md                  Terminologie-/Lizenzleitfaden (SNOMED CT, LOINC; SU-TermServ)
+TERMINOLOGY.md                  Terminologie-/Lizenzleitfaden (SNOMED CT, LOINC; MII-Terminologieserver)
 CHANGELOG.md                    Changelog (Keep a Changelog, CalVer)
 README.md                       Dieses Dokument
 SECURITY.md                     Security-Policy (Meldeweg)

@@ -107,7 +107,7 @@
     {"term": "FHIR-Version", "plain": "Die Version des FHIR-Standards, auf der der IG aufbaut (z.B. 4.0.1 = FHIR R4)."},
     {"term": "Status (draft/active)", "plain": "Reifegrad eines IG oder Artefakts; 'draft' bedeutet Entwurf, noch nicht endgültig freigegeben."},
     {"term": "Publisher", "plain": "Die herausgebende Organisation, die für den IG verantwortlich zeichnet."},
-    {"term": "Lizenz", "plain": "Die Nutzungsbedingungen des IG; CC0-1.0 bedeutet Gemeinfreiheit, also freie Nutzung ohne Einschränkung."},
+    {"term": "Lizenz", "plain": "Die Nutzungsbedingungen des IG (z.B. CC-BY-4.0, CC0-1.0) - legen fest, unter welchen Bedingungen Inhalte genutzt und weitergegeben werden dürfen."},
     {"term": "CalVer (Kalender-Versionierung)", "plain": "Ein Versionsschema, das die Version aus dem Datum ableitet (z.B. Jahr.Nummer), statt fortlaufender Zählung."},
     {"term": "Dependency (Abhängigkeit)", "plain": "Ein anderes FHIR-Paket, auf dessen Inhalte der IG aufbaut und das beim Bauen mitgeladen wird."},
     {"term": "Pinning (gepinnt/floating)", "plain": "'Gepinnt' heißt, eine Abhängigkeit ist auf eine feste Version festgelegt; 'floating' heißt, sie folgt automatisch der neuesten Version - was Builds weniger reproduzierbar macht."},

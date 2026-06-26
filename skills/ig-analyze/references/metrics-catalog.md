@@ -148,7 +148,7 @@ mit Treiber-Beitragstabelle. Provenienz-Arrays in der `ig-stats.json`:
 | `planning.calendar_days_low/high` (`assumptions`) | Kalenderzeit (h ÷ Tag·Team·Auslastung) | `PLANNING_PARAMS` | static | P |
 | `planning.scenario_min/expected/max_h`,`confidence` | Szenarien + Schätz-Konfidenz | Treiber/Unbekannte | static | P |
 | `planning.role_mix_pct`,`parallelizable` | Rollen-/Skill-Mix, Parallelisierbarkeit | Treiber-Stunden | static | P |
-| `planning.readiness_score`,`cross_module_dependency_risk`,`ai_fixed_cost_share_pct` | Startbereitschaft, Timing-Risiko, Fixkostenanteil | abgeleitet | static | P |
+| `planning.readiness_score`,`cross_module_dependency_risk`,`ai_fixed_cost_share_pct` | Startbereitschaft, Timing-Risiko, KI-Fix-Aufwandsanteil | abgeleitet | static | P |
 
 ## N. Risiko & Compliance
 
